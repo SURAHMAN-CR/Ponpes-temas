@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ponpes Ibadurrahman Temas - Platform Pembelajaran Online</title>
+    <title>Ponpes Ibadurrahman Temas - Pendidikan Islami Berkualitas</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
@@ -44,40 +44,6 @@
             width: 100%;
         }
 
-        /* Admin Dashboard Styles */
-        .sidebar {
-            transition: all 0.3s;
-        }
-        
-        .sidebar-collapsed {
-            width: 80px;
-        }
-        
-        .sidebar-expanded {
-            width: 250px;
-        }
-        
-        .main-content {
-            transition: all 0.3s;
-        }
-        
-        .content-expanded {
-            margin-left: 250px;
-        }
-        
-        .content-collapsed {
-            margin-left: 80px;
-        }
-        
-        .active-menu {
-            background-color: #3b82f6;
-            color: white;
-        }
-        
-        .active-menu:hover {
-            background-color: #2563eb;
-        }
-        
         /* Platform Styles */
         .platform-container {
             min-height: 100vh;
@@ -169,6 +135,66 @@
             background-color: #fef3c7;
             color: #92400e;
         }
+        
+        .badge-purple {
+            background-color: #e9d5ff;
+            color: #6b21a8;
+        }
+        
+        .badge-orange {
+            background-color: #fed7aa;
+            color: #9a3412;
+        }
+        
+        .badge-pink {
+            background-color: #fbcfe8;
+            color: #9d174d;
+        }
+        
+        .subject-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+        }
+        
+        .subject-islamic {
+            background-color: #3b82f6;
+            color: white;
+        }
+        
+        .subject-math {
+            background-color: #ef4444;
+            color: white;
+        }
+        
+        .subject-science {
+            background-color: #10b981;
+            color: white;
+        }
+        
+        .subject-language {
+            background-color: #f59e0b;
+            color: white;
+        }
+        
+        .subject-social {
+            background-color: #8b5cf6;
+            color: white;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-fadeIn {
+            animation: fadeIn 1s ease-out;
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -221,6 +247,318 @@
             </div>
         </div>
     </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen flex items-center justify-center text-white bg-gray-900">
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/da1505ba-9522-4da4-8f4a-58eb74a456ed.png" alt="Tampak depan Pondok Pesantren Ibadurrahman Temas dengan bangunan megah berarsitektur islami, taman hijau, dan santri beraktivitas" class="absolute inset-0 w-full h-full object-cover">
+        
+        <div class="hero-overlay absolute inset-0"></div>
+        
+        <div class="container mx-auto px-4 relative z-10 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 animate-fadeIn">Pondok Pesantren Ibadurrahman Temas</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Mencetak kader-kader pemimpin ummat, Menjadi sumber pengetahuan Islam, Bahasa, Al-Qurán, dan Ilmu Pengetahuan Umum dengan tetap berjiwa Pesantren</p>
+            
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="#program" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-full transition duration-300">Program Kami</a>
+                <a href="#kontak" class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-3 px-8 rounded-full transition duration-300">Hubungi Kami</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profile Section -->
+    <section id="profile" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Profil Ponpes Ibadurrahman</h2>
+                <div class="w-20 h-1 bg-blue-600 mx-auto"></div>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row items-center gap-8">
+                <div class="lg:w-1/2">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5383caa5-3bf3-4841-a959-c078627d282e.png" alt="Pengasuh Ponpes Ibadurrahman sedang mengajar santri di ruang kelas dengan papan tulis berisi tulisan arab" class="rounded-lg shadow-xl w-full">
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Mengenal Ponpes Ibadurrahman</h3>
+                    <p class="text-gray-600 mb-4">Pondok Pesantren Ibadurrahman Temas merupakan lembaga pendidikan Islam yang berdiri sejak tahun 2017, berkomitmen untuk mencetak generasi yang menguasai ilmu agama dan ilmu umum secara seimbang.</p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-blue-100 p-2 rounded-full">
+                                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <p class="ml-3 text-gray-600">Kurikulum terintegrasi antara pendidikan agama dan umum</p>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-blue-100 p-2 rounded-full">
+                                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <p class="ml-3 text-gray-600">Tenaga pengajar yang kompeten dan berpengalaman</p>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-blue-100 p-2 rounded-full">
+                                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <p class="ml-3 text-gray-600">Fasilitas lengkap untuk menunjang pembelajaran</p>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="inline-block mt-6 text-blue-600 font-semibold hover:text-blue-800 flex items-center">
+                        Selengkapnya
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Section -->
+    <section id="program" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Program Pembelajaran</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Berbagai program unggulan yang disediakan untuk mencetak santri yang berkompeten di berbagai bidang</p>
+                <div class="w-20 h-1 bg-blue-600 mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Program 1 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover transition duration-300">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ebe1cc1b-505e-43c1-802a-c46ab50e3cc0.png" alt="Santri sedang menghafal Al-Quran di ruangan khusus tahfidz dengan latar rak-rak mushaf" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Qiraát Sabáh</h3>
+                        <p class="text-gray-600 mb-4">Program membaca Al-Quran dengan tartil, memperbaiki makhraj dan tajwid serta menumbuhkan kecintaan terhadap Al-Qurán sejak dini.</p>
+                        <a href="#" class="text-blue-600 font-medium hover:text-blue-800 flex items-center">
+                            Detail Program
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Program 2 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover transition duration-300">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ca59e80b-a54e-42bf-a91d-3a41a56865b7.png" alt="Sekelompok santri perempuan berdiskusi di perpustakaan dengan buku-buku berbahasa arab" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Bahasa Arab & Bahasa Inggris</h3>
+                        <p class="text-gray-600 mb-4">program unggulan untuk memperkuat kompetensi bahasa internasional dan keislaman siswa. Melalui pendekatan intensif dan praktik harian, siswa dibimbing agar mampu berkomunikasi secara aktif dalam dua bahasa ini, baik secara lisan maupun tulisan.</p>
+                        <a href="#" class="text-blue-600 font-medium hover:text-blue-800 flex items-center">
+                            Detail Program
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Program 3 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover transition duration-300">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c68e98a2-5a6a-42ef-afb1-9518a73049aa.png" alt="Laboratorium komputer dengan santri sedang belajar programming dan desain grafis" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Pendidikan Formal</h3>
+                        <p class="text-gray-600 mb-4">Kurikulum nasional yang dipadukan dengan nilai-nilai Islami untuk pendidikan yang holistik.</p>
+                        <a href="#" class="text-blue-600 font-medium hover:text-blue-800 flex items-center">
+                            Detail Program
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-10">
+                <a href="#" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-full transition duration-300">
+                    Lihat Semua Program
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeri Section -->
+    <section id="galeri" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Galeri Kegiatan</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Momen-momen berharga dalam proses pembelajaran di Ponpes Ibadurrahman Temas</p>
+                <div class="w-20 h-1 bg-blue-600 mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <div class="overflow-hidden rounded-lg shadow-md">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/06366efc-b988-4ae7-a115-4025a8fd64a0.png" alt="Kegiatan muhadharah (latihan pidato) santri di aula pesantren dengan dekorasi panggung islami" class="w-full h-48 object-cover hover:scale-105 transition duration-300">
+                </div>
+                
+                <div class="overflow-hidden rounded-lg shadow-md">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/03a275db-4990-4ab8-8d18-65086279644e.png" alt="Kegiatan olahraga santri di lapangan pesantren dengan latar pegunungan" class="w-full h-48 object-cover hover:scale-105 transition duration-300">
+                </div>
+                
+                <div class="overflow-hidden rounded-lg shadow-md">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/87b741a7-6a35-4e7e-a323-087e1e008002.png" alt="Pelaksanaan daurah (kursus intensif) kitab kuning dengan guru sedang menerangkan" class="w-full h-48 object-cover hover:scale-105 transition duration-300">
+                </div>
+                
+                <div class="overflow-hidden rounded-lg shadow-md">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/99414e45-f736-43cd-96cb-ec257792eadd.png" alt="Kegiatan keputrian santriwati dengan kegiatan memasak dan ketrampilan tangan" class="w-full h-48 object-cover hover:scale-105 transition duration-300">
+                </div>
+                
+                <div class="overflow-hidden rounded-lg shadow-md">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/b98b8f04-04c3-43f6-b654-e6cd5c16cf65.png" alt="Acara peringatan maulid nabi dengan hiasan khas dan santri bersaf-saf" class="w-full h-48 object-cover hover:scale-105 transition duration-300">
+                </div>
+                
+                <div class="overflow-hidden rounded-lg shadow-md">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/500c6c1f-0b10-4d20-94fb-23659535c0af.png" alt="Penampilan hadroh santri dengan alat musik rebana dalam acara festival islami" class="w-full h-48 object-cover hover:scale-105 transition duration-300">
+                </div>
+                
+                <div class="overflow-hidden rounded-lg shadow-md">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/910a6b85-3afb-47ee-87c2-469b70503f74.png" alt="Kegiatan kerja bakti santri membersihkan lingkungan pesantren" class="w-full h-48 object-cover hover:scale-105 transition duration-300">
+                </div>
+                
+                <div class="overflow-hidden rounded-lg shadow-md">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/e7027a09-e365-44bc-b9da-f8f96677edd5.png" alt="Suasana belajar di kelas dengan santri sedang serius mendengarkan penjelasan ustadz" class="w-full h-48 object-cover hover:scale-105 transition duration-300">
+                </div>
+            </div>
+            
+            <div class="text-center mt-10">
+                <a href="#" class="inline-block border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-semibold py-3 px-8 rounded-full transition duration-300">
+                    Lihat Lebih Banyak
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontak Section -->
+    <section id="kontak" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Hubungi Kami</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Silahkan menghubungi kami untuk informasi lebih lanjut tentang pendaftaran dan program</p>
+                <div class="w-20 h-1 bg-blue-600 mx-auto mt-4"></div>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-8">
+                <div class="lg:w-1/2">
+                    <form class="bg-white p-8 rounded-xl shadow-md">
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-700 font-medium mb-2">Nama Lengkap</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="phone" class="block text-gray-700 font-medium mb-2">Nomor HP</label>
+                            <input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="message" class="block text-gray-700 font-medium mb-2">Pesan</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg transition duration-300">
+                            Kirim Pesan
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <div class="bg-white p-8 rounded-xl shadow-md h-full">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-6">Informasi Kontak</h3>
+                        
+                        <div class="space-y-5">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 bg-blue-100 p-2 rounded-full">
+                                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    </svg>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-gray-800">Alamat</h4>
+                                    <p class="text-gray-600">Jl. Raya Temas No. 123, Kec. Batu, Kota Batu, Jawa Timur 65314</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 bg-blue-100 p-2 rounded-full">
+                                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                    </svg>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-gray-800">Telepon</h4>
+                                    <p class="text-gray-600">(0341) 1234567</p>
+                                    <p class="text-gray-600">0812-3456-7890</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 bg-blue-100 p-2 rounded-full">
+                                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                    </svg>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-gray-800">Email</h4>
+                                    <p class="text-gray-600">info@ponpesibadurrahman.id</p>
+                                    <p class="text-gray-600">admin@ponpesibadurrahman.id</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="text-lg font-medium text-gray-800 mb-4">Sosial Media</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="bg-blue-600 text-white p-2 rounded-full hover:bg-blue-700 transition duration-300">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"></path>
+                                    </svg>
+                                </a>
+                                
+                                <a href="#" class="bg-purple-600 text-white p-2 rounded-full hover:bg-purple-700 transition duration-300">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"></path>
+                                    </svg>
+                                </a>
+                                
+                                <a href="#" class="bg-blue-400 text-white p-2 rounded-full hover:bg-blue-500 transition duration-300">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+                                    </svg>
+                                </a>
+                                
+                                <a href="#" class="bg-red-600 text-white p-2 rounded-full hover:bg-red-700 transition duration-300">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Platform Pembelajaran Online -->
     <div id="platform" class="platform-container hidden">
@@ -518,43 +856,26 @@
                     
                     <div class="bg-white rounded-lg shadow p-6 mb-6">
                         <h3 class="text-lg font-semibold mb-4">Kursus Saya</h3>
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                            <div class="course-card bg-white border rounded-lg overflow-hidden">
-                                <div class="h-32 bg-blue-500"></div>
-                                <div class="p-4">
-                                    <h4 class="font-semibold mb-2">Tahsin & Tahfidz Al-Qur'an</h4>
-                                    <p class="text-sm text-gray-600 mb-3">Kelas 7 & 8</p>
-                                    <div class="flex justify-between items-center">
-                                        <span class="badge badge-primary">24 Santri</span>
-                                        <button onclick="openCourse('tahsin-tahfidz')" class="text-blue-600 hover:text-blue-800 text-sm font-medium">Buka</button>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="course-card bg-white border rounded-lg overflow-hidden">
-                                <div class="h-32 bg-green-500"></div>
-                                <div class="p-4">
-                                    <h4 class="font-semibold mb-2">Bahasa Arab Dasar</h4>
-                                    <p class="text-sm text-gray-600 mb-3">Kelas 7 & 8</p>
-                                    <div class="flex justify-between items-center">
-                                        <span class="badge badge-primary">18 Santri</span>
-                                        <button onclick="openCourse('bahasa-arab')" class="text-blue-600 hover:text-blue-800 text-sm font-medium">Buka</button>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="course-card bg-white border rounded-lg overflow-hidden">
-                                <div class="h-32 bg-purple-500"></div>
-                                <div class="p-4">
-                                    <h4 class="font-semibold mb-2">Fiqih Ibadah</h4>
-                                    <p class="text-sm text-gray-600 mb-3">Kelas 9</p>
-                                    <div class="flex justify-between items-center">
-                                        <span class="badge badge-primary">22 Santri</span>
-                                        <button onclick="openCourse('fiqih-ibadah')" class="text-blue-600 hover:text-blue-800 text-sm font-medium">Buka</button>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="teacher-courses-list">
+                            <!-- Teacher courses will be populated here -->
                         </div>
+                    </div>
+                </div>
+
+                <!-- My Courses (Teacher) -->
+                <div id="my-courses-section" class="platform-section hidden">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-2xl font-bold">Kursus Saya</h2>
+                        <button onclick="showCreateCourseModal()" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 flex items-center">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                            </svg>
+                            Buat Kursus Baru
+                        </button>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="my-courses-list">
+                        <!-- My courses will be populated here -->
                     </div>
                 </div>
 
@@ -608,42 +929,8 @@
                     
                     <div class="bg-white rounded-lg shadow p-6 mb-6">
                         <h3 class="text-lg font-semibold mb-4">Kursus Saya</h3>
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                            <div class="course-card bg-white border rounded-lg overflow-hidden">
-                                <div class="h-32 bg-blue-500"></div>
-                                <div class="p-4">
-                                    <h4 class="font-semibold mb-2">Tahsin & Tahfidz Al-Qur'an</h4>
-                                    <p class="text-sm text-gray-600 mb-3">Ustadz Ahmad</p>
-                                    <div class="flex justify-between items-center">
-                                        <span class="badge badge-success">Selesai 75%</span>
-                                        <button onclick="openCourse('tahsin-tahfidz')" class="text-blue-600 hover:text-blue-800 text-sm font-medium">Lanjutkan</button>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="course-card bg-white border rounded-lg overflow-hidden">
-                                <div class="h-32 bg-green-500"></div>
-                                <div class="p-4">
-                                    <h4 class="font-semibold mb-2">Bahasa Arab Dasar</h4>
-                                    <p class="text-sm text-gray-600 mb-3">Ustadz Ahmad</p>
-                                    <div class="flex justify-between items-center">
-                                        <span class="badge badge-warning">Selesai 40%</span>
-                                        <button onclick="openCourse('bahasa-arab')" class="text-blue-600 hover:text-blue-800 text-sm font-medium">Lanjutkan</button>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="course-card bg-white border rounded-lg overflow-hidden">
-                                <div class="h-32 bg-purple-500"></div>
-                                <div class="p-4">
-                                    <h4 class="font-semibold mb-2">Fiqih Ibadah</h4>
-                                    <p class="text-sm text-gray-600 mb-3">Ustadzah Fatimah</p>
-                                    <div class="flex justify-between items-center">
-                                        <span class="badge badge-primary">Selesai 20%</span>
-                                        <button onclick="openCourse('fiqih-ibadah')" class="text-blue-600 hover:text-blue-800 text-sm font-medium">Lanjutkan</button>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="student-courses-list">
+                            <!-- Student courses will be populated here -->
                         </div>
                     </div>
                     
@@ -657,6 +944,17 @@
                                 </div>
                                 <div class="text-right">
                                     <p class="text-sm text-gray-600">Batas: 2 hari lagi</p>
+                                    <span class="badge badge-warning">Belum Dikerjakan</span>
+                                </div>
+                            </div>
+                            
+                            <div class="flex justify-between items-center p-3 border rounded-lg">
+                                <div>
+                                    <h4 class="font-medium">Kuis Matematika - Aljabar</h4>
+                                    <p class="text-sm text-gray-600">Matematika Kelas 8</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-sm text-gray-600">Batas: 3 hari lagi</p>
                                     <span class="badge badge-warning">Belum Dikerjakan</span>
                                 </div>
                             </div>
@@ -801,6 +1099,58 @@
                     </div>
                 </div>
             </main>
+        </div>
+    </div>
+
+    <!-- Create Course Modal -->
+    <div id="create-course-modal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50">
+        <div class="relative top-20 mx-auto p-5 border w-11/12 max-w-2xl shadow-lg rounded-md bg-white">
+            <div class="flex justify-between items-center pb-3 border-b">
+                <h3 class="text-xl font-bold text-gray-800">Buat Kursus Baru</h3>
+                <button onclick="closeCreateCourseModal()" class="text-gray-500 hover:text-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <form id="create-course-form" class="mt-4 space-y-4">
+                <div>
+                    <label class="block text-gray-700 mb-1">Judul Kursus</label>
+                    <input type="text" id="course-title-input" required class="w-full px-3 py-2 border rounded">
+                </div>
+                
+                <div>
+                    <label class="block text-gray-700 mb-1">Kategori</label>
+                    <select id="course-category" class="w-full px-3 py-2 border rounded">
+                        <option value="islamic">Pendidikan Islam</option>
+                        <option value="math">Matematika</option>
+                        <option value="science">Ilmu Pengetahuan Alam</option>
+                        <option value="language">Bahasa</option>
+                        <option value="social">Ilmu Sosial</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label class="block text-gray-700 mb-1">Deskripsi</label>
+                    <textarea id="course-description" class="w-full px-3 py-2 border rounded" rows="4"></textarea>
+                </div>
+                
+                <div>
+                    <label class="block text-gray-700 mb-1">Kelas</label>
+                    <select id="course-class" class="w-full px-3 py-2 border rounded">
+                        <option value="7">Kelas 7</option>
+                        <option value="8">Kelas 8</option>
+                        <option value="9">Kelas 9</option>
+                        <option value="all">Semua Kelas</option>
+                    </select>
+                </div>
+                
+                <div class="flex justify-end space-x-3 pt-4">
+                    <button type="button" onclick="closeCreateCourseModal()" class="px-4 py-2 border rounded text-gray-700 hover:bg-gray-100">Batal</button>
+                    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Buat Kursus</button>
+                </div>
+            </form>
         </div>
     </div>
 
@@ -968,7 +1318,9 @@
                 id: 'tahsin-tahfidz',
                 title: 'Tahsin & Tahfidz Al-Qur\'an',
                 instructor: 'Ustadz Ahmad',
+                category: 'islamic',
                 description: 'Kursus untuk memperbaiki bacaan Al-Qur\'an dan menghafalnya dengan benar',
+                class: 'all',
                 modules: [
                     {
                         id: 1,
@@ -1035,31 +1387,6 @@
                             </div>
                         `,
                         completed: true
-                    },
-                    {
-                        id: 3,
-                        title: 'Sifatul Huruf',
-                        content: `
-                            <p>Sifatul huruf adalah cara pengucapan suatu huruf yang membedakannya dengan huruf lainnya. Sifat-sifat ini penting untuk diperhatikan agar bacaan Al-Qur'an kita benar dan indah.</p>
-                            
-                            <p class="mt-4">Beberapa sifat huruf yang penting:</p>
-                            
-                            <ul class="list-disc pl-5 mt-2 space-y-2">
-                                <li>Hams (berdesis)</li>
-                                <li>Jahr (tidak berdesis)</li>
-                                <li>Syiddah (kuat)</li>
-                                <li>Rakhawah (lemah)</li>
-                                <li>Istifal (rendah)</li>
-                                <li>Isti'la (tinggi)</li>
-                            </ul>
-                            
-                            <h4 class="mt-6 mb-3 font-semibold">Latihan Praktik:</h4>
-                            <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-                                <p class="text-yellow-800">Coba praktikkan pengucapan huruf-huruf berikut dengan memperhatikan sifat-sifatnya:</p>
-                                <p class="mt-2 font-arabic text-2xl text-center">ب ت ث - ج د ذ - ر ز - س ش ص ض</p>
-                            </div>
-                        `,
-                        completed: false
                     }
                 ],
                 quizzes: [
@@ -1077,17 +1404,6 @@
                                     'Ilmu tentang penulisan Al-Qur\'an'
                                 ],
                                 correctAnswer: 1
-                            },
-                            {
-                                id: 2,
-                                question: 'Berapa jumlah makhorijul huruf secara umum?',
-                                options: [
-                                    '3',
-                                    '5',
-                                    '7',
-                                    '9'
-                                ],
-                                correctAnswer: 1
                             }
                         ]
                     }
@@ -1097,25 +1413,15 @@
                 id: 'bahasa-arab',
                 title: 'Bahasa Arab Dasar',
                 instructor: 'Ustadz Ahmad',
+                category: 'language',
                 description: 'Kursus bahasa Arab untuk pemula dengan fokus pada percakapan sehari-hari',
+                class: '7',
                 modules: [
                     {
                         id: 1,
                         title: 'Pengenalan Huruf Hijaiyah',
                         content: 'Materi pengenalan huruf hijaiyah...',
                         completed: true
-                    },
-                    {
-                        id: 2,
-                        title: 'Kosakata Dasar',
-                        content: 'Materi kosakata dasar bahasa Arab...',
-                        completed: true
-                    },
-                    {
-                        id: 3,
-                        title: 'Tata Bahasa Dasar',
-                        content: 'Materi tata bahasa dasar...',
-                        completed: false
                     }
                 ]
             },
@@ -1123,19 +1429,101 @@
                 id: 'fiqih-ibadah',
                 title: 'Fiqih Ibadah',
                 instructor: 'Ustadzah Fatimah',
+                category: 'islamic',
                 description: 'Memahami tata cara ibadah sesuai syariat Islam',
+                class: '8',
                 modules: [
                     {
                         id: 1,
                         title: 'Thaharah (Bersuci)',
                         content: 'Materi thaharah...',
                         completed: true
+                    }
+                ]
+            },
+            {
+                id: 'matematika-kelas-7',
+                title: 'Matematika Kelas 7',
+                instructor: 'Ustadz Abdullah',
+                category: 'math',
+                description: 'Materi matematika untuk kelas 7 sesuai kurikulum nasional',
+                class: '7',
+                modules: [
+                    {
+                        id: 1,
+                        title: 'Bilangan Bulat',
+                        content: 'Pengenalan bilangan bulat dan operasinya...',
+                        completed: true
                     },
                     {
                         id: 2,
-                        title: 'Shalat Wajib',
-                        content: 'Materi shalat wajib...',
+                        title: 'Pecahan',
+                        content: 'Materi tentang pecahan biasa dan campuran...',
                         completed: false
+                    }
+                ]
+            },
+            {
+                id: 'matematika-kelas-8',
+                title: 'Matematika Kelas 8',
+                instructor: 'Ustadz Abdullah',
+                category: 'math',
+                description: 'Materi matematika untuk kelas 8 sesuai kurikulum nasional',
+                class: '8',
+                modules: [
+                    {
+                        id: 1,
+                        title: 'Aljabar Dasar',
+                        content: 'Pengenalan aljabar dan persamaan linear...',
+                        completed: true
+                    }
+                ]
+            },
+            {
+                id: 'ipa-kelas-7',
+                title: 'Ilmu Pengetahuan Alam Kelas 7',
+                instructor: 'Ustadzah Siti',
+                category: 'science',
+                description: 'Materi IPA untuk kelas 7 sesuai kurikulum nasional',
+                class: '7',
+                modules: [
+                    {
+                        id: 1,
+                        title: 'Pengukuran',
+                        content: 'Materi tentang besaran, satuan, dan pengukuran...',
+                        completed: true
+                    }
+                ]
+            },
+            {
+                id: 'ips-kelas-8',
+                title: 'Ilmu Pengetahuan Sosial Kelas 8',
+                instructor: 'Ustadz Hasan',
+                category: 'social',
+                description: 'Materi IPS untuk kelas 8 sesuai kurikulum nasional',
+                class: '8',
+                modules: [
+                    {
+                        id: 1,
+                        title: 'Kehidupan Masyarakat Indonesia',
+                        content: 'Materi tentang keragaman budaya Indonesia...',
+                        completed: true
+                    }
+                ]
+            },
+            {
+                id: 'bahasa-inggris',
+                title: 'Bahasa Inggris Dasar',
+                instructor: 'Ustadzah Aminah',
+                category: 'language',
+                description: 'Kursus bahasa Inggris untuk pemula',
+                class: 'all',
+                modules: [
+                    {
+                        id: 1,
+                        title: 'Greetings and Introductions',
+                        content: 'Materi tentang salam dan perkenalan dalam bahasa Inggris...',
+                        completed: true
                     }
                 ]
             }
@@ -1225,9 +1613,11 @@
             } else if (currentUser.role === 'teacher') {
                 document.getElementById('teacher-menu').classList.remove('hidden');
                 showPlatformSection('teacher-dashboard');
+                populateTeacherCourses();
             } else {
                 document.getElementById('student-menu').classList.remove('hidden');
                 showPlatformSection('student-dashboard');
+                populateStudentCourses();
             }
             
             populateCourseList();
@@ -1247,6 +1637,7 @@
                 'admin-dashboard': 'Dashboard Admin',
                 'teacher-dashboard': 'Dashboard Guru',
                 'student-dashboard': 'Dashboard Santri',
+                'my-courses': 'Kursus Saya',
                 'course-detail': currentCourse ? currentCourse.title : 'Kursus'
             };
             
@@ -1261,14 +1652,142 @@
                 const li = document.createElement('li');
                 li.innerHTML = `
                     <button onclick="openCourse('${course.id}')" class="w-full text-left px-3 py-2 rounded-md hover:bg-gray-700 flex items-center">
-                        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-                        </svg>
-                        ${course.title}
+                        <div class="subject-icon ${getSubjectClass(course.category)} mr-3">
+                            ${getSubjectIcon(course.category)}
+                        </div>
+                        <span class="truncate">${course.title}</span>
                     </button>
                 `;
                 courseList.appendChild(li);
             });
+        }
+
+        function populateTeacherCourses() {
+            // For teacher dashboard
+            const teacherCoursesList = document.getElementById('teacher-courses-list');
+            teacherCoursesList.innerHTML = '';
+            
+            // Filter courses taught by this teacher
+            const teacherCourses = courses.filter(course => course.instructor === currentUser.name);
+            
+            teacherCourses.forEach(course => {
+                const card = document.createElement('div');
+                card.className = 'course-card bg-white border rounded-lg overflow-hidden';
+                card.innerHTML = `
+                    <div class="h-32 ${getSubjectColor(course.category)}"></div>
+                    <div class="p-4">
+                        <h4 class="font-semibold mb-2">${course.title}</h4>
+                        <p class="text-sm text-gray-600 mb-3">Kelas ${course.class === 'all' ? 'Semua' : course.class}</p>
+                        <div class="flex justify-between items-center">
+                            <span class="badge ${getSubjectBadgeClass(course.category)}">${getSubjectName(course.category)}</span>
+                            <button onclick="openCourse('${course.id}')" class="text-blue-600 hover:text-blue-800 text-sm font-medium">Buka</button>
+                        </div>
+                    </div>
+                `;
+                teacherCoursesList.appendChild(card);
+            });
+            
+            // For "My Courses" section
+            const myCoursesList = document.getElementById('my-courses-list');
+            myCoursesList.innerHTML = '';
+            
+            teacherCourses.forEach(course => {
+                const card = document.createElement('div');
+                card.className = 'course-card bg-white border rounded-lg overflow-hidden';
+                card.innerHTML = `
+                    <div class="h-32 ${getSubjectColor(course.category)}"></div>
+                    <div class="p-4">
+                        <h4 class="font-semibold mb-2">${course.title}</h4>
+                        <p class="text-sm text-gray-600 mb-3">${course.description}</p>
+                        <div class="flex justify-between items-center">
+                            <span class="badge ${getSubjectBadgeClass(course.category)}">Kelas ${course.class === 'all' ? 'Semua' : course.class}</span>
+                            <div class="flex space-x-2">
+                                <button onclick="openCourse('${course.id}')" class="text-blue-600 hover:text-blue-800 text-sm font-medium">Edit</button>
+                                <button onclick="deleteCourse('${course.id}')" class="text-red-600 hover:text-red-800 text-sm font-medium">Hapus</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                myCoursesList.appendChild(card);
+            });
+        }
+
+        function populateStudentCourses() {
+            const studentCoursesList = document.getElementById('student-courses-list');
+            studentCoursesList.innerHTML = '';
+            
+            // For demo, show all courses
+            courses.forEach(course => {
+                const card = document.createElement('div');
+                card.className = 'course-card bg-white border rounded-lg overflow-hidden';
+                card.innerHTML = `
+                    <div class="h-32 ${getSubjectColor(course.category)}"></div>
+                    <div class="p-4">
+                        <h4 class="font-semibold mb-2">${course.title}</h4>
+                        <p class="text-sm text-gray-600 mb-3">${course.instructor}</p>
+                        <div class="flex justify-between items-center">
+                            <span class="badge ${getSubjectBadgeClass(course.category)}">${getSubjectName(course.category)}</span>
+                            <button onclick="openCourse('${course.id}')" class="text-blue-600 hover:text-blue-800 text-sm font-medium">Lanjutkan</button>
+                        </div>
+                    </div>
+                `;
+                studentCoursesList.appendChild(card);
+            });
+        }
+
+        function getSubjectClass(category) {
+            const classes = {
+                'islamic': 'subject-islamic',
+                'math': 'subject-math',
+                'science': 'subject-science',
+                'language': 'subject-language',
+                'social': 'subject-social'
+            };
+            return classes[category] || 'subject-islamic';
+        }
+
+        function getSubjectIcon(category) {
+            const icons = {
+                'islamic': 'إ',
+                'math': 'M',
+                'science': 'S',
+                'language': 'B',
+                'social': 'I'
+            };
+            return icons[category] || 'إ';
+        }
+
+        function getSubjectColor(category) {
+            const colors = {
+                'islamic': 'bg-blue-500',
+                'math': 'bg-red-500',
+                'science': 'bg-green-500',
+                'language': 'bg-yellow-500',
+                'social': 'bg-purple-500'
+            };
+            return colors[category] || 'bg-blue-500';
+        }
+
+        function getSubjectBadgeClass(category) {
+            const badges = {
+                'islamic': 'badge-primary',
+                'math': 'badge-orange',
+                'science': 'badge-success',
+                'language': 'badge-warning',
+                'social': 'badge-purple'
+            };
+            return badges[category] || 'badge-primary';
+        }
+
+        function getSubjectName(category) {
+            const names = {
+                'islamic': 'Agama',
+                'math': 'Matematika',
+                'science': 'IPA',
+                'language': 'Bahasa',
+                'social': 'IPS'
+            };
+            return names[category] || 'Agama';
         }
 
         function openCourse(courseId) {
@@ -1483,6 +2002,23 @@
             showPlatformSection(currentUser.role === 'student' ? 'student-dashboard' : 'teacher-dashboard');
         }
 
+        function showCreateCourseModal() {
+            document.getElementById('create-course-modal').classList.remove('hidden');
+        }
+
+        function closeCreateCourseModal() {
+            document.getElementById('create-course-modal').classList.add('hidden');
+            document.getElementById('create-course-form').reset();
+        }
+
+        function deleteCourse(courseId) {
+            if (confirm('Apakah Anda yakin ingin menghapus kursus ini?')) {
+                alert(`Kursus dengan ID ${courseId} akan dihapus.`);
+                // In a real app, you would make an API call to delete the course
+                populateTeacherCourses();
+            }
+        }
+
         function logout() {
             currentUser = null;
             localStorage.removeItem('userRole');
@@ -1518,6 +2054,39 @@
         document.getElementById('sidebar-toggle').addEventListener('click', function() {
             const sidebar = document.getElementById('platform-sidebar');
             sidebar.classList.toggle('hidden');
+        });
+
+        // Form submission for creating course
+        document.getElementById('create-course-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const title = document.getElementById('course-title-input').value;
+            const category = document.getElementById('course-category').value;
+            const description = document.getElementById('course-description').value;
+            const courseClass = document.getElementById('course-class').value;
+            
+            // Create new course object
+            const newCourse = {
+                id: 'course-' + Date.now(),
+                title: title,
+                instructor: currentUser.name,
+                category: category,
+                description: description,
+                class: courseClass,
+                modules: []
+            };
+            
+            // Add to courses array
+            courses.push(newCourse);
+            
+            // Update UI
+            populateTeacherCourses();
+            populateCourseList();
+            
+            // Close modal
+            closeCreateCourseModal();
+            
+            alert('Kursus berhasil dibuat!');
         });
 
         // Check auth status on page load
@@ -1571,6 +2140,29 @@
                     }
                 });
             });
+            
+            // Form submission handling for contact form
+            const contactForm = document.querySelector('#kontak form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Get form values
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+                    const message = document.getElementById('message').value;
+                    
+                    // Simple validation
+                    if (!name || !email || !message) {
+                        alert('Mohon lengkapi semua field!');
+                        return;
+                    }
+                    
+                    // In a real app, you would send this to a server
+                    alert('Terima kasih atas pesan Anda! Kami akan segera menghubungi Anda kembali.');
+                    contactForm.reset();
+                });
+            }
         });
     </script>
 </body>
