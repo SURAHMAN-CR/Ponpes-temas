@@ -6,7 +6,7 @@
     <title>Ponpes Ibadurrahman Temas - Pendidikan Islami Berkualitas</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        @import url('https://unsplash.com/s/visual/490fc0d6-51cc-4708-b48d-68517079703a');
         
         body {
             font-family: 'Poppins', sans-serif;
@@ -14,7 +14,7 @@
         }
         
         .hero {
-            background-image: url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/da1505ba-9522-4da4-8f4a-58eb74a456ed.png');
+            background-image: url('images/bg-ibadurrahman.jpeg.jpeg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -44,156 +44,38 @@
             width: 100%;
         }
 
-        /* Platform Styles */
-        .platform-container {
-            min-height: 100vh;
-            background-color: #f5f7fa;
+        /* Admin Dashboard Styles */
+        .sidebar {
+            transition: all 0.3s;
         }
         
-        .platform-header {
-            background-color: white;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            z-index: 10;
+        .sidebar-collapsed {
+            width: 80px;
         }
         
-        .platform-sidebar {
-            background-color: #1f2937;
-            color: white;
-            height: calc(100vh - 64px);
-            overflow-y: auto;
+        .sidebar-expanded {
+            width: 250px;
         }
         
-        .platform-content {
-            padding: 20px;
-            height: calc(100vh - 64px);
-            overflow-y: auto;
+        .main-content {
+            transition: all 0.3s;
         }
         
-        .course-card {
-            transition: all 0.3s ease;
-            border-radius: 8px;
-            overflow: hidden;
+        .content-expanded {
+            margin-left: 250px;
         }
         
-        .course-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        .content-collapsed {
+            margin-left: 80px;
         }
         
-        .module-item {
-            border-left: 3px solid #e5e7eb;
-            transition: all 0.2s;
-        }
-        
-        .module-item:hover {
-            border-left-color: #3b82f6;
-            background-color: #f3f4f6;
-        }
-        
-        .module-item.active {
-            border-left-color: #3b82f6;
-            background-color: #eff6ff;
-        }
-        
-        .quiz-option {
-            border: 1px solid #d1d5db;
-            border-radius: 6px;
-            padding: 12px;
-            margin-bottom: 10px;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        
-        .quiz-option:hover {
-            background-color: #f3f4f6;
-        }
-        
-        .quiz-option.selected {
-            border-color: #3b82f6;
-            background-color: #eff6ff;
-        }
-        
-        .badge {
-            display: inline-block;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
-        
-        .badge-primary {
-            background-color: #dbeafe;
-            color: #1e40af;
-        }
-        
-        .badge-success {
-            background-color: #d1fae5;
-            color: #065f46;
-        }
-        
-        .badge-warning {
-            background-color: #fef3c7;
-            color: #92400e;
-        }
-        
-        .badge-purple {
-            background-color: #e9d5ff;
-            color: #6b21a8;
-        }
-        
-        .badge-orange {
-            background-color: #fed7aa;
-            color: #9a3412;
-        }
-        
-        .badge-pink {
-            background-color: #fbcfe8;
-            color: #9d174d;
-        }
-        
-        .subject-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 12px;
-        }
-        
-        .subject-islamic {
+        .active-menu {
             background-color: #3b82f6;
             color: white;
         }
         
-        .subject-math {
-            background-color: #ef4444;
-            color: white;
-        }
-        
-        .subject-science {
-            background-color: #10b981;
-            color: white;
-        }
-        
-        .subject-language {
-            background-color: #f59e0b;
-            color: white;
-        }
-        
-        .subject-social {
-            background-color: #8b5cf6;
-            color: white;
-        }
-        
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .animate-fadeIn {
-            animation: fadeIn 1s ease-out;
+        .active-menu:hover {
+            background-color: #2563eb;
         }
     </style>
 </head>
@@ -560,600 +442,6 @@
         </div>
     </section>
 
-    <!-- Platform Pembelajaran Online -->
-    <div id="platform" class="platform-container hidden">
-        <!-- Platform Header -->
-        <header class="platform-header sticky top-0 py-4 px-6 flex justify-between items-center">
-            <div class="flex items-center">
-                <button id="sidebar-toggle" class="mr-4 text-gray-600 hover:text-gray-900">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-                <h1 class="text-xl font-bold text-gray-800" id="platform-title">Dashboard</h1>
-            </div>
-            <div class="flex items-center space-x-4">
-                <div class="relative">
-                    <input type="text" placeholder="Cari..." class="pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    <svg class="w-5 h-5 text-gray-400 absolute left-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                    </svg>
-                </div>
-                <div class="flex items-center space-x-2">
-                    <img id="platform-user-avatar" src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3a78cf99-388d-40a4-901f-3290274fc72f.png" alt="User" class="w-8 h-8 rounded-full">
-                    <span id="platform-username" class="font-medium"></span>
-                    <button onclick="logout()" class="text-gray-600 hover:text-gray-900">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </header>
-
-        <div class="flex">
-            <!-- Platform Sidebar -->
-            <aside id="platform-sidebar" class="platform-sidebar w-64 transition-all duration-300">
-                <nav class="p-4">
-                    <div id="admin-menu" class="hidden">
-                        <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-2">Administrasi</h3>
-                        <ul class="space-y-1 mb-6">
-                            <li>
-                                <button onclick="showPlatformSection('admin-dashboard')" class="w-full text-left px-3 py-2 rounded-md hover:bg-gray-700 flex items-center">
-                                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
-                                    </svg>
-                                    Dashboard
-                                </button>
-                            </li>
-                            <li>
-                                <button onclick="showPlatformSection('manage-users')" class="w-full text-left px-3 py-2 rounded-md hover:bg-gray-700 flex items-center">
-                                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
-                                    </svg>
-                                    Kelola Pengguna
-                                </button>
-                            </li>
-                            <li>
-                                <button onclick="showPlatformSection('manage-courses')" class="w-full text-left px-3 py-2 rounded-md hover:bg-gray-700 flex items-center">
-                                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-                                    </svg>
-                                    Kelola Kursus
-                                </button>
-                            </li>
-                            <li>
-                                <button onclick="showPlatformSection('reports')" class="w-full text-left px-3 py-2 rounded-md hover:bg-gray-700 flex items-center">
-                                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                                    </svg>
-                                    Laporan
-                                </button>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div id="teacher-menu" class="hidden">
-                        <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-2">Pengajaran</h3>
-                        <ul class="space-y-1 mb-6">
-                            <li>
-                                <button onclick="showPlatformSection('teacher-dashboard')" class="w-full text-left px-3 py-2 rounded-md hover:bg-gray-700 flex items-center">
-                                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
-                                    </svg>
-                                    Dashboard
-                                </button>
-                            </li>
-                            <li>
-                                <button onclick="showPlatformSection('my-courses')" class="w-full text-left px-3 py-2 rounded-md hover:bg-gray-700 flex items-center">
-                                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-                                    </svg>
-                                    Kursus Saya
-                                </button>
-                            </li>
-                            <li>
-                                <button onclick="showPlatformSection('create-content')" class="w-full text-left px-3 py-2 rounded-md hover:bg-gray-700 flex items-center">
-                                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-                                    </svg>
-                                    Buat Konten
-                                </button>
-                            </li>
-                            <li>
-                                <button onclick="showPlatformSection('assignments')" class="w-full text-left px-3 py-2 rounded-md hover:bg-gray-700 flex items-center">
-                                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                                    </svg>
-                                    Tugas & Kuis
-                                </button>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div id="student-menu" class="hidden">
-                        <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-2">Pembelajaran</h3>
-                        <ul class="space-y-1 mb-6">
-                            <li>
-                                <button onclick="showPlatformSection('student-dashboard')" class="w-full text-left px-3 py-2 rounded-md hover:bg-gray-700 flex items-center">
-                                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
-                                    </svg>
-                                    Dashboard
-                                </button>
-                            </li>
-                            <li>
-                                <button onclick="showPlatformSection('my-learning')" class="w-full text-left px-3 py-2 rounded-md hover:bg-gray-700 flex items-center">
-                                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-                                    </svg>
-                                    Pembelajaran Saya
-                                </button>
-                            </li>
-                            <li>
-                                <button onclick="showPlatformSection('calendar')" class="w-full text-left px-3 py-2 rounded-md hover:bg-gray-700 flex items-center">
-                                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                                    </svg>
-                                    Kalender
-                                </button>
-                            </li>
-                            <li>
-                                <button onclick="showPlatformSection('grades')" class="w-full text-left px-3 py-2 rounded-md hover:bg-gray-700 flex items-center">
-                                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                    </svg>
-                                    Nilai
-                                </button>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-2">Kursus</h3>
-                    <ul class="space-y-1" id="course-list">
-                        <!-- Courses will be populated here -->
-                    </ul>
-                </nav>
-            </aside>
-
-            <!-- Platform Content -->
-            <main id="platform-content" class="platform-content flex-1">
-                <!-- Admin Dashboard -->
-                <div id="admin-dashboard-section" class="platform-section hidden">
-                    <h2 class="text-2xl font-bold mb-6">Dashboard Admin</h2>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                        <div class="bg-white p-6 rounded-lg shadow">
-                            <div class="flex items-center">
-                                <div class="p-3 rounded-full bg-blue-100 text-blue-600 mr-4">
-                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <p class="text-sm text-gray-500">Total Pengguna</p>
-                                    <p class="text-2xl font-bold">168</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-white p-6 rounded-lg shadow">
-                            <div class="flex items-center">
-                                <div class="p-3 rounded-full bg-green-100 text-green-600 mr-4">
-                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <p class="text-sm text-gray-500">Total Kursus</p>
-                                    <p class="text-2xl font-bold">24</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-white p-6 rounded-lg shadow">
-                            <div class="flex items-center">
-                                <div class="p-3 rounded-full bg-purple-100 text-purple-600 mr-4">
-                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <p class="text-sm text-gray-500">Tugas Selesai</p>
-                                    <p class="text-2xl font-bold">142</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-white rounded-lg shadow p-6">
-                        <h3 class="text-lg font-semibold mb-4">Aktivitas Terbaru</h3>
-                        <div class="space-y-4">
-                            <div class="flex items-start">
-                                <div class="bg-blue-100 p-2 rounded-full mr-3">
-                                    <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <p class="font-medium">Ustadz Ahmad membuat kursus baru</p>
-                                    <p class="text-sm text-gray-600">Fiqih Ibadah - 10 menit yang lalu</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start">
-                                <div class="bg-green-100 p-2 rounded-full mr-3">
-                                    <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <p class="font-medium">Santri baru mendaftar</p>
-                                    <p class="text-sm text-gray-600">Muhammad Fajar - 30 menit yang lalu</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start">
-                                <div class="bg-purple-100 p-2 rounded-full mr-3">
-                                    <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <p class="font-medium">Ustadzah Fatimah memperbarui profil</p>
-                                    <p class="text-sm text-gray-600">1 jam yang lalu</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Teacher Dashboard -->
-                <div id="teacher-dashboard-section" class="platform-section hidden">
-                    <h2 class="text-2xl font-bold mb-6">Dashboard Guru</h2>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                        <div class="bg-white p-6 rounded-lg shadow">
-                            <div class="flex items-center">
-                                <div class="p-3 rounded-full bg-blue-100 text-blue-600 mr-4">
-                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <p class="text-sm text-gray-500">Kursus Aktif</p>
-                                    <p class="text-2xl font-bold">5</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-white p-6 rounded-lg shadow">
-                            <div class="flex items-center">
-                                <div class="p-3 rounded-full bg-green-100 text-green-600 mr-4">
-                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <p class="text-sm text-gray-500">Total Santri</p>
-                                    <p class="text-2xl font-bold">86</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-white p-6 rounded-lg shadow">
-                            <div class="flex items-center">
-                                <div class="p-3 rounded-full bg-purple-100 text-purple-600 mr-4">
-                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <p class="text-sm text-gray-500">Tugas Dinilai</p>
-                                    <p class="text-2xl font-bold">42</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-white rounded-lg shadow p-6 mb-6">
-                        <h3 class="text-lg font-semibold mb-4">Kursus Saya</h3>
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="teacher-courses-list">
-                            <!-- Teacher courses will be populated here -->
-                        </div>
-                    </div>
-                </div>
-
-                <!-- My Courses (Teacher) -->
-                <div id="my-courses-section" class="platform-section hidden">
-                    <div class="flex justify-between items-center mb-6">
-                        <h2 class="text-2xl font-bold">Kursus Saya</h2>
-                        <button onclick="showCreateCourseModal()" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 flex items-center">
-                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-                            </svg>
-                            Buat Kursus Baru
-                        </button>
-                    </div>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="my-courses-list">
-                        <!-- My courses will be populated here -->
-                    </div>
-                </div>
-
-                <!-- Student Dashboard -->
-                <div id="student-dashboard-section" class="platform-section hidden">
-                    <h2 class="text-2xl font-bold mb-6">Dashboard Santri</h2>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                        <div class="bg-white p-6 rounded-lg shadow">
-                            <div class="flex items-center">
-                                <div class="p-3 rounded-full bg-blue-100 text-blue-600 mr-4">
-                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <p class="text-sm text-gray-500">Kursus Diikuti</p>
-                                    <p class="text-2xl font-bold">4</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-white p-6 rounded-lg shadow">
-                            <div class="flex items-center">
-                                <div class="p-3 rounded-full bg-green-100 text-green-600 mr-4">
-                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <p class="text-sm text-gray-500">Tugas Selesai</p>
-                                    <p class="text-2xl font-bold">12</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-white p-6 rounded-lg shadow">
-                            <div class="flex items-center">
-                                <div class="p-3 rounded-full bg-purple-100 text-purple-600 mr-4">
-                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <p class="text-sm text-gray-500">Rata-rata Nilai</p>
-                                    <p class="text-2xl font-bold">85.5</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-white rounded-lg shadow p-6 mb-6">
-                        <h3 class="text-lg font-semibold mb-4">Kursus Saya</h3>
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="student-courses-list">
-                            <!-- Student courses will be populated here -->
-                        </div>
-                    </div>
-                    
-                    <div class="bg-white rounded-lg shadow p-6">
-                        <h3 class="text-lg font-semibold mb-4">Tugas Terbaru</h3>
-                        <div class="space-y-4">
-                            <div class="flex justify-between items-center p-3 border rounded-lg">
-                                <div>
-                                    <h4 class="font-medium">Tugas Tahsin Surat Al-Fatihah</h4>
-                                    <p class="text-sm text-gray-600">Tahsin & Tahfidz Al-Qur'an</p>
-                                </div>
-                                <div class="text-right">
-                                    <p class="text-sm text-gray-600">Batas: 2 hari lagi</p>
-                                    <span class="badge badge-warning">Belum Dikerjakan</span>
-                                </div>
-                            </div>
-                            
-                            <div class="flex justify-between items-center p-3 border rounded-lg">
-                                <div>
-                                    <h4 class="font-medium">Kuis Matematika - Aljabar</h4>
-                                    <p class="text-sm text-gray-600">Matematika Kelas 8</p>
-                                </div>
-                                <div class="text-right">
-                                    <p class="text-sm text-gray-600">Batas: 3 hari lagi</p>
-                                    <span class="badge badge-warning">Belum Dikerjakan</span>
-                                </div>
-                            </div>
-                            
-                            <div class="flex justify-between items-center p-3 border rounded-lg">
-                                <div>
-                                    <h4 class="font-medium">Kuis Bahasa Arab - Kosakata</h4>
-                                    <p class="text-sm text-gray-600">Bahasa Arab Dasar</p>
-                                </div>
-                                <div class="text-right">
-                                    <p class="text-sm text-gray-600">Dinilai: 85/100</p>
-                                    <span class="badge badge-success">Selesai</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Course Detail -->
-                <div id="course-detail-section" class="platform-section hidden">
-                    <div class="flex justify-between items-center mb-6">
-                        <div>
-                            <h2 class="text-2xl font-bold" id="course-title">Tahsin & Tahfidz Al-Qur'an</h2>
-                            <p class="text-gray-600" id="course-instructor">Ustadz Ahmad</p>
-                        </div>
-                        <div class="flex space-x-2">
-                            <button class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">Unduh Materi</button>
-                            <button class="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50">Forum Diskusi</button>
-                        </div>
-                    </div>
-                    
-                    <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
-                        <div class="lg:col-span-3">
-                            <div class="bg-white rounded-lg shadow p-6 mb-6">
-                                <h3 class="text-lg font-semibold mb-4" id="module-title">Pengenalan Tajwid</h3>
-                                <div class="prose max-w-none" id="module-content">
-                                    <p>Tajwid secara bahasa berasal dari kata jawwada-yujawwidu-tajwidan yang artinya membaguskan. Sedangkan secara istilah, ilmu tajwid adalah ilmu yang mempelajari tata cara membaca Al-Qur'an dengan baik dan benar sesuai dengan yang diajarkan oleh Rasulullah SAW.</p>
-                                    
-                                    <p class="mt-4">Hukum mempelajari ilmu tajwid adalah fardhu kifayah, sedangkan membaca Al-Qur'an dengan tajwid yang benar adalah fardhu 'ain bagi setiap muslim yang sudah baligh.</p>
-                                    
-                                    <h4 class="mt-6 mb-3 font-semibold">Materi Video:</h4>
-                                    <div class="aspect-w-16 aspect-h-9 bg-gray-200 rounded-lg flex items-center justify-center">
-                                        <div class="text-center">
-                                            <svg class="w-16 h-16 text-gray-400 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                            </svg>
-                                            <p class="mt-2 text-gray-600">Video Pengenalan Tajwid</p>
-                                        </div>
-                                    </div>
-                                    
-                                    <h4 class="mt-6 mb-3 font-semibold">Materi Tambahan:</h4>
-                                    <div class="space-y-2">
-                                        <div class="flex items-center p-3 border rounded-lg">
-                                            <svg class="w-5 h-5 text-gray-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                                            </svg>
-                                            <span>Panduan Tajwid Dasar.pdf</span>
-                                        </div>
-                                        <div class="flex items-center p-3 border rounded-lg">
-                                            <svg class="w-5 h-5 text-gray-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                                            </svg>
-                                            <span>Latihan Makhorijul Huruf.docx</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="mt-8 flex justify-between">
-                                    <button id="prev-module" class="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 flex items-center">
-                                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                                        </svg>
-                                        Sebelumnya
-                                    </button>
-                                    <button id="next-module" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 flex items-center">
-                                        Selanjutnya
-                                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="lg:col-span-1">
-                            <div class="bg-white rounded-lg shadow p-4 sticky top-20">
-                                <h3 class="font-semibold mb-4">Daftar Modul</h3>
-                                <div class="space-y-2" id="module-list">
-                                    <!-- Modules will be populated here -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Quiz Section -->
-                <div id="quiz-section" class="platform-section hidden">
-                    <div class="max-w-3xl mx-auto">
-                        <div class="bg-white rounded-lg shadow p-6">
-                            <div class="flex justify-between items-center mb-6">
-                                <div>
-                                    <h2 class="text-2xl font-bold" id="quiz-title">Kuis Tajwid Dasar</h2>
-                                    <p class="text-gray-600">Tahsin & Tahfidz Al-Qur'an</p>
-                                </div>
-                                <div class="text-right">
-                                    <p class="text-sm text-gray-600">Waktu: <span id="quiz-time">15:00</span></p>
-                                    <p class="text-sm">Soal: <span id="quiz-progress">1</span>/10</p>
-                                </div>
-                            </div>
-                            
-                            <div class="mb-6">
-                                <div class="h-2 bg-gray-200 rounded-full">
-                                    <div class="h-2 bg-blue-600 rounded-full" style="width: 10%"></div>
-                                </div>
-                            </div>
-                            
-                            <div id="quiz-content">
-                                <h3 class="text-lg font-semibold mb-4" id="quiz-question">Apa yang dimaksud dengan ilmu tajwid?</h3>
-                                
-                                <div class="space-y-3 mb-6">
-                                    <div class="quiz-option" onclick="selectOption(this)">
-                                        <p>Ilmu tentang sejarah Al-Qur'an</p>
-                                    </div>
-                                    <div class="quiz-option" onclick="selectOption(this)">
-                                        <p>Ilmu tentang tata cara membaca Al-Qur'an dengan baik dan benar</p>
-                                    </div>
-                                    <div class="quiz-option" onclick="selectOption(this)">
-                                        <p>Ilmu tentang terjemahan Al-Qur'an</p>
-                                    </div>
-                                    <div class="quiz-option" onclick="selectOption(this)">
-                                        <p>Ilmu tentang penulisan Al-Qur'an</p>
-                                    </div>
-                                </div>
-                                
-                                <div class="flex justify-between">
-                                    <button id="prev-question" class="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50" disabled>Sebelumnya</button>
-                                    <button id="next-question" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">Selanjutnya</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </main>
-        </div>
-    </div>
-
-    <!-- Create Course Modal -->
-    <div id="create-course-modal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50">
-        <div class="relative top-20 mx-auto p-5 border w-11/12 max-w-2xl shadow-lg rounded-md bg-white">
-            <div class="flex justify-between items-center pb-3 border-b">
-                <h3 class="text-xl font-bold text-gray-800">Buat Kursus Baru</h3>
-                <button onclick="closeCreateCourseModal()" class="text-gray-500 hover:text-gray-700">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
-            </div>
-            
-            <form id="create-course-form" class="mt-4 space-y-4">
-                <div>
-                    <label class="block text-gray-700 mb-1">Judul Kursus</label>
-                    <input type="text" id="course-title-input" required class="w-full px-3 py-2 border rounded">
-                </div>
-                
-                <div>
-                    <label class="block text-gray-700 mb-1">Kategori</label>
-                    <select id="course-category" class="w-full px-3 py-2 border rounded">
-                        <option value="islamic">Pendidikan Islam</option>
-                        <option value="math">Matematika</option>
-                        <option value="science">Ilmu Pengetahuan Alam</option>
-                        <option value="language">Bahasa</option>
-                        <option value="social">Ilmu Sosial</option>
-                    </select>
-                </div>
-                
-                <div>
-                    <label class="block text-gray-700 mb-1">Deskripsi</label>
-                    <textarea id="course-description" class="w-full px-3 py-2 border rounded" rows="4"></textarea>
-                </div>
-                
-                <div>
-                    <label class="block text-gray-700 mb-1">Kelas</label>
-                    <select id="course-class" class="w-full px-3 py-2 border rounded">
-                        <option value="7">Kelas 7</option>
-                        <option value="8">Kelas 8</option>
-                        <option value="9">Kelas 9</option>
-                        <option value="all">Semua Kelas</option>
-                    </select>
-                </div>
-                
-                <div class="flex justify-end space-x-3 pt-4">
-                    <button type="button" onclick="closeCreateCourseModal()" class="px-4 py-2 border rounded text-gray-700 hover:bg-gray-100">Batal</button>
-                    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Buat Kursus</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
     <!-- E-Learning Section -->
     <section id="e-learning" class="py-16 bg-gray-100">
         <div class="container mx-auto px-4">
@@ -1270,6 +558,596 @@
         </div>
     </section>
 
+    <!-- Admin Dashboard Modal (hidden by default) -->
+    <div id="admin-dashboard" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50">
+        <div class="relative top-20 mx-auto p-5 border w-11/12 max-w-6xl shadow-lg rounded-md bg-white">
+            <div class="flex justify-between items-center pb-3 border-b">
+                <h3 class="text-2xl font-bold text-gray-800">Dashboard Admin</h3>
+                <button onclick="closeAdminDashboard()" class="text-gray-500 hover:text-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="flex mt-4">
+                <!-- Sidebar -->
+                <div class="w-64 bg-gray-800 text-white sidebar-expanded" id="sidebar">
+                    <div class="p-4 flex items-center space-x-3">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3a78cf99-388d-40a4-901f-3290274fc72f.png" alt="Admin" class="w-10 h-10 rounded-full">
+                        <div>
+                            <p class="font-semibold" id="admin-name">Admin</p>
+                            <p class="text-xs text-gray-400">Super Admin</p>
+                        </div>
+                    </div>
+                    
+                    <button onclick="toggleSidebar()" class="w-full px-4 py-2 text-left text-gray-400 hover:bg-gray-700 flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                        <span class="sidebar-text">Sembunyikan Menu</span>
+                    </button>
+                    
+                    <nav class="mt-2">
+                        <div>
+                            <button onclick="showDashboardSection('dashboard')" class="w-full px-4 py-3 text-left hover:bg-gray-700 flex items-center active-menu">
+                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                                </svg>
+                                <span class="sidebar-text">Dashboard</span>
+                            </button>
+                            
+                            <button onclick="showDashboardSection('manage-teachers')" class="w-full px-4 py-3 text-left hover:bg-gray-700 flex items-center">
+                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                </svg>
+                                <span class="sidebar-text">Kelola Guru</span>
+                            </button>
+                            
+                            <button onclick="showDashboardSection('manage-students')" class="w-full px-4 py-3 text-left hover:bg-gray-700 flex items-center">
+                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                                </svg>
+                                <span class="sidebar-text">Kelola Santri</span>
+                            </button>
+                            
+                            <button onclick="showDashboardSection('manage-classes')" class="w-full px-4 py-3 text-left hover:bg-gray-700 flex items-center">
+                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"></path>
+                                </svg>
+                                <span class="sidebar-text">Kelola Kelas</span>
+                            </button>
+                            
+                            <button onclick="showDashboardSection('manage-subjects')" class="w-full px-4 py-3 text-left hover:bg-gray-700 flex items-center">
+                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                </svg>
+                                <span class="sidebar-text">Kelola Mata Pelajaran</span>
+                            </button>
+                            
+                            <button onclick="showDashboardSection('reports')" class="w-full px-4 py-3 text-left hover:bg-gray-700 flex items-center">
+                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                </svg>
+                                <span class="sidebar-text">Laporan</span>
+                            </button>
+                            
+                            <button onclick="showDashboardSection('settings')" class="w-full px-4 py-3 text-left hover:bg-gray-700 flex items-center">
+                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                                <span class="sidebar-text">Pengaturan</span>
+                            </button>
+                        </div>
+                    </nav>
+                </div>
+                
+                <!-- Main Content -->
+                <div class="flex-1 ml-4 main-content" id="main-content">
+                    <!-- Dashboard Section -->
+                    <div id="dashboard-section" class="dashboard-section">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="bg-blue-100 p-4 rounded-lg">
+                                <h4 class="font-semibold text-gray-800">Total Guru</h4>
+                                <p class="text-3xl font-bold" id="total-teachers">12</p>
+                            </div>
+                            <div class="bg-green-100 p-4 rounded-lg">
+                                <h4 class="font-semibold text-gray-800">Total Santri</h4>
+                                <p class="text-3xl font-bold" id="total-students">156</p>
+                            </div>
+                            <div class="bg-purple-100 p-4 rounded-lg">
+                                <h4 class="font-semibold text-gray-800">Total Kelas</h4>
+                                <p class="text-3xl font-bold" id="total-classes">8</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 bg-white p-4 rounded-lg shadow">
+                            <h4 class="font-semibold text-lg mb-4">Aktivitas Terkini</h4>
+                            <div class="space-y-4">
+                                <div class="flex items-start">
+                                    <div class="bg-blue-100 p-2 rounded-full mr-3">
+                                        <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium">Ustadz Ahmad mengupload materi baru</p>
+                                        <p class="text-sm text-gray-600">Fiqih Ibadah - 10 menit yang lalu</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="bg-green-100 p-2 rounded-full mr-3">
+                                        <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium">Santri baru mendaftar</p>
+                                        <p class="text-sm text-gray-600">Muhammad Fajar - 30 menit yang lalu</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="bg-purple-100 p-2 rounded-full mr-3">
+                                        <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium">Ustadzah Fatimah memperbarui profil</p>
+                                        <p class="text-sm text-gray-600">1 jam yang lalu</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Manage Teachers Section -->
+                    <div id="manage-teachers-section" class="hidden dashboard-section">
+                        <div class="flex justify-between items-center mb-4">
+                            <h4 class="font-semibold text-lg">Daftar Guru</h4>
+                            <button onclick="showAddTeacherModal()" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 flex items-center">
+                                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                                </svg>
+                                <span>Tambah Guru</span>
+                            </button>
+                        </div>
+                        
+                        <div class="bg-white rounded-lg shadow overflow-hidden">
+                            <table class="min-w-full divide-y divide-gray-200">
+                                <thead class="bg-gray-50">
+                                    <tr>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nama</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Mata Pelajaran</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white divide-y divide-gray-200" id="teachers-list">
+                                    <!-- Teachers will be populated here by JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <!-- Manage Students Section -->
+                    <div id="manage-students-section" class="hidden dashboard-section">
+                        <div class="flex justify-between items-center mb-4">
+                            <h4 class="font-semibold text-lg">Daftar Santri</h4>
+                            <button onclick="showAddStudentModal()" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 flex items-center">
+                                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                                </svg>
+                                <span>Tambah Santri</span>
+                            </button>
+                        </div>
+                        
+                        <div class="bg-white rounded-lg shadow overflow-hidden">
+                            <table class="min-w-full divide-y divide-gray-200">
+                                <thead class="bg-gray-50">
+                                    <tr>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">NIS</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nama</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Kelas</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white divide-y divide-gray-200" id="students-list">
+                                    <!-- Students will be populated here by JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <!-- Manage Classes Section -->
+                    <div id="manage-classes-section" class="hidden dashboard-section">
+                        <div class="flex justify-between items-center mb-4">
+                            <h4 class="font-semibold text-lg">Daftar Kelas</h4>
+                            <button onclick="showAddClassModal()" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 flex items-center">
+                                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                                </svg>
+                                <span>Tambah Kelas</span>
+                            </button>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4" id="classes-list">
+                            <!-- Classes will be populated here by JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <!-- Manage Subjects Section -->
+                    <div id="manage-subjects-section" class="hidden dashboard-section">
+                        <div class="flex justify-between items-center mb-4">
+                            <h4 class="font-semibold text-lg">Daftar Mata Pelajaran</h4>
+                            <button onclick="showAddSubjectModal()" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 flex items-center">
+                                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                                </svg>
+                                <span>Tambah Mata Pelajaran</span>
+                            </button>
+                        </div>
+                        
+                        <div class="bg-white rounded-lg shadow overflow-hidden">
+                            <table class="min-w-full divide-y divide-gray-200">
+                                <thead class="bg-gray-50">
+                                    <tr>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Kode</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nama Mata Pelajaran</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Kelas</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Guru Pengampu</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white divide-y divide-gray-200" id="subjects-list">
+                                    <!-- Subjects will be populated here by JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <!-- Reports Section -->
+                    <div id="reports-section" class="hidden dashboard-section">
+                        <h4 class="font-semibold text-lg mb-4">Laporan Akademik</h4>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                            <div class="bg-white p-4 rounded-lg shadow">
+                                <h5 class="font-medium mb-2">Laporan Kehadiran Santri</h5>
+                                <div class="flex items-center mb-3">
+                                    <label class="mr-2">Pilih Kelas:</label>
+                                    <select class="border rounded px-2 py-1">
+                                        <option>Semua Kelas</option>
+                                        <option>Kelas 7</option>
+                                        <option>Kelas 8</option>
+                                        <option>Kelas 9</option>
+                                    </select>
+                                </div>
+                                <div class="flex items-center mb-3">
+                                    <label class="mr-2">Periode:</label>
+                                    <input type="date" class="border rounded px-2 py-1 mr-2"> s/d
+                                    <input type="date" class="border rounded px-2 py-1 ml-2">
+                                </div>
+                                <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Generate Laporan</button>
+                            </div>
+                            
+                            <div class="bg-white p-4 rounded-lg shadow">
+                                <h5 class="font-medium mb-2">Laporan Nilai Santri</h5>
+                                <div class="flex items-center mb-3">
+                                    <label class="mr-2">Pilih Mata Pelajaran:</label>
+                                    <select class="border rounded px-2 py-1">
+                                        <option>Semua Mata Pelajaran</option>
+                                        <option>Al-Qur'an</option>
+                                        <option>Bahasa Arab</option>
+                                        <option>Fiqih</option>
+                                    </select>
+                                </div>
+                                <div class="flex items-center mb-3">
+                                    <label class="mr-2">Semester:</label>
+                                    <select class="border rounded px-2 py-1">
+                                        <option>Semester 1</option>
+                                        <option>Semester 2</option>
+                                    </select>
+                                </div>
+                                <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Generate Laporan</button>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white p-4 rounded-lg shadow">
+                            <h5 class="font-medium mb-2">Statistik Pembelajaran</h5>
+                            <div class="h-64 bg-gray-100 flex items-center justify-center">
+                                <p class="text-gray-500">Grafik statistik akan muncul di sini</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Settings Section -->
+                    <div id="settings-section" class="hidden dashboard-section">
+                        <h4 class="font-semibold text-lg mb-4">Pengaturan Sistem</h4>
+                        
+                        <div class="bg-white p-4 rounded-lg shadow mb-6">
+                            <h5 class="font-medium mb-3">Informasi Pondok Pesantren</h5>
+                            <form>
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 mb-2">Nama Pesantren</label>
+                                    <input type="text" class="w-full px-3 py-2 border rounded" value="Ponpes Ibadurrahman Temas">
+                                </div>
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 mb-2">Alamat</label>
+                                    <textarea class="w-full px-3 py-2 border rounded">Jl. Raya Temas No. 123, Kec. Batu, Kota Batu, Jawa Timur 65314</textarea>
+                                </div>
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 mb-2">Telepon</label>
+                                    <input type="text" class="w-full px-3 py-2 border rounded" value="(0341) 1234567">
+                                </div>
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 mb-2">Email</label>
+                                    <input type="email" class="w-full px-3 py-2 border rounded" value="info@ponpesibadurrahman.id">
+                                </div>
+                                <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Simpan Perubahan</button>
+                            </form>
+                        </div>
+                        
+                        <div class="bg-white p-4 rounded-lg shadow">
+                            <h5 class="font-medium mb-3">Pengaturan Akun Admin</h5>
+                            <form>
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 mb-2">Nama Lengkap</label>
+                                    <input type="text" class="w-full px-3 py-2 border rounded" id="admin-fullname" value="Admin">
+                                </div>
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 mb-2">Email</label>
+                                    <input type="email" class="w-full px-3 py-2 border rounded" id="admin-email" value="admin@ponpesibadurrahman.id">
+                                </div>
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 mb-2">Password Baru</label>
+                                    <input type="password" class="w-full px-3 py-2 border rounded" placeholder="Kosongkan jika tidak ingin mengubah">
+                                </div>
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 mb-2">Konfirmasi Password Baru</label>
+                                    <input type="password" class="w-full px-3 py-2 border rounded" placeholder="Kosongkan jika tidak ingin mengubah">
+                                </div>
+                                <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Perbarui Profil</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Teacher Modal -->
+    <div id="add-teacher-modal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50">
+        <div class="relative top-20 mx-auto p-5 border w-11/12 max-w-2xl shadow-lg rounded-md bg-white">
+            <div class="flex justify-between items-center pb-3 border-b">
+                <h3 class="text-xl font-bold text-gray-800">Tambah Guru Baru</h3>
+                <button onclick="closeAddTeacherModal()" class="text-gray-500 hover:text-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <form id="add-teacher-form" class="mt-4 space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-gray-700 mb-1">Nama Lengkap</label>
+                        <input type="text" id="teacher-name" required class="w-full px-3 py-2 border rounded">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-1">Email</label>
+                        <input type="email" id="teacher-email" required class="w-full px-3 py-2 border rounded">
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-gray-700 mb-1">Password</label>
+                        <input type="password" id="teacher-password" required class="w-full px-3 py-2 border rounded">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-1">Konfirmasi Password</label>
+                        <input type="password" id="teacher-confirm-password" required class="w-full px-3 py-2 border rounded">
+                    </div>
+                </div>
+                
+                <div>
+                    <label class="block text-gray-700 mb-1">Mata Pelajaran</label>
+                    <select id="teacher-subjects" multiple class="w-full px-3 py-2 border rounded">
+                        <option value="quran">Al-Qur'an</option>
+                        <option value="arabic">Bahasa Arab</option>
+                        <option value="fiqh">Fiqih</option>
+                        <option value="aqidah">Aqidah</option>
+                        <option value="english">Bahasa Inggris</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label class="block text-gray-700 mb-1">Status</label>
+                    <select id="teacher-status" class="w-full px-3 py-2 border rounded">
+                        <option value="active">Aktif</option>
+                        <option value="inactive">Non-Aktif</option>
+                    </select>
+                </div>
+                
+                <div class="flex justify-end space-x-3 pt-4">
+                    <button type="button" onclick="closeAddTeacherModal()" class="px-4 py-2 border rounded text-gray-700 hover:bg-gray-100">Batal</button>
+                    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Simpan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Student Modal -->
+    <div id="add-student-modal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50">
+        <div class="relative top-20 mx-auto p-5 border w-11/12 max-w-2xl shadow-lg rounded-md bg-white">
+            <div class="flex justify-between items-center pb-3 border-b">
+                <h3 class="text-xl font-bold text-gray-800">Tambah Santri Baru</h3>
+                <button onclick="closeAddStudentModal()" class="text-gray-500 hover:text-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <form id="add-student-form" class="mt-4 space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-gray-700 mb-1">NIS</label>
+                        <input type="text" id="student-nis" required class="w-full px-3 py-2 border rounded">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-1">Nama Lengkap</label>
+                        <input type="text" id="student-name" required class="w-full px-3 py-2 border rounded">
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-gray-700 mb-1">Email</label>
+                        <input type="email" id="student-email" required class="w-full px-3 py-2 border rounded">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-1">Password</label>
+                        <input type="password" id="student-password" required class="w-full px-3 py-2 border rounded">
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-gray-700 mb-1">Kelas</label>
+                        <select id="student-class" class="w-full px-3 py-2 border rounded">
+                            <option value="7">Kelas 7</option>
+                            <option value="8">Kelas 8</option>
+                            <option value="9">Kelas 9</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-1">Status</label>
+                        <select id="student-status" class="w-full px-3 py-2 border rounded">
+                            <option value="active">Aktif</option>
+                            <option value="inactive">Non-Aktif</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div>
+                    <label class="block text-gray-700 mb-1">Alamat</label>
+                    <textarea id="student-address" class="w-full px-3 py-2 border rounded"></textarea>
+                </div>
+                
+                <div class="flex justify-end space-x-3 pt-4">
+                    <button type="button" onclick="closeAddStudentModal()" class="px-4 py-2 border rounded text-gray-700 hover:bg-gray-100">Batal</button>
+                    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Simpan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Class Modal -->
+    <div id="add-class-modal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50">
+        <div class="relative top-20 mx-auto p-5 border w-11/12 max-w-2xl shadow-lg rounded-md bg-white">
+            <div class="flex justify-between items-center pb-3 border-b">
+                <h3 class="text-xl font-bold text-gray-800">Tambah Kelas Baru</h3>
+                <button onclick="closeAddClassModal()" class="text-gray-500 hover:text-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <form id="add-class-form" class="mt-4 space-y-4">
+                <div>
+                    <label class="block text-gray-700 mb-1">Nama Kelas</label>
+                    <input type="text" id="class-name" required class="w-full px-3 py-2 border rounded">
+                </div>
+                
+                <div>
+                    <label class="block text-gray-700 mb-1">Tingkat</label>
+                    <select id="class-level" class="w-full px-3 py-2 border rounded">
+                        <option value="7">Kelas 7</option>
+                        <option value="8">Kelas 8</option>
+                        <option value="9">Kelas 9</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label class="block text-gray-700 mb-1">Wali Kelas</label>
+                    <select id="class-teacher" class="w-full px-3 py-2 border rounded">
+                        <option value="">Pilih Wali Kelas</option>
+                        <!-- Teachers will be populated here by JavaScript -->
+                    </select>
+                </div>
+                
+                <div>
+                    <label class="block text-gray-700 mb-1">Kapasitas Maksimal</label>
+                    <input type="number" id="class-capacity" class="w-full px-3 py-2 border rounded">
+                </div>
+                
+                <div class="flex justify-end space-x-3 pt-4">
+                    <button type="button" onclick="closeAddClassModal()" class="px-4 py-2 border rounded text-gray-700 hover:bg-gray-100">Batal</button>
+                    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Simpan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Subject Modal -->
+    <div id="add-subject-modal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50">
+        <div class="relative top-20 mx-auto p-5 border w-11/12 max-w-2xl shadow-lg rounded-md bg-white">
+            <div class="flex justify-between items-center pb-3 border-b">
+                <h3 class="text-xl font-bold text-gray-800">Tambah Mata Pelajaran Baru</h3>
+                <button onclick="closeAddSubjectModal()" class="text-gray-500 hover:text-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <form id="add-subject-form" class="mt-4 space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-gray-700 mb-1">Kode Mata Pelajaran</label>
+                        <input type="text" id="subject-code" required class="w-full px-3 py-2 border rounded">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-1">Nama Mata Pelajaran</label>
+                        <input type="text" id="subject-name" required class="w-full px-3 py-2 border rounded">
+                    </div>
+                </div>
+                
+                <div>
+                    <label class="block text-gray-700 mb-1">Kelas</label>
+                    <select id="subject-classes" multiple class="w-full px-3 py-2 border rounded">
+                        <option value="7">Kelas 7</option>
+                        <option value="8">Kelas 8</option>
+                        <option value="9">Kelas 9</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label class="block text-gray-700 mb-1">Guru Pengampu</label>
+                    <select id="subject-teacher" class="w-full px-3 py-2 border rounded">
+                        <option value="">Pilih Guru</option>
+                        <!-- Teachers will be populated here by JavaScript -->
+                    </select>
+                </div>
+                
+                <div>
+                    <label class="block text-gray-700 mb-1">Deskripsi</label>
+                    <textarea id="subject-description" class="w-full px-3 py-2 border rounded"></textarea>
+                </div>
+                
+                <div class="flex justify-end space-x-3 pt-4">
+                    <button type="button" onclick="closeAddSubjectModal()" class="px-4 py-2 border rounded text-gray-700 hover:bg-gray-100">Batal</button>
+                    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Simpan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="bg-gray-800 text-white py-8">
         <div class="container mx-auto px-4">
@@ -1312,254 +1190,40 @@
     </footer>
 
     <script>
-        // Sample data for the platform
-        const courses = [
-            {
-                id: 'tahsin-tahfidz',
-                title: 'Tahsin & Tahfidz Al-Qur\'an',
-                instructor: 'Ustadz Ahmad',
-                category: 'islamic',
-                description: 'Kursus untuk memperbaiki bacaan Al-Qur\'an dan menghafalnya dengan benar',
-                class: 'all',
-                modules: [
-                    {
-                        id: 1,
-                        title: 'Pengenalan Tajwid',
-                        content: `
-                            <p>Tajwid secara bahasa berasal dari kata jawwada-yujawwidu-tajwidan yang artinya membaguskan. Sedangkan secara istilah, ilmu tajwid adalah ilmu yang mempelajari tata cara membaca Al-Qur'an dengan baik dan benar sesuai dengan yang diajarkan oleh Rasulullah SAW.</p>
-                            
-                            <p class="mt-4">Hukum mempelajari ilmu tajwid adalah fardhu kifayah, sedangkan membaca Al-Qur'an dengan tajwid yang benar adalah fardhu 'ain bagi setiap muslim yang sudah baligh.</p>
-                            
-                            <h4 class="mt-6 mb-3 font-semibold">Materi Video:</h4>
-                            <div class="aspect-w-16 aspect-h-9 bg-gray-200 rounded-lg flex items-center justify-center">
-                                <div class="text-center">
-                                    <svg class="w-16 h-16 text-gray-400 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                    </svg>
-                                    <p class="mt-2 text-gray-600">Video Pengenalan Tajwid</p>
-                                </div>
-                            </div>
-                            
-                            <h4 class="mt-6 mb-3 font-semibold">Materi Tambahan:</h4>
-                            <div class="space-y-2">
-                                <div class="flex items-center p-3 border rounded-lg">
-                                    <svg class="w-5 h-5 text-gray-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                                    </svg>
-                                    <span>Panduan Tajwid Dasar.pdf</span>
-                                </div>
-                                <div class="flex items-center p-3 border rounded-lg">
-                                    <svg class="w-5 h-5 text-gray-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                                    </svg>
-                                    <span>Latihan Makhorijul Huruf.docx</span>
-                                </div>
-                            </div>
-                        `,
-                        completed: true
-                    },
-                    {
-                        id: 2,
-                        title: 'Makhorijul Huruf',
-                        content: `
-                            <p>Makhorijul huruf adalah tempat keluar masuknya huruf hijaiyah ketika diucapkan. Mengetahui makhorijul huruf dengan benar merupakan dasar penting dalam ilmu tajwid.</p>
-                            
-                            <p class="mt-4">Huruf hijaiyah dibagi menjadi 5 tempat keluarnya (makhraj):</p>
-                            
-                            <ol class="list-decimal pl-5 mt-2 space-y-2">
-                                <li>Al-Jauf (rongga mulut)</li>
-                                <li>Al-Halq (tenggorokan)</li>
-                                <li>Al-Lisan (lidah)</li>
-                                <li>Asy-Syafatain (dua bibir)</li>
-                                <li>Al-Khaisyum (rongga hidung)</li>
-                            </ol>
-                            
-                            <h4 class="mt-6 mb-3 font-semibold">Materi Video:</h4>
-                            <div class="aspect-w-16 aspect-h-9 bg-gray-200 rounded-lg flex items-center justify-center">
-                                <div class="text-center">
-                                    <svg class="w-16 h-16 text-gray-400 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                    </svg>
-                                    <p class="mt-2 text-gray-600">Video Makhorijul Huruf</p>
-                                </div>
-                            </div>
-                        `,
-                        completed: true
-                    }
-                ],
-                quizzes: [
-                    {
-                        id: 1,
-                        title: 'Kuis Tajwid Dasar',
-                        questions: [
-                            {
-                                id: 1,
-                                question: 'Apa yang dimaksud dengan ilmu tajwid?',
-                                options: [
-                                    'Ilmu tentang sejarah Al-Qur\'an',
-                                    'Ilmu tentang tata cara membaca Al-Qur\'an dengan baik dan benar',
-                                    'Ilmu tentang terjemahan Al-Qur\'an',
-                                    'Ilmu tentang penulisan Al-Qur\'an'
-                                ],
-                                correctAnswer: 1
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                id: 'bahasa-arab',
-                title: 'Bahasa Arab Dasar',
-                instructor: 'Ustadz Ahmad',
-                category: 'language',
-                description: 'Kursus bahasa Arab untuk pemula dengan fokus pada percakapan sehari-hari',
-                class: '7',
-                modules: [
-                    {
-                        id: 1,
-                        title: 'Pengenalan Huruf Hijaiyah',
-                        content: 'Materi pengenalan huruf hijaiyah...',
-                        completed: true
-                    }
-                ]
-            },
-            {
-                id: 'fiqih-ibadah',
-                title: 'Fiqih Ibadah',
-                instructor: 'Ustadzah Fatimah',
-                category: 'islamic',
-                description: 'Memahami tata cara ibadah sesuai syariat Islam',
-                class: '8',
-                modules: [
-                    {
-                        id: 1,
-                        title: 'Thaharah (Bersuci)',
-                        content: 'Materi thaharah...',
-                        completed: true
-                    }
-                ]
-            },
-            {
-                id: 'matematika-kelas-7',
-                title: 'Matematika Kelas 7',
-                instructor: 'Ustadz Abdullah',
-                category: 'math',
-                description: 'Materi matematika untuk kelas 7 sesuai kurikulum nasional',
-                class: '7',
-                modules: [
-                    {
-                        id: 1,
-                        title: 'Bilangan Bulat',
-                        content: 'Pengenalan bilangan bulat dan operasinya...',
-                        completed: true
-                    },
-                    {
-                        id: 2,
-                        title: 'Pecahan',
-                        content: 'Materi tentang pecahan biasa dan campuran...',
-                        completed: false
-                    }
-                ]
-            },
-            {
-                id: 'matematika-kelas-8',
-                title: 'Matematika Kelas 8',
-                instructor: 'Ustadz Abdullah',
-                category: 'math',
-                description: 'Materi matematika untuk kelas 8 sesuai kurikulum nasional',
-                class: '8',
-                modules: [
-                    {
-                        id: 1,
-                        title: 'Aljabar Dasar',
-                        content: 'Pengenalan aljabar dan persamaan linear...',
-                        completed: true
-                    }
-                ]
-            },
-            {
-                id: 'ipa-kelas-7',
-                title: 'Ilmu Pengetahuan Alam Kelas 7',
-                instructor: 'Ustadzah Siti',
-                category: 'science',
-                description: 'Materi IPA untuk kelas 7 sesuai kurikulum nasional',
-                class: '7',
-                modules: [
-                    {
-                        id: 1,
-                        title: 'Pengukuran',
-                        content: 'Materi tentang besaran, satuan, dan pengukuran...',
-                        completed: true
-                    }
-                ]
-            },
-            {
-                id: 'ips-kelas-8',
-                title: 'Ilmu Pengetahuan Sosial Kelas 8',
-                instructor: 'Ustadz Hasan',
-                category: 'social',
-                description: 'Materi IPS untuk kelas 8 sesuai kurikulum nasional',
-                class: '8',
-                modules: [
-                    {
-                        id: 1,
-                        title: 'Kehidupan Masyarakat Indonesia',
-                        content: 'Materi tentang keragaman budaya Indonesia...',
-                        completed: true
-                    }
-                ]
-            },
-            {
-                id: 'bahasa-inggris',
-                title: 'Bahasa Inggris Dasar',
-                instructor: 'Ustadzah Aminah',
-                category: 'language',
-                description: 'Kursus bahasa Inggris untuk pemula',
-                class: 'all',
-                modules: [
-                    {
-                        id: 1,
-                        title: 'Greetings and Introductions',
-                        content: 'Materi tentang salam dan perkenalan dalam bahasa Inggris...',
-                        completed: true
-                    }
-                ]
-            }
+        // Sample data for the dashboard
+        const sampleTeachers = [
+            { id: 1, name: "Ustadz Ahmad", email: "ahmad@ponpes.id", subjects: ["Al-Qur'an", "Bahasa Arab"], status: "active" },
+            { id: 2, name: "Ustadzah Fatimah", email: "fatimah@ponpes.id", subjects: ["Fiqih", "Aqidah"], status: "active" },
+            { id: 3, name: "Ustadz Abdullah", email: "abdullah@ponpes.id", subjects: ["Bahasa Inggris"], status: "inactive" }
+        ];
+
+        const sampleStudents = [
+            { nis: "2023001", name: "Muhammad Fajar", class: "7", status: "active" },
+            { nis: "2023002", name: "Aisyah Nur", class: "8", status: "active" },
+            { nis: "2023003", name: "Abdurrahman", class: "9", status: "inactive" }
+        ];
+
+        const sampleClasses = [
+            { id: 1, name: "Kelas 7A", level: "7", teacher: "Ustadz Ahmad", capacity: 30, students: 25 },
+            { id: 2, name: "Kelas 8B", level: "8", teacher: "Ustadzah Fatimah", capacity: 30, students: 28 },
+            { id: 3, name: "Kelas 9C", level: "9", teacher: "Ustadz Abdullah", capacity: 30, students: 22 }
+        ];
+
+        const sampleSubjects = [
+            { code: "QUR01", name: "Al-Qur'an", classes: ["7", "8", "9"], teacher: "Ustadz Ahmad" },
+            { code: "ARB02", name: "Bahasa Arab", classes: ["7", "8", "9"], teacher: "Ustadz Ahmad" },
+            { code: "FIQ03", name: "Fiqih", classes: ["8", "9"], teacher: "Ustadzah Fatimah" },
+            { code: "AQD04", name: "Aqidah", classes: ["7", "8"], teacher: "Ustadzah Fatimah" },
+            { code: "ENG05", name: "Bahasa Inggris", classes: ["9"], teacher: "Ustadz Abdullah" }
         ];
 
         // Authentication functions
         const users = {
-            admin: { 
-                email: 'smpislamibadurrahmantemas@gmail.com', 
-                password: 'PonpesTemas2017', 
-                name: 'Admin',
-                role: 'admin'
-            },
-            guru: { 
-                email: 'guru@ponpes.id', 
-                password: 'guru123', 
-                name: 'Ustadz Ahmad',
-                role: 'teacher'
-            },
-            santri: { 
-                email: 'santri@ponpes.id', 
-                password: 'santri123', 
-                name: 'Muhammad Fajar',
-                role: 'student'
-            }
+            admin: { email: 'smpislamibadurrahmantemas@gmail.com', password: 'PonpesTemas2017', name: 'Admin' },
+            guru: { email: 'guru@ponpes.id', password: 'guru123', name: 'Ustadz Ahmad' },
+            santri: { email: 'santri@ponpes.id', password: 'santri123', name: 'Muhammad Fajar' }
         };
 
-        // Current state
-        let currentUser = null;
-        let currentCourse = null;
-        let currentModuleIndex = 0;
-        let currentQuiz = null;
-        let currentQuestionIndex = 0;
-        let userAnswers = {};
-
-        // Platform functions
         function showLoginForm(role) {
             document.getElementById('login-options').classList.add('hidden');
             document.getElementById('login-form').classList.remove('hidden');
@@ -1584,450 +1248,330 @@
             }
             
             if (users[role] && email === users[role].email && password === users[role].password) {
-                currentUser = users[role];
                 localStorage.setItem('userRole', role);
                 localStorage.setItem('userName', users[role].name);
                 updateUserUI();
-                showPlatform();
                 
-                // Scroll to platform section
-                document.getElementById('platform').scrollIntoView({ behavior: 'smooth' });
+                if(role === 'admin') {
+                    showAdminDashboard();
+                } else if(role === 'guru') {
+                    alert('Anda berhasil login sebagai Guru. Dashboard Guru akan ditampilkan di sini.');
+                } else {
+                    alert('Anda berhasil login sebagai Santri. Dashboard Santri akan ditampilkan di sini.');
+                }
             } else {
                 alert('Email atau password salah!');
             }
         }
 
-        function showPlatform() {
-            document.getElementById('platform').classList.remove('hidden');
-            document.getElementById('platform-username').textContent = currentUser.name;
-            document.getElementById('platform-user-avatar').src = document.getElementById('user-avatar').src;
-            
-            // Show appropriate menu based on user role
-            document.getElementById('admin-menu').classList.add('hidden');
-            document.getElementById('teacher-menu').classList.add('hidden');
-            document.getElementById('student-menu').classList.add('hidden');
-            
-            if (currentUser.role === 'admin') {
-                document.getElementById('admin-menu').classList.remove('hidden');
-                showPlatformSection('admin-dashboard');
-            } else if (currentUser.role === 'teacher') {
-                document.getElementById('teacher-menu').classList.remove('hidden');
-                showPlatformSection('teacher-dashboard');
-                populateTeacherCourses();
-            } else {
-                document.getElementById('student-menu').classList.remove('hidden');
-                showPlatformSection('student-dashboard');
-                populateStudentCourses();
-            }
-            
-            populateCourseList();
+        function logout() {
+            localStorage.removeItem('userRole');
+            localStorage.removeItem('userName');
+            document.getElementById('user-menu').classList.add('hidden');
+            document.getElementById('mobile-user-menu').classList.add('hidden');
+            window.location.reload();
         }
 
-        function showPlatformSection(section) {
+        // Admin Dashboard Functions
+        function showAdminDashboard() {
+            document.getElementById('admin-dashboard').classList.remove('hidden');
+            document.getElementById('admin-name').textContent = localStorage.getItem('userName') || 'Admin';
+            showDashboardSection('dashboard');
+            populateTeachersTable();
+            populateStudentsTable();
+            populateClassesList();
+            populateSubjectsTable();
+        }
+
+        function closeAdminDashboard() {
+            document.getElementById('admin-dashboard').classList.add('hidden');
+        }
+
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const mainContent = document.getElementById('main-content');
+            
+            if (sidebar.classList.contains('sidebar-expanded')) {
+                sidebar.classList.remove('sidebar-expanded');
+                sidebar.classList.add('sidebar-collapsed');
+                mainContent.classList.remove('content-expanded');
+                mainContent.classList.add('content-collapsed');
+                
+                // Change the button text
+                document.querySelector('#sidebar button .sidebar-text').textContent = 'Tampilkan Menu';
+            } else {
+                sidebar.classList.remove('sidebar-collapsed');
+                sidebar.classList.add('sidebar-expanded');
+                mainContent.classList.remove('content-collapsed');
+                mainContent.classList.add('content-expanded');
+                
+                // Change the button text
+                document.querySelector('#sidebar button .sidebar-text').textContent = 'Sembunyikan Menu';
+            }
+        }
+
+        function showDashboardSection(section) {
             // Hide all sections
-            document.querySelectorAll('.platform-section').forEach(el => {
+            document.querySelectorAll('.dashboard-section').forEach(el => {
                 el.classList.add('hidden');
             });
             
             // Show the selected section
             document.getElementById(`${section}-section`).classList.remove('hidden');
             
-            // Update platform title
-            const titles = {
-                'admin-dashboard': 'Dashboard Admin',
-                'teacher-dashboard': 'Dashboard Guru',
-                'student-dashboard': 'Dashboard Santri',
-                'my-courses': 'Kursus Saya',
-                'course-detail': currentCourse ? currentCourse.title : 'Kursus'
-            };
-            
-            document.getElementById('platform-title').textContent = titles[section] || 'Dashboard';
-        }
-
-        function populateCourseList() {
-            const courseList = document.getElementById('course-list');
-            courseList.innerHTML = '';
-            
-            courses.forEach(course => {
-                const li = document.createElement('li');
-                li.innerHTML = `
-                    <button onclick="openCourse('${course.id}')" class="w-full text-left px-3 py-2 rounded-md hover:bg-gray-700 flex items-center">
-                        <div class="subject-icon ${getSubjectClass(course.category)} mr-3">
-                            ${getSubjectIcon(course.category)}
-                        </div>
-                        <span class="truncate">${course.title}</span>
-                    </button>
-                `;
-                courseList.appendChild(li);
-            });
-        }
-
-        function populateTeacherCourses() {
-            // For teacher dashboard
-            const teacherCoursesList = document.getElementById('teacher-courses-list');
-            teacherCoursesList.innerHTML = '';
-            
-            // Filter courses taught by this teacher
-            const teacherCourses = courses.filter(course => course.instructor === currentUser.name);
-            
-            teacherCourses.forEach(course => {
-                const card = document.createElement('div');
-                card.className = 'course-card bg-white border rounded-lg overflow-hidden';
-                card.innerHTML = `
-                    <div class="h-32 ${getSubjectColor(course.category)}"></div>
-                    <div class="p-4">
-                        <h4 class="font-semibold mb-2">${course.title}</h4>
-                        <p class="text-sm text-gray-600 mb-3">Kelas ${course.class === 'all' ? 'Semua' : course.class}</p>
-                        <div class="flex justify-between items-center">
-                            <span class="badge ${getSubjectBadgeClass(course.category)}">${getSubjectName(course.category)}</span>
-                            <button onclick="openCourse('${course.id}')" class="text-blue-600 hover:text-blue-800 text-sm font-medium">Buka</button>
-                        </div>
-                    </div>
-                `;
-                teacherCoursesList.appendChild(card);
+            // Update active menu
+            document.querySelectorAll('#sidebar button').forEach(el => {
+                el.classList.remove('active-menu');
             });
             
-            // For "My Courses" section
-            const myCoursesList = document.getElementById('my-courses-list');
-            myCoursesList.innerHTML = '';
-            
-            teacherCourses.forEach(course => {
-                const card = document.createElement('div');
-                card.className = 'course-card bg-white border rounded-lg overflow-hidden';
-                card.innerHTML = `
-                    <div class="h-32 ${getSubjectColor(course.category)}"></div>
-                    <div class="p-4">
-                        <h4 class="font-semibold mb-2">${course.title}</h4>
-                        <p class="text-sm text-gray-600 mb-3">${course.description}</p>
-                        <div class="flex justify-between items-center">
-                            <span class="badge ${getSubjectBadgeClass(course.category)}">Kelas ${course.class === 'all' ? 'Semua' : course.class}</span>
-                            <div class="flex space-x-2">
-                                <button onclick="openCourse('${course.id}')" class="text-blue-600 hover:text-blue-800 text-sm font-medium">Edit</button>
-                                <button onclick="deleteCourse('${course.id}')" class="text-red-600 hover:text-red-800 text-sm font-medium">Hapus</button>
-                            </div>
-                        </div>
-                    </div>
-                `;
-                myCoursesList.appendChild(card);
-            });
-        }
-
-        function populateStudentCourses() {
-            const studentCoursesList = document.getElementById('student-courses-list');
-            studentCoursesList.innerHTML = '';
-            
-            // For demo, show all courses
-            courses.forEach(course => {
-                const card = document.createElement('div');
-                card.className = 'course-card bg-white border rounded-lg overflow-hidden';
-                card.innerHTML = `
-                    <div class="h-32 ${getSubjectColor(course.category)}"></div>
-                    <div class="p-4">
-                        <h4 class="font-semibold mb-2">${course.title}</h4>
-                        <p class="text-sm text-gray-600 mb-3">${course.instructor}</p>
-                        <div class="flex justify-between items-center">
-                            <span class="badge ${getSubjectBadgeClass(course.category)}">${getSubjectName(course.category)}</span>
-                            <button onclick="openCourse('${course.id}')" class="text-blue-600 hover:text-blue-800 text-sm font-medium">Lanjutkan</button>
-                        </div>
-                    </div>
-                `;
-                studentCoursesList.appendChild(card);
-            });
-        }
-
-        function getSubjectClass(category) {
-            const classes = {
-                'islamic': 'subject-islamic',
-                'math': 'subject-math',
-                'science': 'subject-science',
-                'language': 'subject-language',
-                'social': 'subject-social'
-            };
-            return classes[category] || 'subject-islamic';
-        }
-
-        function getSubjectIcon(category) {
-            const icons = {
-                'islamic': 'إ',
-                'math': 'M',
-                'science': 'S',
-                'language': 'B',
-                'social': 'I'
-            };
-            return icons[category] || 'إ';
-        }
-
-        function getSubjectColor(category) {
-            const colors = {
-                'islamic': 'bg-blue-500',
-                'math': 'bg-red-500',
-                'science': 'bg-green-500',
-                'language': 'bg-yellow-500',
-                'social': 'bg-purple-500'
-            };
-            return colors[category] || 'bg-blue-500';
-        }
-
-        function getSubjectBadgeClass(category) {
-            const badges = {
-                'islamic': 'badge-primary',
-                'math': 'badge-orange',
-                'science': 'badge-success',
-                'language': 'badge-warning',
-                'social': 'badge-purple'
-            };
-            return badges[category] || 'badge-primary';
-        }
-
-        function getSubjectName(category) {
-            const names = {
-                'islamic': 'Agama',
-                'math': 'Matematika',
-                'science': 'IPA',
-                'language': 'Bahasa',
-                'social': 'IPS'
-            };
-            return names[category] || 'Agama';
-        }
-
-        function openCourse(courseId) {
-            currentCourse = courses.find(c => c.id === courseId);
-            if (!currentCourse) return;
-            
-            currentModuleIndex = 0;
-            showCourseDetail();
-        }
-
-        function showCourseDetail() {
-            if (!currentCourse) return;
-            
-            document.getElementById('course-title').textContent = currentCourse.title;
-            document.getElementById('course-instructor').textContent = currentCourse.instructor;
-            
-            // Show first module
-            showModule(currentModuleIndex);
-            
-            // Populate module list
-            const moduleList = document.getElementById('module-list');
-            moduleList.innerHTML = '';
-            
-            currentCourse.modules.forEach((module, index) => {
-                const div = document.createElement('div');
-                div.className = `module-item p-2 rounded cursor-pointer ${index === currentModuleIndex ? 'active' : ''}`;
-                div.innerHTML = `
-                    <div class="flex items-center">
-                        <div class="w-6 h-6 rounded-full flex items-center justify-center mr-2 ${module.completed ? 'bg-green-100 text-green-600' : 'bg-gray-100 text-gray-600'}">
-                            ${module.completed ? '✓' : (index + 1)}
-                        </div>
-                        <span class="text-sm">${module.title}</span>
-                    </div>
-                `;
-                div.addEventListener('click', () => {
-                    currentModuleIndex = index;
-                    showModule(currentModuleIndex);
-                    
-                    // Update active state
-                    document.querySelectorAll('.module-item').forEach(item => {
-                        item.classList.remove('active');
-                    });
-                    div.classList.add('active');
-                });
-                moduleList.appendChild(div);
+            // Find the button that matches the section and add active class
+            const activeButton = Array.from(document.querySelectorAll('#sidebar button')).find(btn => {
+                return btn.getAttribute('onclick').includes(section);
             });
             
-            showPlatformSection('course-detail');
-        }
-
-        function showModule(moduleIndex) {
-            if (!currentCourse || !currentCourse.modules[moduleIndex]) return;
-            
-            const module = currentCourse.modules[moduleIndex];
-            document.getElementById('module-title').textContent = module.title;
-            document.getElementById('module-content').innerHTML = module.content;
-            
-            // Update navigation buttons
-            const prevButton = document.getElementById('prev-module');
-            const nextButton = document.getElementById('next-module');
-            
-            prevButton.disabled = moduleIndex === 0;
-            nextButton.textContent = moduleIndex === currentCourse.modules.length - 1 ? 'Selesai' : 'Selanjutnya';
-            
-            prevButton.onclick = () => {
-                if (moduleIndex > 0) {
-                    currentModuleIndex--;
-                    showModule(currentModuleIndex);
-                    
-                    // Update active state in module list
-                    document.querySelectorAll('.module-item').forEach((item, index) => {
-                        if (index === currentModuleIndex) {
-                            item.classList.add('active');
-                        } else {
-                            item.classList.remove('active');
-                        }
-                    });
-                }
-            };
-            
-            nextButton.onclick = () => {
-                if (moduleIndex < currentCourse.modules.length - 1) {
-                    currentModuleIndex++;
-                    showModule(currentModuleIndex);
-                    
-                    // Update active state in module list
-                    document.querySelectorAll('.module-item').forEach((item, index) => {
-                        if (index === currentModuleIndex) {
-                            item.classList.add('active');
-                        } else {
-                            item.classList.remove('active');
-                        }
-                    });
-                } else {
-                    // Mark course as completed or show quiz
-                    if (currentCourse.quizzes && currentCourse.quizzes.length > 0) {
-                        startQuiz(currentCourse.quizzes[0]);
-                    } else {
-                        alert('Selamat! Anda telah menyelesaikan kursus ini.');
-                        showPlatformSection(currentUser.role === 'student' ? 'student-dashboard' : 'teacher-dashboard');
-                    }
-                }
-            };
-        }
-
-        function startQuiz(quiz) {
-            currentQuiz = quiz;
-            currentQuestionIndex = 0;
-            userAnswers = {};
-            showQuestion(currentQuestionIndex);
-            showPlatformSection('quiz-section');
-            
-            // Start timer if needed
-            startQuizTimer(15 * 60); // 15 minutes
-        }
-
-        function showQuestion(questionIndex) {
-            if (!currentQuiz || !currentQuiz.questions[questionIndex]) return;
-            
-            const question = currentQuiz.questions[questionIndex];
-            document.getElementById('quiz-title').textContent = currentQuiz.title;
-            document.getElementById('quiz-question').textContent = question.question;
-            document.getElementById('quiz-progress').textContent = `${questionIndex + 1}/${currentQuiz.questions.length}`;
-            
-            // Update progress bar
-            const progress = ((questionIndex + 1) / currentQuiz.questions.length) * 100;
-            document.querySelector('#quiz-content .bg-blue-600').style.width = `${progress}%`;
-            
-            // Populate options
-            const optionsContainer = document.querySelector('#quiz-content .space-y-3');
-            optionsContainer.innerHTML = '';
-            
-            question.options.forEach((option, index) => {
-                const optionDiv = document.createElement('div');
-                optionDiv.className = `quiz-option ${userAnswers[question.id] === index ? 'selected' : ''}`;
-                optionDiv.innerHTML = `<p>${option}</p>`;
-                optionDiv.onclick = () => selectOption(optionDiv, index, question.id);
-                optionsContainer.appendChild(optionDiv);
-            });
-            
-            // Update navigation buttons
-            const prevButton = document.getElementById('prev-question');
-            const nextButton = document.getElementById('next-question');
-            
-            prevButton.disabled = questionIndex === 0;
-            prevButton.onclick = () => {
-                if (questionIndex > 0) {
-                    currentQuestionIndex--;
-                    showQuestion(currentQuestionIndex);
-                }
-            };
-            
-            nextButton.textContent = questionIndex === currentQuiz.questions.length - 1 ? 'Selesai' : 'Selanjutnya';
-            nextButton.onclick = () => {
-                if (questionIndex < currentQuiz.questions.length - 1) {
-                    currentQuestionIndex++;
-                    showQuestion(currentQuestionIndex);
-                } else {
-                    finishQuiz();
-                }
-            };
-        }
-
-        function selectOption(optionElement, optionIndex, questionId) {
-            // Remove selected class from all options
-            document.querySelectorAll('.quiz-option').forEach(opt => {
-                opt.classList.remove('selected');
-            });
-            
-            // Add selected class to clicked option
-            optionElement.classList.add('selected');
-            
-            // Save answer
-            userAnswers[questionId] = optionIndex;
-        }
-
-        function startQuizTimer(duration) {
-            let timer = duration, minutes, seconds;
-            const timerElement = document.getElementById('quiz-time');
-            
-            const interval = setInterval(() => {
-                minutes = parseInt(timer / 60, 10);
-                seconds = parseInt(timer % 60, 10);
-                
-                minutes = minutes < 10 ? "0" + minutes : minutes;
-                seconds = seconds < 10 ? "0" + seconds : seconds;
-                
-                timerElement.textContent = minutes + ":" + seconds;
-                
-                if (--timer < 0) {
-                    clearInterval(interval);
-                    finishQuiz();
-                }
-            }, 1000);
-        }
-
-        function finishQuiz() {
-            // Calculate score
-            let score = 0;
-            currentQuiz.questions.forEach(question => {
-                if (userAnswers[question.id] === question.correctAnswer) {
-                    score++;
-                }
-            });
-            
-            const percentage = (score / currentQuiz.questions.length) * 100;
-            
-            // Show results
-            alert(`Quiz selesai! Nilai Anda: ${score}/${currentQuiz.questions.length} (${percentage.toFixed(1)}%)`);
-            
-            // Return to course or dashboard
-            showPlatformSection(currentUser.role === 'student' ? 'student-dashboard' : 'teacher-dashboard');
-        }
-
-        function showCreateCourseModal() {
-            document.getElementById('create-course-modal').classList.remove('hidden');
-        }
-
-        function closeCreateCourseModal() {
-            document.getElementById('create-course-modal').classList.add('hidden');
-            document.getElementById('create-course-form').reset();
-        }
-
-        function deleteCourse(courseId) {
-            if (confirm('Apakah Anda yakin ingin menghapus kursus ini?')) {
-                alert(`Kursus dengan ID ${courseId} akan dihapus.`);
-                // In a real app, you would make an API call to delete the course
-                populateTeacherCourses();
+            if (activeButton) {
+                activeButton.classList.add('active-menu');
             }
         }
 
-        function logout() {
-            currentUser = null;
-            localStorage.removeItem('userRole');
-            localStorage.removeItem('userName');
-            document.getElementById('user-menu').classList.add('hidden');
-            document.getElementById('mobile-user-menu').classList.add('hidden');
-            document.getElementById('platform').classList.add('hidden');
-            window.location.reload();
+        function populateTeachersTable() {
+            const teachersList = document.getElementById('teachers-list');
+            teachersList.innerHTML = '';
+            
+            sampleTeachers.forEach(teacher => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td class="px-6 py-4 whitespace-nowrap">${teacher.name}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">${teacher.email}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">${teacher.subjects.join(', ')}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${teacher.status === 'active' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}">
+                            ${teacher.status === 'active' ? 'Aktif' : 'Non-Aktif'}
+                        </span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                        <button onclick="editTeacher(${teacher.id})" class="text-blue-600 hover:text-blue-900 mr-2">Edit</button>
+                        <button onclick="deleteTeacher(${teacher.id})" class="text-red-600 hover:text-red-900">Hapus</button>
+                    </td>
+                `;
+                teachersList.appendChild(row);
+            });
         }
+
+        function populateStudentsTable() {
+            const studentsList = document.getElementById('students-list');
+            studentsList.innerHTML = '';
+            
+            sampleStudents.forEach(student => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td class="px-6 py-4 whitespace-nowrap">${student.nis}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">${student.name}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">Kelas ${student.class}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${student.status === 'active' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}">
+                            ${student.status === 'active' ? 'Aktif' : 'Non-Aktif'}
+                        </span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                        <button onclick="editStudent('${student.nis}')" class="text-blue-600 hover:text-blue-900 mr-2">Edit</button>
+                        <button onclick="deleteStudent('${student.nis}')" class="text-red-600 hover:text-red-900">Hapus</button>
+                    </td>
+                `;
+                studentsList.appendChild(row);
+            });
+        }
+
+        function populateClassesList() {
+            const classesList = document.getElementById('classes-list');
+            classesList.innerHTML = '';
+            
+            sampleClasses.forEach(cls => {
+                const card = document.createElement('div');
+                card.className = 'bg-white p-4 rounded-lg shadow';
+                card.innerHTML = `
+                    <h5 class="font-semibold text-lg mb-2">${cls.name}</h5>
+                    <p class="text-gray-600 mb-2">Wali Kelas: ${cls.teacher}</p>
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-sm text-gray-500">Santri: ${cls.students}/${cls.capacity}</span>
+                        <span class="text-sm px-2 py-1 bg-blue-100 text-blue-800 rounded">Kelas ${cls.level}</span>
+                    </div>
+                    <div class="flex justify-end space-x-2 mt-4">
+                        <button onclick="editClass(${cls.id})" class="text-blue-600 hover:text-blue-800 text-sm">Edit</button>
+                        <button onclick="deleteClass(${cls.id})" class="text-red-600 hover:text-red-800 text-sm">Hapus</button>
+                    </div>
+                `;
+                classesList.appendChild(card);
+            });
+        }
+
+        function populateSubjectsTable() {
+            const subjectsList = document.getElementById('subjects-list');
+            subjectsList.innerHTML = '';
+            
+            sampleSubjects.forEach(subject => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td class="px-6 py-4 whitespace-nowrap">${subject.code}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">${subject.name}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">Kelas ${subject.classes.join(', ')}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">${subject.teacher}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                        <button onclick="editSubject('${subject.code}')" class="text-blue-600 hover:text-blue-900 mr-2">Edit</button>
+                        <button onclick="deleteSubject('${subject.code}')" class="text-red-600 hover:text-red-900">Hapus</button>
+                    </td>
+                `;
+                subjectsList.appendChild(row);
+            });
+        }
+
+        // Teacher CRUD functions
+        function showAddTeacherModal() {
+            document.getElementById('add-teacher-modal').classList.remove('hidden');
+        }
+
+        function closeAddTeacherModal() {
+            document.getElementById('add-teacher-modal').classList.add('hidden');
+            document.getElementById('add-teacher-form').reset();
+        }
+
+        function editTeacher(id) {
+            const teacher = sampleTeachers.find(t => t.id === id);
+            if (teacher) {
+                document.getElementById('teacher-name').value = teacher.name;
+                document.getElementById('teacher-email').value = teacher.email;
+                document.getElementById('teacher-status').value = teacher.status;
+                
+                // Select the subjects (this is a simplified version)
+                // In a real app, you would need to handle multiple select properly
+                
+                showAddTeacherModal();
+            }
+        }
+
+        function deleteTeacher(id) {
+            if (confirm('Apakah Anda yakin ingin menghapus guru ini?')) {
+                alert(`Guru dengan ID ${id} akan dihapus.`);
+                // In a real app, you would make an API call to delete the teacher
+            }
+        }
+
+        // Student CRUD functions
+        function showAddStudentModal() {
+            document.getElementById('add-student-modal').classList.remove('hidden');
+        }
+
+        function closeAddStudentModal() {
+            document.getElementById('add-student-modal').classList.add('hidden');
+            document.getElementById('add-student-form').reset();
+        }
+
+        function editStudent(nis) {
+            const student = sampleStudents.find(s => s.nis === nis);
+            if (student) {
+                document.getElementById('student-nis').value = student.nis;
+                document.getElementById('student-name').value = student.name;
+                document.getElementById('student-class').value = student.class;
+                document.getElementById('student-status').value = student.status;
+                
+                showAddStudentModal();
+            }
+        }
+
+        function deleteStudent(nis) {
+            if (confirm('Apakah Anda yakin ingin menghapus santri ini?')) {
+                alert(`Santri dengan NIS ${nis} akan dihapus.`);
+                // In a real app, you would make an API call to delete the student
+            }
+        }
+
+        // Class CRUD functions
+        function showAddClassModal() {
+            document.getElementById('add-class-modal').classList.remove('hidden');
+        }
+
+        function closeAddClassModal() {
+            document.getElementById('add-class-modal').classList.add('hidden');
+            document.getElementById('add-class-form').reset();
+        }
+
+        function editClass(id) {
+            const cls = sampleClasses.find(c => c.id === id);
+            if (cls) {
+                document.getElementById('class-name').value = cls.name;
+                document.getElementById('class-level').value = cls.level;
+                document.getElementById('class-capacity').value = cls.capacity;
+                
+                // In a real app, you would set the teacher select value
+                
+                showAddClassModal();
+            }
+        }
+
+        function deleteClass(id) {
+            if (confirm('Apakah Anda yakin ingin menghapus kelas ini?')) {
+                alert(`Kelas dengan ID ${id} akan dihapus.`);
+                // In a real app, you would make an API call to delete the class
+            }
+        }
+
+        // Subject CRUD functions
+        function showAddSubjectModal() {
+            document.getElementById('add-subject-modal').classList.remove('hidden');
+        }
+
+        function closeAddSubjectModal() {
+            document.getElementById('add-subject-modal').classList.add('hidden');
+            document.getElementById('add-subject-form').reset();
+        }
+
+        function editSubject(code) {
+            const subject = sampleSubjects.find(s => s.code === code);
+            if (subject) {
+                document.getElementById('subject-code').value = subject.code;
+                document.getElementById('subject-name').value = subject.name;
+                
+                // In a real app, you would set the classes and teacher select values
+                
+                showAddSubjectModal();
+            }
+        }
+
+        function deleteSubject(code) {
+            if (confirm('Apakah Anda yakin ingin menghapus mata pelajaran ini?')) {
+                alert(`Mata pelajaran dengan kode ${code} akan dihapus.`);
+                // In a real app, you would make an API call to delete the subject
+            }
+        }
+
+        // Form submission handlers
+        document.getElementById('add-teacher-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Data guru berhasil disimpan!');
+            closeAddTeacherModal();
+            populateTeachersTable();
+        });
+
+        document.getElementById('add-student-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Data santri berhasil disimpan!');
+            closeAddStudentModal();
+            populateStudentsTable();
+        });
+
+        document.getElementById('add-class-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Data kelas berhasil disimpan!');
+            closeAddClassModal();
+            populateClassesList();
+        });
+
+        document.getElementById('add-subject-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Data mata pelajaran berhasil disimpan!');
+            closeAddSubjectModal();
+            populateSubjectsTable();
+        });
 
         // Update both desktop and mobile user UI
         function updateUserUI() {
@@ -2050,55 +1594,9 @@
             mobileMenu.classList.toggle('hidden');
         });
 
-        // Sidebar toggle for platform
-        document.getElementById('sidebar-toggle').addEventListener('click', function() {
-            const sidebar = document.getElementById('platform-sidebar');
-            sidebar.classList.toggle('hidden');
-        });
-
-        // Form submission for creating course
-        document.getElementById('create-course-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const title = document.getElementById('course-title-input').value;
-            const category = document.getElementById('course-category').value;
-            const description = document.getElementById('course-description').value;
-            const courseClass = document.getElementById('course-class').value;
-            
-            // Create new course object
-            const newCourse = {
-                id: 'course-' + Date.now(),
-                title: title,
-                instructor: currentUser.name,
-                category: category,
-                description: description,
-                class: courseClass,
-                modules: []
-            };
-            
-            // Add to courses array
-            courses.push(newCourse);
-            
-            // Update UI
-            populateTeacherCourses();
-            populateCourseList();
-            
-            // Close modal
-            closeCreateCourseModal();
-            
-            alert('Kursus berhasil dibuat!');
-        });
-
         // Check auth status on page load
         document.addEventListener('DOMContentLoaded', function() {
             updateUserUI();
-            
-            // If user is already logged in, show platform
-            const userRole = localStorage.getItem('userRole');
-            if (userRole && users[userRole]) {
-                currentUser = users[userRole];
-                showPlatform();
-            }
             
             // Simple script for smooth scrolling and mobile menu toggle
             // Mobile menu toggle (placeholder functionality)
@@ -2141,8 +1639,8 @@
                 });
             });
             
-            // Form submission handling for contact form
-            const contactForm = document.querySelector('#kontak form');
+            // Form submission handling
+            const contactForm = document.querySelector('form');
             if (contactForm) {
                 contactForm.addEventListener('submit', function(e) {
                     e.preventDefault();
