@@ -43,40 +43,6 @@
             width: 100%;
         }
 
-        /* Admin Dashboard Styles */
-        .sidebar {
-            transition: all 0.3s;
-        }
-        
-        .sidebar-collapsed {
-            width: 80px;
-        }
-        
-        .sidebar-expanded {
-            width: 250px;
-        }
-        
-        .main-content {
-            transition: all 0.3s;
-        }
-        
-        .content-expanded {
-            margin-left: 250px;
-        }
-        
-        .content-collapsed {
-            margin-left: 80px;
-        }
-        
-        .active-menu {
-            background-color: #3b82f6;
-            color: white;
-        }
-        
-        .active-menu:hover {
-            background-color: #2563eb;
-        }
-        
         /* Platform Pembelajaran Styles */
         .learning-card {
             transition: all 0.3s ease;
@@ -146,6 +112,40 @@
         .material-item:hover {
             background-color: #f8fafc;
         }
+
+        /* Dashboard Styles */
+        .dashboard-card {
+            transition: all 0.3s ease;
+        }
+        
+        .dashboard-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Platform Sections */
+        .platform-section {
+            display: none;
+        }
+        
+        .platform-section.active {
+            display: block;
+        }
+
+        /* Loading Animation */
+        .loading-spinner {
+            border: 4px solid #f3f4f6;
+            border-top: 4px solid #3b82f6;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -153,7 +153,6 @@
     <nav class="bg-white shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center space-x-2">
-                <!-- LOGO BARU -->
                 <img src="https://i.ibb.co.com/vNTTNz8/Logo-SMP-Islam-Ibadurraham-temas.jpg" alt="Logo SMP Islam Ibadurrahman Temas" class="w-12 h-12 object-contain">
                 <a href="#" class="text-xl font-bold text-gray-800">SMP Islam Ibadurrahman Temas</a>
             </div>
@@ -172,7 +171,6 @@
                 </div>
             </div>
             
-            <!-- Mobile menu button -->
             <button class="md:hidden text-gray-700 focus:outline-none" id="mobile-menu-button">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -180,7 +178,6 @@
             </button>
         </div>
         
-        <!-- Mobile menu -->
         <div class="md:hidden hidden" id="mobile-menu">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-500">Beranda</a>
@@ -200,9 +197,8 @@
         </div>
     </nav>
 
-    <!-- Hero Section dengan Background Baru -->
+    <!-- Hero Section -->
     <section id="home" class="relative h-screen flex items-center justify-center text-white bg-gray-900">
-        <!-- Background Image Baru -->
         <div class="absolute inset-0 w-full h-full">
             <img src="https://i.ibb.co.com/0RBBPY6c/Whats-App-Image-2025-10-26-at-15-01-40.jpg" alt="Background SMP Islam Ibadurrahman Temas" class="w-full h-full object-cover">
         </div>
@@ -210,7 +206,6 @@
         <div class="hero-overlay absolute inset-0"></div>
         
         <div class="container mx-auto px-4 relative z-10 text-center">
-            <!-- Logo di Hero Section -->
             <div class="flex justify-center mb-6">
                 <img src="https://i.ibb.co.com/vNTTNz8/Logo-SMP-Islam-Ibadurraham-temas.jpg" alt="Logo SMP Islam Ibadurrahman Temas" class="w-32 h-32 object-contain bg-white rounded-full p-4 shadow-lg">
             </div>
@@ -237,7 +232,6 @@
             
             <div class="flex flex-col lg:flex-row items-center gap-8">
                 <div class="lg:w-1/2">
-                    <!-- GAMBAR BARU DI SINI -->
                     <img src="https://i.ibb.co.com/9zT0Pfd/Whats-App-Image-2025-10-26-at-16-05-36.jpg" alt="SMP Islam Ibadurrahman Temas" class="rounded-lg shadow-xl w-full">
                 </div>
                 
@@ -295,10 +289,10 @@
             </div>
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Program 1 -->
+                <!-- Program cards remain the same -->
                 <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover transition duration-300">
                     <div class="h-48 overflow-hidden">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ebe1cc1b-505e-43c1-802a-c46ab50e3cc0.png" alt="Santri sedang menghafal Al-Quran di ruangan khusus tahfidz dengan latar rak-rak mushaf" class="w-full h-full object-cover">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ebe1cc1b-505e-43c1-802a-c46ab50e3cc0.png" alt="Santri sedang menghafal Al-Quran" class="w-full h-full object-cover">
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-semibold text-gray-800 mb-2">Qiraát Sabáh</h3>
@@ -312,14 +306,13 @@
                     </div>
                 </div>
                 
-                <!-- Program 2 -->
                 <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover transition duration-300">
                     <div class="h-48 overflow-hidden">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ca59e80b-a54e-42bf-a91d-3a41a56865b7.png" alt="Sekelompok santri perempuan berdiskusi di perpustakaan dengan buku-buku berbahasa arab" class="w-full h-full object-cover">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ca59e80b-a54e-42bf-a91d-3a41a56865b7.png" alt="Sekelompok santri perempuan berdiskusi" class="w-full h-full object-cover">
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-semibold text-gray-800 mb-2">Bahasa Arab & Bahasa Inggris</h3>
-                        <p class="text-gray-600 mb-4">program unggulan untuk memperkuat kompetensi bahasa internasional dan keislaman siswa. Melalui pendekatan intensif dan praktik harian, siswa dibimbing agar mampu berkomunikasi secara aktif dalam dua bahasa ini, baik secara lisan maupun tulisan.</p>
+                        <p class="text-gray-600 mb-4">Program unggulan untuk memperkuat kompetensi bahasa internasional dan keislaman siswa.</p>
                         <a href="#" class="text-blue-600 font-medium hover:text-blue-800 flex items-center">
                             Detail Program
                             <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -329,10 +322,9 @@
                     </div>
                 </div>
                 
-                <!-- Program 3 -->
                 <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover transition duration-300">
                     <div class="h-48 overflow-hidden">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c68e98a2-5a6a-42ef-afb1-9518a73049aa.png" alt="Laboratorium komputer dengan santri sedang belajar programming dan desain grafis" class="w-full h-full object-cover">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c68e98a2-5a6a-42ef-afb1-9518a73049aa.png" alt="Laboratorium komputer" class="w-full h-full object-cover">
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-semibold text-gray-800 mb-2">Pendidikan Formal</h3>
@@ -365,44 +357,36 @@
             </div>
             
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                <!-- Gambar 1 -->
                 <div class="overflow-hidden rounded-lg shadow-md">
-                    <img src="https://i.ibb.co.com/14X9TKH/Whats-App-Image-2025-10-26-at-16-05-33.jpg" alt="Kegiatan pembelajaran di SMP Islam Ibadurrahman Temas" class="w-full h-48 object-cover hover:scale-105 transition duration-300">
+                    <img src="https://i.ibb.co.com/14X9TKH/Whats-App-Image-2025-10-26-at-16-05-33.jpg" alt="Kegiatan pembelajaran" class="w-full h-48 object-cover hover:scale-105 transition duration-300">
                 </div>
                 
-                <!-- Gambar 2 -->
                 <div class="overflow-hidden rounded-lg shadow-md">
-                    <img src="https://i.ibb.co.com/TDrkjyrJ/Whats-App-Image-2025-10-26-at-16-05-34-1.jpg" alt="Kegiatan ekstrakurikuler santri" class="w-full h-48 object-cover hover:scale-105 transition duration-300">
+                    <img src="https://i.ibb.co.com/TDrkjyrJ/Whats-App-Image-2025-10-26-at-16-05-34-1.jpg" alt="Kegiatan ekstrakurikuler" class="w-full h-48 object-cover hover:scale-105 transition duration-300">
                 </div>
                 
-                <!-- Gambar 3 -->
                 <div class="overflow-hidden rounded-lg shadow-md">
-                    <img src="https://i.ibb.co.com/TBCxVsS3/Whats-App-Image-2025-10-26-at-16-05-34-2.jpg" alt="Proses belajar mengajar di kelas" class="w-full h-48 object-cover hover:scale-105 transition duration-300">
+                    <img src="https://i.ibb.co.com/TBCxVsS3/Whats-App-Image-2025-10-26-at-16-05-34-2.jpg" alt="Proses belajar mengajar" class="w-full h-48 object-cover hover:scale-105 transition duration-300">
                 </div>
                 
-                <!-- Gambar 4 -->
                 <div class="overflow-hidden rounded-lg shadow-md">
-                    <img src="https://i.ibb.co.com/fVZ7Wrj2/Whats-App-Image-2025-10-26-at-16-05-36-1.jpg" alt="Aktivitas santri di lingkungan sekolah" class="w-full h-48 object-cover hover:scale-105 transition duration-300">
+                    <img src="https://i.ibb.co.com/fVZ7Wrj2/Whats-App-Image-2025-10-26-at-16-05-36-1.jpg" alt="Aktivitas santri" class="w-full h-48 object-cover hover:scale-105 transition duration-300">
                 </div>
                 
-                <!-- Gambar 5 -->
                 <div class="overflow-hidden rounded-lg shadow-md">
-                    <img src="https://i.ibb.co.com/9zT0Pfd/Whats-App-Image-2025-10-26-at-16-05-36.jpg" alt="Kegiatan bersama di SMP Islam Ibadurrahman" class="w-full h-48 object-cover hover:scale-105 transition duration-300">
+                    <img src="https://i.ibb.co.com/9zT0Pfd/Whats-App-Image-2025-10-26-at-16-05-36.jpg" alt="Kegiatan bersama" class="w-full h-48 object-cover hover:scale-105 transition duration-300">
                 </div>
                 
-                <!-- Gambar 6 - Tambahan untuk melengkapi grid -->
                 <div class="overflow-hidden rounded-lg shadow-md">
-                    <img src="https://i.ibb.co.com/14X9TKH/Whats-App-Image-2025-10-26-at-16-05-33.jpg" alt="Suasana pembelajaran di SMP Islam Ibadurrahman" class="w-full h-48 object-cover hover:scale-105 transition duration-300">
+                    <img src="https://i.ibb.co.com/14X9TKH/Whats-App-Image-2025-10-26-at-16-05-33.jpg" alt="Suasana pembelajaran" class="w-full h-48 object-cover hover:scale-105 transition duration-300">
                 </div>
                 
-                <!-- Gambar 7 -->
                 <div class="overflow-hidden rounded-lg shadow-md">
-                    <img src="https://i.ibb.co.com/TDrkjyrJ/Whats-App-Image-2025-10-26-at-16-05-34-1.jpg" alt="Interaksi antara guru dan santri" class="w-full h-48 object-cover hover:scale-105 transition duration-300">
+                    <img src="https://i.ibb.co.com/TDrkjyrJ/Whats-App-Image-2025-10-26-at-16-05-34-1.jpg" alt="Interaksi guru dan santri" class="w-full h-48 object-cover hover:scale-105 transition duration-300">
                 </div>
                 
-                <!-- Gambar 8 -->
                 <div class="overflow-hidden rounded-lg shadow-md">
-                    <img src="https://i.ibb.co.com/TBCxVsS3/Whats-App-Image-2025-10-26-at-16-05-34-2.jpg" alt="Kegiatan kelompok belajar santri" class="w-full h-48 object-cover hover:scale-105 transition duration-300">
+                    <img src="https://i.ibb.co.com/TBCxVsS3/Whats-App-Image-2025-10-26-at-16-05-34-2.jpg" alt="Kegiatan kelompok" class="w-full h-48 object-cover hover:scale-105 transition duration-300">
                 </div>
             </div>
             
@@ -531,7 +515,7 @@
         </div>
     </section>
 
-    <!-- E-Learning Section -->
+    <!-- E-Learning Section - DIPERBAIKI DAN DIPERLUAS -->
     <section id="e-learning" class="py-16 bg-gray-100">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
@@ -540,108 +524,272 @@
                 <div class="w-20 h-1 bg-blue-600 mx-auto mt-4"></div>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+            <!-- Login Section -->
+            <div id="login-section" class="max-w-md mx-auto bg-white p-8 rounded-xl shadow-lg mb-8">
+                <h3 class="text-2xl font-bold text-center text-gray-800 mb-6">Masuk ke Platform</h3>
+                
+                <div id="login-options" class="space-y-4">
+                    <button onclick="showLoginForm('santri')" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-4 rounded-lg transition duration-300 flex items-center justify-center">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                        </svg>
+                        Login sebagai Santri
+                    </button>
+                    
+                    <button onclick="showLoginForm('guru')" class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-4 rounded-lg transition duration-300 flex items-center justify-center">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                        </svg>
+                        Login sebagai Guru
+                    </button>
+                    
+                    <button onclick="showLoginForm('admin')" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg transition duration-300 flex items-center justify-center">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                        </svg>
+                        Login sebagai Admin
+                    </button>
+                </div>
+                
+                <div id="login-form" class="hidden">
+                    <form class="space-y-4">
+                        <input type="hidden" id="login-role">
+                        <div>
+                            <label for="login-email" class="block text-sm font-medium text-gray-700">Email</label>
+                            <input type="email" id="login-email" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                        <div>
+                            <label for="login-password" class="block text-sm font-medium text-gray-700">Password</label>
+                            <input type="password" id="login-password" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                        <button type="button" onclick="handleLogin()" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition duration-300">Login</button>
+                        <button type="button" onclick="showLoginOptions()" class="w-full text-gray-600 mt-2 hover:text-gray-800">Kembali</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Platform Dashboard (akan ditampilkan setelah login) -->
+            <div id="platform-dashboard" class="hidden">
+                <!-- Navigation Platform -->
+                <div class="bg-white rounded-xl shadow-md p-4 mb-6">
+                    <div class="flex flex-wrap justify-between items-center">
+                        <div class="flex items-center space-x-4">
+                            <img id="dashboard-avatar" src="https://i.ibb.co.com/vNTTNz8/Logo-SMP-Islam-Ibadurraham-temas.jpg" alt="User" class="w-10 h-10 rounded-full">
+                            <div>
+                                <h3 id="dashboard-username" class="font-semibold text-gray-800"></h3>
+                                <p id="dashboard-role" class="text-sm text-gray-600"></p>
+                            </div>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button onclick="showPlatformSection('dashboard')" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition dashboard-nav active">Dashboard</button>
+                            <button onclick="showPlatformSection('materi')" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition dashboard-nav">Materi</button>
+                            <button onclick="showPlatformSection('tugas')" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition dashboard-nav">Tugas</button>
+                            <button onclick="showPlatformSection('diskusi')" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition dashboard-nav">Diskusi</button>
+                            <button onclick="logout()" class="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition">Logout</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dashboard Content -->
+                <div id="dashboard-content" class="platform-section active">
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                        <div class="dashboard-card bg-white p-6 rounded-xl shadow-md">
+                            <div class="flex items-center justify-between">
+                                <h4 class="text-lg font-semibold text-gray-800">Progress Belajar</h4>
+                                <span class="text-2xl font-bold text-blue-600">65%</span>
+                            </div>
+                            <div class="progress-bar mt-3">
+                                <div class="progress-fill" style="width: 65%"></div>
+                            </div>
+                            <p class="text-sm text-gray-600 mt-2">Menyelesaikan 13 dari 20 modul</p>
+                        </div>
+
+                        <div class="dashboard-card bg-white p-6 rounded-xl shadow-md">
+                            <div class="flex items-center justify-between">
+                                <h4 class="text-lg font-semibold text-gray-800">Tugas Terbaru</h4>
+                                <span class="text-2xl font-bold text-green-600">3</span>
+                            </div>
+                            <p class="text-sm text-gray-600 mt-2">Tugas menunggu penyelesaian</p>
+                            <button onclick="showPlatformSection('tugas')" class="mt-3 w-full bg-green-600 text-white py-2 rounded hover:bg-green-700 transition">Lihat Tugas</button>
+                        </div>
+
+                        <div class="dashboard-card bg-white p-6 rounded-xl shadow-md">
+                            <div class="flex items-center justify-between">
+                                <h4 class="text-lg font-semibold text-gray-800">Nilai Rata-rata</h4>
+                                <span class="text-2xl font-bold text-purple-600">85</span>
+                            </div>
+                            <p class="text-sm text-gray-600 mt-2">Nilai rata-rata semua mata pelajaran</p>
+                        </div>
+                    </div>
+
+                    <!-- Materi Terbaru -->
+                    <div class="bg-white rounded-xl shadow-md p-6">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-4">Materi Pembelajaran Terbaru</h4>
+                        <div class="space-y-4">
+                            <div class="material-item p-4 border border-gray-200 rounded-lg">
+                                <div class="flex justify-between items-center">
+                                    <div>
+                                        <h5 class="font-semibold text-gray-800">Matematika - Aljabar Dasar</h5>
+                                        <p class="text-sm text-gray-600">Oleh Ustadz Ahmad</p>
+                                    </div>
+                                    <span class="deep-learning-badge px-3 py-1 rounded-full text-sm">Baru</span>
+                                </div>
+                                <p class="text-gray-600 mt-2">Materi tentang persamaan linear dan kuadrat</p>
+                                <button class="mt-3 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Pelajari</button>
+                            </div>
+
+                            <div class="material-item p-4 border border-gray-200 rounded-lg">
+                                <div class="flex justify-between items-center">
+                                    <div>
+                                        <h5 class="font-semibold text-gray-800">Bahasa Arab - Nahwu</h5>
+                                        <p class="text-sm text-gray-600">Oleh Ustadzah Fatimah</p>
+                                    </div>
+                                    <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Selesai</span>
+                                </div>
+                                <p class="text-gray-600 mt-2">Struktur kalimat dalam bahasa Arab</p>
+                                <button class="mt-3 bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700 transition">Review</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Materi Section -->
+                <div id="materi-content" class="platform-section">
+                    <div class="bg-white rounded-xl shadow-md p-6">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-4">Semua Materi Pembelajaran</h4>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="learning-card bg-gray-50 p-4 rounded-lg">
+                                <h5 class="font-semibold text-gray-800 mb-2">Matematika</h5>
+                                <div class="flex items-center justify-between mb-3">
+                                    <span class="text-sm text-gray-600">5 Modul</span>
+                                    <span class="module-completed px-2 py-1 rounded text-sm">80%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 80%"></div>
+                                </div>
+                            </div>
+
+                            <div class="learning-card bg-gray-50 p-4 rounded-lg">
+                                <h5 class="font-semibold text-gray-800 mb-2">Bahasa Arab</h5>
+                                <div class="flex items-center justify-between mb-3">
+                                    <span class="text-sm text-gray-600">8 Modul</span>
+                                    <span class="module-completed px-2 py-1 rounded text-sm">100%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 100%"></div>
+                                </div>
+                            </div>
+
+                            <div class="learning-card bg-gray-50 p-4 rounded-lg">
+                                <h5 class="font-semibold text-gray-800 mb-2">Al-Qur'an</h5>
+                                <div class="flex items-center justify-between mb-3">
+                                    <span class="text-sm text-gray-600">6 Modul</span>
+                                    <span class="module-current px-2 py-1 rounded text-sm">Sedang</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 50%"></div>
+                                </div>
+                            </div>
+
+                            <div class="learning-card bg-gray-50 p-4 rounded-lg">
+                                <h5 class="font-semibold text-gray-800 mb-2">IPA</h5>
+                                <div class="flex items-center justify-between mb-3">
+                                    <span class="text-sm text-gray-600">4 Modul</span>
+                                    <span class="module-upcoming px-2 py-1 rounded text-sm">Belum</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 0%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tugas Section -->
+                <div id="tugas-content" class="platform-section">
+                    <div class="bg-white rounded-xl shadow-md p-6">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-4">Tugas dan Kuis</h4>
+                        <div class="space-y-4">
+                            <div class="border border-gray-200 rounded-lg p-4">
+                                <div class="flex justify-between items-center mb-3">
+                                    <h5 class="font-semibold text-gray-800">Tugas Matematika - Aljabar</h5>
+                                    <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm">Deadline: 2 Hari</span>
+                                </div>
+                                <p class="text-gray-600 mb-3">Selesaikan soal-soal persamaan linear pada halaman 45-47</p>
+                                <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Kerjakan Tugas</button>
+                            </div>
+
+                            <div class="border border-gray-200 rounded-lg p-4">
+                                <div class="flex justify-between items-center mb-3">
+                                    <h5 class="font-semibold text-gray-800">Kuis Bahasa Arab</h5>
+                                    <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Selesai</span>
+                                </div>
+                                <p class="text-gray-600 mb-3">Nilai: 85/100</p>
+                                <button class="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700 transition">Review Jawaban</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Diskusi Section -->
+                <div id="diskusi-content" class="platform-section">
+                    <div class="bg-white rounded-xl shadow-md p-6">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-4">Forum Diskusi</h4>
+                        <div class="space-y-4">
+                            <div class="discussion-item bg-gray-50 p-4 rounded-lg">
+                                <h5 class="font-semibold text-gray-800">Pertanyaan tentang Matematika</h5>
+                                <p class="text-gray-600 text-sm">Oleh: Ahmad - 2 jam yang lalu</p>
+                                <p class="text-gray-600 mt-2">Saya mengalami kesulitan dalam memahami soal nomor 5...</p>
+                                <button class="mt-2 text-blue-600 hover:text-blue-800">Lihat Diskusi</button>
+                            </div>
+
+                            <div class="discussion-item bg-gray-50 p-4 rounded-lg">
+                                <h5 class="font-semibold text-gray-800">Clarification on Arabic Grammar</h5>
+                                <p class="text-gray-600 text-sm">Oleh: Ustadzah Fatimah - 1 hari yang lalu</p>
+                                <p class="text-gray-600 mt-2">Penjelasan tambahan tentang kaidah nahwu...</p>
+                                <button class="mt-2 text-blue-600 hover:text-blue-800">Lihat Diskusi</button>
+                            </div>
+                        </div>
+
+                        <div class="mt-6">
+                            <h5 class="font-semibold text-gray-800 mb-3">Mulai Diskusi Baru</h5>
+                            <textarea class="w-full p-3 border border-gray-300 rounded-lg" rows="3" placeholder="Tulis pertanyaan atau topik diskusi Anda..."></textarea>
+                            <button class="mt-2 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Posting Diskusi</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fitur Platform -->
+            <div class="grid md:grid-cols-3 gap-8 mt-12">
+                <div class="bg-white p-6 rounded-lg shadow-md">
                     <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                         <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold mb-2">Login</h3>
-                    <p class="text-gray-600 mb-4">Masuk sebagai Admin, Guru, atau Santri</p>
-                    <div id="login-options" class="space-y-3">
-                        <button onclick="showLoginForm('admin')" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">Admin</button>
-                        <button onclick="showLoginForm('guru')" class="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700">Guru</button>
-                        <button onclick="showLoginForm('santri')" class="w-full bg-purple-600 text-white py-2 rounded hover:bg-purple-700">Santri</button>
-                    </div>
-                    
-                    <div id="login-form" class="hidden">
-                        <form class="space-y-4">
-                            <input type="hidden" id="login-role">
-                            <div>
-                                <label for="login-email" class="block text-sm font-medium text-gray-700">Email</label>
-                                <input type="email" id="login-email" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
-                            </div>
-                            <div>
-                                <label for="login-password" class="block text-sm font-medium text-gray-700">Password</label>
-                                <input type="password" id="login-password" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
-                            </div>
-                            <button type="button" onclick="handleLogin()" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">Login</button>
-                            <button type="button" onclick="showLoginOptions()" class="w-full text-gray-600 mt-2">Kembali</button>
-                        </form>
-                    </div>
+                    <h3 class="text-xl font-semibold text-center mb-2">Materi Interaktif</h3>
+                    <p class="text-gray-600 text-center">Akses materi pembelajaran dalam berbagai format: teks, video, dan presentasi interaktif</p>
                 </div>
 
                 <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold mb-4">Fitur Guru</h3>
-                    <ul class="space-y-3">
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-green-500 mt-1 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                            <span>Upload materi pembelajaran</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-green-500 mt-1 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                            <span>Berbagi link video YouTube</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-green-500 mt-1 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                            <span>Membuat ruang diskusi</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-green-500 mt-1 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                            <span>Membuat kuis dan ujian</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-green-500 mt-1 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                            <span>Export nilai santri</span>
-                        </li>
-                    </ul>
+                    <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-center mb-2">Tugas & Assessment</h3>
+                    <p class="text-gray-600 text-center">Kerjakan tugas online dan ikuti kuis dengan sistem penilaian otomatis</p>
                 </div>
 
                 <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold mb-4">Fitur Admin</h3>
-                    <ul class="space-y-3">
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-blue-500 mt-1 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                            <span>Manajemen data guru</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-blue-500 mt-1 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                            <span>Manajemen data santri</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-blue-500 mt-1 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                            <span>Manajemen kelas dan mata pelajaran</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-blue-500 mt-1 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                            <span>Monitoring aktifitas pembelajaran</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-blue-500 mt-1 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                            <span>Generasi laporan akademik</span>
-                        </li>
-                    </ul>
+                    <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-center mb-2">Forum Diskusi</h3>
+                    <p class="text-gray-600 text-center">Berinteraksi dengan guru dan sesama santri melalui forum diskusi yang terstruktur</p>
                 </div>
             </div>
         </div>
@@ -653,7 +801,6 @@
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="mb-6 md:mb-0">
                     <div class="flex items-center space-x-2">
-                        <!-- LOGO BARU DI FOOTER -->
                         <img src="https://i.ibb.co.com/vNTTNz8/Logo-SMP-Islam-Ibadurraham-temas.jpg" alt="Logo SMP Islam Ibadurrahman Temas" class="w-10 h-10 object-contain">
                         <span class="text-xl font-semibold">SMP Islam Ibadurrahman Temas</span>
                     </div>
@@ -690,17 +837,16 @@
     </footer>
 
     <script>
-        // Simple script for mobile menu toggle
+        // Mobile menu functionality
         document.getElementById('mobile-menu-button').addEventListener('click', function() {
             const mobileMenu = document.getElementById('mobile-menu');
             mobileMenu.classList.toggle('hidden');
         });
 
-        // Smooth scrolling for anchor links
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                
                 const targetId = this.getAttribute('href');
                 const targetElement = document.querySelector(targetId);
                 
@@ -710,47 +856,44 @@
                         behavior: 'smooth'
                     });
                     
-                    // Close mobile menu if open
                     const mobileMenu = document.getElementById('mobile-menu');
                     mobileMenu.classList.add('hidden');
                 }
             });
         });
 
-        // Form submission handling
+        // Contact form handling
         const contactForm = document.querySelector('form');
         if (contactForm) {
             contactForm.addEventListener('submit', function(e) {
                 e.preventDefault();
-                
-                // Get form values
                 const name = document.getElementById('name').value;
                 const email = document.getElementById('email').value;
                 const message = document.getElementById('message').value;
                 
-                // Simple validation
                 if (!name || !email || !message) {
                     alert('Mohon lengkapi semua field!');
                     return;
                 }
                 
-                // In a real app, you would send this to a server
                 alert('Terima kasih atas pesan Anda! Kami akan segera menghubungi Anda kembali.');
                 contactForm.reset();
             });
         }
 
-        // E-Learning login functionality
+        // Platform Learning Functionality
+        let currentUser = null;
+
         function showLoginForm(role) {
             document.getElementById('login-options').classList.add('hidden');
             document.getElementById('login-form').classList.remove('hidden');
             
-            // Set placeholder values based on role
             const emailField = document.getElementById('login-email');
             const roleField = document.getElementById('login-role');
             
             roleField.value = role;
             
+            // Set demo credentials based on role
             if (role === 'admin') {
                 emailField.value = 'admin@smpislamibadurrahman.id';
             } else if (role === 'guru') {
@@ -775,13 +918,62 @@
                 return;
             }
             
-            // Simple demo - in real app, this would connect to backend
-            alert(`Login berhasil sebagai ${role}\nEmail: ${email}\n\nIni adalah demo. Pada aplikasi nyata, ini akan membuka dashboard ${role}.`);
+            // Simulate login process
+            currentUser = {
+                email: email,
+                role: role,
+                name: role === 'admin' ? 'Administrator' : 
+                      role === 'guru' ? 'Ustadz Ahmad' : 'Santri Example'
+            };
+            
+            // Show platform dashboard
+            document.getElementById('login-section').classList.add('hidden');
+            document.getElementById('platform-dashboard').classList.remove('hidden');
+            
+            // Update user info
+            document.getElementById('dashboard-username').textContent = currentUser.name;
+            document.getElementById('dashboard-role').textContent = currentUser.role.toUpperCase();
+            
+            // Show success message
+            alert(`Login berhasil! Selamat datang ${currentUser.name}`);
+        }
+
+        function showPlatformSection(section) {
+            // Hide all sections
+            document.querySelectorAll('.platform-section').forEach(sec => {
+                sec.classList.remove('active');
+            });
+            
+            // Remove active class from all nav buttons
+            document.querySelectorAll('.dashboard-nav').forEach(btn => {
+                btn.classList.remove('active', 'bg-blue-600', 'text-white');
+                btn.classList.add('bg-gray-200', 'text-gray-700');
+            });
+            
+            // Show selected section
+            document.getElementById(section + '-content').classList.add('active');
+            
+            // Add active class to clicked nav button
+            event.target.classList.remove('bg-gray-200', 'text-gray-700');
+            event.target.classList.add('active', 'bg-blue-600', 'text-white');
+        }
+
+        function logout() {
+            currentUser = null;
+            document.getElementById('platform-dashboard').classList.add('hidden');
+            document.getElementById('login-section').classList.remove('hidden');
             document.getElementById('login-form').classList.add('hidden');
             document.getElementById('login-options').classList.remove('hidden');
             document.getElementById('login-email').value = '';
             document.getElementById('login-password').value = '';
+            
+            alert('Anda telah logout dari platform.');
         }
+
+        // Initialize platform
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add any initialization code here
+        });
     </script>
 </body>
 </html>
