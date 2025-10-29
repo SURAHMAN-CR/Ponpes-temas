@@ -161,10 +161,97 @@
             border-color: #3b82f6;
             ring: 2px solid #3b82f6;
         }
+        
+        /* E-Learning Section */
+        .platform-container {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+        
+        .login-card {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .role-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .role-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .role-card.selected {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+        }
+        
+        /* Quiz Styles */
+        .quiz-container {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .quiz-progress {
+            height: 8px;
+            border-radius: 4px;
+            background-color: #e5e7eb;
+            overflow: hidden;
+        }
+        
+        .quiz-progress-fill {
+            height: 100%;
+            border-radius: 4px;
+            background-color: #3b82f6;
+            transition: width 0.5s ease;
+        }
+        
+        /* Live Class Styles */
+        .live-class-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Gradebook Styles */
+        .grade-item {
+            border-left: 4px solid #3b82f6;
+            transition: all 0.3s ease;
+        }
+        
+        .grade-item:hover {
+            transform: translateX(5px);
+        }
+        
+        /* Calendar Styles */
+        .calendar-day {
+            border-radius: 0.5rem;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        
+        .calendar-day:hover {
+            background-color: #f3f4f6;
+        }
+        
+        .calendar-day.event {
+            background-color: #dbeafe;
+            color: #1e40af;
+        }
+        
+        .calendar-day.today {
+            background-color: #3b82f6;
+            color: white;
+        }
     </style>
 </head>
 <body class="bg-gray-50">
-    <!-- Navigation (TETAP SAMA) -->
+    <!-- Navigation -->
     <nav class="bg-white shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center space-x-2">
@@ -212,7 +299,7 @@
         </div>
     </nav>
 
-    <!-- Hero Section (TETAP SAMA) -->
+    <!-- Hero Section -->
     <section id="home" class="relative h-screen flex items-center justify-center text-white bg-gray-900">
         <div class="absolute inset-0 w-full h-full">
             <img src="https://i.ibb.co.com/0RBBPY6c/Whats-App-Image-2025-10-26-at-15-01-40.jpg" alt="Background SMP Islam Ibadurrahman Temas" class="w-full h-full object-cover">
@@ -234,7 +321,7 @@
         </div>
     </section>
 
-    <!-- Profile Section (TETAP SAMA) -->
+    <!-- Profile Section -->
     <section id="profile" class="py-16 bg-white">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
@@ -294,7 +381,7 @@
         </div>
     </section>
 
-    <!-- Program Section - GAMBAR SUDAH DIGANTI -->
+    <!-- Program Section -->
     <section id="program" class="py-16 bg-gray-50">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
@@ -364,7 +451,7 @@
         </div>
     </section>
 
-    <!-- Galeri Section (TETAP SAMA) -->
+    <!-- Galeri Section -->
     <section id="galeri" class="py-16 bg-white">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
@@ -415,7 +502,7 @@
         </div>
     </section>
 
-    <!-- Kontak Section (TETAP SAMA) -->
+    <!-- Kontak Section -->
     <section id="kontak" class="py-16 bg-gray-50">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
@@ -532,10 +619,581 @@
         </div>
     </section>
 
-    <!-- E-Learning Section - DIPERBAIKI DENGAN SISTEM MANAJEMEN KONTEN -->
-    <!-- ... (kode e-learning section tetap sama seperti sebelumnya) ... -->
+    <!-- E-Learning Section - DIPERBAIKI DENGAN FITUR KOMPLEKS -->
+    <section id="e-learning" class="platform-container py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Platform E-Learning</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Sistem pembelajaran online yang lengkap untuk mendukung kegiatan belajar mengajar</p>
+                <div class="w-20 h-1 bg-blue-600 mx-auto mt-4"></div>
+            </div>
+            
+            <!-- Login Section -->
+            <div id="login-section" class="max-w-4xl mx-auto">
+                <div class="login-card p-8">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold text-gray-800">Masuk ke Platform</h3>
+                        <p class="text-gray-600 mt-2">Pilih peran Anda untuk masuk ke sistem</p>
+                    </div>
+                    
+                    <div id="login-options" class="grid md:grid-cols-3 gap-6 mb-8">
+                        <div class="role-card border-2 border-gray-200 rounded-xl p-6 text-center" onclick="showLoginForm('santri')">
+                            <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                                </svg>
+                            </div>
+                            <h4 class="text-xl font-semibold text-gray-800 mb-2">Santri</h4>
+                            <p class="text-gray-600">Akses materi, tugas, dan forum diskusi</p>
+                        </div>
+                        
+                        <div class="role-card border-2 border-gray-200 rounded-xl p-6 text-center" onclick="showLoginForm('guru')">
+                            <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l9-5m-9 5v9"></path>
+                                </svg>
+                            </div>
+                            <h4 class="text-xl font-semibold text-gray-800 mb-2">Guru</h4>
+                            <p class="text-gray-600">Kelola materi, tugas, dan nilai santri</p>
+                        </div>
+                        
+                        <div class="role-card border-2 border-gray-200 rounded-xl p-6 text-center" onclick="showLoginForm('admin')">
+                            <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                            </div>
+                            <h4 class="text-xl font-semibold text-gray-800 mb-2">Admin</h4>
+                            <p class="text-gray-600">Kelola sistem dan pengguna platform</p>
+                        </div>
+                    </div>
+                    
+                    <div id="login-form" class="hidden max-w-md mx-auto">
+                        <div class="mb-6">
+                            <label for="login-email" class="form-label">Email</label>
+                            <input type="email" id="login-email" class="form-input" placeholder="Masukkan email Anda">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="login-password" class="form-label">Password</label>
+                            <input type="password" id="login-password" class="form-input" placeholder="Masukkan password">
+                        </div>
+                        
+                        <input type="hidden" id="login-role">
+                        
+                        <div class="flex justify-between items-center mb-6">
+                            <button onclick="showLoginOptions()" class="text-blue-600 hover:text-blue-800">Kembali</button>
+                            <button onclick="handleLogin()" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">Masuk</button>
+                        </div>
+                        
+                        <div class="text-center text-sm text-gray-600">
+                            <p>Gunakan email demo: <span id="demo-email" class="font-medium"></span></p>
+                            <p>Password: password123</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Platform Dashboard -->
+            <div id="platform-dashboard" class="hidden">
+                <!-- Dashboard Header -->
+                <div class="bg-white rounded-xl shadow-md p-6 mb-6">
+                    <div class="flex flex-col md:flex-row justify-between items-center">
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800">Dashboard E-Learning</h2>
+                            <p class="text-gray-600">Selamat datang, <span id="dashboard-username" class="font-medium"></span> (<span id="dashboard-role" class="font-medium"></span>)</p>
+                        </div>
+                        <div class="flex items-center space-x-4 mt-4 md:mt-0">
+                            <button id="admin-panel-btn" class="hidden bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition">Panel Admin</button>
+                            <button onclick="logout()" class="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition">Logout</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Dashboard Navigation -->
+                <div class="bg-white rounded-xl shadow-md p-4 mb-6">
+                    <div class="flex flex-wrap gap-2">
+                        <button class="dashboard-nav bg-blue-600 text-white px-4 py-2 rounded-lg active" onclick="showPlatformSection('dashboard')">Dashboard</button>
+                        <button class="dashboard-nav bg-gray-200 text-gray-700 px-4 py-2 rounded-lg" onclick="showPlatformSection('materi')">Materi</button>
+                        <button class="dashboard-nav bg-gray-200 text-gray-700 px-4 py-2 rounded-lg" onclick="showPlatformSection('tugas')">Tugas</button>
+                        <button class="dashboard-nav bg-gray-200 text-gray-700 px-4 py-2 rounded-lg" onclick="showPlatformSection('quiz')">Quiz</button>
+                        <button class="dashboard-nav bg-gray-200 text-gray-700 px-4 py-2 rounded-lg" onclick="showPlatformSection('diskusi')">Forum Diskusi</button>
+                        <button class="dashboard-nav bg-gray-200 text-gray-700 px-4 py-2 rounded-lg" onclick="showPlatformSection('nilai')">Nilai</button>
+                        <button class="dashboard-nav bg-gray-200 text-gray-700 px-4 py-2 rounded-lg" onclick="showPlatformSection('kalender')">Kalender</button>
+                        <button class="dashboard-nav bg-gray-200 text-gray-700 px-4 py-2 rounded-lg" onclick="showPlatformSection('live')">Kelas Live</button>
+                    </div>
+                </div>
+                
+                <!-- Dashboard Content -->
+                <div class="platform-section active" id="dashboard-content">
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+                        <div class="dashboard-card bg-white rounded-xl shadow-md p-6 text-center">
+                            <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Materi</h3>
+                            <p class="text-3xl font-bold text-blue-600" id="materi-count">0</p>
+                        </div>
+                        
+                        <div class="dashboard-card bg-white rounded-xl shadow-md p-6 text-center">
+                            <div class="bg-green-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Tugas</h3>
+                            <p class="text-3xl font-bold text-green-600" id="tugas-count">0</p>
+                        </div>
+                        
+                        <div class="dashboard-card bg-white rounded-xl shadow-md p-6 text-center">
+                            <div class="bg-purple-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Nilai Rata-rata</h3>
+                            <p class="text-3xl font-bold text-purple-600" id="nilai-rata">-</p>
+                        </div>
+                        
+                        <div class="dashboard-card bg-white rounded-xl shadow-md p-6 text-center">
+                            <div class="bg-yellow-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Progress</h3>
+                            <p class="text-3xl font-bold text-yellow-600" id="progress-percentage">0%</p>
+                        </div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-white rounded-xl shadow-md p-6">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-4">Progress Pembelajaran</h3>
+                            <div class="progress-bar mb-2">
+                                <div class="progress-fill" id="progress-bar-fill" style="width: 0%"></div>
+                            </div>
+                            <p class="text-gray-600 text-sm" id="progress-text">Menyelesaikan 0 dari 0 modul</p>
+                        </div>
+                        
+                        <div class="bg-white rounded-xl shadow-md p-6">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-4">Materi Terbaru</h3>
+                            <div id="recent-materials" class="space-y-4">
+                                <p class="text-gray-500 text-center py-4">Belum ada materi tersedia</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Materi Content -->
+                <div class="platform-section" id="materi-content">
+                    <div class="bg-white rounded-xl shadow-md p-6 mb-6">
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="text-xl font-semibold text-gray-800">Semua Materi Pembelajaran</h3>
+                            <button id="add-materi-btn" class="hidden bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition" onclick="showAddMateriForm()">Tambah Materi</button>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-6" id="all-materials">
+                            <p class="text-gray-500 text-center py-8 col-span-2">Belum ada materi tersedia</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tugas Content -->
+                <div class="platform-section" id="tugas-content">
+                    <div class="bg-white rounded-xl shadow-md p-6 mb-6">
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="text-xl font-semibold text-gray-800">Tugas dan PR</h3>
+                            <button id="add-tugas-btn" class="hidden bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition" onclick="showAddTugasForm()">Tambah Tugas</button>
+                        </div>
+                        
+                        <div class="space-y-6" id="all-tugas">
+                            <p class="text-gray-500 text-center py-8">Belum ada tugas tersedia</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Quiz Content -->
+                <div class="platform-section" id="quiz-content">
+                    <div class="bg-white rounded-xl shadow-md p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-6">Quiz dan Ujian Online</h3>
+                        
+                        <div class="grid md:grid-cols-2 gap-6 mb-8">
+                            <div class="quiz-container p-6">
+                                <h4 class="text-lg font-semibold text-gray-800 mb-4">Quiz Matematika - Aljabar</h4>
+                                <div class="flex items-center justify-between mb-4">
+                                    <span class="text-sm text-gray-600">10 Pertanyaan</span>
+                                    <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">30 Menit</span>
+                                </div>
+                                <p class="text-gray-600 mb-4">Quiz tentang dasar-dasar aljabar untuk kelas 7</p>
+                                <button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition" onclick="startQuiz('matematika')">Mulai Quiz</button>
+                            </div>
+                            
+                            <div class="quiz-container p-6">
+                                <h4 class="text-lg font-semibold text-gray-800 mb-4">Quiz Bahasa Arab - Kosakata</h4>
+                                <div class="flex items-center justify-between mb-4">
+                                    <span class="text-sm text-gray-600">15 Pertanyaan</span>
+                                    <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">45 Menit</span>
+                                </div>
+                                <p class="text-gray-600 mb-4">Quiz tentang kosakata bahasa Arab sehari-hari</p>
+                                <button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition" onclick="startQuiz('bahasa-arab')">Mulai Quiz</button>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h4 class="text-lg font-semibold text-gray-800 mb-4">Riwayat Quiz</h4>
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-sm text-left text-gray-600">
+                                    <thead class="text-xs text-gray-700 uppercase bg-gray-100">
+                                        <tr>
+                                            <th class="px-4 py-3">Quiz</th>
+                                            <th class="px-4 py-3">Tanggal</th>
+                                            <th class="px-4 py-3">Nilai</th>
+                                            <th class="px-4 py-3">Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="quiz-history">
+                                        <tr>
+                                            <td class="px-4 py-3" colspan="4" class="text-center">Belum ada riwayat quiz</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Diskusi Content -->
+                <div class="platform-section" id="diskusi-content">
+                    <div class="bg-white rounded-xl shadow-md p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-6">Forum Diskusi</h3>
+                        
+                        <div class="mb-8">
+                            <h4 class="text-lg font-semibold text-gray-800 mb-4">Buat Diskusi Baru</h4>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <div class="mb-4">
+                                    <label for="diskusi-judul" class="form-label">Judul Diskusi</label>
+                                    <input type="text" id="diskusi-judul" class="form-input" placeholder="Masukkan judul diskusi">
+                                </div>
+                                <div class="mb-4">
+                                    <label for="diskusi-deskripsi" class="form-label">Deskripsi</label>
+                                    <textarea id="diskusi-deskripsi" rows="3" class="form-input" placeholder="Tulis deskripsi diskusi"></textarea>
+                                </div>
+                                <button onclick="buatDiskusiBaru()" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">Buat Diskusi</button>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-lg font-semibold text-gray-800 mb-4">Diskusi Terbaru</h4>
+                            <div id="forum-diskusi" class="space-y-4">
+                                <p class="text-gray-500 text-center py-8">Belum ada diskusi tersedia</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Nilai Content -->
+                <div class="platform-section" id="nilai-content">
+                    <div class="bg-white rounded-xl shadow-md p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-6">Nilai dan Rapor</h3>
+                        
+                        <div class="mb-8">
+                            <h4 class="text-lg font-semibold text-gray-800 mb-4">Ringkasan Nilai</h4>
+                            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                                <div class="bg-blue-50 p-4 rounded-lg text-center">
+                                    <p class="text-sm text-gray-600">Matematika</p>
+                                    <p class="text-2xl font-bold text-blue-600" id="nilai-matematika">-</p>
+                                </div>
+                                <div class="bg-green-50 p-4 rounded-lg text-center">
+                                    <p class="text-sm text-gray-600">Bahasa Arab</p>
+                                    <p class="text-2xl font-bold text-green-600" id="nilai-bahasa-arab">-</p>
+                                </div>
+                                <div class="bg-purple-50 p-4 rounded-lg text-center">
+                                    <p class="text-sm text-gray-600">Al-Quran</p>
+                                    <p class="text-2xl font-bold text-purple-600" id="nilai-alquran">-</p>
+                                </div>
+                                <div class="bg-yellow-50 p-4 rounded-lg text-center">
+                                    <p class="text-sm text-gray-600">IPA</p>
+                                    <p class="text-2xl font-bold text-yellow-600" id="nilai-ipa">-</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-lg font-semibold text-gray-800 mb-4">Detail Nilai</h4>
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-sm text-left text-gray-600">
+                                    <thead class="text-xs text-gray-700 uppercase bg-gray-100">
+                                        <tr>
+                                            <th class="px-4 py-3">Mata Pelajaran</th>
+                                            <th class="px-4 py-3">Tugas</th>
+                                            <th class="px-4 py-3">Quiz</th>
+                                            <th class="px-4 py-3">UTS</th>
+                                            <th class="px-4 py-3">UAS</th>
+                                            <th class="px-4 py-3">Nilai Akhir</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="detail-nilai">
+                                        <tr>
+                                            <td class="px-4 py-3" colspan="6" class="text-center">Belum ada data nilai</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Kalender Content -->
+                <div class="platform-section" id="kalender-content">
+                    <div class="bg-white rounded-xl shadow-md p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-6">Kalender Akademik</h3>
+                        
+                        <div class="mb-6">
+                            <div class="flex justify-between items-center mb-4">
+                                <h4 class="text-lg font-semibold text-gray-800" id="calendar-month">Oktober 2023</h4>
+                                <div class="flex space-x-2">
+                                    <button onclick="changeMonth(-1)" class="bg-gray-200 p-2 rounded-lg hover:bg-gray-300 transition">
+                                        <svg class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                                        </svg>
+                                    </button>
+                                    <button onclick="changeMonth(1)" class="bg-gray-200 p-2 rounded-lg hover:bg-gray-300 transition">
+                                        <svg class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="grid grid-cols-7 gap-2 mb-2">
+                                <div class="text-center font-medium text-gray-700 py-2">Min</div>
+                                <div class="text-center font-medium text-gray-700 py-2">Sen</div>
+                                <div class="text-center font-medium text-gray-700 py-2">Sel</div>
+                                <div class="text-center font-medium text-gray-700 py-2">Rab</div>
+                                <div class="text-center font-medium text-gray-700 py-2">Kam</div>
+                                <div class="text-center font-medium text-gray-700 py-2">Jum</div>
+                                <div class="text-center font-medium text-gray-700 py-2">Sab</div>
+                            </div>
+                            
+                            <div class="grid grid-cols-7 gap-2" id="calendar-days">
+                                <!-- Calendar days will be populated by JavaScript -->
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-lg font-semibold text-gray-800 mb-4">Acara Mendatang</h4>
+                            <div id="upcoming-events" class="space-y-3">
+                                <div class="flex items-center p-3 bg-blue-50 rounded-lg">
+                                    <div class="bg-blue-100 p-2 rounded-lg mr-3">
+                                        <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium text-gray-800">UTS Semester Ganjil</p>
+                                        <p class="text-sm text-gray-600">15 Oktober 2023</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Live Class Content -->
+                <div class="platform-section" id="live-content">
+                    <div class="bg-white rounded-xl shadow-md p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-6">Kelas Live</h3>
+                        
+                        <div class="grid md:grid-cols-2 gap-6 mb-8">
+                            <div class="live-class-card p-6">
+                                <h4 class="text-xl font-semibold mb-2">Matematika - Ustadz Surahman, S.Pd</h4>
+                                <p class="mb-4">Pembahasan soal aljabar dan geometri</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <svg class="w-5 h-5 text-white mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                        <span>10:00 - 11:30 WIB</span>
+                                    </div>
+                                    <button class="bg-white text-purple-600 px-4 py-2 rounded-lg font-medium hover:bg-gray-100 transition">Gabung Kelas</button>
+                                </div>
+                            </div>
+                            
+                            <div class="live-class-card p-6">
+                                <h4 class="text-xl font-semibold mb-2">Bahasa Arab - Ustadz Ahmad</h4>
+                                <p class="mb-4">Pembelajaran kosakata dan percakapan</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <svg class="w-5 h-5 text-white mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                        <span>13:00 - 14:30 WIB</span>
+                                    </div>
+                                    <button class="bg-white text-purple-600 px-4 py-2 rounded-lg font-medium hover:bg-gray-100 transition">Gabung Kelas</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h4 class="text-lg font-semibold text-gray-800 mb-4">Jadwal Kelas Live</h4>
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-sm text-left text-gray-600">
+                                    <thead class="text-xs text-gray-700 uppercase bg-gray-100">
+                                        <tr>
+                                            <th class="px-4 py-3">Hari</th>
+                                            <th class="px-4 py-3">Mata Pelajaran</th>
+                                            <th class="px-4 py-3">Pengajar</th>
+                                            <th class="px-4 py-3">Waktu</th>
+                                            <th class="px-4 py-3">Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="bg-white border-b">
+                                            <td class="px-4 py-3 font-medium">Senin</td>
+                                            <td class="px-4 py-3">Matematika</td>
+                                            <td class="px-4 py-3">Ustadz Surahman, S.Pd</td>
+                                            <td class="px-4 py-3">10:00 - 11:30 WIB</td>
+                                            <td class="px-4 py-3"><span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Aktif</span></td>
+                                        </tr>
+                                        <tr class="bg-white border-b">
+                                            <td class="px-4 py-3 font-medium">Selasa</td>
+                                            <td class="px-4 py-3">Bahasa Arab</td>
+                                            <td class="px-4 py-3">Ustadz Ahmad</td>
+                                            <td class="px-4 py-3">13:00 - 14:30 WIB</td>
+                                            <td class="px-4 py-3"><span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Aktif</span></td>
+                                        </tr>
+                                        <tr class="bg-white border-b">
+                                            <td class="px-4 py-3 font-medium">Rabu</td>
+                                            <td class="px-4 py-3">Al-Quran</td>
+                                            <td class="px-4 py-3">Ustadz Fahmi</td>
+                                            <td class="px-4 py-3">09:00 - 10:30 WIB</td>
+                                            <td class="px-4 py-3"><span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Aktif</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Admin Panel -->
+                <div id="admin-panel" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+                    <div class="bg-white rounded-xl shadow-lg p-6 w-full max-w-4xl max-h-screen overflow-y-auto">
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="text-2xl font-bold text-gray-800">Panel Admin</h3>
+                            <button onclick="closeAdminPanel()" class="text-gray-500 hover:text-gray-700">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="text-lg font-semibold text-gray-800 mb-4">Tambah Materi Baru</h4>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <div class="mb-4">
+                                        <label for="materi-judul" class="form-label">Judul Materi</label>
+                                        <input type="text" id="materi-judul" class="form-input" placeholder="Masukkan judul materi">
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="materi-mapel" class="form-label">Mata Pelajaran</label>
+                                        <select id="materi-mapel" class="form-input">
+                                            <option value="Matematika">Matematika</option>
+                                            <option value="Bahasa Arab">Bahasa Arab</option>
+                                            <option value="Al-Quran">Al-Quran</option>
+                                            <option value="IPA">IPA</option>
+                                            <option value="IPS">IPS</option>
+                                            <option value="Bahasa Indonesia">Bahasa Indonesia</option>
+                                            <option value="Bahasa Inggris">Bahasa Inggris</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="materi-deskripsi" class="form-label">Deskripsi</label>
+                                        <textarea id="materi-deskripsi" rows="3" class="form-input" placeholder="Tulis deskripsi materi"></textarea>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="materi-link" class="form-label">Link Materi</label>
+                                        <input type="text" id="materi-link" class="form-input" placeholder="Masukkan link materi">
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="materi-kesulitan" class="form-label">Tingkat Kesulitan</label>
+                                        <select id="materi-kesulitan" class="form-input">
+                                            <option value="Pemula">Pemula</option>
+                                            <option value="Menengah">Menengah</option>
+                                            <option value="Lanjutan">Lanjutan</option>
+                                        </select>
+                                    </div>
+                                    <button onclick="tambahMateri()" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">Tambah Materi</button>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h4 class="text-lg font-semibold text-gray-800 mb-4">Tambah Tugas Baru</h4>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <div class="mb-4">
+                                        <label for="tugas-judul" class="form-label">Judul Tugas</label>
+                                        <input type="text" id="tugas-judul" class="form-input" placeholder="Masukkan judul tugas">
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="tugas-mapel" class="form-label">Mata Pelajaran</label>
+                                        <select id="tugas-mapel" class="form-input">
+                                            <option value="Matematika">Matematika</option>
+                                            <option value="Bahasa Arab">Bahasa Arab</option>
+                                            <option value="Al-Quran">Al-Quran</option>
+                                            <option value="IPA">IPA</option>
+                                            <option value="IPS">IPS</option>
+                                            <option value="Bahasa Indonesia">Bahasa Indonesia</option>
+                                            <option value="Bahasa Inggris">Bahasa Inggris</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="tugas-deskripsi" class="form-label">Deskripsi</label>
+                                        <textarea id="tugas-deskripsi" rows="3" class="form-input" placeholder="Tulis deskripsi tugas"></textarea>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="tugas-deadline" class="form-label">Deadline</label>
+                                        <input type="date" id="tugas-deadline" class="form-input">
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="tugas-link" class="form-label">Link Tugas</label>
+                                        <input type="text" id="tugas-link" class="form-input" placeholder="Masukkan link tugas">
+                                    </div>
+                                    <button onclick="tambahTugas()" class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition">Tambah Tugas</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8 grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="text-lg font-semibold text-gray-800 mb-4">Daftar Materi</h4>
+                                <div class="bg-gray-50 p-4 rounded-lg max-h-60 overflow-y-auto">
+                                    <div id="admin-materi-list" class="space-y-3">
+                                        <p class="text-gray-500 text-center">Belum ada materi</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h4 class="text-lg font-semibold text-gray-800 mb-4">Daftar Tugas</h4>
+                                <div class="bg-gray-50 p-4 rounded-lg max-h-60 overflow-y-auto">
+                                    <div id="admin-tugas-list" class="space-y-3">
+                                        <p class="text-gray-500 text-center">Belum ada tugas</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Footer (TETAP SAMA) -->
+    <!-- Footer -->
     <footer class="bg-gray-800 text-white py-8">
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row justify-between items-center">
@@ -582,7 +1240,10 @@
             materi: [],
             tugas: [],
             diskusi: [],
-            userProgress: {}
+            quizHistory: [],
+            nilai: {},
+            userProgress: {},
+            events: []
         };
 
         // Load data from localStorage
@@ -590,6 +1251,79 @@
             const saved = localStorage.getItem('platformData');
             if (saved) {
                 platformData = JSON.parse(saved);
+            } else {
+                // Initialize with sample data
+                platformData.materi = [
+                    {
+                        id: '1',
+                        judul: 'Pengenalan Aljabar',
+                        mapel: 'Matematika',
+                        deskripsi: 'Materi pengenalan dasar-dasar aljabar untuk pemula',
+                        link: '#',
+                        kesulitan: 'Pemula',
+                        pembuat: 'Ustadz Surahman, S.Pd',
+                        tanggal: new Date().toISOString()
+                    },
+                    {
+                        id: '2',
+                        judul: 'Kosakata Bahasa Arab Sehari-hari',
+                        mapel: 'Bahasa Arab',
+                        deskripsi: 'Belajar kosakata bahasa Arab yang digunakan dalam percakapan sehari-hari',
+                        link: '#',
+                        kesulitan: 'Pemula',
+                        pembuat: 'Ustadz Ahmad',
+                        tanggal: new Date().toISOString()
+                    }
+                ];
+                
+                platformData.tugas = [
+                    {
+                        id: '1',
+                        judul: 'Tugas Aljabar - Persamaan Linear',
+                        mapel: 'Matematika',
+                        deskripsi: 'Selesaikan soal-soal persamaan linear satu variabel',
+                        deadline: '2023-11-10',
+                        link: '#',
+                        pembuat: 'Ustadz Surahman, S.Pd',
+                        tanggal: new Date().toISOString()
+                    }
+                ];
+                
+                platformData.diskusi = [
+                    {
+                        id: '1',
+                        judul: 'Kesulitan dalam memahami aljabar',
+                        deskripsi: 'Saya mengalami kesulitan dalam memahami konsep variabel dalam aljabar. Ada yang bisa bantu?',
+                        pembuat: 'Santri A',
+                        tanggal: new Date().toISOString(),
+                        komentar: [
+                            {
+                                pengirim: 'Ustadz Surahman, S.Pd',
+                                isi: 'Coba pelajari dulu konsep dasar persamaan. Saya akan buatkan video penjelasan tambahan.',
+                                tanggal: new Date().toISOString()
+                            }
+                        ]
+                    }
+                ];
+                
+                platformData.quizHistory = [];
+                
+                platformData.nilai = {
+                    'santri@smpislamibadurrahman.id': {
+                        Matematika: { tugas: 85, quiz: 80, uts: 78, uas: 82, akhir: 81 },
+                        'Bahasa Arab': { tugas: 90, quiz: 85, uts: 88, uas: 92, akhir: 89 },
+                        'Al-Quran': { tugas: 95, quiz: 90, uts: 92, uas: 94, akhir: 93 },
+                        IPA: { tugas: 80, quiz: 75, uts: 78, uas: 82, akhir: 79 }
+                    }
+                };
+                
+                platformData.events = [
+                    { title: 'UTS Semester Ganjil', date: '2023-10-15' },
+                    { title: 'UAS Semester Ganjil', date: '2023-12-10' },
+                    { title: 'Libur Semester', date: '2023-12-20' }
+                ];
+                
+                savePlatformData();
             }
         }
 
@@ -644,6 +1378,8 @@
 
         // Platform Learning Functionality
         let currentUser = null;
+        let currentMonth = new Date().getMonth();
+        let currentYear = new Date().getFullYear();
 
         function showLoginForm(role) {
             document.getElementById('login-options').classList.add('hidden');
@@ -651,16 +1387,20 @@
             
             const emailField = document.getElementById('login-email');
             const roleField = document.getElementById('login-role');
+            const demoEmail = document.getElementById('demo-email');
             
             roleField.value = role;
             
             // Set demo credentials based on role
             if (role === 'admin') {
                 emailField.value = 'admin@smpislamibadurrahman.id';
+                demoEmail.textContent = 'admin@smpislamibadurrahman.id';
             } else if (role === 'guru') {
                 emailField.value = 'guru@smpislamibadurrahman.id';
+                demoEmail.textContent = 'guru@smpislamibadurrahman.id';
             } else {
                 emailField.value = 'santri@smpislamibadurrahman.id';
+                demoEmail.textContent = 'santri@smpislamibadurrahman.id';
             }
         }
 
@@ -679,12 +1419,17 @@
                 return;
             }
             
+            if (password !== 'password123') {
+                alert('Password salah! Gunakan password: password123');
+                return;
+            }
+            
             // Simulate login process
             currentUser = {
                 email: email,
                 role: role,
                 name: role === 'admin' ? 'Administrator' : 
-                      role === 'guru' ? 'Ustadz Ahmad' : 'Santri Example'
+                      role === 'guru' ? 'Ustadz Surahman, S.Pd' : 'Santri Example'
             };
             
             // Show platform dashboard
@@ -731,6 +1476,12 @@
             loadAllTugas();
             // Load diskusi
             loadDiskusi();
+            // Load nilai
+            loadNilai();
+            // Load quiz history
+            loadQuizHistory();
+            // Load calendar
+            loadCalendar();
             // Load admin lists
             loadAdminLists();
         }
@@ -851,6 +1602,113 @@
             `).join('');
         }
 
+        function loadNilai() {
+            const userNilai = platformData.nilai[currentUser.email];
+            
+            if (userNilai) {
+                // Update summary
+                document.getElementById('nilai-matematika').textContent = userNilai.Matematika?.akhir || '-';
+                document.getElementById('nilai-bahasa-arab').textContent = userNilai['Bahasa Arab']?.akhir || '-';
+                document.getElementById('nilai-alquran').textContent = userNilai['Al-Quran']?.akhir || '-';
+                document.getElementById('nilai-ipa').textContent = userNilai.IPA?.akhir || '-';
+                
+                // Calculate average
+                const nilaiAkhir = Object.values(userNilai).map(n => n.akhir);
+                const rataRata = nilaiAkhir.length > 0 ? 
+                    Math.round(nilaiAkhir.reduce((a, b) => a + b) / nilaiAkhir.length) : 0;
+                
+                document.getElementById('nilai-rata').textContent = rataRata;
+                
+                // Update detail table
+                const container = document.getElementById('detail-nilai');
+                container.innerHTML = Object.entries(userNilai).map(([mapel, nilai]) => `
+                    <tr class="bg-white border-b">
+                        <td class="px-4 py-3 font-medium">${mapel}</td>
+                        <td class="px-4 py-3">${nilai.tugas}</td>
+                        <td class="px-4 py-3">${nilai.quiz}</td>
+                        <td class="px-4 py-3">${nilai.uts}</td>
+                        <td class="px-4 py-3">${nilai.uas}</td>
+                        <td class="px-4 py-3 font-semibold">${nilai.akhir}</td>
+                    </tr>
+                `).join('');
+            } else {
+                document.getElementById('detail-nilai').innerHTML = `
+                    <tr>
+                        <td class="px-4 py-3" colspan="6" class="text-center">Belum ada data nilai</td>
+                    </tr>
+                `;
+            }
+        }
+
+        function loadQuizHistory() {
+            const container = document.getElementById('quiz-history');
+            const userQuizHistory = platformData.quizHistory.filter(q => q.user === currentUser.email);
+            
+            if (userQuizHistory.length === 0) {
+                container.innerHTML = `
+                    <tr>
+                        <td class="px-4 py-3" colspan="4" class="text-center">Belum ada riwayat quiz</td>
+                    </tr>
+                `;
+                return;
+            }
+            
+            container.innerHTML = userQuizHistory.map(quiz => `
+                <tr class="bg-white border-b">
+                    <td class="px-4 py-3 font-medium">${quiz.judul}</td>
+                    <td class="px-4 py-3">${new Date(quiz.tanggal).toLocaleDateString('id-ID')}</td>
+                    <td class="px-4 py-3">${quiz.nilai}</td>
+                    <td class="px-4 py-3">
+                        <span class="${quiz.nilai >= 70 ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'} px-2 py-1 rounded-full text-xs">
+                            ${quiz.nilai >= 70 ? 'Lulus' : 'Tidak Lulus'}
+                        </span>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function loadCalendar() {
+            const monthNames = ["Januari", "Februari", "Maret", "April", "Mei", "Juni",
+                "Juli", "Agustus", "September", "Oktober", "November", "Desember"
+            ];
+            
+            document.getElementById('calendar-month').textContent = `${monthNames[currentMonth]} ${currentYear}`;
+            
+            const firstDay = new Date(currentYear, currentMonth, 1);
+            const lastDay = new Date(currentYear, currentMonth + 1, 0);
+            const daysInMonth = lastDay.getDate();
+            const startingDay = firstDay.getDay();
+            
+            const container = document.getElementById('calendar-days');
+            let html = '';
+            
+            // Empty cells for days before the first day of the month
+            for (let i = 0; i < startingDay; i++) {
+                html += '<div class="calendar-day p-2 text-center text-gray-400"></div>';
+            }
+            
+            // Days of the month
+            const today = new Date();
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dateStr = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+                const hasEvent = platformData.events.some(event => event.date === dateStr);
+                const isToday = today.getDate() === day && 
+                               today.getMonth() === currentMonth && 
+                               today.getFullYear() === currentYear;
+                
+                let dayClass = 'calendar-day p-2 text-center';
+                if (isToday) {
+                    dayClass += ' today';
+                } else if (hasEvent) {
+                    dayClass += ' event';
+                }
+                
+                html += `<div class="${dayClass}">${day}</div>`;
+            }
+            
+            container.innerHTML = html;
+        }
+
         function loadAdminLists() {
             const materiList = document.getElementById('admin-materi-list');
             const tugasList = document.getElementById('admin-tugas-list');
@@ -934,7 +1792,49 @@
             alert('Diskusi berhasil dibuat!');
         }
 
+        function startQuiz(quizType) {
+            alert(`Memulai quiz ${quizType}. Fitur quiz interaktif akan dikembangkan lebih lanjut.`);
+            
+            // Simulate quiz completion
+            if (currentUser.role === 'santri') {
+                const quizScore = Math.floor(Math.random() * 30) + 70; // Random score between 70-100
+                const newQuiz = {
+                    id: Date.now().toString(),
+                    judul: `Quiz ${quizType === 'matematika' ? 'Matematika - Aljabar' : 'Bahasa Arab - Kosakata'}`,
+                    user: currentUser.email,
+                    nilai: quizScore,
+                    tanggal: new Date().toISOString()
+                };
+                
+                platformData.quizHistory.push(newQuiz);
+                savePlatformData();
+                loadQuizHistory();
+                
+                alert(`Quiz selesai! Nilai Anda: ${quizScore}`);
+            }
+        }
+
+        function changeMonth(direction) {
+            currentMonth += direction;
+            if (currentMonth < 0) {
+                currentMonth = 11;
+                currentYear--;
+            } else if (currentMonth > 11) {
+                currentMonth = 0;
+                currentYear++;
+            }
+            loadCalendar();
+        }
+
         // Admin Functions
+        function showAdminPanel() {
+            document.getElementById('admin-panel').classList.remove('hidden');
+        }
+
+        function closeAdminPanel() {
+            document.getElementById('admin-panel').classList.add('hidden');
+        }
+
         function tambahMateri() {
             const judul = document.getElementById('materi-judul').value;
             const mapel = document.getElementById('materi-mapel').value;
@@ -1048,6 +1948,14 @@
             event.target.classList.add('active', 'bg-blue-600', 'text-white');
         }
 
+        function showAddMateriForm() {
+            showAdminPanel();
+        }
+
+        function showAddTugasForm() {
+            showAdminPanel();
+        }
+
         function logout() {
             currentUser = null;
             document.getElementById('platform-dashboard').classList.add('hidden');
@@ -1063,6 +1971,9 @@
         // Initialize platform
         document.addEventListener('DOMContentLoaded', function() {
             loadPlatformData();
+            
+            // Add event listener for admin panel button
+            document.getElementById('admin-panel-btn').addEventListener('click', showAdminPanel);
         });
     </script>
 </body>
