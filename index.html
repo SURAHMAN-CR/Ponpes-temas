@@ -7,6 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        /* CSS yang sama seperti sebelumnya */
         body {
             font-family: 'Poppins', sans-serif;
             scroll-behavior: smooth;
@@ -247,6 +248,40 @@
         .calendar-day.today {
             background-color: #3b82f6;
             color: white;
+        }
+        
+        /* New Styles for Interactive Features */
+        .materi-content {
+            background-color: white;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tugas-submission {
+            background-color: #f9fafb;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .quiz-question {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            background-color: white;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+        }
+        
+        .diskusi-komentar {
+            margin-top: 1rem;
+            padding: 1rem;
+            background-color: #f9fafb;
+            border-radius: 0.5rem;
+        }
+        
+        .diskusi-komentar-input {
+            margin-top: 1rem;
         }
     </style>
 </head>
@@ -1243,7 +1278,49 @@
             quizHistory: [],
             nilai: {},
             userProgress: {},
-            events: []
+            events: [],
+            quizData: {
+                matematika: [
+                    {
+                        id: 1,
+                        pertanyaan: "Berapakah hasil dari 2x + 5 = 15?",
+                        pilihan: ["x = 5", "x = 10", "x = 7.5", "x = 8"],
+                        jawaban: 0
+                    },
+                    {
+                        id: 2,
+                        pertanyaan: "Jika a = 3 dan b = 4, berapakah nilai dari a² + b²?",
+                        pilihan: ["7", "12", "25", "9"],
+                        jawaban: 2
+                    },
+                    {
+                        id: 3,
+                        pertanyaan: "Berapakah hasil dari 3/4 + 1/2?",
+                        pilihan: ["1/4", "5/4", "4/6", "1 1/4"],
+                        jawaban: 1
+                    }
+                ],
+                'bahasa-arab': [
+                    {
+                        id: 1,
+                        pertanyaan: "Apa arti dari kata 'مدرسة'?",
+                        pilihan: ["Rumah", "Sekolah", "Masjid", "Pasar"],
+                        jawaban: 1
+                    },
+                    {
+                        id: 2,
+                        pertanyaan: "Bagaimana cara mengucapkan 'Terima kasih' dalam bahasa Arab?",
+                        pilihan: ["شكرا", "مرحبا", "مع السلامة", "صباح الخير"],
+                        jawaban: 0
+                    },
+                    {
+                        id: 3,
+                        pertanyaan: "Apa arti dari 'كتاب'?",
+                        pilihan: ["Pena", "Buku", "Meja", "Kursi"],
+                        jawaban: 1
+                    }
+                ]
+            }
         };
 
         // Load data from localStorage
@@ -1259,7 +1336,27 @@
                         judul: 'Pengenalan Aljabar',
                         mapel: 'Matematika',
                         deskripsi: 'Materi pengenalan dasar-dasar aljabar untuk pemula',
-                        link: '#',
+                        konten: `
+                            <h2 class="text-2xl font-bold mb-4">Pengenalan Aljabar</h2>
+                            <p class="mb-4">Aljabar adalah cabang matematika yang mempelajari struktur, hubungan, dan kuantitas. Dalam aljabar, kita menggunakan simbol (biasanya huruf) untuk mewakili angka yang tidak diketahui.</p>
+                            
+                            <h3 class="text-xl font-semibold mb-2">Konsep Dasar</h3>
+                            <ul class="list-disc pl-6 mb-4">
+                                <li>Variabel: Simbol yang mewakili nilai yang tidak diketahui</li>
+                                <li>Konstanta: Nilai tetap yang tidak berubah</li>
+                                <li>Koefisien: Angka yang mengalikan variabel</li>
+                                <li>Ekspresi: Kombinasi variabel, konstanta, dan operasi</li>
+                            </ul>
+                            
+                            <h3 class="text-xl font-semibold mb-2">Contoh Soal</h3>
+                            <div class="bg-gray-100 p-4 rounded-lg mb-4">
+                                <p class="font-medium">Jika x + 5 = 12, berapakah nilai x?</p>
+                                <p class="mt-2">Jawaban: x = 12 - 5 = 7</p>
+                            </div>
+                            
+                            <h3 class="text-xl font-semibold mb-2">Latihan</h3>
+                            <p>Coba selesaikan soal berikut: 2y - 3 = 11. Berapakah nilai y?</p>
+                        `,
                         kesulitan: 'Pemula',
                         pembuat: 'Ustadz Surahman, S.Pd',
                         tanggal: new Date().toISOString()
@@ -1269,7 +1366,41 @@
                         judul: 'Kosakata Bahasa Arab Sehari-hari',
                         mapel: 'Bahasa Arab',
                         deskripsi: 'Belajar kosakata bahasa Arab yang digunakan dalam percakapan sehari-hari',
-                        link: '#',
+                        konten: `
+                            <h2 class="text-2xl font-bold mb-4">Kosakata Bahasa Arab Sehari-hari</h2>
+                            <p class="mb-4">Mempelajari kosakata dasar bahasa Arab sangat penting untuk komunikasi sehari-hari. Berikut adalah beberapa kosakata yang sering digunakan:</p>
+                            
+                            <h3 class="text-xl font-semibold mb-2">Kosakata Dasar</h3>
+                            <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                <div class="bg-gray-100 p-4 rounded-lg">
+                                    <p class="font-medium">مرحبا (Marhaban)</p>
+                                    <p>Artinya: Halo/Selamat datang</p>
+                                </div>
+                                <div class="bg-gray-100 p-4 rounded-lg">
+                                    <p class="font-medium">شكرا (Shukran)</p>
+                                    <p>Artinya: Terima kasih</p>
+                                </div>
+                                <div class="bg-gray-100 p-4 rounded-lg">
+                                    <p class="font-medium">نعم (Na'am)</p>
+                                    <p>Artinya: Ya</p>
+                                </div>
+                                <div class="bg-gray-100 p-4 rounded-lg">
+                                    <p class="font-medium">لا (La)</p>
+                                    <p>Artinya: Tidak</p>
+                                </div>
+                            </div>
+                            
+                            <h3 class="text-xl font-semibold mb-2">Percakapan Sederhana</h3>
+                            <div class="bg-blue-50 p-4 rounded-lg mb-4">
+                                <p class="font-medium">A: السلام عليكم (Assalamu alaikum)</p>
+                                <p class="font-medium">B: وعليكم السلام (Wa alaikum salam)</p>
+                                <p class="font-medium">A: كيف حالك؟ (Kaifa haluka?)</p>
+                                <p class="font-medium">B: الحمد لله، بخير (Alhamdulillah, bikhair)</p>
+                            </div>
+                            
+                            <h3 class="text-xl font-semibold mb-2">Latihan</h3>
+                            <p>Coba praktikkan percakapan sederhana di atas dengan teman Anda!</p>
+                        `,
                         kesulitan: 'Pemula',
                         pembuat: 'Ustadz Ahmad',
                         tanggal: new Date().toISOString()
@@ -1282,8 +1413,35 @@
                         judul: 'Tugas Aljabar - Persamaan Linear',
                         mapel: 'Matematika',
                         deskripsi: 'Selesaikan soal-soal persamaan linear satu variabel',
+                        konten: `
+                            <h2 class="text-2xl font-bold mb-4">Tugas Aljabar - Persamaan Linear</h2>
+                            <p class="mb-4">Kerjakan soal-soal berikut dengan benar. Tulis jawaban Anda pada kolom yang disediakan.</p>
+                            
+                            <div class="space-y-6">
+                                <div class="border-b pb-4">
+                                    <h3 class="text-lg font-semibold mb-2">Soal 1</h3>
+                                    <p class="mb-2">Selesaikan persamaan: 3x + 7 = 22</p>
+                                    <textarea class="w-full p-2 border rounded" rows="2" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                                </div>
+                                
+                                <div class="border-b pb-4">
+                                    <h3 class="text-lg font-semibold mb-2">Soal 2</h3>
+                                    <p class="mb-2">Jika 2y - 5 = 11, berapakah nilai y?</p>
+                                    <textarea class="w-full p-2 border rounded" rows="2" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                                </div>
+                                
+                                <div class="border-b pb-4">
+                                    <h3 class="text-lg font-semibold mb-2">Soal 3</h3>
+                                    <p class="mb-2">Selesaikan: 4(z + 3) = 32</p>
+                                    <textarea class="w-full p-2 border rounded" rows="2" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-6">
+                                <button onclick="kirimTugas('1')" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Kirim Tugas</button>
+                            </div>
+                        `,
                         deadline: '2023-11-10',
-                        link: '#',
                         pembuat: 'Ustadz Surahman, S.Pd',
                         tanggal: new Date().toISOString()
                     }
@@ -1380,6 +1538,9 @@
         let currentUser = null;
         let currentMonth = new Date().getMonth();
         let currentYear = new Date().getFullYear();
+        let currentQuiz = null;
+        let currentQuestionIndex = 0;
+        let userAnswers = [];
 
         function showLoginForm(role) {
             document.getElementById('login-options').classList.add('hidden');
@@ -1748,20 +1909,142 @@
                         loadDashboardData();
                     }
                 }
-                window.open(materi.link, '_blank');
+                
+                // Show materi content in a modal
+                showMateriModal(materi);
             }
+        }
+
+        function showMateriModal(materi) {
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
+            modal.innerHTML = `
+                <div class="bg-white rounded-xl shadow-lg p-6 w-full max-w-4xl max-h-screen overflow-y-auto">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-2xl font-bold text-gray-800">${materi.judul}</h3>
+                        <button onclick="this.parentElement.parentElement.parentElement.remove()" class="text-gray-500 hover:text-gray-700">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="materi-content">
+                        ${materi.konten}
+                    </div>
+                    <div class="mt-6 flex justify-end">
+                        <button onclick="this.parentElement.parentElement.parentElement.remove()" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Tutup</button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
         }
 
         function bukaTugas(tugasId) {
             const tugas = platformData.tugas.find(t => t.id === tugasId);
             if (tugas) {
-                window.open(tugas.link, '_blank');
+                // Show tugas content in a modal
+                showTugasModal(tugas);
             }
         }
 
+        function showTugasModal(tugas) {
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
+            modal.innerHTML = `
+                <div class="bg-white rounded-xl shadow-lg p-6 w-full max-w-4xl max-h-screen overflow-y-auto">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-2xl font-bold text-gray-800">${tugas.judul}</h3>
+                        <button onclick="this.parentElement.parentElement.parentElement.remove()" class="text-gray-500 hover:text-gray-700">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="tugas-submission">
+                        ${tugas.konten}
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+        }
+
+        function kirimTugas(tugasId) {
+            alert('Tugas berhasil dikirim!');
+            document.querySelector('.fixed.inset-0').remove();
+        }
+
         function bukaDiskusi(diskusiId) {
-            alert(`Membuka diskusi: ${diskusiId}`);
-            // Implement diskusi detail view here
+            const diskusi = platformData.diskusi.find(d => d.id === diskusiId);
+            if (diskusi) {
+                // Show diskusi content in a modal
+                showDiskusiModal(diskusi);
+            }
+        }
+
+        function showDiskusiModal(diskusi) {
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
+            modal.innerHTML = `
+                <div class="bg-white rounded-xl shadow-lg p-6 w-full max-w-4xl max-h-screen overflow-y-auto">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-2xl font-bold text-gray-800">${diskusi.judul}</h3>
+                        <button onclick="this.parentElement.parentElement.parentElement.remove()" class="text-gray-500 hover:text-gray-700">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="mb-6">
+                        <p class="text-gray-600 mb-4">${diskusi.deskripsi}</p>
+                        <p class="text-sm text-gray-500">Oleh: ${diskusi.pembuat} - ${new Date(diskusi.tanggal).toLocaleDateString('id-ID')}</p>
+                    </div>
+                    
+                    <div class="diskusi-komentar">
+                        <h4 class="font-semibold mb-4">Komentar</h4>
+                        ${diskusi.komentar.map(komentar => `
+                            <div class="mb-4 p-3 bg-gray-50 rounded">
+                                <p class="font-medium">${komentar.pengirim}</p>
+                                <p class="text-gray-600">${komentar.isi}</p>
+                                <p class="text-sm text-gray-500 mt-1">${new Date(komentar.tanggal).toLocaleDateString('id-ID')}</p>
+                            </div>
+                        `).join('')}
+                        
+                        <div class="diskusi-komentar-input">
+                            <textarea id="komentar-baru" class="w-full p-2 border rounded" rows="3" placeholder="Tulis komentar Anda..."></textarea>
+                            <button onclick="tambahKomentar('${diskusi.id}')" class="mt-2 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Kirim Komentar</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+        }
+
+        function tambahKomentar(diskusiId) {
+            const komentarInput = document.getElementById('komentar-baru');
+            const komentar = komentarInput.value.trim();
+            
+            if (!komentar) {
+                alert('Mohon tulis komentar terlebih dahulu!');
+                return;
+            }
+            
+            const diskusi = platformData.diskusi.find(d => d.id === diskusiId);
+            if (diskusi) {
+                diskusi.komentar.push({
+                    pengirim: currentUser.name,
+                    isi: komentar,
+                    tanggal: new Date().toISOString()
+                });
+                
+                savePlatformData();
+                loadDiskusi();
+                
+                // Close modal and reopen to show updated comments
+                document.querySelector('.fixed.inset-0').remove();
+                bukaDiskusi(diskusiId);
+                
+                alert('Komentar berhasil ditambahkan!');
+            }
         }
 
         function buatDiskusiBaru() {
@@ -1793,25 +2076,128 @@
         }
 
         function startQuiz(quizType) {
-            alert(`Memulai quiz ${quizType}. Fitur quiz interaktif akan dikembangkan lebih lanjut.`);
+            currentQuiz = quizType;
+            currentQuestionIndex = 0;
+            userAnswers = [];
             
-            // Simulate quiz completion
-            if (currentUser.role === 'santri') {
-                const quizScore = Math.floor(Math.random() * 30) + 70; // Random score between 70-100
-                const newQuiz = {
-                    id: Date.now().toString(),
-                    judul: `Quiz ${quizType === 'matematika' ? 'Matematika - Aljabar' : 'Bahasa Arab - Kosakata'}`,
-                    user: currentUser.email,
-                    nilai: quizScore,
-                    tanggal: new Date().toISOString()
-                };
-                
-                platformData.quizHistory.push(newQuiz);
-                savePlatformData();
-                loadQuizHistory();
-                
-                alert(`Quiz selesai! Nilai Anda: ${quizScore}`);
+            // Show quiz modal
+            showQuizModal();
+        }
+
+        function showQuizModal() {
+            const quiz = platformData.quizData[currentQuiz];
+            const question = quiz[currentQuestionIndex];
+            
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
+            modal.innerHTML = `
+                <div class="bg-white rounded-xl shadow-lg p-6 w-full max-w-2xl">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-2xl font-bold text-gray-800">Quiz ${currentQuiz === 'matematika' ? 'Matematika' : 'Bahasa Arab'}</h3>
+                        <div class="text-sm text-gray-600">Pertanyaan ${currentQuestionIndex + 1} dari ${quiz.length}</div>
+                    </div>
+                    
+                    <div class="quiz-progress mb-4">
+                        <div class="quiz-progress-fill" style="width: ${((currentQuestionIndex + 1) / quiz.length) * 100}%"></div>
+                    </div>
+                    
+                    <div class="quiz-question">
+                        <h4 class="text-lg font-semibold mb-4">${question.pertanyaan}</h4>
+                        <div class="space-y-3">
+                            ${question.pilihan.map((pilihan, index) => `
+                                <div class="quiz-option p-3 border rounded-lg cursor-pointer" onclick="selectAnswer(${index})">
+                                    ${pilihan}
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                    
+                    <div class="flex justify-between mt-6">
+                        <button ${currentQuestionIndex === 0 ? 'disabled' : ''} onclick="previousQuestion()" class="bg-gray-300 text-gray-700 px-4 py-2 rounded ${currentQuestionIndex === 0 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-400'}">Sebelumnya</button>
+                        <button onclick="nextQuestion()" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                            ${currentQuestionIndex === quiz.length - 1 ? 'Selesai' : 'Selanjutnya'}
+                        </button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+            
+            // Highlight previously selected answer if exists
+            if (userAnswers[currentQuestionIndex] !== undefined) {
+                const options = modal.querySelectorAll('.quiz-option');
+                options[userAnswers[currentQuestionIndex]].classList.add('selected');
             }
+        }
+
+        function selectAnswer(answerIndex) {
+            userAnswers[currentQuestionIndex] = answerIndex;
+            
+            // Update UI to show selected answer
+            const options = document.querySelectorAll('.quiz-option');
+            options.forEach(option => option.classList.remove('selected'));
+            options[answerIndex].classList.add('selected');
+        }
+
+        function previousQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                document.querySelector('.fixed.inset-0').remove();
+                showQuizModal();
+            }
+        }
+
+        function nextQuestion() {
+            const quiz = platformData.quizData[currentQuiz];
+            
+            if (currentQuestionIndex < quiz.length - 1) {
+                currentQuestionIndex++;
+                document.querySelector('.fixed.inset-0').remove();
+                showQuizModal();
+            } else {
+                // Finish quiz
+                finishQuiz();
+            }
+        }
+
+        function finishQuiz() {
+            const quiz = platformData.quizData[currentQuiz];
+            let correctAnswers = 0;
+            
+            // Calculate score
+            for (let i = 0; i < quiz.length; i++) {
+                if (userAnswers[i] === quiz[i].jawaban) {
+                    correctAnswers++;
+                }
+            }
+            
+            const score = Math.round((correctAnswers / quiz.length) * 100);
+            
+            // Save quiz result
+            const newQuiz = {
+                id: Date.now().toString(),
+                judul: `Quiz ${currentQuiz === 'matematika' ? 'Matematika - Aljabar' : 'Bahasa Arab - Kosakata'}`,
+                user: currentUser.email,
+                nilai: score,
+                tanggal: new Date().toISOString()
+            };
+            
+            platformData.quizHistory.push(newQuiz);
+            savePlatformData();
+            
+            // Show result
+            document.querySelector('.fixed.inset-0').remove();
+            
+            const resultModal = document.createElement('div');
+            resultModal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
+            resultModal.innerHTML = `
+                <div class="bg-white rounded-xl shadow-lg p-6 w-full max-w-md text-center">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Hasil Quiz</h3>
+                    <div class="text-6xl font-bold ${score >= 70 ? 'text-green-600' : 'text-red-600'} mb-4">${score}</div>
+                    <p class="text-gray-600 mb-6">Anda menjawab ${correctAnswers} dari ${quiz.length} pertanyaan dengan benar.</p>
+                    <button onclick="this.parentElement.parentElement.parentElement.remove(); loadQuizHistory();" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Tutup</button>
+                </div>
+            `;
+            document.body.appendChild(resultModal);
         }
 
         function changeMonth(direction) {
@@ -1847,11 +2233,20 @@
                 return;
             }
             
+            // Create basic konten based on subject
+            let konten = `
+                <h2 class="text-2xl font-bold mb-4">${judul}</h2>
+                <p class="mb-4">${deskripsi}</p>
+                <h3 class="text-xl font-semibold mb-2">Materi Lengkap</h3>
+                <p>Untuk materi lengkap, silakan kunjungi: <a href="${link}" class="text-blue-600 hover:underline" target="_blank">${link}</a></p>
+            `;
+            
             const newMateri = {
                 id: Date.now().toString(),
                 judul: judul,
                 mapel: mapel,
                 deskripsi: deskripsi,
+                konten: konten,
                 link: link,
                 kesulitan: kesulitan,
                 pembuat: currentUser.name,
@@ -1883,11 +2278,28 @@
                 return;
             }
             
+            // Create basic konten for tugas
+            let konten = `
+                <h2 class="text-2xl font-bold mb-4">${judul}</h2>
+                <p class="mb-4">${deskripsi}</p>
+                <h3 class="text-xl font-semibold mb-2">Instruksi Tugas</h3>
+                <p>Silakan kerjakan tugas sesuai dengan petunjuk yang diberikan. Untuk informasi lebih lanjut, kunjungi: <a href="${link}" class="text-blue-600 hover:underline" target="_blank">${link}</a></p>
+                <div class="mt-6">
+                    <h4 class="text-lg font-semibold mb-2">Pengumpulan Tugas</h4>
+                    <p class="mb-2">Tugas dikumpulkan paling lambat: <strong>${new Date(deadline).toLocaleDateString('id-ID')}</strong></p>
+                    <textarea class="w-full p-2 border rounded" rows="4" placeholder="Tulis jawaban atau upload link tugas Anda di sini..."></textarea>
+                </div>
+                <div class="mt-4">
+                    <button onclick="kirimTugas('${Date.now().toString()}')" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Kirim Tugas</button>
+                </div>
+            `;
+            
             const newTugas = {
                 id: Date.now().toString(),
                 judul: judul,
                 mapel: mapel,
                 deskripsi: deskripsi,
+                konten: konten,
                 deadline: deadline,
                 link: link,
                 pembuat: currentUser.name,
