@@ -7,7 +7,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* CSS yang sama seperti sebelumnya */
         body {
             font-family: 'Poppins', sans-serif;
             scroll-behavior: smooth;
@@ -44,7 +43,6 @@
             width: 100%;
         }
 
-        /* Platform Pembelajaran Styles */
         .learning-card {
             transition: all 0.3s ease;
             border-left: 4px solid #3b82f6;
@@ -114,7 +112,6 @@
             background-color: #f8fafc;
         }
 
-        /* Dashboard Styles */
         .dashboard-card {
             transition: all 0.3s ease;
         }
@@ -124,7 +121,6 @@
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
         }
 
-        /* Platform Sections */
         .platform-section {
             display: none;
         }
@@ -133,7 +129,6 @@
             display: block;
         }
 
-        /* Admin Styles */
         .admin-panel {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
@@ -163,7 +158,6 @@
             ring: 2px solid #3b82f6;
         }
         
-        /* E-Learning Section */
         .platform-container {
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             min-height: 100vh;
@@ -190,7 +184,6 @@
             box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
         }
         
-        /* Quiz Styles */
         .quiz-container {
             background: white;
             border-radius: 1rem;
@@ -211,7 +204,6 @@
             transition: width 0.5s ease;
         }
         
-        /* Live Class Styles */
         .live-class-card {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -219,7 +211,6 @@
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
         }
         
-        /* Gradebook Styles */
         .grade-item {
             border-left: 4px solid #3b82f6;
             transition: all 0.3s ease;
@@ -229,7 +220,6 @@
             transform: translateX(5px);
         }
         
-        /* Calendar Styles */
         .calendar-day {
             border-radius: 0.5rem;
             transition: all 0.2s ease;
@@ -250,7 +240,6 @@
             color: white;
         }
         
-        /* New Styles for Interactive Features */
         .materi-content {
             background-color: white;
             border-radius: 0.5rem;
@@ -654,7 +643,7 @@
         </div>
     </section>
 
-    <!-- E-Learning Section - DIPERBAIKI DENGAN FITUR KOMPLEKS -->
+    <!-- E-Learning Section -->
     <section id="e-learning" class="platform-container py-16">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
@@ -1222,6 +1211,41 @@
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Manajemen Siswa -->
+                        <div class="mt-8">
+                            <h4 class="text-lg font-semibold text-gray-800 mb-4">Manajemen Siswa</h4>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <div class="mb-4">
+                                    <label class="form-label">Filter berdasarkan Ruang</label>
+                                    <select id="filter-ruang" class="form-input" onchange="filterSiswa()">
+                                        <option value="all">Semua Ruang</option>
+                                        <option value="I">Ruang I</option>
+                                        <option value="II">Ruang II</option>
+                                        <option value="III">Ruang III</option>
+                                        <option value="IV">Ruang IV</option>
+                                        <option value="V">Ruang V</option>
+                                        <option value="VI">Ruang VI</option>
+                                    </select>
+                                </div>
+                                <div class="max-h-60 overflow-y-auto">
+                                    <table class="w-full text-sm text-left text-gray-600">
+                                        <thead class="text-xs text-gray-700 uppercase bg-gray-100 sticky top-0">
+                                            <tr>
+                                                <th class="px-4 py-3">Nama</th>
+                                                <th class="px-4 py-3">ID</th>
+                                                <th class="px-4 py-3">Ruang</th>
+                                                <th class="px-4 py-3">Email</th>
+                                                <th class="px-4 py-3">Aksi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="siswa-list">
+                                            <!-- Data siswa akan diisi oleh JavaScript -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1270,8 +1294,105 @@
     </footer>
 
     <script>
-        // Data Storage
+        // Data Storage dengan Data Siswa
         let platformData = {
+            // Data siswa dari file daftar hadir
+            siswa: [
+                // Ruang I
+                { id: 'IT000027', nama: 'Akbar Fadila', email: 'akbar.fadila@smpislamibadurrahman.id', ruang: 'I' },
+                { id: 'IT000011', nama: 'Ali Abdurrahman', email: 'ali.abdurrahman@smpislamibadurrahman.id', ruang: 'I' },
+                { id: 'IT000012', nama: 'Amril Hadikal Khair', email: 'amril.hadikal@smpislamibadurrahman.id', ruang: 'I' },
+                { id: 'IT000028', nama: 'April Mandala Putra', email: 'april.mandala@smpislamibadurrahman.id', ruang: 'I' },
+                { id: 'IT000031', nama: 'Fadil Putra Wibawa', email: 'fadil.putra@smpislamibadurrahman.id', ruang: 'I' },
+                { id: 'IT000032', nama: 'Firjatullah Al-Fatih', email: 'firjatullah.alfatih@smpislamibadurrahman.id', ruang: 'I' },
+                { id: 'IT000023', nama: 'Gilang Azrial Rusiawan', email: 'gilang.azrial@smpislamibadurrahman.id', ruang: 'I' },
+                { id: 'IT000019', nama: 'HafazyaGaniazira', email: 'hafazya.ganiazira@smpislamibadurrahman.id', ruang: 'I' },
+                { id: 'IT000022', nama: 'Hafiz Kaka Irwan Hadi', email: 'hafiz.kaka@smpislamibadurrahman.id', ruang: 'I' },
+                { id: 'IT000037', nama: 'Irfan Kholil', email: 'irfan.kholil@smpislamibadurrahman.id', ruang: 'I' },
+                { id: 'IT000025', nama: 'M. ThoriqAlkharizmi', email: 'thoriq.alkharizmi@smpislamibadurrahman.id', ruang: 'I' },
+                { id: 'IT000039', nama: 'Muamar Hamidi Suhaedi', email: 'muamar.hamidi@smpislamibadurrahman.id', ruang: 'I' },
+                { id: 'IT000035', nama: 'Muhammad Hijlal Anwar', email: 'muhammad.hijlal@smpislamibadurrahman.id', ruang: 'I' },
+                { id: 'IT000021', nama: 'MuyassarHisyam Aris', email: 'muyassar.hisyam@smpislamibadurrahman.id', ruang: 'I' },
+                { id: 'IT000020', nama: 'Rama Arya Saputra', email: 'rama.arya@smpislamibadurrahman.id', ruang: 'I' },
+                { id: 'IT000034', nama: 'Rava Arya Teguh Saputra', email: 'rava.arya@smpislamibadurrahman.id', ruang: 'I' },
+                { id: 'IT000016', nama: 'Topan Dwi Anggara', email: 'topan.dwi@smpislamibadurrahman.id', ruang: 'I' },
+                { id: 'IT000014', nama: 'Yanan Arya', email: 'yanan.arya@smpislamibadurrahman.id', ruang: 'I' },
+
+                // Ruang II
+                { id: 'IT000051', nama: 'Andi Ahmad Hermawan', email: 'andi.ahmad@smpislamibadurrahman.id', ruang: 'II' },
+                { id: 'IT000059', nama: 'Aufa Dzakwan Syahy', email: 'aufa.dzakwan@smpislamibadurrahman.id', ruang: 'II' },
+                { id: 'IT000045', nama: 'Dzaky Atha Ramadhan', email: 'dzaky.atha@smpislamibadurrahman.id', ruang: 'II' },
+                { id: 'IT000061', nama: 'Habib Sapriadi', email: 'habib.sapriadi@smpislamibadurrahman.id', ruang: 'II' },
+                { id: 'IT000049', nama: 'M. Alby RifkyFahri', email: 'alby.rifky@smpislamibadurrahman.id', ruang: 'II' },
+                { id: 'IT000053', nama: 'Muhammad Amir Dzakir', email: 'muhammad.amir@smpislamibadurrahman.id', ruang: 'II' },
+                { id: 'IT000055', nama: 'Muhammad Azwan Azka', email: 'muhammad.azwan@smpislamibadurrahman.id', ruang: 'II' },
+                { id: 'IT000052', nama: 'Tata Aditya Pratama', email: 'tata.aditya@smpislamibadurrahman.id', ruang: 'II' },
+                { id: 'IT000057', nama: 'Yousef Al Enzi', email: 'yousef.alenzi@smpislamibadurrahman.id', ruang: 'II' },
+
+                // Ruang III
+                { id: 'IT000078', nama: 'ADILA AUDRIA ZALIKHA R.', email: 'adila.audria@smpislamibadurrahman.id', ruang: 'III' },
+                { id: 'IT000076', nama: 'AQILA SAPUTRI', email: 'aqila.saputri@smpislamibadurrahman.id', ruang: 'III' },
+                { id: 'IT000075', nama: 'AZLIA NOVIANTI', email: 'azlia.novianti@smpislamibadurrahman.id', ruang: 'III' },
+                { id: 'IT000088', nama: 'DESTIYA PUTRI', email: 'destiya.putri@smpislamibadurrahman.id', ruang: 'III' },
+                { id: 'IT000089', nama: 'DEWI MARLINA', email: 'dewi.marlina@smpislamibadurrahman.id', ruang: 'III' },
+                { id: 'IT000062', nama: 'DHEA JUNIANINGSIH', email: 'dhea.junianingsih@smpislamibadurrahman.id', ruang: 'III' },
+                { id: 'IT000082', nama: 'FAKIHA AILATU WIAM', email: 'fakiha.ailatu@smpislamibadurrahman.id', ruang: 'III' },
+                { id: 'IT000094', nama: 'INDIRA FEBRIANI', email: 'indira.febriani@smpislamibadurrahman.id', ruang: 'III' },
+                { id: 'IT000087', nama: 'NABILA SAPUTRI', email: 'nabila.saputri@smpislamibadurrahman.id', ruang: 'III' },
+                { id: 'IT000090', nama: 'NAYA ALIKA SABILA', email: 'naya.alika@smpislamibadurrahman.id', ruang: 'III' },
+                { id: 'IT000081', nama: 'PUTRI ALMAIRA WULANDARI', email: 'putri.almaira@smpislamibadurrahman.id', ruang: 'III' },
+                { id: 'IT000064', nama: 'PUTRI MEDYNA ANDINI', email: 'putri.medyna@smpislamibadurrahman.id', ruang: 'III' },
+                { id: 'IT000084', nama: 'PUTRI ZOHRATUL NOVIANI', email: 'putri.zohratul@smpislamibadurrahman.id', ruang: 'III' },
+                { id: 'IT000077', nama: 'SAFIRA FEBIANA', email: 'safira.febiana@smpislamibadurrahman.id', ruang: 'III' },
+                { id: 'IT000080', nama: 'SEPTIA AULIA PUTRI', email: 'septia.aulia@smpislamibadurrahman.id', ruang: 'III' },
+                { id: 'IT000063', nama: 'SUHAILA ILMA NAFIA', email: 'suhaila.ilma@smpislamibadurrahman.id', ruang: 'III' },
+                { id: 'IT000093', nama: 'ZAVIRA NURUL AMANDA', email: 'zavira.nurul@smpislamibadurrahman.id', ruang: 'III' },
+                { id: 'IT000086', nama: 'ZIADA HARITSYA ALFATYA', email: 'ziada.haritsya@smpislamibadurrahman.id', ruang: 'III' },
+
+                // Ruang IV
+                { id: 'IT000073', nama: 'ARIZA DWI ANANDA', email: 'ariza.dwi@smpislamibadurrahman.id', ruang: 'IV' },
+                { id: 'IT000005', nama: 'FATHIN KHAERATUL', email: 'fathin.khaeratul@smpislamibadurrahman.id', ruang: 'IV' },
+                { id: 'IT000009', nama: 'INDAH KISWATI', email: 'indah.kiswati@smpislamibadurrahman.id', ruang: 'IV' },
+                { id: 'IT000066', nama: 'MELNIA RAMDAYANI', email: 'melnia.ramdayani@smpislamibadurrahman.id', ruang: 'IV' },
+                { id: 'IT000085', nama: 'MUTIARA INDAH RAMADANI', email: 'mutiara.indah@smpislamibadurrahman.id', ruang: 'IV' },
+                { id: 'IT000010', nama: 'NURUL AIZA', email: 'nurul.aiza@smpislamibadurrahman.id', ruang: 'IV' },
+                { id: 'IT000067', nama: 'PUTRI HILMIATI', email: 'putri.hilmiati@smpislamibadurrahman.id', ruang: 'IV' },
+                { id: 'IT000004', nama: 'QUEENZA RAYA AL - MIRA', email: 'queenza.raya@smpislamibadurrahman.id', ruang: 'IV' },
+                { id: 'IT000065', nama: 'SILVIA SUSILAWATI', email: 'silvia.susilawati@smpislamibadurrahman.id', ruang: 'IV' },
+
+                // Ruang V
+                { id: 'IT000046', nama: 'Amelia Nuraeni Saputri', email: 'amelia.nuraeni@smpislamibadurrahman.id', ruang: 'V' },
+                { id: 'IT000047', nama: 'Faleska Chilla Al\'Maeitsa', email: 'faleska.chilla@smpislamibadurrahman.id', ruang: 'V' },
+                { id: 'IT000054', nama: 'Humaira Ayunda Rahman', email: 'humaira.ayunda@smpislamibadurrahman.id', ruang: 'V' },
+                { id: '', nama: 'Husna Izmilia Zein', email: 'husna.izmilia@smpislamibadurrahman.id', ruang: 'V' },
+                { id: 'IT000044', nama: 'Khansa Monifa Azkaylani', email: 'khansa.monifa@smpislamibadurrahman.id', ruang: 'V' },
+                { id: 'IT000048', nama: 'Liza Eriska', email: 'liza.eriska@smpislamibadurrahman.id', ruang: 'V' },
+                { id: 'IT000050', nama: 'Noki Ahmatul Hasanah', email: 'noki.ahmatul@smpislamibadurrahman.id', ruang: 'V' },
+                { id: 'IT000056', nama: 'Septi Aulia Fitri', email: 'septi.aulia@smpislamibadurrahman.id', ruang: 'V' },
+                { id: 'IT000058', nama: 'Annatya Aisyah', email: 'annatya.aisyah@smpislamibadurrahman.id', ruang: 'V' },
+                { id: 'IT000041', nama: 'Fanisa Hafiza Zahra', email: 'fanisa.hafiza@smpislamibadurrahman.id', ruang: 'V' },
+                { id: '', nama: 'lis Agustina', email: 'lis.agustina@smpislamibadurrahman.id', ruang: 'V' },
+                { id: 'IT000013', nama: 'Irma Solehatin', email: 'irma.solehatin@smpislamibadurrahman.id', ruang: 'V' },
+                { id: 'IT000038', nama: 'Jesica Amelia', email: 'jesica.amelia@smpislamibadurrahman.id', ruang: 'V' },
+                { id: 'IT000040', nama: 'Manda Amelia', email: 'manda.amelia@smpislamibadurrahman.id', ruang: 'V' },
+                { id: 'IT000030', nama: 'Nadita Aulia Fitri', email: 'nadita.aulia@smpislamibadurrahman.id', ruang: 'V' },
+                { id: 'IT000033', nama: 'Putri Silaturrahmi Nandiny', email: 'putri.silaturrahmi@smpislamibadurrahman.id', ruang: 'V' },
+                { id: 'IT000026', nama: 'Silvia Nandita Putri', email: 'silvia.nandita@smpislamibadurrahman.id', ruang: 'V' },
+                { id: 'IT000017', nama: 'Wanda Fitriani', email: 'wanda.fitriani@smpislamibadurrahman.id', ruang: 'V' },
+                { id: 'IT000024', nama: 'Zalfa Adelia Ardiansyah', email: 'zalfa.adelia@smpislamibadurrahman.id', ruang: 'V' },
+
+                // Ruang VI
+                { id: 'IT000078', nama: 'ADRIAN JULIAN MAULANA', email: 'adrian.julian@smpislamibadurrahman.id', ruang: 'VI' },
+                { id: 'IT000076', nama: 'FAEZA FAIRUS SIHAN', email: 'faeza.fairus@smpislamibadurrahman.id', ruang: 'VI' },
+                { id: 'IT000075', nama: 'LALU ALGIFARI PRATAMA', email: 'lalu.algifari@smpislamibadurrahman.id', ruang: 'VI' },
+                { id: 'IT000088', nama: 'MUHAMAD NOPAL PAQIH', email: 'muhammad.nopal@smpislamibadurrahman.id', ruang: 'VI' },
+                { id: 'IT000089', nama: 'MUHAMMAD ABDUL KADIR', email: 'muhammad.abdul@smpislamibadurrahman.id', ruang: 'VI' },
+                { id: 'IT000062', nama: 'MUHAMMAD REZA HERLANI', email: 'muhammad.reza@smpislamibadurrahman.id', ruang: 'VI' },
+                { id: 'IT000082', nama: 'MUHAMMAD UMAR SAID', email: 'muhammad.umar@smpislamibadurrahman.id', ruang: 'VI' },
+                { id: 'IT000094', nama: 'NIZHAM AFFAN FEBRIAN', email: 'nizham.affan@smpislamibadurrahman.id', ruang: 'VI' },
+                { id: 'IT000087', nama: 'SHOLAH ARYA GUNE', email: 'sholah.arya@smpislamibadurrahman.id', ruang: 'VI' },
+                { id: 'IT000090', nama: 'SYAHROMI KHAIRULLAH SYAKIR', email: 'syahromi.khairullah@smpislamibadurrahman.id', ruang: 'VI' }
+            ],
             materi: [],
             tugas: [],
             diskusi: [],
@@ -1327,162 +1448,69 @@
         function loadPlatformData() {
             const saved = localStorage.getItem('platformData');
             if (saved) {
-                platformData = JSON.parse(saved);
+                const parsedData = JSON.parse(saved);
+                platformData = { ...platformData, ...parsedData };
             } else {
-                // Initialize with sample data
-                platformData.materi = [
-                    {
-                        id: '1',
-                        judul: 'Pengenalan Aljabar',
-                        mapel: 'Matematika',
-                        deskripsi: 'Materi pengenalan dasar-dasar aljabar untuk pemula',
-                        konten: `
-                            <h2 class="text-2xl font-bold mb-4">Pengenalan Aljabar</h2>
-                            <p class="mb-4">Aljabar adalah cabang matematika yang mempelajari struktur, hubungan, dan kuantitas. Dalam aljabar, kita menggunakan simbol (biasanya huruf) untuk mewakili angka yang tidak diketahui.</p>
-                            
-                            <h3 class="text-xl font-semibold mb-2">Konsep Dasar</h3>
-                            <ul class="list-disc pl-6 mb-4">
-                                <li>Variabel: Simbol yang mewakili nilai yang tidak diketahui</li>
-                                <li>Konstanta: Nilai tetap yang tidak berubah</li>
-                                <li>Koefisien: Angka yang mengalikan variabel</li>
-                                <li>Ekspresi: Kombinasi variabel, konstanta, dan operasi</li>
-                            </ul>
-                            
-                            <h3 class="text-xl font-semibold mb-2">Contoh Soal</h3>
-                            <div class="bg-gray-100 p-4 rounded-lg mb-4">
-                                <p class="font-medium">Jika x + 5 = 12, berapakah nilai x?</p>
-                                <p class="mt-2">Jawaban: x = 12 - 5 = 7</p>
-                            </div>
-                            
-                            <h3 class="text-xl font-semibold mb-2">Latihan</h3>
-                            <p>Coba selesaikan soal berikut: 2y - 3 = 11. Berapakah nilai y?</p>
-                        `,
-                        kesulitan: 'Pemula',
-                        pembuat: 'Ustadz Surahman, S.Pd',
-                        tanggal: new Date().toISOString()
-                    },
-                    {
-                        id: '2',
-                        judul: 'Kosakata Bahasa Arab Sehari-hari',
-                        mapel: 'Bahasa Arab',
-                        deskripsi: 'Belajar kosakata bahasa Arab yang digunakan dalam percakapan sehari-hari',
-                        konten: `
-                            <h2 class="text-2xl font-bold mb-4">Kosakata Bahasa Arab Sehari-hari</h2>
-                            <p class="mb-4">Mempelajari kosakata dasar bahasa Arab sangat penting untuk komunikasi sehari-hari. Berikut adalah beberapa kosakata yang sering digunakan:</p>
-                            
-                            <h3 class="text-xl font-semibold mb-2">Kosakata Dasar</h3>
-                            <div class="grid md:grid-cols-2 gap-4 mb-4">
-                                <div class="bg-gray-100 p-4 rounded-lg">
-                                    <p class="font-medium">مرحبا (Marhaban)</p>
-                                    <p>Artinya: Halo/Selamat datang</p>
-                                </div>
-                                <div class="bg-gray-100 p-4 rounded-lg">
-                                    <p class="font-medium">شكرا (Shukran)</p>
-                                    <p>Artinya: Terima kasih</p>
-                                </div>
-                                <div class="bg-gray-100 p-4 rounded-lg">
-                                    <p class="font-medium">نعم (Na'am)</p>
-                                    <p>Artinya: Ya</p>
-                                </div>
-                                <div class="bg-gray-100 p-4 rounded-lg">
-                                    <p class="font-medium">لا (La)</p>
-                                    <p>Artinya: Tidak</p>
-                                </div>
-                            </div>
-                            
-                            <h3 class="text-xl font-semibold mb-2">Percakapan Sederhana</h3>
-                            <div class="bg-blue-50 p-4 rounded-lg mb-4">
-                                <p class="font-medium">A: السلام عليكم (Assalamu alaikum)</p>
-                                <p class="font-medium">B: وعليكم السلام (Wa alaikum salam)</p>
-                                <p class="font-medium">A: كيف حالك؟ (Kaifa haluka?)</p>
-                                <p class="font-medium">B: الحمد لله، بخير (Alhamdulillah, bikhair)</p>
-                            </div>
-                            
-                            <h3 class="text-xl font-semibold mb-2">Latihan</h3>
-                            <p>Coba praktikkan percakapan sederhana di atas dengan teman Anda!</p>
-                        `,
-                        kesulitan: 'Pemula',
-                        pembuat: 'Ustadz Ahmad',
-                        tanggal: new Date().toISOString()
-                    }
-                ];
-                
-                platformData.tugas = [
-                    {
-                        id: '1',
-                        judul: 'Tugas Aljabar - Persamaan Linear',
-                        mapel: 'Matematika',
-                        deskripsi: 'Selesaikan soal-soal persamaan linear satu variabel',
-                        konten: `
-                            <h2 class="text-2xl font-bold mb-4">Tugas Aljabar - Persamaan Linear</h2>
-                            <p class="mb-4">Kerjakan soal-soal berikut dengan benar. Tulis jawaban Anda pada kolom yang disediakan.</p>
-                            
-                            <div class="space-y-6">
-                                <div class="border-b pb-4">
-                                    <h3 class="text-lg font-semibold mb-2">Soal 1</h3>
-                                    <p class="mb-2">Selesaikan persamaan: 3x + 7 = 22</p>
-                                    <textarea class="w-full p-2 border rounded" rows="2" placeholder="Tulis jawaban Anda di sini..."></textarea>
-                                </div>
-                                
-                                <div class="border-b pb-4">
-                                    <h3 class="text-lg font-semibold mb-2">Soal 2</h3>
-                                    <p class="mb-2">Jika 2y - 5 = 11, berapakah nilai y?</p>
-                                    <textarea class="w-full p-2 border rounded" rows="2" placeholder="Tulis jawaban Anda di sini..."></textarea>
-                                </div>
-                                
-                                <div class="border-b pb-4">
-                                    <h3 class="text-lg font-semibold mb-2">Soal 3</h3>
-                                    <p class="mb-2">Selesaikan: 4(z + 3) = 32</p>
-                                    <textarea class="w-full p-2 border rounded" rows="2" placeholder="Tulis jawaban Anda di sini..."></textarea>
-                                </div>
-                            </div>
-                            
-                            <div class="mt-6">
-                                <button onclick="kirimTugas('1')" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Kirim Tugas</button>
-                            </div>
-                        `,
-                        deadline: '2023-11-10',
-                        pembuat: 'Ustadz Surahman, S.Pd',
-                        tanggal: new Date().toISOString()
-                    }
-                ];
-                
-                platformData.diskusi = [
-                    {
-                        id: '1',
-                        judul: 'Kesulitan dalam memahami aljabar',
-                        deskripsi: 'Saya mengalami kesulitan dalam memahami konsep variabel dalam aljabar. Ada yang bisa bantu?',
-                        pembuat: 'Santri A',
-                        tanggal: new Date().toISOString(),
-                        komentar: [
-                            {
-                                pengirim: 'Ustadz Surahman, S.Pd',
-                                isi: 'Coba pelajari dulu konsep dasar persamaan. Saya akan buatkan video penjelasan tambahan.',
-                                tanggal: new Date().toISOString()
-                            }
-                        ]
-                    }
-                ];
-                
-                platformData.quizHistory = [];
-                
-                platformData.nilai = {
-                    'santri@smpislamibadurrahman.id': {
-                        Matematika: { tugas: 85, quiz: 80, uts: 78, uas: 82, akhir: 81 },
-                        'Bahasa Arab': { tugas: 90, quiz: 85, uts: 88, uas: 92, akhir: 89 },
-                        'Al-Quran': { tugas: 95, quiz: 90, uts: 92, uas: 94, akhir: 93 },
-                        IPA: { tugas: 80, quiz: 75, uts: 78, uas: 82, akhir: 79 }
-                    }
-                };
-                
-                platformData.events = [
-                    { title: 'UTS Semester Ganjil', date: '2023-10-15' },
-                    { title: 'UAS Semester Ganjil', date: '2023-12-10' },
-                    { title: 'Libur Semester', date: '2023-12-20' }
-                ];
-                
+                // Initialize with sample data for siswa
+                initializeSiswaData();
                 savePlatformData();
             }
+        }
+
+        // Initialize nilai data for siswa
+        function initializeSiswaData() {
+            platformData.siswa.forEach(siswa => {
+                if (!platformData.nilai[siswa.email]) {
+                    platformData.nilai[siswa.email] = {
+                        Matematika: { tugas: 0, quiz: 0, uts: 0, uas: 0, akhir: 0 },
+                        'Bahasa Arab': { tugas: 0, quiz: 0, uts: 0, uas: 0, akhir: 0 },
+                        'Al-Quran': { tugas: 0, quiz: 0, uts: 0, uas: 0, akhir: 0 },
+                        IPA: { tugas: 0, quiz: 0, uts: 0, uas: 0, akhir: 0 },
+                        IPS: { tugas: 0, quiz: 0, uts: 0, uas: 0, akhir: 0 },
+                        'Bahasa Indonesia': { tugas: 0, quiz: 0, uts: 0, uas: 0, akhir: 0 },
+                        'Bahasa Inggris': { tugas: 0, quiz: 0, uts: 0, uas: 0, akhir: 0 }
+                    };
+                }
+                
+                if (!platformData.userProgress[siswa.email]) {
+                    platformData.userProgress[siswa.email] = { completedMateri: [] };
+                }
+            });
+            
+            // Add sample materi and tugas
+            platformData.materi = [
+                {
+                    id: '1',
+                    judul: 'Pengenalan Aljabar',
+                    mapel: 'Matematika',
+                    deskripsi: 'Materi pengenalan dasar-dasar aljabar untuk pemula',
+                    konten: `
+                        <h2 class="text-2xl font-bold mb-4">Pengenalan Aljabar</h2>
+                        <p class="mb-4">Aljabar adalah cabang matematika yang mempelajari struktur, hubungan, dan kuantitas.</p>
+                        <!-- ... konten materi ... -->
+                    `,
+                    kesulitan: 'Pemula',
+                    pembuat: 'Ustadz Surahman, S.Pd',
+                    tanggal: new Date().toISOString()
+                }
+            ];
+            
+            platformData.tugas = [
+                {
+                    id: '1',
+                    judul: 'Tugas Aljabar - Persamaan Linear',
+                    mapel: 'Matematika',
+                    deskripsi: 'Selesaikan soal-soal persamaan linear satu variabel',
+                    konten: `
+                        <h2 class="text-2xl font-bold mb-4">Tugas Aljabar - Persamaan Linear</h2>
+                        <p class="mb-4">Kerjakan soal-soal berikut dengan benar.</p>
+                        <!-- ... konten tugas ... -->
+                    `,
+                    deadline: '2023-11-10',
+                    pembuat: 'Ustadz Surahman, S.Pd',
+                    tanggal: new Date().toISOString()
+                }
+            ];
         }
 
         // Save data to localStorage
@@ -1560,8 +1588,10 @@
                 emailField.value = 'guru@smpislamibadurrahman.id';
                 demoEmail.textContent = 'guru@smpislamibadurrahman.id';
             } else {
-                emailField.value = 'santri@smpislamibadurrahman.id';
-                demoEmail.textContent = 'santri@smpislamibadurrahman.id';
+                // Untuk santri, tampilkan contoh email siswa pertama
+                const firstSiswa = platformData.siswa[0];
+                emailField.value = firstSiswa ? firstSiswa.email : 'santri@smpislamibadurrahman.id';
+                demoEmail.textContent = 'gunakan email siswa (contoh: ' + (firstSiswa ? firstSiswa.email : 'santri@smpislamibadurrahman.id') + ')';
             }
         }
 
@@ -1580,18 +1610,49 @@
                 return;
             }
             
-            if (password !== 'password123') {
-                alert('Password salah! Gunakan password: password123');
+            // Cek apakah email adalah siswa
+            const siswa = platformData.siswa.find(s => s.email === email);
+            
+            if (siswa) {
+                // Login sebagai siswa
+                if (password !== 'password123') {
+                    alert('Password salah! Gunakan password: password123');
+                    return;
+                }
+                
+                currentUser = {
+                    email: email,
+                    role: 'santri',
+                    name: siswa.nama
+                };
+            } else if (email === 'admin@smpislamibadurrahman.id' && role === 'admin') {
+                // Login sebagai admin
+                if (password !== 'password123') {
+                    alert('Password salah! Gunakan password: password123');
+                    return;
+                }
+                
+                currentUser = {
+                    email: email,
+                    role: 'admin',
+                    name: 'Administrator'
+                };
+            } else if (email === 'guru@smpislamibadurrahman.id' && role === 'guru') {
+                // Login sebagai guru
+                if (password !== 'password123') {
+                    alert('Password salah! Gunakan password: password123');
+                    return;
+                }
+                
+                currentUser = {
+                    email: email,
+                    role: 'guru',
+                    name: 'Ustadz Surahman, S.Pd'
+                };
+            } else {
+                alert('Email atau role tidak valid!');
                 return;
             }
-            
-            // Simulate login process
-            currentUser = {
-                email: email,
-                role: role,
-                name: role === 'admin' ? 'Administrator' : 
-                      role === 'guru' ? 'Ustadz Surahman, S.Pd' : 'Santri Example'
-            };
             
             // Show platform dashboard
             document.getElementById('login-section').classList.add('hidden');
@@ -1606,6 +1667,10 @@
                 document.getElementById('admin-panel-btn').classList.remove('hidden');
                 document.getElementById('add-materi-btn').classList.remove('hidden');
                 document.getElementById('add-tugas-btn').classList.remove('hidden');
+            } else {
+                document.getElementById('admin-panel-btn').classList.add('hidden');
+                document.getElementById('add-materi-btn').classList.add('hidden');
+                document.getElementById('add-tugas-btn').classList.add('hidden');
             }
             
             // Load platform data
@@ -1893,6 +1958,79 @@
                     <button onclick="hapusTugas('${tugas.id}')" class="text-red-600 hover:text-red-800">Hapus</button>
                 </div>
             `).join('') || '<p class="text-gray-500 text-center">Belum ada tugas</p>';
+            
+            // Load data siswa
+            filterSiswa();
+        }
+
+        // Fungsi untuk memfilter dan menampilkan data siswa
+        function filterSiswa() {
+            const filterRuang = document.getElementById('filter-ruang').value;
+            const container = document.getElementById('siswa-list');
+            
+            let filteredSiswa = platformData.siswa;
+            if (filterRuang !== 'all') {
+                filteredSiswa = platformData.siswa.filter(siswa => siswa.ruang === filterRuang);
+            }
+            
+            if (filteredSiswa.length === 0) {
+                container.innerHTML = '<tr><td colspan="5" class="px-4 py-3 text-center">Tidak ada data siswa</td></tr>';
+                return;
+            }
+            
+            container.innerHTML = filteredSiswa.map(siswa => `
+                <tr class="bg-white border-b">
+                    <td class="px-4 py-3 font-medium">${siswa.nama}</td>
+                    <td class="px-4 py-3">${siswa.id || '-'}</td>
+                    <td class="px-4 py-3">${siswa.ruang}</td>
+                    <td class="px-4 py-3">${siswa.email}</td>
+                    <td class="px-4 py-3">
+                        <button onclick="editSiswa('${siswa.email}')" class="text-blue-600 hover:text-blue-800 mr-2">Edit</button>
+                        <button onclick="resetPasswordSiswa('${siswa.email}')" class="text-green-600 hover:text-green-800 mr-2">Reset Password</button>
+                        <button onclick="lihatNilaiSiswa('${siswa.email}')" class="text-purple-600 hover:text-purple-800">Nilai</button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        // Fungsi untuk mengedit data siswa
+        function editSiswa(email) {
+            const siswa = platformData.siswa.find(s => s.email === email);
+            if (siswa) {
+                const newNama = prompt('Edit nama siswa:', siswa.nama);
+                if (newNama && newNama.trim() !== '') {
+                    siswa.nama = newNama.trim();
+                    savePlatformData();
+                    filterSiswa();
+                    alert('Data siswa berhasil diupdate!');
+                }
+            }
+        }
+
+        // Fungsi untuk reset password siswa
+        function resetPasswordSiswa(email) {
+            if (confirm('Reset password siswa ini ke "password123"?')) {
+                alert(`Password untuk ${email} telah direset ke "password123"`);
+                // Dalam implementasi nyata, ini akan mengupdate password di database
+            }
+        }
+
+        // Fungsi untuk melihat nilai siswa
+        function lihatNilaiSiswa(email) {
+            const siswa = platformData.siswa.find(s => s.email === email);
+            const nilai = platformData.nilai[email];
+            
+            if (!siswa || !nilai) {
+                alert('Data siswa atau nilai tidak ditemukan!');
+                return;
+            }
+            
+            let nilaiText = `Nilai untuk ${siswa.nama} (${siswa.ruang}):\n\n`;
+            Object.entries(nilai).forEach(([mapel, data]) => {
+                nilaiText += `${mapel}: ${data.akhir}\n`;
+            });
+            
+            alert(nilaiText);
         }
 
         function bukaMateri(materiId) {
