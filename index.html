@@ -2139,13 +2139,13 @@
                     
                     <div class="diskusi-komentar">
                         <h4 class="font-semibold mb-4">Komentar</h4>
-                        ${diskusi.komentar.map(komentar => `
+                        ${diskusi.komentar ? diskusi.komentar.map(komentar => `
                             <div class="mb-4 p-3 bg-gray-50 rounded">
                                 <p class="font-medium">${komentar.pengirim}</p>
                                 <p class="text-gray-600">${komentar.isi}</p>
                                 <p class="text-sm text-gray-500 mt-1">${new Date(komentar.tanggal).toLocaleDateString('id-ID')}</p>
                             </div>
-                        `).join('')}
+                        `).join('') : '<p class="text-gray-500">Belum ada komentar</p>'}
                         
                         <div class="diskusi-komentar-input">
                             <textarea id="komentar-baru" class="w-full p-2 border rounded" rows="3" placeholder="Tulis komentar Anda..."></textarea>
@@ -2168,6 +2168,9 @@
             
             const diskusi = platformData.diskusi.find(d => d.id === diskusiId);
             if (diskusi) {
+                if (!diskusi.komentar) {
+                    diskusi.komentar = [];
+                }
                 diskusi.komentar.push({
                     pengirim: currentUser.name,
                     isi: komentar,
