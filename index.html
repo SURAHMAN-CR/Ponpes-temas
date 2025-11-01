@@ -272,6 +272,25 @@
         .diskusi-komentar-input {
             margin-top: 1rem;
         }
+
+        .guru-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid #10b981;
+        }
+
+        .guru-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .mapel-badge {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -747,6 +766,7 @@
                         <button class="dashboard-nav bg-gray-200 text-gray-700 px-4 py-2 rounded-lg" onclick="showPlatformSection('nilai')">Nilai</button>
                         <button class="dashboard-nav bg-gray-200 text-gray-700 px-4 py-2 rounded-lg" onclick="showPlatformSection('kalender')">Kalender</button>
                         <button class="dashboard-nav bg-gray-200 text-gray-700 px-4 py-2 rounded-lg" onclick="showPlatformSection('live')">Kelas Live</button>
+                        <button class="dashboard-nav bg-gray-200 text-gray-700 px-4 py-2 rounded-lg" onclick="showPlatformSection('guru')">Data Guru</button>
                     </div>
                 </div>
                 
@@ -1103,6 +1123,27 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Data Guru Content -->
+                <div class="platform-section" id="guru-content">
+                    <div class="bg-white rounded-xl shadow-md p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-6">Data Guru SMP Islam Ibadurrahman</h3>
+                        
+                        <div class="mb-6">
+                            <div class="flex justify-between items-center mb-4">
+                                <h4 class="text-lg font-semibold text-gray-800">Daftar Guru</h4>
+                                <div class="flex space-x-2">
+                                    <input type="text" id="search-guru" class="form-input w-64" placeholder="Cari guru...">
+                                    <button onclick="filterGuru()" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">Cari</button>
+                                </div>
+                            </div>
+                            
+                            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="daftar-guru">
+                                <!-- Data guru akan diisi oleh JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 
                 <!-- Admin Panel -->
                 <div id="admin-panel" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
@@ -1246,6 +1287,18 @@
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Manajemen Guru -->
+                        <div class="mt-8">
+                            <h4 class="text-lg font-semibold text-gray-800 mb-4">Manajemen Guru</h4>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <div class="max-h-60 overflow-y-auto">
+                                    <div id="admin-guru-list" class="space-y-3">
+                                        <!-- Data guru akan diisi oleh JavaScript -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1294,7 +1347,7 @@
     </footer>
 
     <script>
-        // Data Storage dengan Data Siswa
+        // Data Storage dengan Data Siswa dan Guru
         let platformData = {
             // Data siswa dari file daftar hadir
             siswa: [
@@ -1393,6 +1446,236 @@
                 { id: 'IT000087', nama: 'SHOLAH ARYA GUNE', email: 'sholah.arya@smpislamibadurrahman.id', ruang: 'VI' },
                 { id: 'IT000090', nama: 'SYAHROMI KHAIRULLAH SYAKIR', email: 'syahromi.khairullah@smpislamibadurrahman.id', ruang: 'VI' }
             ],
+
+            // Data Guru dari dokumen
+            guru: [
+                {
+                    id: 'G001',
+                    nama: 'Abdurrahman Suryadi, M.Pd.I',
+                    email: 'abdurrahman.suryadi@smpislamibadurrahman.id',
+                    mapel: 'Nahwu',
+                    pendidikan: 'S-2 Pendidikan Agama Islam',
+                    tempatLahir: 'Narmada',
+                    tanggalLahir: '27-11-1984'
+                },
+                {
+                    id: 'G002',
+                    nama: 'Andri Kurniawati, S.Pd.I',
+                    email: 'andri.kurniawati@smpislamibadurrahman.id',
+                    mapel: 'Sejarah',
+                    pendidikan: 'S-1 Tarbiyah PGMI',
+                    tempatLahir: 'Ponorogo',
+                    tanggalLahir: '12-09-1984'
+                },
+                {
+                    id: 'G003',
+                    nama: 'Wirawan Suhaedi, M.Ak',
+                    email: 'wirawan.suhaedi@smpislamibadurrahman.id',
+                    mapel: 'Ekonomi',
+                    pendidikan: 'S-2 Akuntansi',
+                    tempatLahir: 'Lembuak kebon',
+                    tanggalLahir: '18-10-1977'
+                },
+                {
+                    id: 'G004',
+                    nama: 'Kusuma Satria, M.H',
+                    email: 'kusuma.satria@smpislamibadurrahman.id',
+                    mapel: 'Hadits',
+                    pendidikan: 'S-2 Ilmu Hukum',
+                    tempatLahir: 'Lembuak Kebon',
+                    tanggalLahir: '17-06-1982'
+                },
+                {
+                    id: 'G005',
+                    nama: 'Erwin Suryanto, S.Ak',
+                    email: 'erwin.suryanto@smpislamibadurrahman.id',
+                    mapel: 'Fisika',
+                    pendidikan: 'S-1 Akuntansi',
+                    tempatLahir: '',
+                    tanggalLahir: ''
+                },
+                {
+                    id: 'G006',
+                    nama: 'Handia Fahrurrozi, M.Ak',
+                    email: 'handia.fahrurrozi@smpislamibadurrahman.id',
+                    mapel: 'Kewarganegaraan',
+                    pendidikan: 'S-2 Akuntansi',
+                    tempatLahir: 'Narmada',
+                    tanggalLahir: '19-12-1992'
+                },
+                {
+                    id: 'G007',
+                    nama: 'Syamsul Irfan, M.Pd',
+                    email: 'syamsul.irfan@smpislamibadurrahman.id',
+                    mapel: 'Bahasa Inggris',
+                    pendidikan: 'S-2 Pendidikan Bahasa Inggris',
+                    tempatLahir: 'Sembalun Bumbung',
+                    tanggalLahir: '06-12-1987'
+                },
+                {
+                    id: 'G008',
+                    nama: 'Irwan Rahadi, S.Pd',
+                    email: 'irwan.rahadi@smpislamibadurrahman.id',
+                    mapel: 'Matematika',
+                    pendidikan: 'S-1 Pendidikan Matematika',
+                    tempatLahir: 'Lombok Barat',
+                    tanggalLahir: '11-04-1981'
+                },
+                {
+                    id: 'G009',
+                    nama: 'Lilik Anta Andriani, S.Pd',
+                    email: 'lilik.anta@smpislamibadurrahman.id',
+                    mapel: 'IPA',
+                    pendidikan: 'S-1 Pendidikan Biologi',
+                    tempatLahir: 'Temas',
+                    tanggalLahir: '01-07-1994'
+                },
+                {
+                    id: 'G010',
+                    nama: 'Surahman, S.Pd',
+                    email: 'surahman@smpislamibadurrahman.id',
+                    mapel: 'Matematika & Kimia',
+                    pendidikan: 'S-1 Pendidikan Matematika',
+                    tempatLahir: 'Narmada',
+                    tanggalLahir: '22-05-2000'
+                },
+                {
+                    id: 'G011',
+                    nama: 'Arisya Widyadhari, S.Pd',
+                    email: 'arisya.widyadhari@smpislamibadurrahman.id',
+                    mapel: 'Biologi',
+                    pendidikan: 'S-1 Pendidikan Biologi',
+                    tempatLahir: 'Rempung',
+                    tanggalLahir: '20-01-2002'
+                },
+                {
+                    id: 'G012',
+                    nama: 'Aldi Abdul Rahman Huzaifi, S.Pd',
+                    email: 'aldi.huzafi@smpislamibadurrahman.id',
+                    mapel: 'PAI',
+                    pendidikan: 'S-1 Pendidikan Agama Islam',
+                    tempatLahir: 'Narmada',
+                    tanggalLahir: '01-02-2000'
+                },
+                {
+                    id: 'G013',
+                    nama: 'Pramudya Citra Sholeha, S.Pd',
+                    email: 'pramudya.citra@smpislamibadurrahman.id',
+                    mapel: 'Tafsir',
+                    pendidikan: 'S-1 Ilmu Quran dan Tafsir',
+                    tempatLahir: 'Narmada',
+                    tanggalLahir: '08-09-2000'
+                },
+                {
+                    id: 'G014',
+                    nama: 'Zenita Zahardayani, S.Pd',
+                    email: 'zenita.zahardayani@smpislamibadurrahman.id',
+                    mapel: 'Bahasa Inggris',
+                    pendidikan: 'S-1 Pendidikan Bahasa Inggris',
+                    tempatLahir: 'Narmada',
+                    tanggalLahir: '19-07-2002'
+                },
+                {
+                    id: 'G015',
+                    nama: 'Saepul Muslim',
+                    email: 'saepul.muslim@smpislamibadurrahman.id',
+                    mapel: 'Nahwu',
+                    pendidikan: 'MA Nurul Haramaian Narmada',
+                    tempatLahir: 'Kebun Nyiuh',
+                    tanggalLahir: '08-05-1996'
+                },
+                {
+                    id: 'G016',
+                    nama: 'Mulia Marcthini',
+                    email: 'mulia.marcthini@smpislamibadurrahman.id',
+                    mapel: 'Kewarganegaraan',
+                    pendidikan: 'SMAN 1 Narmada',
+                    tempatLahir: 'Narmada',
+                    tanggalLahir: '29-05-2003'
+                },
+                {
+                    id: 'G017',
+                    nama: 'Aldis Salwa Zaelani',
+                    email: 'aldis.salwa@smpislamibadurrahman.id',
+                    mapel: 'Bahasa Indonesia',
+                    pendidikan: 'MBI Ammanatul Ummah Pacet Mojokerto',
+                    tempatLahir: 'Narmada',
+                    tanggalLahir: '18-10-2004'
+                },
+                {
+                    id: 'G018',
+                    nama: 'Alya Usnaeni Bilqisti',
+                    email: 'alya.usnaeni@smpislamibadurrahman.id',
+                    mapel: 'Conversation & Informatika',
+                    pendidikan: 'MA Nurul Haramaian Narmada',
+                    tempatLahir: 'Narmada',
+                    tanggalLahir: '09-08-2004'
+                },
+                {
+                    id: 'G019',
+                    nama: 'Nurlaeli Febrianti',
+                    email: 'nurlaeli.febrianti@smpislamibadurrahman.id',
+                    mapel: 'Reading',
+                    pendidikan: 'MA Nurul Haramain Narmada',
+                    tempatLahir: 'Mataram',
+                    tanggalLahir: '02-02-2005'
+                },
+                {
+                    id: 'G020',
+                    nama: 'Muhammad Nasril',
+                    email: 'muhammad.nasril@smpislamibadurrahman.id',
+                    mapel: 'Muhadatsah',
+                    pendidikan: 'Pondok Modern Darussalam Gontor',
+                    tempatLahir: 'Kupang',
+                    tanggalLahir: '25-08-2005'
+                },
+                {
+                    id: 'G021',
+                    nama: 'Muhammad Gading Yusroh',
+                    email: 'muhammad.gading@smpislamibadurrahman.id',
+                    mapel: 'Durusullughah',
+                    pendidikan: 'Pondok Modern Darussalam Gontor',
+                    tempatLahir: 'Taliwang',
+                    tanggalLahir: '05-02-2006'
+                },
+                {
+                    id: 'G022',
+                    nama: 'Ahmad Daffa Alfian',
+                    email: 'ahmad.daffa@smpislamibadurrahman.id',
+                    mapel: 'Muhadatsah',
+                    pendidikan: 'MA Nurul Haramaian Narmada',
+                    tempatLahir: 'Selong',
+                    tanggalLahir: '26-10-2007'
+                },
+                {
+                    id: 'G023',
+                    nama: 'Zulfa Jauhari Muslimah',
+                    email: 'zulfa.jauhari@smpislamibadurrahman.id',
+                    mapel: 'Tarikh Islam',
+                    pendidikan: 'Pondok Modern Darussalam Gontor',
+                    tempatLahir: 'Maumere',
+                    tanggalLahir: '19-07-2006'
+                },
+                {
+                    id: 'G024',
+                    nama: 'Diva Jumratul Aula',
+                    email: 'diva.jumratul@smpislamibadurrahman.id',
+                    mapel: 'Tahfidz',
+                    pendidikan: 'MA Nurul Haramaian Narmada',
+                    tempatLahir: 'Mataram',
+                    tanggalLahir: '26-02-2006'
+                },
+                {
+                    id: 'G025',
+                    nama: 'Yuli Hernawati',
+                    email: 'yuli.hernawati@smpislamibadurrahman.id',
+                    mapel: 'Durusullughah',
+                    pendidikan: 'MA Nurul Haramaian Narmada',
+                    tempatLahir: 'Sintung Barat',
+                    tanggalLahir: '16-07-2007'
+                }
+            ],
+
             materi: [],
             tugas: [],
             diskusi: [],
@@ -1570,6 +1853,21 @@
         let currentQuestionIndex = 0;
         let userAnswers = [];
 
+        // Fungsi untuk login guru
+        function handleGuruLogin(email) {
+            const guru = platformData.guru.find(g => g.email === email);
+            if (guru) {
+                currentUser = {
+                    email: email,
+                    role: 'guru',
+                    name: guru.nama,
+                    guruData: guru
+                };
+                return true;
+            }
+            return false;
+        }
+
         function showLoginForm(role) {
             document.getElementById('login-options').classList.add('hidden');
             document.getElementById('login-form').classList.remove('hidden');
@@ -1585,8 +1883,10 @@
                 emailField.value = 'admin@smpislamibadurrahman.id';
                 demoEmail.textContent = 'admin@smpislamibadurrahman.id';
             } else if (role === 'guru') {
-                emailField.value = 'guru@smpislamibadurrahman.id';
-                demoEmail.textContent = 'guru@smpislamibadurrahman.id';
+                // Untuk guru, tampilkan contoh email guru pertama
+                const firstGuru = platformData.guru[0];
+                emailField.value = firstGuru ? firstGuru.email : 'guru@smpislamibadurrahman.id';
+                demoEmail.textContent = 'gunakan email guru (contoh: ' + (firstGuru ? firstGuru.email : 'guru@smpislamibadurrahman.id') + ')';
             } else {
                 // Untuk santri, tampilkan contoh email siswa pertama
                 const firstSiswa = platformData.siswa[0];
@@ -1625,7 +1925,16 @@
                     role: 'santri',
                     name: siswa.nama
                 };
-            } else if (email === 'admin@smpislamibadurrahman.id' && role === 'admin') {
+            } 
+            // Cek apakah email adalah guru
+            else if (handleGuruLogin(email)) {
+                if (password !== 'password123') {
+                    alert('Password salah! Gunakan password: password123');
+                    return;
+                }
+                // currentUser sudah di-set di handleGuruLogin
+            }
+            else if (email === 'admin@smpislamibadurrahman.id' && role === 'admin') {
                 // Login sebagai admin
                 if (password !== 'password123') {
                     alert('Password salah! Gunakan password: password123');
@@ -1636,18 +1945,6 @@
                     email: email,
                     role: 'admin',
                     name: 'Administrator'
-                };
-            } else if (email === 'guru@smpislamibadurrahman.id' && role === 'guru') {
-                // Login sebagai guru
-                if (password !== 'password123') {
-                    alert('Password salah! Gunakan password: password123');
-                    return;
-                }
-                
-                currentUser = {
-                    email: email,
-                    role: 'guru',
-                    name: 'Ustadz Surahman, S.Pd'
                 };
             } else {
                 alert('Email atau role tidak valid!');
@@ -1710,6 +2007,8 @@
             loadCalendar();
             // Load admin lists
             loadAdminLists();
+            // Load data guru
+            loadDaftarGuru();
         }
 
         function loadRecentMaterials() {
@@ -1935,34 +2234,6 @@
             container.innerHTML = html;
         }
 
-        function loadAdminLists() {
-            const materiList = document.getElementById('admin-materi-list');
-            const tugasList = document.getElementById('admin-tugas-list');
-            
-            materiList.innerHTML = platformData.materi.map(materi => `
-                <div class="flex justify-between items-center p-3 bg-gray-50 rounded">
-                    <div>
-                        <p class="font-medium">${materi.judul}</p>
-                        <p class="text-sm text-gray-600">${materi.mapel} • ${materi.kesulitan}</p>
-                    </div>
-                    <button onclick="hapusMateri('${materi.id}')" class="text-red-600 hover:text-red-800">Hapus</button>
-                </div>
-            `).join('') || '<p class="text-gray-500 text-center">Belum ada materi</p>';
-            
-            tugasList.innerHTML = platformData.tugas.map(tugas => `
-                <div class="flex justify-between items-center p-3 bg-gray-50 rounded">
-                    <div>
-                        <p class="font-medium">${tugas.judul}</p>
-                        <p class="text-sm text-gray-600">${tugas.mapel} • ${new Date(tugas.deadline).toLocaleDateString('id-ID')}</p>
-                    </div>
-                    <button onclick="hapusTugas('${tugas.id}')" class="text-red-600 hover:text-red-800">Hapus</button>
-                </div>
-            `).join('') || '<p class="text-gray-500 text-center">Belum ada tugas</p>';
-            
-            // Load data siswa
-            filterSiswa();
-        }
-
         // Fungsi untuk memfilter dan menampilkan data siswa
         function filterSiswa() {
             const filterRuang = document.getElementById('filter-ruang').value;
@@ -2031,6 +2302,158 @@
             });
             
             alert(nilaiText);
+        }
+
+        // Fungsi untuk menampilkan daftar guru
+        function loadDaftarGuru() {
+            const container = document.getElementById('daftar-guru');
+            if (!container) return;
+            
+            container.innerHTML = platformData.guru.map(guru => `
+                <div class="guru-card bg-white rounded-lg shadow-md p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h5 class="text-lg font-semibold text-gray-800">${guru.nama}</h5>
+                            <p class="text-sm text-gray-600">${guru.pendidikan}</p>
+                        </div>
+                        <span class="mapel-badge">${guru.mapel}</span>
+                    </div>
+                    <div class="space-y-2 text-sm text-gray-600">
+                        <div class="flex items-center">
+                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                            <span>${guru.email}</span>
+                        </div>
+                        ${guru.tempatLahir ? `
+                        <div class="flex items-center">
+                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <span>${guru.tempatLahir}${guru.tanggalLahir ? ', ' + guru.tanggalLahir : ''}</span>
+                        </div>
+                        ` : ''}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Fungsi untuk filter guru
+        function filterGuru() {
+            const searchTerm = document.getElementById('search-guru').value.toLowerCase();
+            const container = document.getElementById('daftar-guru');
+            
+            const filteredGuru = platformData.guru.filter(guru => 
+                guru.nama.toLowerCase().includes(searchTerm) || 
+                guru.mapel.toLowerCase().includes(searchTerm) ||
+                guru.pendidikan.toLowerCase().includes(searchTerm)
+            );
+            
+            if (filteredGuru.length === 0) {
+                container.innerHTML = '<p class="text-gray-500 text-center py-8 col-span-3">Tidak ada guru yang ditemukan</p>';
+                return;
+            }
+            
+            container.innerHTML = filteredGuru.map(guru => `
+                <div class="guru-card bg-white rounded-lg shadow-md p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h5 class="text-lg font-semibold text-gray-800">${guru.nama}</h5>
+                            <p class="text-sm text-gray-600">${guru.pendidikan}</p>
+                        </div>
+                        <span class="mapel-badge">${guru.mapel}</span>
+                    </div>
+                    <div class="space-y-2 text-sm text-gray-600">
+                        <div class="flex items-center">
+                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                            <span>${guru.email}</span>
+                        </div>
+                        ${guru.tempatLahir ? `
+                        <div class="flex items-center">
+                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <span>${guru.tempatLahir}${guru.tanggalLahir ? ', ' + guru.tanggalLahir : ''}</span>
+                        </div>
+                        ` : ''}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Fungsi untuk menampilkan daftar guru di panel admin
+        function loadAdminGuruList() {
+            const container = document.getElementById('admin-guru-list');
+            if (!container) return;
+            
+            container.innerHTML = platformData.guru.map(guru => `
+                <div class="flex justify-between items-center p-3 bg-gray-50 rounded">
+                    <div>
+                        <p class="font-medium">${guru.nama}</p>
+                        <p class="text-sm text-gray-600">${guru.mapel} • ${guru.pendidikan}</p>
+                    </div>
+                    <div class="flex space-x-2">
+                        <button onclick="editGuru('${guru.id}')" class="text-blue-600 hover:text-blue-800">Edit</button>
+                        <button onclick="resetPasswordGuru('${guru.email}')" class="text-green-600 hover:text-green-800">Reset Password</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Fungsi untuk edit guru
+        function editGuru(guruId) {
+            const guru = platformData.guru.find(g => g.id === guruId);
+            if (guru) {
+                const newNama = prompt('Edit nama guru:', guru.nama);
+                if (newNama && newNama.trim() !== '') {
+                    guru.nama = newNama.trim();
+                    savePlatformData();
+                    loadAdminGuruList();
+                    loadDaftarGuru();
+                    alert('Data guru berhasil diupdate!');
+                }
+            }
+        }
+
+        // Fungsi untuk reset password guru
+        function resetPasswordGuru(email) {
+            if (confirm('Reset password guru ini ke "password123"?')) {
+                alert(`Password untuk ${email} telah direset ke "password123"`);
+            }
+        }
+
+        function loadAdminLists() {
+            const materiList = document.getElementById('admin-materi-list');
+            const tugasList = document.getElementById('admin-tugas-list');
+            
+            materiList.innerHTML = platformData.materi.map(materi => `
+                <div class="flex justify-between items-center p-3 bg-gray-50 rounded">
+                    <div>
+                        <p class="font-medium">${materi.judul}</p>
+                        <p class="text-sm text-gray-600">${materi.mapel} • ${materi.kesulitan}</p>
+                    </div>
+                    <button onclick="hapusMateri('${materi.id}')" class="text-red-600 hover:text-red-800">Hapus</button>
+                </div>
+            `).join('') || '<p class="text-gray-500 text-center">Belum ada materi</p>';
+            
+            tugasList.innerHTML = platformData.tugas.map(tugas => `
+                <div class="flex justify-between items-center p-3 bg-gray-50 rounded">
+                    <div>
+                        <p class="font-medium">${tugas.judul}</p>
+                        <p class="text-sm text-gray-600">${tugas.mapel} • ${new Date(tugas.deadline).toLocaleDateString('id-ID')}</p>
+                    </div>
+                    <button onclick="hapusTugas('${tugas.id}')" class="text-red-600 hover:text-red-800">Hapus</button>
+                </div>
+            `).join('') || '<p class="text-gray-500 text-center">Belum ada tugas</p>';
+            
+            // Load data siswa
+            filterSiswa();
+            // Load data guru
+            loadAdminGuruList();
         }
 
         function bukaMateri(materiId) {
