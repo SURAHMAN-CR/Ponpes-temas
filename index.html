@@ -694,7 +694,7 @@
                             <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                                 <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path>
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l9-5m-9 5v9"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5m-9 5v9"></path>
                                 </svg>
                             </div>
                             <h4 class="text-xl font-semibold text-gray-800 mb-2">Guru</h4>
@@ -1258,15 +1258,17 @@
                             <h4 class="text-lg font-semibold text-gray-800 mb-4">Manajemen Siswa</h4>
                             <div class="bg-gray-50 p-4 rounded-lg">
                                 <div class="mb-4">
-                                    <label class="form-label">Filter berdasarkan Ruang</label>
+                                    <label class="form-label">Filter berdasarkan Kelas</label>
                                     <select id="filter-ruang" class="form-input" onchange="filterSiswa()">
-                                        <option value="all">Semua Ruang</option>
-                                        <option value="I">Ruang I</option>
-                                        <option value="II">Ruang II</option>
-                                        <option value="III">Ruang III</option>
-                                        <option value="IV">Ruang IV</option>
-                                        <option value="V">Ruang V</option>
-                                        <option value="VI">Ruang VI</option>
+                                        <option value="all">Semua Kelas</option>
+                                        <option value="7A">Kelas 7A</option>
+                                        <option value="7B">Kelas 7B</option>
+                                        <option value="8A">Kelas 8A</option>
+                                        <option value="8B">Kelas 8B</option>
+                                        <option value="9A">Kelas 9A</option>
+                                        <option value="9B">Kelas 9B</option>
+                                        <option value="10A">Kelas 10A</option>
+                                        <option value="10B">Kelas 10B</option>
                                     </select>
                                 </div>
                                 <div class="max-h-60 overflow-y-auto">
@@ -1275,7 +1277,7 @@
                                             <tr>
                                                 <th class="px-4 py-3">Nama</th>
                                                 <th class="px-4 py-3">ID</th>
-                                                <th class="px-4 py-3">Ruang</th>
+                                                <th class="px-4 py-3">Kelas</th>
                                                 <th class="px-4 py-3">Email</th>
                                                 <th class="px-4 py-3">Aksi</th>
                                             </tr>
@@ -1349,105 +1351,107 @@
     <script>
         // Data Storage dengan Data Siswa dan Guru
         let platformData = {
-            // Data siswa dari file daftar hadir
+            // Data siswa dari file daftar hadir - DIUBAH SESUAI PERMINTAAN
             siswa: [
-                // Ruang I
-                { id: 'IT000027', nama: 'Akbar Fadila', email: 'akbar.fadila@smpislamibadurrahman.id', ruang: 'I' },
-                { id: 'IT000011', nama: 'Ali Abdurrahman', email: 'ali.abdurrahman@smpislamibadurrahman.id', ruang: 'I' },
-                { id: 'IT000012', nama: 'Amril Hadikal Khair', email: 'amril.hadikal@smpislamibadurrahman.id', ruang: 'I' },
-                { id: 'IT000028', nama: 'April Mandala Putra', email: 'april.mandala@smpislamibadurrahman.id', ruang: 'I' },
-                { id: 'IT000031', nama: 'Fadil Putra Wibawa', email: 'fadil.putra@smpislamibadurrahman.id', ruang: 'I' },
-                { id: 'IT000032', nama: 'Firjatullah Al-Fatih', email: 'firjatullah.alfatih@smpislamibadurrahman.id', ruang: 'I' },
-                { id: 'IT000023', nama: 'Gilang Azrial Rusiawan', email: 'gilang.azrial@smpislamibadurrahman.id', ruang: 'I' },
-                { id: 'IT000019', nama: 'HafazyaGaniazira', email: 'hafazya.ganiazira@smpislamibadurrahman.id', ruang: 'I' },
-                { id: 'IT000022', nama: 'Hafiz Kaka Irwan Hadi', email: 'hafiz.kaka@smpislamibadurrahman.id', ruang: 'I' },
-                { id: 'IT000037', nama: 'Irfan Kholil', email: 'irfan.kholil@smpislamibadurrahman.id', ruang: 'I' },
-                { id: 'IT000025', nama: 'M. ThoriqAlkharizmi', email: 'thoriq.alkharizmi@smpislamibadurrahman.id', ruang: 'I' },
-                { id: 'IT000039', nama: 'Muamar Hamidi Suhaedi', email: 'muamar.hamidi@smpislamibadurrahman.id', ruang: 'I' },
-                { id: 'IT000035', nama: 'Muhammad Hijlal Anwar', email: 'muhammad.hijlal@smpislamibadurrahman.id', ruang: 'I' },
-                { id: 'IT000021', nama: 'MuyassarHisyam Aris', email: 'muyassar.hisyam@smpislamibadurrahman.id', ruang: 'I' },
-                { id: 'IT000020', nama: 'Rama Arya Saputra', email: 'rama.arya@smpislamibadurrahman.id', ruang: 'I' },
-                { id: 'IT000034', nama: 'Rava Arya Teguh Saputra', email: 'rava.arya@smpislamibadurrahman.id', ruang: 'I' },
-                { id: 'IT000016', nama: 'Topan Dwi Anggara', email: 'topan.dwi@smpislamibadurrahman.id', ruang: 'I' },
-                { id: 'IT000014', nama: 'Yanan Arya', email: 'yanan.arya@smpislamibadurrahman.id', ruang: 'I' },
+                // Kelas 7A (sebelumnya Ruang VI)
+                { id: 'IT000078', nama: 'ADRIAN JULIAN MAULANA', email: 'adrian.julian@smpislamibadurrahman.id', ruang: '7A' },
+                { id: 'IT000076', nama: 'FAEZA FAIRUS SIHAN', email: 'faeza.fairus@smpislamibadurrahman.id', ruang: '7A' },
+                { id: 'IT000075', nama: 'LALU ALGIFARI PRATAMA', email: 'lalu.algifari@smpislamibadurrahman.id', ruang: '7A' },
+                { id: 'IT000088', nama: 'MUHAMAD NOPAL PAQIH', email: 'muhammad.nopal@smpislamibadurrahman.id', ruang: '7A' },
+                { id: 'IT000089', nama: 'MUHAMMAD ABDUL KADIR', email: 'muhammad.abdul@smpislamibadurrahman.id', ruang: '7A' },
+                { id: 'IT000062', nama: 'MUHAMMAD REZA HERLANI', email: 'muhammad.reza@smpislamibadurrahman.id', ruang: '7A' },
+                { id: 'IT000082', nama: 'MUHAMMAD UMAR SAID', email: 'muhammad.umar@smpislamibadurrahman.id', ruang: '7A' },
+                { id: 'IT000094', nama: 'NIZHAM AFFAN FEBRIAN', email: 'nizham.affan@smpislamibadurrahman.id', ruang: '7A' },
+                { id: 'IT000087', nama: 'SHOLAH ARYA GUNE', email: 'sholah.arya@smpislamibadurrahman.id', ruang: '7A' },
+                { id: 'IT000090', nama: 'SYAHROMI KHAIRULLAH SYAKIR', email: 'syahromi.khairullah@smpislamibadurrahman.id', ruang: '7A' },
 
-                // Ruang II
-                { id: 'IT000051', nama: 'Andi Ahmad Hermawan', email: 'andi.ahmad@smpislamibadurrahman.id', ruang: 'II' },
-                { id: 'IT000059', nama: 'Aufa Dzakwan Syahy', email: 'aufa.dzakwan@smpislamibadurrahman.id', ruang: 'II' },
-                { id: 'IT000045', nama: 'Dzaky Atha Ramadhan', email: 'dzaky.atha@smpislamibadurrahman.id', ruang: 'II' },
-                { id: 'IT000061', nama: 'Habib Sapriadi', email: 'habib.sapriadi@smpislamibadurrahman.id', ruang: 'II' },
-                { id: 'IT000049', nama: 'M. Alby RifkyFahri', email: 'alby.rifky@smpislamibadurrahman.id', ruang: 'II' },
-                { id: 'IT000053', nama: 'Muhammad Amir Dzakir', email: 'muhammad.amir@smpislamibadurrahman.id', ruang: 'II' },
-                { id: 'IT000055', nama: 'Muhammad Azwan Azka', email: 'muhammad.azwan@smpislamibadurrahman.id', ruang: 'II' },
-                { id: 'IT000052', nama: 'Tata Aditya Pratama', email: 'tata.aditya@smpislamibadurrahman.id', ruang: 'II' },
-                { id: 'IT000057', nama: 'Yousef Al Enzi', email: 'yousef.alenzi@smpislamibadurrahman.id', ruang: 'II' },
+                // Kelas 7B (sebelumnya Ruang III)
+                { id: 'IT000078', nama: 'ADILA AUDRIA ZALIKHA R.', email: 'adila.audria@smpislamibadurrahman.id', ruang: '7B' },
+                { id: 'IT000076', nama: 'AQILA SAPUTRI', email: 'aqila.saputri@smpislamibadurrahman.id', ruang: '7B' },
+                { id: 'IT000075', nama: 'AZLIA NOVIANTI', email: 'azlia.novianti@smpislamibadurrahman.id', ruang: '7B' },
+                { id: 'IT000088', nama: 'DESTIYA PUTRI', email: 'destiya.putri@smpislamibadurrahman.id', ruang: '7B' },
+                { id: 'IT000089', nama: 'DEWI MARLINA', email: 'dewi.marlina@smpislamibadurrahman.id', ruang: '7B' },
+                { id: 'IT000062', nama: 'DHEA JUNIANINGSIH', email: 'dhea.junianingsih@smpislamibadurrahman.id', ruang: '7B' },
+                { id: 'IT000082', nama: 'FAKIHA AILATU WIAM', email: 'fakiha.ailatu@smpislamibadurrahman.id', ruang: '7B' },
+                { id: 'IT000094', nama: 'INDIRA FEBRIANI', email: 'indira.febriani@smpislamibadurrahman.id', ruang: '7B' },
+                { id: 'IT000087', nama: 'NABILA SAPUTRI', email: 'nabila.saputri@smpislamibadurrahman.id', ruang: '7B' },
+                { id: 'IT000090', nama: 'NAYA ALIKA SABILA', email: 'naya.alika@smpislamibadurrahman.id', ruang: '7B' },
+                { id: 'IT000081', nama: 'PUTRI ALMAIRA WULANDARI', email: 'putri.almaira@smpislamibadurrahman.id', ruang: '7B' },
+                { id: 'IT000064', nama: 'PUTRI MEDYNA ANDINI', email: 'putri.medyna@smpislamibadurrahman.id', ruang: '7B' },
+                { id: 'IT000084', nama: 'PUTRI ZOHRATUL NOVIANI', email: 'putri.zohratul@smpislamibadurrahman.id', ruang: '7B' },
+                { id: 'IT000077', nama: 'SAFIRA FEBIANA', email: 'safira.febiana@smpislamibadurrahman.id', ruang: '7B' },
+                { id: 'IT000080', nama: 'SEPTIA AULIA PUTRI', email: 'septia.aulia@smpislamibadurrahman.id', ruang: '7B' },
+                { id: 'IT000063', nama: 'SUHAILA ILMA NAFIA', email: 'suhaila.ilma@smpislamibadurrahman.id', ruang: '7B' },
+                { id: 'IT000093', nama: 'ZAVIRA NURUL AMANDA', email: 'zavira.nurul@smpislamibadurrahman.id', ruang: '7B' },
+                { id: 'IT000086', nama: 'ZIADA HARITSYA ALFATYA', email: 'ziada.haritsya@smpislamibadurrahman.id', ruang: '7B' },
 
-                // Ruang III
-                { id: 'IT000078', nama: 'ADILA AUDRIA ZALIKHA R.', email: 'adila.audria@smpislamibadurrahman.id', ruang: 'III' },
-                { id: 'IT000076', nama: 'AQILA SAPUTRI', email: 'aqila.saputri@smpislamibadurrahman.id', ruang: 'III' },
-                { id: 'IT000075', nama: 'AZLIA NOVIANTI', email: 'azlia.novianti@smpislamibadurrahman.id', ruang: 'III' },
-                { id: 'IT000088', nama: 'DESTIYA PUTRI', email: 'destiya.putri@smpislamibadurrahman.id', ruang: 'III' },
-                { id: 'IT000089', nama: 'DEWI MARLINA', email: 'dewi.marlina@smpislamibadurrahman.id', ruang: 'III' },
-                { id: 'IT000062', nama: 'DHEA JUNIANINGSIH', email: 'dhea.junianingsih@smpislamibadurrahman.id', ruang: 'III' },
-                { id: 'IT000082', nama: 'FAKIHA AILATU WIAM', email: 'fakiha.ailatu@smpislamibadurrahman.id', ruang: 'III' },
-                { id: 'IT000094', nama: 'INDIRA FEBRIANI', email: 'indira.febriani@smpislamibadurrahman.id', ruang: 'III' },
-                { id: 'IT000087', nama: 'NABILA SAPUTRI', email: 'nabila.saputri@smpislamibadurrahman.id', ruang: 'III' },
-                { id: 'IT000090', nama: 'NAYA ALIKA SABILA', email: 'naya.alika@smpislamibadurrahman.id', ruang: 'III' },
-                { id: 'IT000081', nama: 'PUTRI ALMAIRA WULANDARI', email: 'putri.almaira@smpislamibadurrahman.id', ruang: 'III' },
-                { id: 'IT000064', nama: 'PUTRI MEDYNA ANDINI', email: 'putri.medyna@smpislamibadurrahman.id', ruang: 'III' },
-                { id: 'IT000084', nama: 'PUTRI ZOHRATUL NOVIANI', email: 'putri.zohratul@smpislamibadurrahman.id', ruang: 'III' },
-                { id: 'IT000077', nama: 'SAFIRA FEBIANA', email: 'safira.febiana@smpislamibadurrahman.id', ruang: 'III' },
-                { id: 'IT000080', nama: 'SEPTIA AULIA PUTRI', email: 'septia.aulia@smpislamibadurrahman.id', ruang: 'III' },
-                { id: 'IT000063', nama: 'SUHAILA ILMA NAFIA', email: 'suhaila.ilma@smpislamibadurrahman.id', ruang: 'III' },
-                { id: 'IT000093', nama: 'ZAVIRA NURUL AMANDA', email: 'zavira.nurul@smpislamibadurrahman.id', ruang: 'III' },
-                { id: 'IT000086', nama: 'ZIADA HARITSYA ALFATYA', email: 'ziada.haritsya@smpislamibadurrahman.id', ruang: 'III' },
+                // Kelas 8A (sebelumnya Ruang II)
+                { id: 'IT000051', nama: 'Andi Ahmad Hermawan', email: 'andi.ahmad@smpislamibadurrahman.id', ruang: '8A' },
+                { id: 'IT000059', nama: 'Aufa Dzakwan Syahy', email: 'aufa.dzakwan@smpislamibadurrahman.id', ruang: '8A' },
+                { id: 'IT000045', nama: 'Dzaky Atha Ramadhan', email: 'dzaky.atha@smpislamibadurrahman.id', ruang: '8A' },
+                { id: 'IT000061', nama: 'Habib Sapriadi', email: 'habib.sapriadi@smpislamibadurrahman.id', ruang: '8A' },
+                { id: 'IT000049', nama: 'M. Alby RifkyFahri', email: 'alby.rifky@smpislamibadurrahman.id', ruang: '8A' },
+                { id: 'IT000053', nama: 'Muhammad Amir Dzakir', email: 'muhammad.amir@smpislamibadurrahman.id', ruang: '8A' },
+                { id: 'IT000055', nama: 'Muhammad Azwan Azka', email: 'muhammad.azwan@smpislamibadurrahman.id', ruang: '8A' },
+                { id: 'IT000052', nama: 'Tata Aditya Pratama', email: 'tata.aditya@smpislamibadurrahman.id', ruang: '8A' },
+                { id: 'IT000057', nama: 'Yousef Al Enzi', email: 'yousef.alenzi@smpislamibadurrahman.id', ruang: '8A' },
 
-                // Ruang IV
-                { id: 'IT000073', nama: 'ARIZA DWI ANANDA', email: 'ariza.dwi@smpislamibadurrahman.id', ruang: 'IV' },
-                { id: 'IT000005', nama: 'FATHIN KHAERATUL', email: 'fathin.khaeratul@smpislamibadurrahman.id', ruang: 'IV' },
-                { id: 'IT000009', nama: 'INDAH KISWATI', email: 'indah.kiswati@smpislamibadurrahman.id', ruang: 'IV' },
-                { id: 'IT000066', nama: 'MELNIA RAMDAYANI', email: 'melnia.ramdayani@smpislamibadurrahman.id', ruang: 'IV' },
-                { id: 'IT000085', nama: 'MUTIARA INDAH RAMADANI', email: 'mutiara.indah@smpislamibadurrahman.id', ruang: 'IV' },
-                { id: 'IT000010', nama: 'NURUL AIZA', email: 'nurul.aiza@smpislamibadurrahman.id', ruang: 'IV' },
-                { id: 'IT000067', nama: 'PUTRI HILMIATI', email: 'putri.hilmiati@smpislamibadurrahman.id', ruang: 'IV' },
-                { id: 'IT000004', nama: 'QUEENZA RAYA AL - MIRA', email: 'queenza.raya@smpislamibadurrahman.id', ruang: 'IV' },
-                { id: 'IT000065', nama: 'SILVIA SUSILAWATI', email: 'silvia.susilawati@smpislamibadurrahman.id', ruang: 'IV' },
+                // Kelas 8B (sebelumnya bagian pertama Ruang V)
+                { id: 'IT000046', nama: 'Amelia Nuraeni Saputri', email: 'amelia.nuraeni@smpislamibadurrahman.id', ruang: '8B' },
+                { id: 'IT000047', nama: 'Faleska Chilla Al\'Maeitsa', email: 'faleska.chilla@smpislamibadurrahman.id', ruang: '8B' },
+                { id: 'IT000054', nama: 'Humaira Ayunda Rahman', email: 'humaira.ayunda@smpislamibadurrahman.id', ruang: '8B' },
+                { id: '', nama: 'Husna Izmilia Zein', email: 'husna.izmilia@smpislamibadurrahman.id', ruang: '8B' },
+                { id: 'IT000044', nama: 'Khansa Monifa Azkaylani', email: 'khansa.monifa@smpislamibadurrahman.id', ruang: '8B' },
+                { id: 'IT000048', nama: 'Liza Eriska', email: 'liza.eriska@smpislamibadurrahman.id', ruang: '8B' },
+                { id: 'IT000050', nama: 'Noki Ahmatul Hasanah', email: 'noki.ahmatul@smpislamibadurrahman.id', ruang: '8B' },
+                { id: 'IT000056', nama: 'Septi Aulia Fitri', email: 'septi.aulia@smpislamibadurrahman.id', ruang: '8B' },
 
-                // Ruang V
-                { id: 'IT000046', nama: 'Amelia Nuraeni Saputri', email: 'amelia.nuraeni@smpislamibadurrahman.id', ruang: 'V' },
-                { id: 'IT000047', nama: 'Faleska Chilla Al\'Maeitsa', email: 'faleska.chilla@smpislamibadurrahman.id', ruang: 'V' },
-                { id: 'IT000054', nama: 'Humaira Ayunda Rahman', email: 'humaira.ayunda@smpislamibadurrahman.id', ruang: 'V' },
-                { id: '', nama: 'Husna Izmilia Zein', email: 'husna.izmilia@smpislamibadurrahman.id', ruang: 'V' },
-                { id: 'IT000044', nama: 'Khansa Monifa Azkaylani', email: 'khansa.monifa@smpislamibadurrahman.id', ruang: 'V' },
-                { id: 'IT000048', nama: 'Liza Eriska', email: 'liza.eriska@smpislamibadurrahman.id', ruang: 'V' },
-                { id: 'IT000050', nama: 'Noki Ahmatul Hasanah', email: 'noki.ahmatul@smpislamibadurrahman.id', ruang: 'V' },
-                { id: 'IT000056', nama: 'Septi Aulia Fitri', email: 'septi.aulia@smpislamibadurrahman.id', ruang: 'V' },
-                { id: 'IT000058', nama: 'Annatya Aisyah', email: 'annatya.aisyah@smpislamibadurrahman.id', ruang: 'V' },
-                { id: 'IT000041', nama: 'Fanisa Hafiza Zahra', email: 'fanisa.hafiza@smpislamibadurrahman.id', ruang: 'V' },
-                { id: '', nama: 'lis Agustina', email: 'lis.agustina@smpislamibadurrahman.id', ruang: 'V' },
-                { id: 'IT000013', nama: 'Irma Solehatin', email: 'irma.solehatin@smpislamibadurrahman.id', ruang: 'V' },
-                { id: 'IT000038', nama: 'Jesica Amelia', email: 'jesica.amelia@smpislamibadurrahman.id', ruang: 'V' },
-                { id: 'IT000040', nama: 'Manda Amelia', email: 'manda.amelia@smpislamibadurrahman.id', ruang: 'V' },
-                { id: 'IT000030', nama: 'Nadita Aulia Fitri', email: 'nadita.aulia@smpislamibadurrahman.id', ruang: 'V' },
-                { id: 'IT000033', nama: 'Putri Silaturrahmi Nandiny', email: 'putri.silaturrahmi@smpislamibadurrahman.id', ruang: 'V' },
-                { id: 'IT000026', nama: 'Silvia Nandita Putri', email: 'silvia.nandita@smpislamibadurrahman.id', ruang: 'V' },
-                { id: 'IT000017', nama: 'Wanda Fitriani', email: 'wanda.fitriani@smpislamibadurrahman.id', ruang: 'V' },
-                { id: 'IT000024', nama: 'Zalfa Adelia Ardiansyah', email: 'zalfa.adelia@smpislamibadurrahman.id', ruang: 'V' },
+                // Kelas 9A (sebelumnya Ruang I)
+                { id: 'IT000027', nama: 'Akbar Fadila', email: 'akbar.fadila@smpislamibadurrahman.id', ruang: '9A' },
+                { id: 'IT000011', nama: 'Ali Abdurrahman', email: 'ali.abdurrahman@smpislamibadurrahman.id', ruang: '9A' },
+                { id: 'IT000012', nama: 'Amril Hadikal Khair', email: 'amril.hadikal@smpislamibadurrahman.id', ruang: '9A' },
+                { id: 'IT000028', nama: 'April Mandala Putra', email: 'april.mandala@smpislamibadurrahman.id', ruang: '9A' },
+                { id: 'IT000031', nama: 'Fadil Putra Wibawa', email: 'fadil.putra@smpislamibadurrahman.id', ruang: '9A' },
+                { id: 'IT000032', nama: 'Firjatullah Al-Fatih', email: 'firjatullah.alfatih@smpislamibadurrahman.id', ruang: '9A' },
+                { id: 'IT000023', nama: 'Gilang Azrial Rusiawan', email: 'gilang.azrial@smpislamibadurrahman.id', ruang: '9A' },
+                { id: 'IT000019', nama: 'HafazyaGaniazira', email: 'hafazya.ganiazira@smpislamibadurrahman.id', ruang: '9A' },
+                { id: 'IT000022', nama: 'Hafiz Kaka Irwan Hadi', email: 'hafiz.kaka@smpislamibadurrahman.id', ruang: '9A' },
+                { id: 'IT000037', nama: 'Irfan Kholil', email: 'irfan.kholil@smpislamibadurrahman.id', ruang: '9A' },
+                { id: 'IT000025', nama: 'M. ThoriqAlkharizmi', email: 'thoriq.alkharizmi@smpislamibadurrahman.id', ruang: '9A' },
+                { id: 'IT000039', nama: 'Muamar Hamidi Suhaedi', email: 'muamar.hamidi@smpislamibadurrahman.id', ruang: '9A' },
+                { id: 'IT000035', nama: 'Muhammad Hijlal Anwar', email: 'muhammad.hijlal@smpislamibadurrahman.id', ruang: '9A' },
+                { id: 'IT000021', nama: 'MuyassarHisyam Aris', email: 'muyassar.hisyam@smpislamibadurrahman.id', ruang: '9A' },
+                { id: 'IT000020', nama: 'Rama Arya Saputra', email: 'rama.arya@smpislamibadurrahman.id', ruang: '9A' },
+                { id: 'IT000034', nama: 'Rava Arya Teguh Saputra', email: 'rava.arya@smpislamibadurrahman.id', ruang: '9A' },
+                { id: 'IT000016', nama: 'Topan Dwi Anggara', email: 'topan.dwi@smpislamibadurrahman.id', ruang: '9A' },
+                { id: 'IT000014', nama: 'Yanan Arya', email: 'yanan.arya@smpislamibadurrahman.id', ruang: '9A' },
 
-                // Ruang VI
-                { id: 'IT000078', nama: 'ADRIAN JULIAN MAULANA', email: 'adrian.julian@smpislamibadurrahman.id', ruang: 'VI' },
-                { id: 'IT000076', nama: 'FAEZA FAIRUS SIHAN', email: 'faeza.fairus@smpislamibadurrahman.id', ruang: 'VI' },
-                { id: 'IT000075', nama: 'LALU ALGIFARI PRATAMA', email: 'lalu.algifari@smpislamibadurrahman.id', ruang: 'VI' },
-                { id: 'IT000088', nama: 'MUHAMAD NOPAL PAQIH', email: 'muhammad.nopal@smpislamibadurrahman.id', ruang: 'VI' },
-                { id: 'IT000089', nama: 'MUHAMMAD ABDUL KADIR', email: 'muhammad.abdul@smpislamibadurrahman.id', ruang: 'VI' },
-                { id: 'IT000062', nama: 'MUHAMMAD REZA HERLANI', email: 'muhammad.reza@smpislamibadurrahman.id', ruang: 'VI' },
-                { id: 'IT000082', nama: 'MUHAMMAD UMAR SAID', email: 'muhammad.umar@smpislamibadurrahman.id', ruang: 'VI' },
-                { id: 'IT000094', nama: 'NIZHAM AFFAN FEBRIAN', email: 'nizham.affan@smpislamibadurrahman.id', ruang: 'VI' },
-                { id: 'IT000087', nama: 'SHOLAH ARYA GUNE', email: 'sholah.arya@smpislamibadurrahman.id', ruang: 'VI' },
-                { id: 'IT000090', nama: 'SYAHROMI KHAIRULLAH SYAKIR', email: 'syahromi.khairullah@smpislamibadurrahman.id', ruang: 'VI' }
+                // Kelas 9B (sebelumnya bagian kedua Ruang V)
+                { id: 'IT000058', nama: 'Annatya Aisyah', email: 'annatya.aisyah@smpislamibadurrahman.id', ruang: '9B' },
+                { id: 'IT000041', nama: 'Fanisa Hafiza Zahra', email: 'fanisa.hafiza@smpislamibadurrahman.id', ruang: '9B' },
+                { id: '', nama: 'lis Agustina', email: 'lis.agustina@smpislamibadurrahman.id', ruang: '9B' },
+                { id: 'IT000013', nama: 'Irma Solehatin', email: 'irma.solehatin@smpislamibadurrahman.id', ruang: '9B' },
+                { id: 'IT000038', nama: 'Jesica Amelia', email: 'jesica.amelia@smpislamibadurrahman.id', ruang: '9B' },
+                { id: 'IT000040', nama: 'Manda Amelia', email: 'manda.amelia@smpislamibadurrahman.id', ruang: '9B' },
+                { id: 'IT000030', nama: 'Nadita Aulia Fitri', email: 'nadita.aulia@smpislamibadurrahman.id', ruang: '9B' },
+                { id: 'IT000033', nama: 'Putri Silaturrahmi Nandiny', email: 'putri.silaturrahmi@smpislamibadurrahman.id', ruang: '9B' },
+                { id: 'IT000026', nama: 'Silvia Nandita Putri', email: 'silvia.nandita@smpislamibadurrahman.id', ruang: '9B' },
+                { id: 'IT000017', nama: 'Wanda Fitriani', email: 'wanda.fitriani@smpislamibadurrahman.id', ruang: '9B' },
+                { id: 'IT000024', nama: 'Zalfa Adelia Ardiansyah', email: 'zalfa.adelia@smpislamibadurrahman.id', ruang: '9B' },
+
+                // Kelas 10A dan 10B (sebelumnya Ruang IV)
+                { id: 'IT000073', nama: 'ARIZA DWI ANANDA', email: 'ariza.dwi@smpislamibadurrahman.id', ruang: '10A' },
+                { id: 'IT000005', nama: 'FATHIN KHAERATUL', email: 'fathin.khaeratul@smpislamibadurrahman.id', ruang: '10A' },
+                { id: 'IT000009', nama: 'INDAH KISWATI', email: 'indah.kiswati@smpislamibadurrahman.id', ruang: '10A' },
+                { id: 'IT000066', nama: 'MELNIA RAMDAYANI', email: 'melnia.ramdayani@smpislamibadurrahman.id', ruang: '10A' },
+                { id: 'IT000085', nama: 'MUTIARA INDAH RAMADANI', email: 'mutiara.indah@smpislamibadurrahman.id', ruang: '10A' },
+                { id: 'IT000010', nama: 'NURUL AIZA', email: 'nurul.aiza@smpislamibadurrahman.id', ruang: '10A' },
+                { id: 'IT000067', nama: 'PUTRI HILMIATI', email: 'putri.hilmiati@smpislamibadurrahman.id', ruang: '10B' },
+                { id: 'IT000004', nama: 'QUEENZA RAYA AL - MIRA', email: 'queenza.raya@smpislamibadurrahman.id', ruang: '10B' },
+                { id: 'IT000065', nama: 'SILVIA SUSILAWATI', email: 'silvia.susilawati@smpislamibadurrahman.id', ruang: '10B' }
             ],
 
-            // Data Guru dari dokumen
+            // Data Guru dari dokumen - TIDAK BERUBAH
             guru: [
                 {
                     id: 'G001',
@@ -1676,6 +1680,7 @@
                 }
             ],
 
+            // Data lainnya tetap sama
             materi: [],
             tugas: [],
             diskusi: [],
@@ -1760,6 +1765,9 @@
                 }
             });
             
+            // Update filter options
+            updateFilterOptions();
+            
             // Add sample materi and tugas
             platformData.materi = [
                 {
@@ -1794,6 +1802,25 @@
                     tanggal: new Date().toISOString()
                 }
             ];
+        }
+
+        // Update filter options in the admin panel
+        function updateFilterOptions() {
+            // Update the filter options in the admin panel to use the new class names
+            const filterSelect = document.getElementById('filter-ruang');
+            if (filterSelect) {
+                filterSelect.innerHTML = `
+                    <option value="all">Semua Kelas</option>
+                    <option value="7A">Kelas 7A</option>
+                    <option value="7B">Kelas 7B</option>
+                    <option value="8A">Kelas 8A</option>
+                    <option value="8B">Kelas 8B</option>
+                    <option value="9A">Kelas 9A</option>
+                    <option value="9B">Kelas 9B</option>
+                    <option value="10A">Kelas 10A</option>
+                    <option value="10B">Kelas 10B</option>
+                `;
+            }
         }
 
         // Save data to localStorage
