@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SMP Islam Ibadurrahman Temas - Platform Pembelajaran Interaktif</title>
+    <title>SMP Islam Ibadurrahman Temas - Pendidikan Islami Berkualitas</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -16,15 +16,290 @@
         }
 
         body {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
+            scroll-behavior: smooth;
+        }
+        
+        .hero {
+            background-image: url('https://i.ibb.co.com/0RBBPY6c/Whats-App-Image-2025-10-26-at-15-01-40.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
         }
 
+        .hero-overlay {
+            background: rgba(0, 0, 0, 0.5);
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .menu-item::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #3b82f6;
+            transition: width .3s;
+        }
+
+        .menu-item:hover::after {
+            width: 100%;
+        }
+
+        .learning-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid #3b82f6;
+        }
+        
+        .learning-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .progress-bar {
+            height: 8px;
+            border-radius: 4px;
+            background-color: #e5e7eb;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            border-radius: 4px;
+            background-color: #3b82f6;
+            transition: width 0.5s ease;
+        }
+        
+        .module-completed {
+            background-color: #10b981;
+            color: white;
+        }
+        
+        .module-current {
+            background-color: #3b82f6;
+            color: white;
+        }
+        
+        .module-upcoming {
+            background-color: #e5e7eb;
+            color: #6b7280;
+        }
+        
+        .discussion-item {
+            border-left: 3px solid #3b82f6;
+        }
+        
+        .quiz-option {
+            transition: all 0.2s ease;
+        }
+        
+        .quiz-option:hover {
+            background-color: #f3f4f6;
+        }
+        
+        .quiz-option.selected {
+            background-color: #dbeafe;
+            border-color: #3b82f6;
+        }
+        
+        .deep-learning-badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .material-item {
+            transition: all 0.2s ease;
+        }
+        
+        .material-item:hover {
+            background-color: #f8fafc;
+        }
+
+        .dashboard-card {
+            transition: all 0.3s ease;
+        }
+        
+        .dashboard-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .platform-section {
+            display: none;
+        }
+        
+        .platform-section.active {
+            display: block;
+        }
+
+        .admin-panel {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #374151;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.5rem 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.375rem;
+            transition: border-color 0.15s ease-in-out;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #3b82f6;
+            ring: 2px solid #3b82f6;
+        }
+        
         .platform-container {
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             min-height: 100vh;
         }
+        
+        .login-card {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .role-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .role-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .role-card.selected {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+        }
+        
+        .quiz-container {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .quiz-progress {
+            height: 8px;
+            border-radius: 4px;
+            background-color: #e5e7eb;
+            overflow: hidden;
+        }
+        
+        .quiz-progress-fill {
+            height: 100%;
+            border-radius: 4px;
+            background-color: #3b82f6;
+            transition: width 0.5s ease;
+        }
+        
+        .live-class-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .grade-item {
+            border-left: 4px solid #3b82f6;
+            transition: all 0.3s ease;
+        }
+        
+        .grade-item:hover {
+            transform: translateX(5px);
+        }
+        
+        .calendar-day {
+            border-radius: 0.5rem;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        
+        .calendar-day:hover {
+            background-color: #f3f4f6;
+        }
+        
+        .calendar-day.event {
+            background-color: #dbeafe;
+            color: #1e40af;
+        }
+        
+        .calendar-day.today {
+            background-color: #3b82f6;
+            color: white;
+        }
+        
+        .materi-content {
+            background-color: white;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tugas-submission {
+            background-color: #f9fafb;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .quiz-question {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            background-color: white;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+        }
+        
+        .diskusi-komentar {
+            margin-top: 1rem;
+            padding: 1rem;
+            background-color: #f9fafb;
+            border-radius: 0.5rem;
+        }
+        
+        .diskusi-komentar-input {
+            margin-top: 1rem;
+        }
 
+        .guru-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid #10b981;
+        }
+
+        .guru-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .mapel-badge {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        /* Styles from the second code */
         .glass-card {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
@@ -151,16 +426,6 @@
             transform: scale(0.95);
         }
 
-        .quiz-option {
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .quiz-option:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
         .correct-answer {
             background: linear-gradient(45deg, #10b981, #34d399) !important;
             color: white;
@@ -197,14 +462,6 @@
             50% { border-color: #667eea }
         }
 
-        .platform-section {
-            display: none;
-        }
-        
-        .platform-section.active {
-            display: block;
-        }
-
         .dashboard-nav.active {
             background: linear-gradient(45deg, #667eea, #764ba2);
             color: white;
@@ -213,22 +470,21 @@
 </head>
 <body class="bg-gray-50">
     <!-- Navigation -->
-    <nav class="bg-white shadow-lg sticky top-0 z-50">
+    <nav class="bg-white shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <div class="flex items-center space-x-3">
-                <img src="https://i.ibb.co.com/vNTTNz8/Logo-SMP-Islam-Ibadurraham-temas.jpg" alt="Logo SMP Islam Ibadurrahman Temas" class="w-12 h-12 object-contain rounded-full">
-                <div>
-                    <a href="#" class="text-xl font-bold text-gray-800">SMP Islam Ibadurrahman</a>
-                    <p class="text-xs text-gray-600">Platform Pembelajaran Interaktif</p>
-                </div>
+            <div class="flex items-center space-x-2">
+                <img src="https://i.ibb.co.com/vNTTNz8/Logo-SMP-Islam-Ibadurraham-temas.jpg" alt="Logo SMP Islam Ibadurrahman Temas" class="w-12 h-12 object-contain">
+                <a href="#" class="text-xl font-bold text-gray-800">SMP Islam Ibadurrahman Temas</a>
             </div>
             
-            <div class="hidden md:flex items-center space-x-6">
-                <a href="#home" class="text-gray-700 hover:text-blue-500 transition">Beranda</a>
-                <a href="#profile" class="text-gray-700 hover:text-blue-500 transition">Profil</a>
-                <a href="#program" class="text-gray-700 hover:text-blue-500 transition">Program</a>
-                <a href="#e-learning" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">Masuk Platform</a>
-                <div id="user-menu" class="hidden flex items-center space-x-3 ml-4">
+            <div class="hidden md:flex items-center space-x-8" id="desktop-menu">
+                <a href="#home" class="menu-item text-gray-700 hover:text-blue-500">Beranda</a>
+                <a href="#profile" class="menu-item text-gray-700 hover:text-blue-500">Profil</a>
+                <a href="#program" class="menu-item text-gray-700 hover:text-blue-500">Program</a>
+                <a href="#galeri" class="menu-item text-gray-700 hover:text-blue-500">Galeri</a>
+                <a href="#kontak" class="menu-item text-gray-700 hover:text-blue-500">Kontak</a>
+                <a href="#e-learning" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">E-Learning</a>
+                <div id="user-menu" class="hidden flex items-center space-x-2 ml-4">
                     <img id="user-avatar" src="https://i.ibb.co.com/vNTTNz8/Logo-SMP-Islam-Ibadurraham-temas.jpg" alt="User avatar" class="w-8 h-8 rounded-full object-contain">
                     <span id="username" class="font-medium"></span>
                     <button onclick="logout()" class="text-red-500 hover:text-red-700">Logout</button>
@@ -236,72 +492,416 @@
             </div>
             
             <button class="md:hidden text-gray-700 focus:outline-none" id="mobile-menu-button">
-                <i class="fas fa-bars text-xl"></i>
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
             </button>
+        </div>
+        
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-500">Beranda</a>
+                <a href="#profile" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-500">Profil</a>
+                <a href="#program" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-500">Program</a>
+                <a href="#galeri" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-500">Galeri</a>
+                <a href="#kontak" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-500">Kontak</a>
+                <a href="#e-learning" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-blue-600">E-Learning</a>
+                <div id="mobile-user-menu" class="hidden pt-4 border-t border-gray-200">
+                    <div class="flex items-center px-3 py-2">
+                        <img id="mobile-user-avatar" src="https://i.ibb.co.com/vNTTNz8/Logo-SMP-Islam-Ibadurraham-temas.jpg" alt="User" class="w-8 h-8 rounded-full object-contain">
+                        <span id="mobile-username" class="ml-3 font-medium"></span>
+                    </div>
+                    <button onclick="logout()" class="block w-full text-left px-3 py-2 text-red-500">Logout</button>
+                </div>
+            </div>
         </div>
     </nav>
 
-    <!-- E-Learning Platform -->
-    <section id="e-learning" class="platform-container py-8">
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen flex items-center justify-center text-white bg-gray-900">
+        <div class="absolute inset-0 w-full h-full">
+            <img src="https://i.ibb.co.com/0RBBPY6c/Whats-App-Image-2025-10-26-at-15-01-40.jpg" alt="Background SMP Islam Ibadurrahman Temas" class="w-full h-full object-cover">
+        </div>
+        
+        <div class="hero-overlay absolute inset-0"></div>
+        
+        <div class="container mx-auto px-4 relative z-10 text-center">
+            <div class="flex justify-center mb-6">
+                <img src="https://i.ibb.co.com/vNTTNz8/Logo-SMP-Islam-Ibadurraham-temas.jpg" alt="Logo SMP Islam Ibadurrahman Temas" class="w-32 h-32 object-contain bg-white rounded-full p-4 shadow-lg">
+            </div>
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">SMP Islam Ibadurrahman Temas</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Mencetak kader-kader pemimpin ummat, Menjadi sumber pengetahuan Islam, Bahasa, Al-Qurán, dan Ilmu Pengetahuan Umum dengan tetap berjiwa Pesantren</p>
+            
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="#program" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-full transition duration-300">Program Kami</a>
+                <a href="#kontak" class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-3 px-8 rounded-full transition duration-300">Hubungi Kami</a>
+                <a href="#e-learning" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8 rounded-full transition duration-300">Platform E-Learning</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profile Section -->
+    <section id="profile" class="py-16 bg-white">
         <div class="container mx-auto px-4">
-            <!-- Login Section -->
-            <div id="login-section" class="max-w-4xl mx-auto">
-                <div class="glass-card p-8 rounded-3xl shadow-2xl">
-                    <div class="text-center mb-8">
-                        <h2 class="text-4xl font-bold text-gray-800 mb-4">Platform Pembelajaran Interaktif</h2>
-                        <p class="text-gray-600 text-lg">Selamat datang di sistem pembelajaran digital SMP Islam Ibadurrahman Temas</p>
+            <div class="text-center mb-12">
+                <div class="flex justify-center mb-4">
+                    <img src="https://i.ibb.co.com/vNTTNz8/Logo-SMP-Islam-Ibadurraham-temas.jpg" alt="Logo SMP Islam Ibadurrahman Temas" class="w-20 h-20 object-contain">
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Profil SMP Islam Ibadurrahman</h2>
+                <div class="w-20 h-1 bg-blue-600 mx-auto"></div>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row items-center gap-8">
+                <div class="lg:w-1/2">
+                    <img src="https://i.ibb.co.com/9zT0Pfd/Whats-App-Image-2025-10-26-at-16-05-36.jpg" alt="SMP Islam Ibadurrahman Temas" class="rounded-lg shadow-xl w-full">
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Mengenal SMP Islam Ibadurrahman</h3>
+                    <p class="text-gray-600 mb-4">SMP Islam Ibadurrahman Temas merupakan lembaga pendidikan Islam yang berdiri sejak tahun 2017, berkomitmen untuk mencetak generasi yang menguasai ilmu agama dan ilmu umum secara seimbang.</p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-blue-100 p-2 rounded-full">
+                                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <p class="ml-3 text-gray-600">Kurikulum terintegrasi antara pendidikan agama dan umum</p>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-blue-100 p-2 rounded-full">
+                                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <p class="ml-3 text-gray-600">Tenaga pengajar yang kompeten dan berpengalaman</p>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-blue-100 p-2 rounded-full">
+                                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <p class="ml-3 text-gray-600">Fasilitas lengkap untuk menunjang pembelajaran</p>
+                        </div>
                     </div>
                     
-                    <div class="grid md:grid-cols-3 gap-6 mb-8">
-                        <div class="role-card bg-white rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition cursor-pointer" onclick="showLoginForm('santri')">
-                            <div class="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <i class="fas fa-user-graduate text-blue-600 text-3xl"></i>
+                    <a href="#" class="inline-block mt-6 text-blue-600 font-semibold hover:text-blue-800 flex items-center">
+                        Selengkapnya
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Section -->
+    <section id="program" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Program Pembelajaran</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Berbagai program unggulan yang disediakan untuk mencetak santri yang berkompeten di berbagai bidang</p>
+                <div class="w-20 h-1 bg-blue-600 mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Program 1 - Qiraat Sabah -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover transition duration-300">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://i.ibb.co.com/j9wdYj21/Whats-App-Image-2025-10-26-at-16-05-34.jpg" alt="Program Qiraát Sabáh - Santri membaca Al-Quran" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Qiraát Sabáh</h3>
+                        <p class="text-gray-600 mb-4">Program membaca Al-Quran dengan tartil, memperbaiki makhraj dan tajwid serta menumbuhkan kecintaan terhadap Al-Qurán sejak dini.</p>
+                        <a href="#" class="text-blue-600 font-medium hover:text-blue-800 flex items-center">
+                            Detail Program
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Program 2 - Bahasa Arab & Inggris -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover transition duration-300">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://i.ibb.co.com/k26ypcmQ/Whats-App-Image-2025-10-29-at-22-43-14.jpg" alt="Program Bahasa Arab dan Inggris - Santri belajar bahasa" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Bahasa Arab & Bahasa Inggris</h3>
+                        <p class="text-gray-600 mb-4">Program unggulan untuk memperkuat kompetensi bahasa internasional dan keislaman siswa. Melalui pendekatan intensif dan praktik harian.</p>
+                        <a href="#" class="text-blue-600 font-medium hover:text-blue-800 flex items-center">
+                            Detail Program
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Program 3 - Pendidikan Formal -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover transition duration-300">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://i.ibb.co.com/F2tTFgT/Whats-App-Image-2025-10-29-at-22-43-14-1.jpg" alt="Pendidikan Formal - Proses belajar mengajar di kelas" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Pendidikan Formal</h3>
+                        <p class="text-gray-600 mb-4">Kurikulum nasional yang dipadukan dengan nilai-nilai Islami untuk pendidikan yang holistik dan berkarakter.</p>
+                        <a href="#" class="text-blue-600 font-medium hover:text-blue-800 flex items-center">
+                            Detail Program
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-10">
+                <a href="#" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-full transition duration-300">
+                    Lihat Semua Program
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeri Section -->
+    <section id="galeri" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Galeri Kegiatan</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Momen-momen berharga dalam proses pembelajaran di SMP Islam Ibadurrahman Temas</p>
+                <div class="w-20 h-1 bg-blue-600 mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <div class="overflow-hidden rounded-lg shadow-md">
+                    <img src="https://i.ibb.co.com/14X9TKH/Whats-App-Image-2025-10-26-at-16-05-33.jpg" alt="Kegiatan pembelajaran" class="w-full h-48 object-cover hover:scale-105 transition duration-300">
+                </div>
+                
+                <div class="overflow-hidden rounded-lg shadow-md">
+                    <img src="https://i.ibb.co.com/TDrkjyrJ/Whats-App-Image-2025-10-26-at-16-05-34-1.jpg" alt="Kegiatan ekstrakurikuler" class="w-full h-48 object-cover hover:scale-105 transition duration-300">
+                </div>
+                
+                <div class="overflow-hidden rounded-lg shadow-md">
+                    <img src="https://i.ibb.co.com/TBCxVsS3/Whats-App-Image-2025-10-26-at-16-05-34-2.jpg" alt="Proses belajar mengajar" class="w-full h-48 object-cover hover:scale-105 transition duration-300">
+                </div>
+                
+                <div class="overflow-hidden rounded-lg shadow-md">
+                    <img src="https://i.ibb.co.com/fVZ7Wrj2/Whats-App-Image-2025-10-26-at-16-05-36-1.jpg" alt="Aktivitas santri" class="w-full h-48 object-cover hover:scale-105 transition duration-300">
+                </div>
+                
+                <div class="overflow-hidden rounded-lg shadow-md">
+                    <img src="https://i.ibb.co.com/9zT0Pfd/Whats-App-Image-2025-10-26-at-16-05-36.jpg" alt="Kegiatan bersama" class="w-full h-48 object-cover hover:scale-105 transition duration-300">
+                </div>
+                
+                <div class="overflow-hidden rounded-lg shadow-md">
+                    <img src="https://i.ibb.co.com/14X9TKH/Whats-App-Image-2025-10-26-at-16-05-33.jpg" alt="Suasana pembelajaran" class="w-full h-48 object-cover hover:scale-105 transition duration-300">
+                </div>
+                
+                <div class="overflow-hidden rounded-lg shadow-md">
+                    <img src="https://i.ibb.co.com/TDrkjyrJ/Whats-App-Image-2025-10-26-at-16-05-34-1.jpg" alt="Interaksi guru dan santri" class="w-full h-48 object-cover hover:scale-105 transition duration-300">
+                </div>
+                
+                <div class="overflow-hidden rounded-lg shadow-md">
+                    <img src="https://i.ibb.co.com/TBCxVsS3/Whats-App-Image-2025-10-26-at-16-05-34-2.jpg" alt="Kegiatan kelompok" class="w-full h-48 object-cover hover:scale-105 transition duration-300">
+                </div>
+            </div>
+            
+            <div class="text-center mt-10">
+                <a href="#" class="inline-block border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-semibold py-3 px-8 rounded-full transition duration-300">
+                    Lihat Lebih Banyak
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontak Section -->
+    <section id="kontak" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Hubungi Kami</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Silahkan menghubungi kami untuk informasi lebih lanjut tentang pendaftaran dan program</p>
+                <div class="w-20 h-1 bg-blue-600 mx-auto mt-4"></div>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-8">
+                <div class="lg:w-1/2">
+                    <form class="bg-white p-8 rounded-xl shadow-md">
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-700 font-medium mb-2">Nama Lengkap</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="phone" class="block text-gray-700 font-medium mb-2">Nomor HP</label>
+                            <input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="message" class="block text-gray-700 font-medium mb-2">Pesan</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg transition duration-300">
+                            Kirim Pesan
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <div class="bg-white p-8 rounded-xl shadow-md h-full">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-6">Informasi Kontak</h3>
+                        
+                        <div class="space-y-5">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 bg-blue-100 p-2 rounded-full">
+                                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    </svg>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-gray-800">Alamat</h4>
+                                    <p class="text-gray-600">Jl. Raya Temas No. 123, Kec. Batu, Kota Batu, Jawa Timur 65314</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 bg-blue-100 p-2 rounded-full">
+                                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                    </svg>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-gray-800">Telepon</h4>
+                                    <p class="text-gray-600">(0341) 1234567</p>
+                                    <p class="text-gray-600">0812-3456-7890</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 bg-blue-100 p-2 rounded-full">
+                                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                    </svg>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-gray-800">Email</h4>
+                                    <p class="text-gray-600">info@smpislamibadurrahman.id</p>
+                                    <p class="text-gray-600">admin@smpislamibadurrahman.id</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="text-lg font-medium text-gray-800 mb-4">Sosial Media</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="bg-blue-600 text-white p-2 rounded-full hover:bg-blue-700 transition duration-300">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"></path>
+                                    </svg>
+                                </a>
+                                
+                                <a href="#" class="bg-purple-600 text-white p-2 rounded-full hover:bg-purple-700 transition duration-300">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"></path>
+                                    </svg>
+                                </a>
+                                
+                                <a href="#" class="bg-blue-400 text-white p-2 rounded-full hover:bg-blue-500 transition duration-300">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+                                    </svg>
+                                </a>
+                                
+                                <a href="#" class="bg-red-600 text-white p-2 rounded-full hover:bg-red-700 transition duration-300">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- E-Learning Section -->
+    <section id="e-learning" class="platform-container py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Platform E-Learning Interaktif</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Sistem pembelajaran online yang lengkap dan interaktif untuk mendukung kegiatan belajar mengajar</p>
+                <div class="w-20 h-1 bg-blue-600 mx-auto mt-4"></div>
+            </div>
+            
+            <!-- Login Section -->
+            <div id="login-section" class="max-w-4xl mx-auto">
+                <div class="login-card p-8">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold text-gray-800">Masuk ke Platform</h3>
+                        <p class="text-gray-600 mt-2">Pilih peran Anda untuk masuk ke sistem</p>
+                    </div>
+                    
+                    <div id="login-options" class="grid md:grid-cols-3 gap-6 mb-8">
+                        <div class="role-card border-2 border-gray-200 rounded-xl p-6 text-center" onclick="showLoginForm('santri')">
+                            <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-user-graduate text-blue-600 text-2xl"></i>
                             </div>
                             <h4 class="text-xl font-semibold text-gray-800 mb-2">Santri</h4>
-                            <p class="text-gray-600">Akses materi interaktif, game edukasi, dan pembelajaran menarik</p>
+                            <p class="text-gray-600">Akses materi, tugas, dan forum diskusi</p>
                         </div>
                         
-                        <div class="role-card bg-white rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition cursor-pointer" onclick="showLoginForm('guru')">
-                            <div class="bg-green-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <i class="fas fa-chalkboard-teacher text-green-600 text-3xl"></i>
+                        <div class="role-card border-2 border-gray-200 rounded-xl p-6 text-center" onclick="showLoginForm('guru')">
+                            <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-chalkboard-teacher text-green-600 text-2xl"></i>
                             </div>
                             <h4 class="text-xl font-semibold text-gray-800 mb-2">Guru</h4>
-                            <p class="text-gray-600">Kelola kelas, buat konten interaktif, dan pantau perkembangan santri</p>
+                            <p class="text-gray-600">Kelola materi, tugas, dan nilai santri</p>
                         </div>
                         
-                        <div class="role-card bg-white rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition cursor-pointer" onclick="showLoginForm('admin')">
-                            <div class="bg-purple-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <i class="fas fa-user-shield text-purple-600 text-3xl"></i>
+                        <div class="role-card border-2 border-gray-200 rounded-xl p-6 text-center" onclick="showLoginForm('admin')">
+                            <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-user-shield text-purple-600 text-2xl"></i>
                             </div>
                             <h4 class="text-xl font-semibold text-gray-800 mb-2">Admin</h4>
-                            <p class="text-gray-600">Kelola sistem, pengguna, dan konten platform pembelajaran</p>
+                            <p class="text-gray-600">Kelola sistem dan pengguna platform</p>
                         </div>
                     </div>
                     
                     <div id="login-form" class="hidden max-w-md mx-auto">
                         <div class="mb-6">
-                            <label for="login-email" class="block text-gray-700 font-medium mb-2">Email</label>
-                            <input type="email" id="login-email" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Masukkan email Anda">
+                            <label for="login-email" class="form-label">Email</label>
+                            <input type="email" id="login-email" class="form-input" placeholder="Masukkan email Anda">
                         </div>
                         
                         <div class="mb-6">
-                            <label for="login-password" class="block text-gray-700 font-medium mb-2">Password</label>
-                            <input type="password" id="login-password" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Masukkan password">
+                            <label for="login-password" class="form-label">Password</label>
+                            <input type="password" id="login-password" class="form-input" placeholder="Masukkan password">
                         </div>
                         
                         <input type="hidden" id="login-role">
                         
                         <div class="flex justify-between items-center mb-6">
-                            <button onclick="showLoginOptions()" class="text-blue-600 hover:text-blue-800 font-medium">Kembali</button>
-                            <button onclick="handleLogin()" class="interactive-btn">
-                                <i class="fas fa-sign-in-alt mr-2"></i>Masuk
-                            </button>
+                            <button onclick="showLoginOptions()" class="text-blue-600 hover:text-blue-800">Kembali</button>
+                            <button onclick="handleLogin()" class="interactive-btn">Masuk</button>
                         </div>
                         
-                        <div class="text-center text-sm text-gray-600 bg-blue-50 p-4 rounded-xl">
-                            <p><strong>Demo Login:</strong></p>
+                        <div class="text-center text-sm text-gray-600">
                             <p>Gunakan email demo: <span id="demo-email" class="font-medium"></span></p>
-                            <p>Password: <code>password123</code></p>
+                            <p>Password: password123</p>
                         </div>
                     </div>
                 </div>
@@ -1008,6 +1608,47 @@
         </div>
     </section>
 
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center space-x-2">
+                        <img src="https://i.ibb.co.com/vNTTNz8/Logo-SMP-Islam-Ibadurraham-temas.jpg" alt="Logo SMP Islam Ibadurrahman Temas" class="w-10 h-10 object-contain">
+                        <span class="text-xl font-semibold">SMP Islam Ibadurrahman Temas</span>
+                    </div>
+                    <p class="mt-2 text-gray-400">Membangun generasi Qur'ani yang berakhlak mulia</p>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row sm:space-x-6 space-y-4 sm:space-y-0">
+                    <div>
+                        <h4 class="font-semibold mb-2">Tautan Cepat</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#home" class="text-gray-400 hover:text-white transition duration-300">Beranda</a></li>
+                            <li><a href="#profile" class="text-gray-400 hover:text-white transition duration-300">Profil</a></li>
+                            <li><a href="#program" class="text-gray-400 hover:text-white transition duration-300">Program</a></li>
+                            <li><a href="#galeri" class="text-gray-400 hover:text-white transition duration-300">Galeri</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-semibold mb-2">Informasi</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Syarat Pendaftaran</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Biaya Pendidikan</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Kalender Akademik</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">FAQ</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400">
+                <p>© 2023 SMP Islam Ibadurrahman Temas. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
     <!-- Game Modal -->
     <div id="game-modal" class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4">
         <div class="bg-white rounded-2xl shadow-2xl w-full max-w-4xl max-h-screen overflow-y-auto">
@@ -1140,10 +1781,11 @@
     </div>
 
     <script>
-        // Data Storage
+        // Data Storage dengan Data Siswa dan Guru
         let platformData = {
-            // Data siswa
+            // Data siswa dari file daftar hadir - DIUBAH SESUAI PERMINTAAN
             siswa: [
+                // Kelas 7A (sebelumnya Ruang VI)
                 { id: 'IT000078', nama: 'ADRIAN JULIAN MAULANA', email: 'adrian.julian@smpislamibadurrahman.id', ruang: '7A' },
                 { id: 'IT000076', nama: 'FAEZA FAIRUS SIHAN', email: 'faeza.fairus@smpislamibadurrahman.id', ruang: '7A' },
                 { id: 'IT000075', nama: 'LALU ALGIFARI PRATAMA', email: 'lalu.algifari@smpislamibadurrahman.id', ruang: '7A' },
@@ -1153,26 +1795,324 @@
                 { id: 'IT000082', nama: 'MUHAMMAD UMAR SAID', email: 'muhammad.umar@smpislamibadurrahman.id', ruang: '7A' },
                 { id: 'IT000094', nama: 'NIZHAM AFFAN FEBRIAN', email: 'nizham.affan@smpislamibadurrahman.id', ruang: '7A' },
                 { id: 'IT000087', nama: 'SHOLAH ARYA GUNE', email: 'sholah.arya@smpislamibadurrahman.id', ruang: '7A' },
-                { id: 'IT000090', nama: 'SYAHROMI KHAIRULLAH SYAKIR', email: 'syahromi.khairullah@smpislamibadurrahman.id', ruang: '7A' }
+                { id: 'IT000090', nama: 'SYAHROMI KHAIRULLAH SYAKIR', email: 'syahromi.khairullah@smpislamibadurrahman.id', ruang: '7A' },
+
+                // Kelas 7B (sebelumnya Ruang III)
+                { id: 'IT000078', nama: 'ADILA AUDRIA ZALIKHA R.', email: 'adila.audria@smpislamibadurrahman.id', ruang: '7B' },
+                { id: 'IT000076', nama: 'AQILA SAPUTRI', email: 'aqila.saputri@smpislamibadurrahman.id', ruang: '7B' },
+                { id: 'IT000075', nama: 'AZLIA NOVIANTI', email: 'azlia.novianti@smpislamibadurrahman.id', ruang: '7B' },
+                { id: 'IT000088', nama: 'DESTIYA PUTRI', email: 'destiya.putri@smpislamibadurrahman.id', ruang: '7B' },
+                { id: 'IT000089', nama: 'DEWI MARLINA', email: 'dewi.marlina@smpislamibadurrahman.id', ruang: '7B' },
+                { id: 'IT000062', nama: 'DHEA JUNIANINGSIH', email: 'dhea.junianingsih@smpislamibadurrahman.id', ruang: '7B' },
+                { id: 'IT000082', nama: 'FAKIHA AILATU WIAM', email: 'fakiha.ailatu@smpislamibadurrahman.id', ruang: '7B' },
+                { id: 'IT000094', nama: 'INDIRA FEBRIANI', email: 'indira.febriani@smpislamibadurrahman.id', ruang: '7B' },
+                { id: 'IT000087', nama: 'NABILA SAPUTRI', email: 'nabila.saputri@smpislamibadurrahman.id', ruang: '7B' },
+                { id: 'IT000090', nama: 'NAYA ALIKA SABILA', email: 'naya.alika@smpislamibadurrahman.id', ruang: '7B' },
+                { id: 'IT000081', nama: 'PUTRI ALMAIRA WULANDARI', email: 'putri.almaira@smpislamibadurrahman.id', ruang: '7B' },
+                { id: 'IT000064', nama: 'PUTRI MEDYNA ANDINI', email: 'putri.medyna@smpislamibadurrahman.id', ruang: '7B' },
+                { id: 'IT000084', nama: 'PUTRI ZOHRATUL NOVIANI', email: 'putri.zohratul@smpislamibadurrahman.id', ruang: '7B' },
+                { id: 'IT000077', nama: 'SAFIRA FEBIANA', email: 'safira.febiana@smpislamibadurrahman.id', ruang: '7B' },
+                { id: 'IT000080', nama: 'SEPTIA AULIA PUTRI', email: 'septia.aulia@smpislamibadurrahman.id', ruang: '7B' },
+                { id: 'IT000063', nama: 'SUHAILA ILMA NAFIA', email: 'suhaila.ilma@smpislamibadurrahman.id', ruang: '7B' },
+                { id: 'IT000093', nama: 'ZAVIRA NURUL AMANDA', email: 'zavira.nurul@smpislamibadurrahman.id', ruang: '7B' },
+                { id: 'IT000086', nama: 'ZIADA HARITSYA ALFATYA', email: 'ziada.haritsya@smpislamibadurrahman.id', ruang: '7B' },
+
+                // Kelas 8A (sebelumnya Ruang II)
+                { id: 'IT000051', nama: 'Andi Ahmad Hermawan', email: 'andi.ahmad@smpislamibadurrahman.id', ruang: '8A' },
+                { id: 'IT000059', nama: 'Aufa Dzakwan Syahy', email: 'aufa.dzakwan@smpislamibadurrahman.id', ruang: '8A' },
+                { id: 'IT000045', nama: 'Dzaky Atha Ramadhan', email: 'dzaky.atha@smpislamibadurrahman.id', ruang: '8A' },
+                { id: 'IT000061', nama: 'Habib Sapriadi', email: 'habib.sapriadi@smpislamibadurrahman.id', ruang: '8A' },
+                { id: 'IT000049', nama: 'M. Alby RifkyFahri', email: 'alby.rifky@smpislamibadurrahman.id', ruang: '8A' },
+                { id: 'IT000053', nama: 'Muhammad Amir Dzakir', email: 'muhammad.amir@smpislamibadurrahman.id', ruang: '8A' },
+                { id: 'IT000055', nama: 'Muhammad Azwan Azka', email: 'muhammad.azwan@smpislamibadurrahman.id', ruang: '8A' },
+                { id: 'IT000052', nama: 'Tata Aditya Pratama', email: 'tata.aditya@smpislamibadurrahman.id', ruang: '8A' },
+                { id: 'IT000057', nama: 'Yousef Al Enzi', email: 'yousef.alenzi@smpislamibadurrahman.id', ruang: '8A' },
+
+                // Kelas 8B (sebelumnya bagian pertama Ruang V)
+                { id: 'IT000046', nama: 'Amelia Nuraeni Saputri', email: 'amelia.nuraeni@smpislamibadurrahman.id', ruang: '8B' },
+                { id: 'IT000047', nama: 'Faleska Chilla Al\'Maeitsa', email: 'faleska.chilla@smpislamibadurrahman.id', ruang: '8B' },
+                { id: 'IT000054', nama: 'Humaira Ayunda Rahman', email: 'humaira.ayunda@smpislamibadurrahman.id', ruang: '8B' },
+                { id: '', nama: 'Husna Izmilia Zein', email: 'husna.izmilia@smpislamibadurrahman.id', ruang: '8B' },
+                { id: 'IT000044', nama: 'Khansa Monifa Azkaylani', email: 'khansa.monifa@smpislamibadurrahman.id', ruang: '8B' },
+                { id: 'IT000048', nama: 'Liza Eriska', email: 'liza.eriska@smpislamibadurrahman.id', ruang: '8B' },
+                { id: 'IT000050', nama: 'Noki Ahmatul Hasanah', email: 'noki.ahmatul@smpislamibadurrahman.id', ruang: '8B' },
+                { id: 'IT000056', nama: 'Septi Aulia Fitri', email: 'septi.aulia@smpislamibadurrahman.id', ruang: '8B' },
+
+                // Kelas 9A (sebelumnya Ruang I)
+                { id: 'IT000027', nama: 'Akbar Fadila', email: 'akbar.fadila@smpislamibadurrahman.id', ruang: '9A' },
+                { id: 'IT000011', nama: 'Ali Abdurrahman', email: 'ali.abdurrahman@smpislamibadurrahman.id', ruang: '9A' },
+                { id: 'IT000012', nama: 'Amril Hadikal Khair', email: 'amril.hadikal@smpislamibadurrahman.id', ruang: '9A' },
+                { id: 'IT000028', nama: 'April Mandala Putra', email: 'april.mandala@smpislamibadurrahman.id', ruang: '9A' },
+                { id: 'IT000031', nama: 'Fadil Putra Wibawa', email: 'fadil.putra@smpislamibadurrahman.id', ruang: '9A' },
+                { id: 'IT000032', nama: 'Firjatullah Al-Fatih', email: 'firjatullah.alfatih@smpislamibadurrahman.id', ruang: '9A' },
+                { id: 'IT000023', nama: 'Gilang Azrial Rusiawan', email: 'gilang.azrial@smpislamibadurrahman.id', ruang: '9A' },
+                { id: 'IT000019', nama: 'HafazyaGaniazira', email: 'hafazya.ganiazira@smpislamibadurrahman.id', ruang: '9A' },
+                { id: 'IT000022', nama: 'Hafiz Kaka Irwan Hadi', email: 'hafiz.kaka@smpislamibadurrahman.id', ruang: '9A' },
+                { id: 'IT000037', nama: 'Irfan Kholil', email: 'irfan.kholil@smpislamibadurrahman.id', ruang: '9A' },
+                { id: 'IT000025', nama: 'M. ThoriqAlkharizmi', email: 'thoriq.alkharizmi@smpislamibadurrahman.id', ruang: '9A' },
+                { id: 'IT000039', nama: 'Muamar Hamidi Suhaedi', email: 'muamar.hamidi@smpislamibadurrahman.id', ruang: '9A' },
+                { id: 'IT000035', nama: 'Muhammad Hijlal Anwar', email: 'muhammad.hijlal@smpislamibadurrahman.id', ruang: '9A' },
+                { id: 'IT000021', nama: 'MuyassarHisyam Aris', email: 'muyassar.hisyam@smpislamibadurrahman.id', ruang: '9A' },
+                { id: 'IT000020', nama: 'Rama Arya Saputra', email: 'rama.arya@smpislamibadurrahman.id', ruang: '9A' },
+                { id: 'IT000034', nama: 'Rava Arya Teguh Saputra', email: 'rava.arya@smpislamibadurrahman.id', ruang: '9A' },
+                { id: 'IT000016', nama: 'Topan Dwi Anggara', email: 'topan.dwi@smpislamibadurrahman.id', ruang: '9A' },
+                { id: 'IT000014', nama: 'Yanan Arya', email: 'yanan.arya@smpislamibadurrahman.id', ruang: '9A' },
+
+                // Kelas 9B (sebelumnya bagian kedua Ruang V)
+                { id: 'IT000058', nama: 'Annatya Aisyah', email: 'annatya.aisyah@smpislamibadurrahman.id', ruang: '9B' },
+                { id: 'IT000041', nama: 'Fanisa Hafiza Zahra', email: 'fanisa.hafiza@smpislamibadurrahman.id', ruang: '9B' },
+                { id: '', nama: 'lis Agustina', email: 'lis.agustina@smpislamibadurrahman.id', ruang: '9B' },
+                { id: 'IT000013', nama: 'Irma Solehatin', email: 'irma.solehatin@smpislamibadurrahman.id', ruang: '9B' },
+                { id: 'IT000038', nama: 'Jesica Amelia', email: 'jesica.amelia@smpislamibadurrahman.id', ruang: '9B' },
+                { id: 'IT000040', nama: 'Manda Amelia', email: 'manda.amelia@smpislamibadurrahman.id', ruang: '9B' },
+                { id: 'IT000030', nama: 'Nadita Aulia Fitri', email: 'nadita.aulia@smpislamibadurrahman.id', ruang: '9B' },
+                { id: 'IT000033', nama: 'Putri Silaturrahmi Nandiny', email: 'putri.silaturrahmi@smpislamibadurrahman.id', ruang: '9B' },
+                { id: 'IT000026', nama: 'Silvia Nandita Putri', email: 'silvia.nandita@smpislamibadurrahman.id', ruang: '9B' },
+                { id: 'IT000017', nama: 'Wanda Fitriani', email: 'wanda.fitriani@smpislamibadurrahman.id', ruang: '9B' },
+                { id: 'IT000024', nama: 'Zalfa Adelia Ardiansyah', email: 'zalfa.adelia@smpislamibadurrahman.id', ruang: '9B' },
+
+                // Kelas 10A dan 10B (sebelumnya Ruang IV)
+                { id: 'IT000073', nama: 'ARIZA DWI ANANDA', email: 'ariza.dwi@smpislamibadurrahman.id', ruang: '10A' },
+                { id: 'IT000005', nama: 'FATHIN KHAERATUL', email: 'fathin.khaeratul@smpislamibadurrahman.id', ruang: '10A' },
+                { id: 'IT000009', nama: 'INDAH KISWATI', email: 'indah.kiswati@smpislamibadurrahman.id', ruang: '10A' },
+                { id: 'IT000066', nama: 'MELNIA RAMDAYANI', email: 'melnia.ramdayani@smpislamibadurrahman.id', ruang: '10A' },
+                { id: 'IT000085', nama: 'MUTIARA INDAH RAMADANI', email: 'mutiara.indah@smpislamibadurrahman.id', ruang: '10A' },
+                { id: 'IT000010', nama: 'NURUL AIZA', email: 'nurul.aiza@smpislamibadurrahman.id', ruang: '10A' },
+                { id: 'IT000067', nama: 'PUTRI HILMIATI', email: 'putri.hilmiati@smpislamibadurrahman.id', ruang: '10B' },
+                { id: 'IT000004', nama: 'QUEENZA RAYA AL - MIRA', email: 'queenza.raya@smpislamibadurrahman.id', ruang: '10B' },
+                { id: 'IT000065', nama: 'SILVIA SUSILAWATI', email: 'silvia.susilawati@smpislamibadurrahman.id', ruang: '10B' }
             ],
 
-            // Data Guru
+            // Data Guru dari dokumen - TIDAK BERUBAH
             guru: [
                 {
                     id: 'G001',
                     nama: 'Abdurrahman Suryadi, M.Pd.I',
                     email: 'abdurrahman.suryadi@smpislamibadurrahman.id',
-                    mapel: 'Nahwu'
+                    mapel: 'Nahwu',
+                    pendidikan: 'S-2 Pendidikan Agama Islam',
+                    tempatLahir: 'Narmada',
+                    tanggalLahir: '27-11-1984'
+                },
+                {
+                    id: 'G002',
+                    nama: 'Andri Kurniawati, S.Pd.I',
+                    email: 'andri.kurniawati@smpislamibadurrahman.id',
+                    mapel: 'Sejarah',
+                    pendidikan: 'S-1 Tarbiyah PGMI',
+                    tempatLahir: 'Ponorogo',
+                    tanggalLahir: '12-09-1984'
+                },
+                {
+                    id: 'G003',
+                    nama: 'Wirawan Suhaedi, M.Ak',
+                    email: 'wirawan.suhaedi@smpislamibadurrahman.id',
+                    mapel: 'Ekonomi',
+                    pendidikan: 'S-2 Akuntansi',
+                    tempatLahir: 'Lembuak kebon',
+                    tanggalLahir: '18-10-1977'
+                },
+                {
+                    id: 'G004',
+                    nama: 'Kusuma Satria, M.H',
+                    email: 'kusuma.satria@smpislamibadurrahman.id',
+                    mapel: 'Hadits',
+                    pendidikan: 'S-2 Ilmu Hukum',
+                    tempatLahir: 'Lembuak Kebon',
+                    tanggalLahir: '17-06-1982'
+                },
+                {
+                    id: 'G005',
+                    nama: 'Erwin Suryanto, S.Ak',
+                    email: 'erwin.suryanto@smpislamibadurrahman.id',
+                    mapel: 'Fisika',
+                    pendidikan: 'S-1 Akuntansi',
+                    tempatLahir: '',
+                    tanggalLahir: ''
+                },
+                {
+                    id: 'G006',
+                    nama: 'Handia Fahrurrozi, M.Ak',
+                    email: 'handia.fahrurrozi@smpislamibadurrahman.id',
+                    mapel: 'Kewarganegaraan',
+                    pendidikan: 'S-2 Akuntansi',
+                    tempatLahir: 'Narmada',
+                    tanggalLahir: '19-12-1992'
+                },
+                {
+                    id: 'G007',
+                    nama: 'Syamsul Irfan, M.Pd',
+                    email: 'syamsul.irfan@smpislamibadurrahman.id',
+                    mapel: 'Bahasa Inggris',
+                    pendidikan: 'S-2 Pendidikan Bahasa Inggris',
+                    tempatLahir: 'Sembalun Bumbung',
+                    tanggalLahir: '06-12-1987'
+                },
+                {
+                    id: 'G008',
+                    nama: 'Irwan Rahadi, S.Pd',
+                    email: 'irwan.rahadi@smpislamibadurrahman.id',
+                    mapel: 'Matematika',
+                    pendidikan: 'S-1 Pendidikan Matematika',
+                    tempatLahir: 'Lombok Barat',
+                    tanggalLahir: '11-04-1981'
+                },
+                {
+                    id: 'G009',
+                    nama: 'Lilik Anta Andriani, S.Pd',
+                    email: 'lilik.anta@smpislamibadurrahman.id',
+                    mapel: 'IPA',
+                    pendidikan: 'S-1 Pendidikan Biologi',
+                    tempatLahir: 'Temas',
+                    tanggalLahir: '01-07-1994'
                 },
                 {
                     id: 'G010',
                     nama: 'Surahman, S.Pd',
                     email: 'surahman@smpislamibadurrahman.id',
-                    mapel: 'Matematika & Kimia'
+                    mapel: 'Matematika & Kimia',
+                    pendidikan: 'S-1 Pendidikan Matematika',
+                    tempatLahir: 'Narmada',
+                    tanggalLahir: '22-05-2000'
+                },
+                {
+                    id: 'G011',
+                    nama: 'Arisya Widyadhari, S.Pd',
+                    email: 'arisya.widyadhari@smpislamibadurrahman.id',
+                    mapel: 'Biologi',
+                    pendidikan: 'S-1 Pendidikan Biologi',
+                    tempatLahir: 'Rempung',
+                    tanggalLahir: '20-01-2002'
+                },
+                {
+                    id: 'G012',
+                    nama: 'Aldi Abdul Rahman Huzaifi, S.Pd',
+                    email: 'aldi.huzafi@smpislamibadurrahman.id',
+                    mapel: 'PAI',
+                    pendidikan: 'S-1 Pendidikan Agama Islam',
+                    tempatLahir: 'Narmada',
+                    tanggalLahir: '01-02-2000'
+                },
+                {
+                    id: 'G013',
+                    nama: 'Pramudya Citra Sholeha, S.Pd',
+                    email: 'pramudya.citra@smpislamibadurrahman.id',
+                    mapel: 'Tafsir',
+                    pendidikan: 'S-1 Ilmu Quran dan Tafsir',
+                    tempatLahir: 'Narmada',
+                    tanggalLahir: '08-09-2000'
+                },
+                {
+                    id: 'G014',
+                    nama: 'Zenita Zahardayani, S.Pd',
+                    email: 'zenita.zahardayani@smpislamibadurrahman.id',
+                    mapel: 'Bahasa Inggris',
+                    pendidikan: 'S-1 Pendidikan Bahasa Inggris',
+                    tempatLahir: 'Narmada',
+                    tanggalLahir: '19-07-2002'
+                },
+                {
+                    id: 'G015',
+                    nama: 'Saepul Muslim',
+                    email: 'saepul.muslim@smpislamibadurrahman.id',
+                    mapel: 'Nahwu',
+                    pendidikan: 'MA Nurul Haramaian Narmada',
+                    tempatLahir: 'Kebun Nyiuh',
+                    tanggalLahir: '08-05-1996'
+                },
+                {
+                    id: 'G016',
+                    nama: 'Mulia Marcthini',
+                    email: 'mulia.marcthini@smpislamibadurrahman.id',
+                    mapel: 'Kewarganegaraan',
+                    pendidikan: 'SMAN 1 Narmada',
+                    tempatLahir: 'Narmada',
+                    tanggalLahir: '29-05-2003'
+                },
+                {
+                    id: 'G017',
+                    nama: 'Aldis Salwa Zaelani',
+                    email: 'aldis.salwa@smpislamibadurrahman.id',
+                    mapel: 'Bahasa Indonesia',
+                    pendidikan: 'MBI Ammanatul Ummah Pacet Mojokerto',
+                    tempatLahir: 'Narmada',
+                    tanggalLahir: '18-10-2004'
+                },
+                {
+                    id: 'G018',
+                    nama: 'Alya Usnaeni Bilqisti',
+                    email: 'alya.usnaeni@smpislamibadurrahman.id',
+                    mapel: 'Conversation & Informatika',
+                    pendidikan: 'MA Nurul Haramaian Narmada',
+                    tempatLahir: 'Narmada',
+                    tanggalLahir: '09-08-2004'
+                },
+                {
+                    id: 'G019',
+                    nama: 'Nurlaeli Febrianti',
+                    email: 'nurlaeli.febrianti@smpislamibadurrahman.id',
+                    mapel: 'Reading',
+                    pendidikan: 'MA Nurul Haramain Narmada',
+                    tempatLahir: 'Mataram',
+                    tanggalLahir: '02-02-2005'
+                },
+                {
+                    id: 'G020',
+                    nama: 'Muhammad Nasril',
+                    email: 'muhammad.nasril@smpislamibadurrahman.id',
+                    mapel: 'Muhadatsah',
+                    pendidikan: 'Pondok Modern Darussalam Gontor',
+                    tempatLahir: 'Kupang',
+                    tanggalLahir: '25-08-2005'
+                },
+                {
+                    id: 'G021',
+                    nama: 'Muhammad Gading Yusroh',
+                    email: 'muhammad.gading@smpislamibadurrahman.id',
+                    mapel: 'Durusullughah',
+                    pendidikan: 'Pondok Modern Darussalam Gontor',
+                    tempatLahir: 'Taliwang',
+                    tanggalLahir: '05-02-2006'
+                },
+                {
+                    id: 'G022',
+                    nama: 'Ahmad Daffa Alfian',
+                    email: 'ahmad.daffa@smpislamibadurrahman.id',
+                    mapel: 'Muhadatsah',
+                    pendidikan: 'MA Nurul Haramaian Narmada',
+                    tempatLahir: 'Selong',
+                    tanggalLahir: '26-10-2007'
+                },
+                {
+                    id: 'G023',
+                    nama: 'Zulfa Jauhari Muslimah',
+                    email: 'zulfa.jauhari@smpislamibadurrahman.id',
+                    mapel: 'Tarikh Islam',
+                    pendidikan: 'Pondok Modern Darussalam Gontor',
+                    tempatLahir: 'Maumere',
+                    tanggalLahir: '19-07-2006'
+                },
+                {
+                    id: 'G024',
+                    nama: 'Diva Jumratul Aula',
+                    email: 'diva.jumratul@smpislamibadurrahman.id',
+                    mapel: 'Tahfidz',
+                    pendidikan: 'MA Nurul Haramaian Narmada',
+                    tempatLahir: 'Mataram',
+                    tanggalLahir: '26-02-2006'
+                },
+                {
+                    id: 'G025',
+                    nama: 'Yuli Hernawati',
+                    email: 'yuli.hernawati@smpislamibadurrahman.id',
+                    mapel: 'Durusullughah',
+                    pendidikan: 'MA Nurul Haramaian Narmada',
+                    tempatLahir: 'Sintung Barat',
+                    tanggalLahir: '16-07-2007'
                 }
             ],
 
-            // Data lainnya
+            // Data lainnya termasuk materi aljabar
             materi: [
                 {
                     id: '1',
@@ -2413,6 +3353,50 @@
             document.getElementById('login-password').value = '';
             
             alert('Anda telah logout dari platform.');
+        }
+
+        // Mobile menu functionality
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                    
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Contact form handling
+        const contactForm = document.querySelector('form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const message = document.getElementById('message').value;
+                
+                if (!name || !email || !message) {
+                    alert('Mohon lengkapi semua field!');
+                    return;
+                }
+                
+                alert('Terima kasih atas pesan Anda! Kami akan segera menghubungi Anda kembali.');
+                contactForm.reset();
+            });
         }
 
         // Initialize platform
