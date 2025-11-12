@@ -1680,8 +1680,255 @@
                 }
             ],
 
-            // Data lainnya tetap sama
-            materi: [],
+            // Data lainnya termasuk materi aljabar
+            materi: [
+                {
+                    id: '1',
+                    judul: 'Pengenalan Bentuk Aljabar',
+                    mapel: 'Matematika',
+                    deskripsi: 'Materi pengenalan dasar-dasar aljabar untuk kelas 7',
+                    konten: `
+                        <div class="materi-content">
+                            <h2 class="text-2xl font-bold mb-4 text-blue-600">MATERI MATEMATIKA KELAS 7: PENGENALAN BENTUK ALJABAR</h2>
+                            
+                            <div class="bg-blue-50 p-4 rounded-lg mb-6">
+                                <h3 class="text-xl font-semibold mb-2 text-blue-800">Oleh: Ustadz Surahman, S.Pd</h3>
+                                <p class="text-blue-700">Guru Matematika SMP Islam Ibadurrahman Temas</p>
+                            </div>
+
+                            <div class="mb-8">
+                                <h3 class="text-xl font-semibold mb-4 text-gray-800">A. Apa itu Aljabar?</h3>
+                                <div class="bg-gray-50 p-4 rounded-lg mb-4">
+                                    <p class="mb-4">Bayangkan kamu pergi ke warung dan membeli:</p>
+                                    <ul class="list-disc ml-6 mb-4">
+                                        <li>2 bungkus roti</li>
+                                        <li>3 botol minuman</li>
+                                    </ul>
+                                    <p class="mb-4">Kamu tidak tahu harga satu roti dan satu minuman. Dalam matematika, kita bisa menyatakan hal yang belum diketahui nilainya dengan sebuah <strong>variabel</strong> (biasanya huruf).</p>
+                                    <div class="bg-white p-4 rounded border">
+                                        <p class="font-semibold">Misalnya:</p>
+                                        <p>Harga 1 roti = <code class="bg-yellow-100 px-2 py-1 rounded">r</code> rupiah</p>
+                                        <p>Harga 1 minuman = <code class="bg-yellow-100 px-2 py-1 rounded">m</code> rupiah</p>
+                                        <p class="mt-2">Maka, total uang yang harus kamu bayar adalah:</p>
+                                        <p class="font-bold text-lg">(2 × r) + (3 × m) atau disederhanakan menjadi 2r + 3m</p>
+                                    </div>
+                                    <p class="mt-4 font-semibold">Nah, <code class="bg-yellow-100 px-2 py-1 rounded">2r + 3m</code> inilah yang disebut <strong>Bentuk Aljabar</strong>. Aljabar adalah cabang matematika yang menggunakan huruf (variabel) untuk mewakili angka yang belum diketahui.</p>
+                                </div>
+                            </div>
+
+                            <div class="mb-8">
+                                <h3 class="text-xl font-semibold mb-4 text-gray-800">B. Unsur-unsur Bentuk Aljabar</h3>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <p class="mb-4">Mari kita lihat bentuk aljabar: <code class="bg-green-100 px-2 py-1 rounded font-bold">5x² + 3x - 7</code></p>
+                                    
+                                    <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                        <div class="bg-white p-4 rounded border">
+                                            <h4 class="font-semibold text-blue-600 mb-2">1. Variabel</h4>
+                                            <p>Huruf yang mewakili bilangan yang belum diketahui.</p>
+                                            <p class="font-bold mt-2">Contoh: <code class="bg-blue-100 px-2 py-1 rounded">x</code></p>
+                                        </div>
+                                        
+                                        <div class="bg-white p-4 rounded border">
+                                            <h4 class="font-semibold text-green-600 mb-2">2. Koefisien</h4>
+                                            <p>Angka yang berada di depan variabel.</p>
+                                            <p class="font-bold mt-2">Contoh: <code class="bg-green-100 px-2 py-1 rounded">5</code> pada 5x², <code class="bg-green-100 px-2 py-1 rounded">3</code> pada 3x</p>
+                                        </div>
+                                        
+                                        <div class="bg-white p-4 rounded border">
+                                            <h4 class="font-semibold text-purple-600 mb-2">3. Konstanta</h4>
+                                            <p>Angka yang berdiri sendiri tanpa variabel.</p>
+                                            <p class="font-bold mt-2">Contoh: <code class="bg-purple-100 px-2 py-1 rounded">-7</code></p>
+                                        </div>
+                                        
+                                        <div class="bg-white p-4 rounded border">
+                                            <h4 class="font-semibold text-red-600 mb-2">4. Suku</h4>
+                                            <p>Bagian-bagian yang dipisahkan oleh operasi + atau -.</p>
+                                            <p class="font-bold mt-2">Contoh: <code class="bg-red-100 px-2 py-1 rounded">5x²</code>, <code class="bg-red-100 px-2 py-1 rounded">3x</code>, <code class="bg-red-100 px-2 py-1 rounded">-7</code></p>
+                                        </div>
+                                    </div>
+
+                                    <div class="bg-yellow-50 p-4 rounded border">
+                                        <h4 class="font-semibold text-yellow-700 mb-2">Jenis-Jenis Suku:</h4>
+                                        <p><strong>Suku Sejenis:</strong> Suku yang memiliki variabel dan pangkat yang sama.</p>
+                                        <p class="mb-2">Contoh: <code class="bg-yellow-100 px-2 py-1 rounded">2x</code> dan <code class="bg-yellow-100 px-2 py-1 rounded">-5x</code> adalah suku sejenis</p>
+                                        
+                                        <p><strong>Suku Tidak Sejenis:</strong> Suku yang variabel atau pangkatnya berbeda.</p>
+                                        <p>Contoh: <code class="bg-yellow-100 px-2 py-1 rounded">3x</code> dan <code class="bg-yellow-100 px-2 py-1 rounded">4y</code> tidak sejenis</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mb-8">
+                                <h3 class="text-xl font-semibold mb-4 text-gray-800">C. Memahami Suku, Koefisien, dan Konstanta</h3>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <p class="mb-4 font-bold text-lg">Contoh: <code class="bg-blue-100 px-2 py-1 rounded">2a² - 6ab + 5b - 9</code></p>
+                                    
+                                    <div class="overflow-x-auto">
+                                        <table class="w-full border-collapse border border-gray-300">
+                                            <thead class="bg-gray-100">
+                                                <tr>
+                                                    <th class="border border-gray-300 px-4 py-2">Unsur</th>
+                                                    <th class="border border-gray-300 px-4 py-2">Penjelasan</th>
+                                                    <th class="border border-gray-300 px-4 py-2">Contoh</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="border border-gray-300 px-4 py-2 font-semibold">Variabel</td>
+                                                    <td class="border border-gray-300 px-4 py-2">Simbol untuk bilangan yang belum diketahui</td>
+                                                    <td class="border border-gray-300 px-4 py-2"><code class="bg-blue-100 px-2 py-1 rounded">a</code> dan <code class="bg-blue-100 px-2 py-1 rounded">b</code></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="border border-gray-300 px-4 py-2 font-semibold">Suku</td>
+                                                    <td class="border border-gray-300 px-4 py-2">Bagian yang dipisahkan oleh + atau -</td>
+                                                    <td class="border border-gray-300 px-4 py-2">4 suku: <code class="bg-red-100 px-2 py-1 rounded">2a²</code>, <code class="bg-red-100 px-2 py-1 rounded">-6ab</code>, <code class="bg-red-100 px-2 py-1 rounded">+5b</code>, <code class="bg-red-100 px-2 py-1 rounded">-9</code></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="border border-gray-300 px-4 py-2 font-semibold">Koefisien</td>
+                                                    <td class="border border-gray-300 px-4 py-2">Angka di depan variabel</td>
+                                                    <td class="border border-gray-300 px-4 py-2">
+                                                        <code class="bg-green-100 px-2 py-1 rounded">2</code> (a²), 
+                                                        <code class="bg-green-100 px-2 py-1 rounded">-6</code> (ab), 
+                                                        <code class="bg-green-100 px-2 py-1 rounded">5</code> (b)
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="border border-gray-300 px-4 py-2 font-semibold">Konstanta</td>
+                                                    <td class="border border-gray-300 px-4 py-2">Angka tetap/tanpa variabel</td>
+                                                    <td class="border border-gray-300 px-4 py-2"><code class="bg-purple-100 px-2 py-1 rounded">-9</code></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mb-8">
+                                <h3 class="text-xl font-semibold mb-4 text-gray-800">D. Operasi Hitung Bentuk Aljabar</h3>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <div class="bg-yellow-50 p-4 rounded border mb-4">
+                                        <p class="font-bold text-yellow-700">Aturan utama: <span class="text-red-600">Hanya suku sejenis yang bisa dijumlahkan atau dikurangkan.</span></p>
+                                    </div>
+
+                                    <div class="mb-6">
+                                        <h4 class="text-lg font-semibold mb-3 text-blue-600">1. Penjumlahan dan Pengurangan</h4>
+                                        <p class="mb-3">Kita hanya menjumlahkan atau mengurangkan <strong>koefisien</strong> dari suku-suku sejenis.</p>
+                                        
+                                        <div class="bg-white p-4 rounded border mb-3">
+                                            <p class="font-semibold">Contoh 1:</p>
+                                            <p class="text-lg"><code class="bg-green-100 px-2 py-1 rounded">4x + 3x = (4 + 3)x = 7x</code></p>
+                                        </div>
+                                        
+                                        <div class="bg-white p-4 rounded border">
+                                            <p class="font-semibold">Contoh 2:</p>
+                                            <p>Sederhanakan <code class="bg-green-100 px-2 py-1 rounded">5a + 3b - 2a + 7</code></p>
+                                            <p class="mt-2">1. Kelompokkan suku sejenis: <code class="bg-blue-100 px-2 py-1 rounded">(5a - 2a) + 3b + 7</code></p>
+                                            <p>2. Operasikan koefisiennya: <code class="bg-blue-100 px-2 py-1 rounded">(5 - 2)a + 3b + 7</code></p>
+                                            <p>3. Hasil akhir: <code class="bg-green-100 px-2 py-1 rounded font-bold">3a + 3b + 7</code></p>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <h4 class="text-lg font-semibold mb-3 text-blue-600">2. Perkalian</h4>
+                                        <p class="mb-3">Dalam perkalian, kalikan <strong>koefisien dengan koefisien</strong> dan <strong>variabel dengan variabel</strong>.</p>
+                                        
+                                        <div class="bg-white p-4 rounded border mb-3">
+                                            <p class="font-semibold">Contoh 1:</p>
+                                            <p class="text-lg"><code class="bg-green-100 px-2 py-1 rounded">3 × (2x) = (3 × 2) × x = 6x</code></p>
+                                        </div>
+                                        
+                                        <div class="bg-white p-4 rounded border mb-3">
+                                            <p class="font-semibold">Contoh 2:</p>
+                                            <p class="text-lg"><code class="bg-green-100 px-2 py-1 rounded">2y × 4y = (2 × 4) × (y × y) = 8y²</code></p>
+                                        </div>
+                                        
+                                        <div class="bg-white p-4 rounded border">
+                                            <p class="font-semibold">Contoh 3 (Sifat Distributif):</p>
+                                            <p class="text-lg"><code class="bg-green-100 px-2 py-1 rounded">a × (a + 5) = (a × a) + (a × 5) = a² + 5a</code></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mb-8">
+                                <h3 class="text-xl font-semibold mb-4 text-gray-800">E. Penerapan dalam Soal Cerita</h3>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <p class="mb-4">Inilah kekuatan aljabar: menerjemahkan masalah sehari-hari ke dalam bahasa matematika.</p>
+                                    
+                                    <div class="bg-white p-4 rounded border mb-4">
+                                        <p class="font-semibold text-lg">Soal 1:</p>
+                                        <p class="mb-2">Ika membeli 3 buku tulis dan 2 pensil. Jika harga satu buku adalah <code class="bg-yellow-100 px-2 py-1 rounded">b</code> rupiah dan harga satu pensil adalah <code class="bg-yellow-100 px-2 py-1 rounded">p</code> rupiah, tuliskan bentuk aljabar untuk total belanjaan Ika!</p>
+                                        <p class="font-bold text-green-600">Jawab:</p>
+                                        <p>Total = (3 × b) + (2 × p) = <code class="bg-green-100 px-2 py-1 rounded font-bold">3b + 2p</code></p>
+                                    </div>
+                                    
+                                    <div class="bg-white p-4 rounded border">
+                                        <p class="font-semibold text-lg">Soal 2:</p>
+                                        <p class="mb-2">Seorang tukang parkir mengatur 5 mobil dan 8 motor. Jika jumlah roda mobil adalah <code class="bg-yellow-100 px-2 py-1 rounded">m</code> dan roda motor adalah <code class="bg-yellow-100 px-2 py-1 rounded">n</code>, tuliskan bentuk aljabar untuk total roda semua kendaraan!</p>
+                                        <p class="font-bold text-green-600">Jawab:</p>
+                                        <p>Total Roda = (5 × m) + (8 × n) = <code class="bg-green-100 px-2 py-1 rounded font-bold">5m + 8n</code></p>
+                                        <p class="text-sm text-gray-600 mt-2">(Catatan: Dalam kenyataannya, m=4 dan n=2, tetapi soal meminta bentuk aljabar dengan variabel)</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-green-50 p-6 rounded-lg border border-green-200">
+                                <h3 class="text-xl font-semibold mb-4 text-green-800 text-center">Ringkasan</h3>
+                                <div class="space-y-3">
+                                    <div class="flex items-start">
+                                        <div class="bg-green-100 p-1 rounded-full mt-1 mr-3">
+                                            <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                            </svg>
+                                        </div>
+                                        <p><strong>Aljabar</strong> menggunakan <strong>variabel</strong> (huruf) untuk mewakili nilai yang tidak diketahui.</p>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="bg-green-100 p-1 rounded-full mt-1 mr-3">
+                                            <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                            </svg>
+                                        </div>
+                                        <p>Unsur-unsur bentuk aljabar adalah <strong>variabel, koefisien, konstanta, dan suku</strong>.</p>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="bg-green-100 p-1 rounded-full mt-1 mr-3">
+                                            <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                            </svg>
+                                        </div>
+                                        <p><strong>Suku sejenis</strong> memiliki variabel dan pangkat yang sama.</p>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="bg-green-100 p-1 rounded-full mt-1 mr-3">
+                                            <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                            </svg>
+                                        </div>
+                                        <p>Operasi hitung (penjumlahan/pengurangan) hanya dapat dilakukan pada <strong>suku sejenis</strong>.</p>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="bg-green-100 p-1 rounded-full mt-1 mr-3">
+                                            <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                            </svg>
+                                        </div>
+                                        <p>Aljabar sangat berguna untuk memecahkan <strong>masalah cerita</strong> dalam matematika.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-8 text-center">
+                                <p class="text-lg font-semibold text-blue-600">Selamat belajar!</p>
+                                <p class="text-gray-600">Mulailah dengan mengenali unsur-unsurnya, lalu berlatihlah menyederhanakan bentuk aljabar. Semakin sering berlatih, semakin mudah kamu memahaminya.</p>
+                            </div>
+                        </div>
+                    `,
+                    kesulitan: 'Pemula',
+                    pembuat: 'Ustadz Surahman, S.Pd',
+                    tanggal: new Date().toISOString()
+                }
+            ],
             tugas: [],
             diskusi: [],
             quizHistory: [],
@@ -1768,34 +2015,38 @@
             // Update filter options
             updateFilterOptions();
             
-            // Add sample materi and tugas
-            platformData.materi = [
-                {
-                    id: '1',
-                    judul: 'Pengenalan Aljabar',
-                    mapel: 'Matematika',
-                    deskripsi: 'Materi pengenalan dasar-dasar aljabar untuk pemula',
-                    konten: `
-                        <h2 class="text-2xl font-bold mb-4">Pengenalan Aljabar</h2>
-                        <p class="mb-4">Aljabar adalah cabang matematika yang mempelajari struktur, hubungan, dan kuantitas.</p>
-                        <!-- ... konten materi ... -->
-                    `,
-                    kesulitan: 'Pemula',
-                    pembuat: 'Ustadz Surahman, S.Pd',
-                    tanggal: new Date().toISOString()
-                }
-            ];
-            
+            // Add sample tugas
             platformData.tugas = [
                 {
                     id: '1',
-                    judul: 'Tugas Aljabar - Persamaan Linear',
+                    judul: 'Tugas Aljabar - Pengenalan Bentuk Aljabar',
                     mapel: 'Matematika',
-                    deskripsi: 'Selesaikan soal-soal persamaan linear satu variabel',
+                    deskripsi: 'Kerjakan soal-soal tentang pengenalan bentuk aljabar',
                     konten: `
-                        <h2 class="text-2xl font-bold mb-4">Tugas Aljabar - Persamaan Linear</h2>
-                        <p class="mb-4">Kerjakan soal-soal berikut dengan benar.</p>
-                        <!-- ... konten tugas ... -->
+                        <h2 class="text-2xl font-bold mb-4">Tugas Aljabar - Pengenalan Bentuk Aljabar</h2>
+                        <p class="mb-4">Kerjakan soal-soal berikut dengan benar. Tulis jawaban Anda pada kolom yang disediakan.</p>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg mb-4">
+                            <h3 class="text-lg font-semibold mb-2">Soal 1</h3>
+                            <p class="mb-2">Tentukan unsur-unsur dari bentuk aljabar berikut: <code class="bg-blue-100 px-2 py-1 rounded">3x² - 2xy + 5y - 7</code></p>
+                            <textarea class="w-full p-2 border rounded" rows="3" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg mb-4">
+                            <h3 class="text-lg font-semibold mb-2">Soal 2</h3>
+                            <p class="mb-2">Sederhanakan bentuk aljabar berikut: <code class="bg-blue-100 px-2 py-1 rounded">4a + 3b - 2a + 5b</code></p>
+                            <textarea class="w-full p-2 border rounded" rows="3" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg mb-4">
+                            <h3 class="text-lg font-semibold mb-2">Soal 3 (Soal Cerita)</h3>
+                            <p class="mb-2">Ali membeli 3 buku dan 4 pensil. Jika harga satu buku adalah <code class="bg-blue-100 px-2 py-1 rounded">b</code> rupiah dan harga satu pensil adalah <code class="bg-blue-100 px-2 py-1 rounded">p</code> rupiah, tuliskan bentuk aljabar untuk total belanjaan Ali!</p>
+                            <textarea class="w-full p-2 border rounded" rows="3" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                        </div>
+                        
+                        <div class="mt-6">
+                            <button onclick="kirimTugas('1')" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Kirim Tugas</button>
+                        </div>
                     `,
                     deadline: '2023-11-10',
                     pembuat: 'Ustadz Surahman, S.Pd',
@@ -2507,7 +2758,7 @@
             const modal = document.createElement('div');
             modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
             modal.innerHTML = `
-                <div class="bg-white rounded-xl shadow-lg p-6 w-full max-w-4xl max-h-screen overflow-y-auto">
+                <div class="bg-white rounded-xl shadow-lg p-6 w-full max-w-6xl max-h-screen overflow-y-auto">
                     <div class="flex justify-between items-center mb-6">
                         <h3 class="text-2xl font-bold text-gray-800">${materi.judul}</h3>
                         <button onclick="this.parentElement.parentElement.parentElement.remove()" class="text-gray-500 hover:text-gray-700">
