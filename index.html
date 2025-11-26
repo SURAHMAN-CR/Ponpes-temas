@@ -1788,7 +1788,33 @@
                     tempatLahir: 'Narmada',
                     tanggalLahir: '27-11-1984'
                 },
-                // ... (data guru lainnya tetap sama)
+                {
+                    id: 'G002',
+                    nama: 'Ahmad Zainur Rofiq, S.Pd',
+                    email: 'ahmad.zainur@smpislamibadurrahman.id',
+                    mapel: 'Matematika',
+                    pendidikan: 'S-1 Pendidikan Matematika',
+                    tempatLahir: 'Malang',
+                    tanggalLahir: '15-03-1985'
+                },
+                {
+                    id: 'G003',
+                    nama: 'Siti Aminah, S.Pd.I',
+                    email: 'siti.aminah@smpislamibadurrahman.id',
+                    mapel: 'Al-Quran',
+                    pendidikan: 'S-1 Pendidikan Agama Islam',
+                    tempatLahir: 'Batu',
+                    tanggalLahir: '20-07-1987'
+                },
+                {
+                    id: 'G004',
+                    nama: 'Muhammad Fahmi, S.Pd',
+                    email: 'muhammad.fahmi@smpislamibadurrahman.id',
+                    mapel: 'Bahasa Arab',
+                    pendidikan: 'S-1 Pendidikan Bahasa Arab',
+                    tempatLahir: 'Surabaya',
+                    tanggalLahir: '10-12-1982'
+                }
             ],
 
             // Data materi aljabar kelas 7 yang diperluas
@@ -1811,7 +1837,78 @@
                         topik: ['Variabel dan Konstanta', 'Koefisien', 'Suku Sejenis', 'Operasi Aljabar']
                     }
                 },
-                // ... (materi lainnya tetap sama)
+                {
+                    id: '2',
+                    judul: 'Operasi Hitung Aljabar',
+                    mapel: 'Matematika',
+                    deskripsi: 'Belajar menjumlahkan, mengurangkan, mengalikan, dan membagi bentuk aljabar',
+                    konten: 'konten-operasi-aljabar',
+                    kesulitan: 'Menengah',
+                    pembuat: 'Ustadz Surahman, S.Pd',
+                    tanggal: new Date().toISOString(),
+                    tipe: 'interaktif',
+                    poin: 75,
+                    detail: {
+                        tujuan: 'Menguasai operasi hitung pada bentuk aljabar',
+                        durasi: '45 menit',
+                        level: 'Kelas 7',
+                        topik: ['Penjumlahan dan Pengurangan', 'Perkalian', 'Pembagian', 'Pemfaktoran']
+                    }
+                },
+                {
+                    id: '3',
+                    judul: 'Penyelesaian Persamaan Linear',
+                    mapel: 'Matematika',
+                    deskripsi: 'Mempelajari cara menyelesaikan persamaan linear satu variabel',
+                    konten: 'konten-persamaan-linear',
+                    kesulitan: 'Lanjutan',
+                    pembuat: 'Ustadz Surahman, S.Pd',
+                    tanggal: new Date().toISOString(),
+                    tipe: 'interaktif',
+                    poin: 100,
+                    detail: {
+                        tujuan: 'Mampu menyelesaikan persamaan linear satu variabel',
+                        durasi: '60 menit',
+                        level: 'Kelas 7',
+                        topik: ['Konsep Persamaan', 'Penyelesaian dengan Penjumlahan/Pengurangan', 'Penyelesaian dengan Perkalian/Pembagian', 'Penerapan dalam Soal Cerita']
+                    }
+                },
+                {
+                    id: '4',
+                    judul: 'Kosakata Bahasa Arab Dasar',
+                    mapel: 'Bahasa Arab',
+                    deskripsi: 'Materi pembelajaran kosakata bahasa Arab sehari-hari',
+                    konten: 'konten-bahasa-arab',
+                    kesulitan: 'Pemula',
+                    pembuat: 'Ustadz Fahmi, S.Pd',
+                    tanggal: new Date().toISOString(),
+                    tipe: 'interaktif',
+                    poin: 50,
+                    detail: {
+                        tujuan: 'Menguasai kosakata bahasa Arab dasar',
+                        durasi: '30 menit',
+                        level: 'Kelas 7',
+                        topik: ['Keluarga', 'Sekolah', 'Makanan', 'Kegiatan Sehari-hari']
+                    }
+                },
+                {
+                    id: '5',
+                    judul: 'Tajwid dan Makhraj Huruf',
+                    mapel: 'Al-Quran',
+                    deskripsi: 'Belajar membaca Al-Quran dengan tajwid dan makhraj yang benar',
+                    konten: 'konten-tajwid',
+                    kesulitan: 'Pemula',
+                    pembuat: 'Ustadzah Siti Aminah, S.Pd.I',
+                    tanggal: new Date().toISOString(),
+                    tipe: 'interaktif',
+                    poin: 50,
+                    detail: {
+                        tujuan: 'Membaca Al-Quran dengan tartil',
+                        durasi: '40 menit',
+                        level: 'Kelas 7',
+                        topik: ['Makhraj Huruf', 'Hukum Nun Mati dan Tanwin', 'Hukum Mim Mati', 'Idgham']
+                    }
+                }
             ],
             tugas: [],
             diskusi: [],
@@ -1821,10 +1918,87 @@
             userPoints: {},
             events: [],
             gameData: {
-                // ... (data game tetap sama)
+                'math-puzzle': {
+                    title: 'Teka-Teki Matematika',
+                    description: 'Asah kemampuan matematika dengan teka-teki menyenangkan',
+                    type: 'puzzle',
+                    questions: [
+                        {
+                            question: 'Jika 2x + 5 = 15, berapa nilai x?',
+                            options: ['3', '5', '7', '10'],
+                            answer: 1,
+                            explanation: '2x + 5 = 15 → 2x = 10 → x = 5'
+                        },
+                        {
+                            question: 'Sederhanakan bentuk aljabar: 3a + 2b - a + 4b',
+                            options: ['2a + 6b', '4a + 6b', '2a + 2b', '4a + 2b'],
+                            answer: 0,
+                            explanation: '3a - a = 2a, 2b + 4b = 6b → 2a + 6b'
+                        },
+                        {
+                            question: 'Berapakah hasil dari (2x + 3)(x - 4)?',
+                            options: ['2x² - 5x - 12', '2x² + 5x - 12', '2x² - 5x + 12', '2x² + 5x + 12'],
+                            answer: 0,
+                            explanation: '(2x)(x) + (2x)(-4) + (3)(x) + (3)(-4) = 2x² - 8x + 3x - 12 = 2x² - 5x - 12'
+                        }
+                    ]
+                },
+                'science-lab': {
+                    title: 'Laboratorium Sains',
+                    description: 'Eksperimen sains virtual yang aman dan menarik',
+                    type: 'simulation',
+                    pairs: [
+                        { expression: 'H₂O', simplified: 'Air' },
+                        { expression: 'CO₂', simplified: 'Karbon Dioksida' },
+                        { expression: 'NaCl', simplified: 'Garam' }
+                    ]
+                },
+                'language-adventure': {
+                    title: 'Petualangan Bahasa',
+                    description: 'Belajar bahasa Arab dan Inggris dengan petualangan seru',
+                    type: 'adventure',
+                    pairs: [
+                        { expression: 'مدرسة', simplified: 'Sekolah' },
+                        { expression: 'كتاب', simplified: 'Buku' },
+                        { expression: 'قلم', simplified: 'Pensil' }
+                    ]
+                }
             },
             quizData: {
-                // ... (data quiz tetap sama)
+                matematika: [
+                    {
+                        pertanyaan: 'Berapakah hasil dari 3x + 2y jika x = 2 dan y = 3?',
+                        pilihan: ['12', '10', '8', '6'],
+                        jawaban: 0
+                    },
+                    {
+                        pertanyaan: 'Sederhanakan bentuk aljabar: 4a - 2b + 3a + 5b',
+                        pilihan: ['7a + 3b', '7a + 7b', 'a + 3b', 'a + 7b'],
+                        jawaban: 0
+                    },
+                    {
+                        pertanyaan: 'Jika 5x - 3 = 12, berapakah nilai x?',
+                        pilihan: ['2', '3', '4', '5'],
+                        jawaban: 1
+                    }
+                ],
+                'bahasa-arab': [
+                    {
+                        pertanyaan: 'Apa arti dari kata "مدرسة"?',
+                        pilihan: ['Rumah', 'Sekolah', 'Masjid', 'Pasar'],
+                        jawaban: 1
+                    },
+                    {
+                        pertanyaan: 'Apa arti dari kata "كتاب"?',
+                        pilihan: ['Pena', 'Buku', 'Meja', 'Kursi'],
+                        jawaban: 1
+                    },
+                    {
+                        pertanyaan: 'Apa arti dari kata "قلم"?',
+                        pilihan: ['Buku', 'Pensil', 'Penghapus', 'Penggaris'],
+                        jawaban: 1
+                    }
+                ]
             }
         };
 
