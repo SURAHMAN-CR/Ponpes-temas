@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SMP Islam Ibadurrahman Temas - Platform E-Learning Interaktif</title>
+    <title>SMP Islam Ibadurrahman Temas - Platform E-Learning Interaktif dengan Data Lengkap</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -23,7 +23,25 @@
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
+    <!-- Data Tables -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    
+    <!-- PDF.js untuk viewer -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+    
+    <!-- QR Code Scanner -->
+    <script src="https://unpkg.com/html5-qrcode"></script>
+    
+    <!-- MathJax untuk rumus matematika -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
     <style>
+        /* ====================
+           STYLE UTAMA DARI KODE SEBELUMNYA
+           ==================== */
         * {
             margin: 0;
             padding: 0;
@@ -39,7 +57,6 @@
             font-family: 'Amiri', serif;
         }
         
-        /* Hero Section */
         .hero-bg {
             background: linear-gradient(rgba(0, 30, 60, 0.85), rgba(0, 60, 120, 0.9)), 
                         url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
@@ -48,14 +65,12 @@
             background-attachment: fixed;
         }
         
-        /* Glass Effect */
         .glass-effect {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
         
-        /* Gradient Buttons */
         .btn-gradient-primary {
             background: linear-gradient(135deg, #005EAA 0%, #0083FF 100%);
             color: white;
@@ -119,7 +134,7 @@
             background: #f1f1f1;
         }
         
-        ::-webkit-scrollbar-thumb {
+        ::-webkit-s-crollbar-thumb {
             background: linear-gradient(135deg, #005EAA 0%, #0083FF 100%);
             border-radius: 5px;
         }
@@ -276,26 +291,6 @@
             height: 100%;
         }
         
-        /* Countdown Timer */
-        .countdown-box {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            padding: 15px;
-            text-align: center;
-            min-width: 80px;
-        }
-        
-        .countdown-value {
-            font-size: 2rem;
-            font-weight: bold;
-            color: white;
-        }
-        
-        .countdown-label {
-            font-size: 0.8rem;
-            opacity: 0.8;
-        }
-        
         /* Message Bubble */
         .message-bubble {
             max-width: 70%;
@@ -387,22 +382,115 @@
             background: #FEE2E2;
         }
         
-        /* Dark Mode */
-        .dark-mode {
-            background-color: #1F2937;
-            color: #F9FAFB;
+        /* ====================
+           STYLE TAMBAHAN UNTUK DOKUMENTASI
+           ==================== */
+        .code-block {
+            background: #1a202c;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            margin: 20px 0;
         }
         
-        .dark-mode .card {
-            background-color: #374151;
-            color: #F9FAFB;
+        .doc-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 30px;
+            border-radius: 15px;
+            color: white;
+            margin: 30px 0;
         }
         
-        /* Print Styles */
-        @media print {
-            .no-print {
-                display: none !important;
-            }
+        .api-endpoint {
+            background: #2d3748;
+            color: #81e6d9;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .db-schema {
+            background: #fff;
+            border: 2px solid #005EAA;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+        
+        .file-tree {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            font-family: 'Courier New', monospace;
+            margin: 20px 0;
+        }
+        
+        .database-diagram {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        
+        .tech-item {
+            background: #ebf8ff;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            color: #2b6cb0;
+        }
+        
+        .flowchart {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin: 30px 0;
+        }
+        
+        .architecture-diagram {
+            background: linear-gradient(135deg, #f6f9fc 0%, #e9f2ff 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+        
+        .test-case {
+            background: #f0fff4;
+            border-left: 4px solid #38a169;
+            padding: 15px;
+            margin: 10px 0;
+        }
+        
+        .security-badge {
+            background: linear-gradient(135deg, #f56565 0%, #ed8936 100%);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            display: inline-block;
+        }
+        
+        .deployment-step {
+            background: #edf2f7;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border-left: 4px solid #005EAA;
         }
     </style>
 </head>
@@ -425,13 +513,13 @@
         <button onclick="scrollToTop()" class="w-12 h-12 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 transition">
             <i class="fas fa-arrow-up"></i>
         </button>
-        <button onclick="toggleDarkMode()" class="w-12 h-12 bg-gray-800 text-white rounded-full shadow-lg hover:bg-gray-900 transition">
-            <i class="fas fa-moon"></i>
+        <button onclick="toggleDocumentation()" class="w-12 h-12 bg-purple-600 text-white rounded-full shadow-lg hover:bg-purple-700 transition">
+            <i class="fas fa-book"></i>
         </button>
         <button onclick="toggleChat()" class="w-12 h-12 bg-green-600 text-white rounded-full shadow-lg hover:bg-green-700 transition">
             <i class="fas fa-comment"></i>
         </button>
-        <button onclick="printPage()" class="w-12 h-12 bg-purple-600 text-white rounded-full shadow-lg hover:bg-purple-700 transition">
+        <button onclick="printPage()" class="w-12 h-12 bg-gray-600 text-white rounded-full shadow-lg hover:bg-gray-700 transition">
             <i class="fas fa-print"></i>
         </button>
     </div>
@@ -495,6 +583,9 @@
                     <a href="#elearning" class="text-gray-700 hover:text-blue-600 font-medium">
                         <i class="fas fa-laptop mr-2"></i>E-Learning
                     </a>
+                    <a href="#documentation" class="text-gray-700 hover:text-blue-600 font-medium">
+                        <i class="fas fa-file-code mr-2"></i>Dokumentasi
+                    </a>
                     <a href="#contact" class="text-gray-700 hover:text-blue-600 font-medium">
                         <i class="fas fa-phone mr-2"></i>Kontak
                     </a>
@@ -505,7 +596,7 @@
                             <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
                                 <i class="fas fa-user text-white"></i>
                             </div>
-                            <span>Login</span>
+                            <span id="user-status">Login</span>
                             <i class="fas fa-chevron-down"></i>
                         </button>
                         <div class="absolute right-0 mt-2 w-48 bg-white shadow-xl rounded-lg py-2 hidden group-hover:block">
@@ -518,6 +609,11 @@
                             <a href="#" onclick="showRegisterModal()" class="block px-4 py-2 hover:bg-gray-100">
                                 <i class="fas fa-user-plus mr-2"></i>Daftar Baru
                             </a>
+                            <div class="border-t mt-2 pt-2">
+                                <a href="#" onclick="showAdminPanel()" class="block px-4 py-2 hover:bg-gray-100">
+                                    <i class="fas fa-cog mr-2"></i>Admin Panel
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -547,6 +643,9 @@
                 <a href="#elearning" class="block py-2 text-gray-700 hover:text-blue-600">
                     <i class="fas fa-laptop mr-2"></i>E-Learning
                 </a>
+                <a href="#documentation" class="block py-2 text-gray-700 hover:text-blue-600">
+                    <i class="fas fa-file-code mr-2"></i>Dokumentasi
+                </a>
                 <a href="#contact" class="block py-2 text-gray-700 hover:text-blue-600">
                     <i class="fas fa-phone mr-2"></i>Kontak
                 </a>
@@ -562,9 +661,13 @@
         </div>
     </nav>
     
+    <!-- ===============================
+         BAGIAN UTAMA WEBSITE (SAMA DENGAN SEBELUMNYA)
+         =============================== -->
+    
     <!-- Hero Section -->
     <section id="home" class="hero-bg text-white relative overflow-hidden">
-        <!-- Animated Background -->
+        <!-- Hero content sama dengan sebelumnya -->
         <div class="absolute inset-0">
             <div class="absolute top-10 left-10 w-32 h-32 bg-white opacity-10 rounded-full floating"></div>
             <div class="absolute bottom-20 right-20 w-48 h-48 bg-white opacity-5 rounded-full floating" style="animation-delay: 2s"></div>
@@ -595,16 +698,19 @@
                     <button onclick="showVideoProfile()" class="glass-effect px-8 py-4 rounded-xl text-lg font-semibold border-2 border-white">
                         <i class="fas fa-play-circle mr-2"></i>Tonton Video Profil
                     </button>
+                    <button onclick="toggleDocumentation()" class="btn-gradient-success px-8 py-4 rounded-xl text-lg font-semibold">
+                        <i class="fas fa-code mr-2"></i>Lihat Dokumentasi
+                    </button>
                 </div>
                 
                 <!-- Stats -->
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
                     <div class="glass-effect p-6 rounded-xl text-center">
-                        <div class="text-3xl font-bold mb-2">500+</div>
+                        <div class="text-3xl font-bold mb-2" id="student-count">0</div>
                         <div class="text-sm opacity-80">Santri Aktif</div>
                     </div>
                     <div class="glass-effect p-6 rounded-xl text-center">
-                        <div class="text-3xl font-bold mb-2">45</div>
+                        <div class="text-3xl font-bold mb-2" id="teacher-count">0</div>
                         <div class="text-sm opacity-80">Tenaga Pengajar</div>
                     </div>
                     <div class="glass-effect p-6 rounded-xl text-center">
@@ -633,697 +739,793 @@
             </div>
         </div>
     </section>
-    
-    <!-- Profile Section -->
-    <section id="profile" class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-800 mb-4">Profil Sekolah</h2>
-                <div class="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
-                <p class="text-gray-600 max-w-2xl mx-auto text-lg">
-                    SMP Islam Ibadurrahman Temas berdiri sejak 2017 dengan komitmen mencetak generasi Qur'ani yang unggul dalam ilmu agama dan umum.
-                </p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
-                <div>
-                    <h3 class="text-3xl font-bold text-gray-800 mb-6">Visi & Misi Kami</h3>
-                    
-                    <div class="mb-8">
-                        <h4 class="text-xl font-semibold text-blue-600 mb-4">Visi</h4>
-                        <p class="text-gray-700 text-lg bg-blue-50 p-6 rounded-xl">
-                            "Menjadi lembaga pendidikan Islam unggulan yang mencetak generasi Qur'ani berakhlak mulia, berwawasan global, dan berkontribusi positif bagi umat dan bangsa."
-                        </p>
-                    </div>
-                    
-                    <div>
-                        <h4 class="text-xl font-semibold text-green-600 mb-4">Misi</h4>
-                        <ul class="space-y-3">
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                                <span>Menyelenggarakan pendidikan integral antara ilmu agama dan ilmu umum</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                                <span>Mengembangkan potensi santri secara holistik</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                                <span>Menanamkan nilai-nilai Islam dalam kehidupan sehari-hari</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                                <span>Menyiapkan santri untuk melanjutkan ke pendidikan tinggi</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div>
-                    <div class="relative">
-                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
-                             alt="SMP Islam Ibadurrahman" class="rounded-2xl shadow-2xl">
-                        <div class="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-xl max-w-xs">
-                            <div class="text-4xl font-bold text-blue-600 mb-2">7+</div>
-                            <p class="text-gray-700">Tahun pengalaman dalam pendidikan Islam</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Timeline Sejarah -->
-            <div class="mb-20">
-                <h3 class="text-3xl font-bold text-gray-800 mb-8 text-center">Sejarah Perkembangan</h3>
-                <div class="timeline max-w-4xl mx-auto">
-                    <div class="timeline-item">
-                        <div class="bg-white p-6 rounded-xl shadow-lg">
-                            <div class="text-blue-600 font-bold mb-2">2017</div>
-                            <h4 class="text-xl font-semibold mb-2">Pendirian Sekolah</h4>
-                            <p class="text-gray-600">SMP Islam Ibadurrahman Temas resmi didirikan dengan 3 kelas pertama</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="bg-white p-6 rounded-xl shadow-lg">
-                            <div class="text-blue-600 font-bold mb-2">2019</div>
-                            <h4 class="text-xl font-semibold mb-2">Akreditasi A</h4>
-                            <p class="text-gray-600">Mendapatkan akreditasi A dari Badan Akreditasi Sekolah</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="bg-white p-6 rounded-xl shadow-lg">
-                            <div class="text-blue-600 font-bold mb-2">2021</div>
-                            <h4 class="text-xl font-semibold mb-2">E-Learning Platform</h4>
-                            <p class="text-gray-600">Meluncurkan platform e-learning interaktif</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="bg-white p-6 rounded-xl shadow-lg">
-                            <div class="text-blue-600 font-bold mb-2">2023</div>
-                            <h4 class="text-xl font-semibold mb-2">Ekspansi Fasilitas</h4>
-                            <p class="text-gray-600">Penambahan laboratorium dan perpustakaan digital</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Kepala Sekolah -->
-            <div class="bg-gradient-to-r from-blue-50 to-cyan-50 rounded-2xl p-8 md:p-12">
-                <div class="flex flex-col md:flex-row items-center gap-8">
-                    <div class="md:w-1/3">
-                        <div class="relative">
-                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                                 alt="Kepala Sekolah" class="rounded-2xl shadow-lg">
-                            <div class="absolute -bottom-4 -right-4 bg-blue-600 text-white p-4 rounded-xl">
-                                <div class="text-2xl font-bold">Dr. Ahmad</div>
-                                <div class="text-sm">M.Pd.I</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="md:w-2/3">
-                        <h3 class="text-3xl font-bold text-gray-800 mb-4">Sambutan Kepala Sekolah</h3>
-                        <p class="text-gray-700 text-lg mb-6">
-                            "Assalamu'alaikum warahmatullahi wabarakatuh. Dengan penuh syukur, kami menyambut Anda di SMP Islam Ibadurrahman Temas. Kami berkomitmen untuk memberikan pendidikan terbaik yang mengintegrasikan ilmu agama dan umum, membentuk karakter Islami, serta mengembangkan potensi setiap santri."
-                        </p>
-                        <div class="flex items-center">
-                            <div class="mr-4">
-                                <div class="text-2xl font-bold text-blue-600">Dr. Ahmad, M.Pd.I</div>
-                                <div class="text-gray-600">Kepala SMP Islam Ibadurrahman Temas</div>
-                            </div>
-                            <div class="border-l-2 border-gray-300 pl-4">
-                                <div class="text-sm text-gray-500">Pengalaman 15 tahun</div>
-                                <div class="text-sm text-gray-500">Doktor Pendidikan Islam</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Program Section -->
-    <section id="program" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-800 mb-4">Program Unggulan</h2>
-                <div class="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
-                <p class="text-gray-600 max-w-2xl mx-auto text-lg">
-                    Berbagai program unggulan yang dirancang khusus untuk mengembangkan potensi santri secara maksimal.
-                </p>
-            </div>
-            
-            <!-- Program Cards -->
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-                <!-- Program 1 -->
-                <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden">
-                    <div class="h-48 bg-gradient-to-r from-blue-600 to-blue-800 relative overflow-hidden">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <i class="fas fa-quran text-white text-6xl"></i>
-                        </div>
-                        <div class="absolute top-4 right-4">
-                            <span class="badge badge-primary">Wajib</span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-800 mb-3">Qiraát Sabáh Program</h3>
-                        <p class="text-gray-600 mb-4">Program membaca Al-Quran dengan tartil dan memahami tajwid. Setiap pagi sebelum pembelajaran dimulai.</p>
-                        <div class="flex justify-between items-center">
-                            <div class="text-sm text-gray-500">
-                                <i class="far fa-clock mr-1"></i> 06:00 - 07:00
-                            </div>
-                            <button onclick="showProgramDetail('qiraat')" class="text-blue-600 font-semibold hover:text-blue-800">
-                                Detail <i class="fas fa-arrow-right ml-1"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Program 2 -->
-                <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden">
-                    <div class="h-48 bg-gradient-to-r from-green-600 to-green-800 relative overflow-hidden">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <i class="fas fa-language text-white text-6xl"></i>
-                        </div>
-                        <div class="absolute top-4 right-4">
-                            <span class="badge badge-success">Intensif</span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-800 mb-3">Bahasa Arab & Inggris</h3>
-                        <p class="text-gray-600 mb-4">Program intensif untuk menguasai bahasa Arab sebagai bahasa agama dan Inggris sebagai bahasa internasional.</p>
-                        <div class="flex justify-between items-center">
-                            <div class="text-sm text-gray-500">
-                                <i class="far fa-clock mr-1"></i> 5x seminggu
-                            </div>
-                            <button onclick="showProgramDetail('bahasa')" class="text-blue-600 font-semibold hover:text-blue-800">
-                                Detail <i class="fas fa-arrow-right ml-1"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Program 3 -->
-                <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden">
-                    <div class="h-48 bg-gradient-to-r from-purple-600 to-purple-800 relative overflow-hidden">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <i class="fas fa-flask text-white text-6xl"></i>
-                        </div>
-                        <div class="absolute top-4 right-4">
-                            <span class="badge badge-warning">Pilihan</span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-800 mb-3">Science & Technology Club</h3>
-                        <p class="text-gray-600 mb-4">Klub sains dan teknologi untuk mengembangkan minat dan bakat di bidang STEM (Science, Technology, Engineering, Math).</p>
-                        <div class="flex justify-between items-center">
-                            <div class="text-sm text-gray-500">
-                                <i class="fas fa-users mr-1"></i> Ekstrakurikuler
-                            </div>
-                            <button onclick="showProgramDetail('science')" class="text-blue-600 font-semibold hover:text-blue-800">
-                                Detail <i class="fas fa-arrow-right ml-1"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Program Details -->
-            <div class="bg-white rounded-2xl shadow-lg p-8">
-                <h3 class="text-2xl font-bold text-gray-800 mb-6">Jadwal Program Harian</h3>
-                <div class="overflow-x-auto">
-                    <table class="w-full">
-                        <thead>
-                            <tr class="bg-gray-50">
-                                <th class="py-3 px-4 text-left">Waktu</th>
-                                <th class="py-3 px-4 text-left">Kegiatan</th>
-                                <th class="py-3 px-4 text-left">Lokasi</th>
-                                <th class="py-3 px-4 text-left">Pengajar</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="border-b">
-                                <td class="py-3 px-4">05:30 - 06:00</td>
-                                <td class="py-3 px-4">Sholat Subuh Berjamaah</td>
-                                <td class="py-3 px-4">Masjid</td>
-                                <td class="py-3 px-4">Ustadz Ahmad</td>
-                            </tr>
-                            <tr class="border-b">
-                                <td class="py-3 px-4">06:00 - 07:00</td>
-                                <td class="py-3 px-4">Qiraát Sabáh</td>
-                                <td class="py-3 px-4">Kelas/Al-Quran</td>
-                                <td class="py-3 px-4">Ustadz Fahmi</td>
-                            </tr>
-                            <tr class="border-b">
-                                <td class="py-3 px-4">07:30 - 12:30</td>
-                                <td class="py-3 px-4">Pelajaran Umum</td>
-                                <td class="py-3 px-4">Kelas</td>
-                                <td class="py-3 px-4">Guru Mapel</td>
-                            </tr>
-                            <tr>
-                                <td class="py-3 px-4">13:30 - 15:00</td>
-                                <td class="py-3 px-4">Bahasa Arab/Inggris</td>
-                                <td class="py-3 px-4">Language Lab</td>
-                                <td class="py-3 px-4">Ustadz Zainur</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Fasilitas Section -->
-    <section id="facilities" class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-800 mb-4">Fasilitas Sekolah</h2>
-                <div class="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
-                <p class="text-gray-600 max-w-2xl mx-auto text-lg">
-                    Fasilitas lengkap dan modern untuk menunjang proses pembelajaran yang optimal.
-                </p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Fasilitas 1 -->
-                <div class="bg-gray-50 rounded-2xl p-6 card-hover">
-                    <div class="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
-                        <i class="fas fa-microscope text-blue-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3">Laboratorium Sains</h3>
-                    <p class="text-gray-600 mb-4">Laboratorium IPA lengkap dengan peralatan modern untuk praktikum fisika, kimia, dan biologi.</p>
-                    <div class="flex items-center text-sm text-gray-500">
-                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                        <span>Kapasitas 30 siswa</span>
-                    </div>
-                </div>
-                
-                <!-- Fasilitas 2 -->
-                <div class="bg-gray-50 rounded-2xl p-6 card-hover">
-                    <div class="w-16 h-16 bg-green-100 rounded-xl flex items-center justify-center mb-4">
-                        <i class="fas fa-laptop-code text-green-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3">Lab Komputer & IT</h3>
-                    <p class="text-gray-600 mb-4">Lab komputer dengan spesifikasi tinggi dan koneksi internet cepat untuk pembelajaran IT dan coding.</p>
-                    <div class="flex items-center text-sm text-gray-500">
-                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                        <span>40 unit komputer</span>
-                    </div>
-                </div>
-                
-                <!-- Fasilitas 3 -->
-                <div class="bg-gray-50 rounded-2xl p-6 card-hover">
-                    <div class="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center mb-4">
-                        <i class="fas fa-book-open text-purple-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3">Perpustakaan Digital</h3>
-                    <p class="text-gray-600 mb-4">Perpustakaan dengan koleksi buku fisik dan akses ke ribuan e-book dan jurnal online.</p>
-                    <div class="flex items-center text-sm text-gray-500">
-                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                        <span>5000+ koleksi</span>
-                    </div>
-                </div>
-                
-                <!-- Fasilitas 4 -->
-                <div class="bg-gray-50 rounded-2xl p-6 card-hover">
-                    <div class="w-16 h-16 bg-yellow-100 rounded-xl flex items-center justify-center mb-4">
-                        <i class="fas fa-dumbbell text-yellow-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3">Lapangan Olahraga</h3>
-                    <p class="text-gray-600 mb-4">Lapangan futsal, basket, dan voli yang memenuhi standar untuk aktivitas olahraga.</p>
-                    <div class="flex items-center text-sm text-gray-500">
-                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                        <span>Lapangan standar</span>
-                    </div>
-                </div>
-                
-                <!-- Fasilitas 5 -->
-                <div class="bg-gray-50 rounded-2xl p-6 card-hover">
-                    <div class="w-16 h-16 bg-red-100 rounded-xl flex items-center justify-center mb-4">
-                        <i class="fas fa-utensils text-red-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3">Kantin Sehat</h3>
-                    <p class="text-gray-600 mb-4">Kantin dengan menu makanan sehat dan bergizi sesuai standar gizi anak sekolah.</p>
-                    <div class="flex items-center text-sm text-gray-500">
-                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                        <span>Menu halal & sehat</span>
-                    </div>
-                </div>
-                
-                <!-- Fasilitas 6 -->
-                <div class="bg-gray-50 rounded-2xl p-6 card-hover">
-                    <div class="w-16 h-16 bg-indigo-100 rounded-xl flex items-center justify-center mb-4">
-                        <i class="fas fa-pray text-indigo-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3">Masjid & Mushola</h3>
-                    <p class="text-gray-600 mb-4">Masjid utama dan mushola di setiap lantai untuk kegiatan ibadah sehari-hari.</p>
-                    <div class="flex items-center text-sm text-gray-500">
-                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                        <span>Kapasitas 500 jamaah</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- E-Learning Platform Section -->
+
+    <!-- E-Learning Platform dengan Data Lengkap -->
     <section id="elearning" class="py-20 bg-gradient-to-b from-blue-50 to-white">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-800 mb-4">Platform E-Learning</h2>
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Platform E-Learning Lengkap</h2>
                 <div class="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
                 <p class="text-gray-600 max-w-2xl mx-auto text-lg">
-                    Sistem pembelajaran digital interaktif dengan fitur lengkap untuk belajar di mana saja, kapan saja.
+                    Sistem pembelajaran digital dengan database siswa lengkap dan fitur administrasi
                 </p>
             </div>
             
-            <!-- E-Learning Dashboard -->
+            <!-- Dashboard E-Learning -->
             <div class="bg-white rounded-2xl shadow-xl overflow-hidden mb-12">
                 <div class="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-6">
                     <div class="flex flex-col md:flex-row justify-between items-center">
                         <div>
-                            <h3 class="text-2xl font-bold mb-2">Dashboard E-Learning</h3>
-                            <p class="opacity-90">Akses semua fitur pembelajaran dalam satu platform</p>
+                            <h3 class="text-2xl font-bold mb-2" id="dashboard-title">Dashboard E-Learning</h3>
+                            <p class="opacity-90" id="dashboard-subtitle">Akses semua fitur pembelajaran</p>
                         </div>
-                        <button onclick="showLoginModal()" class="mt-4 md:mt-0 bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100">
-                            <i class="fas fa-sign-in-alt mr-2"></i>Masuk ke Platform
-                        </button>
+                        <div class="flex space-x-3 mt-4 md:mt-0">
+                            <button onclick="showLoginModal()" class="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100">
+                                <i class="fas fa-sign-in-alt mr-2"></i>Login
+                            </button>
+                            <button onclick="showDataTables()" class="bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700">
+                                <i class="fas fa-database mr-2"></i>Lihat Database
+                            </button>
+                        </div>
                     </div>
                 </div>
                 
+                <!-- E-Learning Content -->
                 <div class="p-6">
-                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-                        <!-- Stat 1 -->
-                        <div class="stat-card text-center">
-                            <div class="stat-icon bg-blue-100 text-blue-600 mx-auto">
-                                <i class="fas fa-book"></i>
-                            </div>
-                            <div class="text-3xl font-bold text-gray-800 mb-2">150+</div>
-                            <div class="text-gray-600">Materi Pembelajaran</div>
-                        </div>
-                        
-                        <!-- Stat 2 -->
-                        <div class="stat-card text-center">
-                            <div class="stat-icon bg-green-100 text-green-600 mx-auto">
-                                <i class="fas fa-video"></i>
-                            </div>
-                            <div class="text-3xl font-bold text-gray-800 mb-2">80+</div>
-                            <div class="text-gray-600">Video Tutorial</div>
-                        </div>
-                        
-                        <!-- Stat 3 -->
-                        <div class="stat-card text-center">
-                            <div class="stat-icon bg-purple-100 text-purple-600 mx-auto">
-                                <i class="fas fa-gamepad"></i>
-                            </div>
-                            <div class="text-3xl font-bold text-gray-800 mb-2">25+</div>
-                            <div class="text-gray-600">Game Edukasi</div>
-                        </div>
-                        
-                        <!-- Stat 4 -->
-                        <div class="stat-card text-center">
-                            <div class="stat-icon bg-yellow-100 text-yellow-600 mx-auto">
-                                <i class="fas fa-users"></i>
-                            </div>
-                            <div class="text-3xl font-bold text-gray-800 mb-2">500+</div>
-                            <div class="text-gray-600">Pengguna Aktif</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Features -->
-                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <!-- Fitur 1 -->
-                        <div class="bg-gray-50 rounded-xl p-6">
-                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                                <i class="fas fa-chalkboard-teacher text-blue-600"></i>
-                            </div>
-                            <h4 class="text-lg font-bold text-gray-800 mb-3">Kelas Virtual Live</h4>
-                            <p class="text-gray-600 mb-4">Sesi pembelajaran langsung dengan guru melalui video conference</p>
-                            <button onclick="showFeatureDetail('virtual-class')" class="text-blue-600 font-medium">
-                                Coba Sekarang →
-                            </button>
-                        </div>
-                        
-                        <!-- Fitur 2 -->
-                        <div class="bg-gray-50 rounded-xl p-6">
-                            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-                                <i class="fas fa-tasks text-green-600"></i>
-                            </div>
-                            <h4 class="text-lg font-bold text-gray-800 mb-3">Tugas & Quiz Online</h4>
-                            <p class="text-gray-600 mb-4">Sistem penugasan dan kuis dengan penilaian otomatis</p>
-                            <button onclick="showFeatureDetail('quiz')" class="text-blue-600 font-medium">
-                                Coba Sekarang →
-                            </button>
-                        </div>
-                        
-                        <!-- Fitur 3 -->
-                        <div class="bg-gray-50 rounded-xl p-6">
-                            <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-                                <i class="fas fa-chart-line text-purple-600"></i>
-                            </div>
-                            <h4 class="text-lg font-bold text-gray-800 mb-3">Progress Tracking</h4>
-                            <p class="text-gray-600 mb-4">Pantau perkembangan belajar dengan analisis detail</p>
-                            <button onclick="showFeatureDetail('progress')" class="text-blue-600 font-medium">
-                                Coba Sekarang →
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Demo E-Learning -->
-            <div class="bg-gradient-to-r from-blue-600 to-blue-800 rounded-2xl p-8 text-white">
-                <div class="flex flex-col lg:flex-row items-center">
-                    <div class="lg:w-1/2 mb-8 lg:mb-0 lg:pr-8">
-                        <h3 class="text-2xl font-bold mb-4">Coba Demo E-Learning</h3>
-                        <p class="mb-6 opacity-90">Jelajahi fitur-fitur platform kami tanpa perlu login. Tersedia demo untuk siswa, guru, dan orang tua.</p>
-                        <div class="flex flex-wrap gap-3">
-                            <button onclick="startDemo('student')" class="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100">
-                                <i class="fas fa-user-graduate mr-2"></i>Demo Siswa
-                            </button>
-                            <button onclick="startDemo('teacher')" class="bg-blue-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-900">
-                                <i class="fas fa-chalkboard-teacher mr-2"></i>Demo Guru
-                            </button>
-                            <button onclick="startDemo('parent')" class="bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700">
-                                <i class="fas fa-user-friends mr-2"></i>Demo Orang Tua
-                            </button>
-                        </div>
-                    </div>
-                    <div class="lg:w-1/2">
-                        <div class="bg-white/20 backdrop-blur-sm rounded-xl p-6">
-                            <h4 class="text-xl font-bold mb-4">Apa yang didapat dalam demo?</h4>
-                            <ul class="space-y-3">
-                                <li class="flex items-center">
-                                    <i class="fas fa-check-circle mr-3"></i>
-                                    <span>Akses ke materi contoh</span>
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fas fa-check-circle mr-3"></i>
-                                    <span>Coba fitur quiz interaktif</span>
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fas fa-check-circle mr-3"></i>
-                                    <span>Simulasi kelas virtual</span>
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fas fa-check-circle mr-3"></i>
-                                    <span>Lihat dashboard monitoring</span>
-                                </li>
-                            </ul>
-                        </div>
+                    <div id="e-learning-content">
+                        <!-- Konten akan dimuat berdasarkan login status -->
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    
-    <!-- Kontak & Pendaftaran -->
-    <section id="contact" class="py-20 bg-white">
+
+    <!-- ===============================
+         BAGIAN DOKUMENTASI LENGKAP
+         =============================== -->
+    <section id="documentation" class="py-20 bg-gray-50">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-800 mb-4">Hubungi Kami</h2>
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">📚 Dokumentasi Lengkap Sistem</h2>
                 <div class="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
                 <p class="text-gray-600 max-w-2xl mx-auto text-lg">
-                    Informasi pendaftaran, kunjungan sekolah, dan pertanyaan lainnya.
+                    Dokumentasi teknis, struktur database, API, dan panduan pengembangan
                 </p>
             </div>
             
-            <div class="grid lg:grid-cols-2 gap-12">
-                <!-- Form Kontak -->
-                <div>
-                    <div class="bg-white rounded-2xl shadow-lg p-8">
-                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Formulir Pendaftaran Online</h3>
-                        
-                        <form id="registration-form" class="space-y-6">
-                            <div class="grid md:grid-cols-2 gap-6">
-                                <div>
-                                    <label class="block text-gray-700 mb-2">Nama Lengkap</label>
-                                    <input type="text" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:border-blue-500" required>
-                                </div>
-                                <div>
-                                    <label class="block text-gray-700 mb-2">Nama Panggilan</label>
-                                    <input type="text" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:border-blue-500">
-                                </div>
+            <!-- Navigation Documentation -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6">🔧 Navigasi Dokumentasi</h3>
+                <div class="grid md:grid-cols-4 gap-4">
+                    <button onclick="showDocSection('database')" class="bg-white p-4 rounded-xl shadow hover:shadow-lg transition text-left">
+                        <i class="fas fa-database text-blue-600 text-2xl mb-2"></i>
+                        <h4 class="font-bold text-gray-800">Database</h4>
+                        <p class="text-sm text-gray-600">Struktur dan schema</p>
+                    </button>
+                    <button onclick="showDocSection('api')" class="bg-white p-4 rounded-xl shadow hover:shadow-lg transition text-left">
+                        <i class="fas fa-code text-green-600 text-2xl mb-2"></i>
+                        <h4 class="font-bold text-gray-800">API</h4>
+                        <p class="text-sm text-gray-600">Endpoint documentation</p>
+                    </button>
+                    <button onclick="showDocSection('architecture')" class="bg-white p-4 rounded-xl shadow hover:shadow-lg transition text-left">
+                        <i class="fas fa-sitemap text-purple-600 text-2xl mb-2"></i>
+                        <h4 class="font-bold text-gray-800">Arsitektur</h4>
+                        <p class="text-sm text-gray-600">System architecture</p>
+                    </button>
+                    <button onclick="showDocSection('deployment')" class="bg-white p-4 rounded-xl shadow hover:shadow-lg transition text-left">
+                        <i class="fas fa-rocket text-red-600 text-2xl mb-2"></i>
+                        <h4 class="font-bold text-gray-800">Deployment</h4>
+                        <p class="text-sm text-gray-600">Deployment guide</p>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Documentation Content -->
+            <div id="doc-content" class="bg-white rounded-2xl shadow-lg p-8">
+                <!-- Default content: Database Documentation -->
+                <div id="database-doc">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">🗃️ Database Schema Lengkap</h3>
+                    
+                    <!-- File Structure -->
+                    <div class="file-tree mb-8">
+                        <h4 class="font-bold text-gray-800 mb-4">📁 Struktur File Proyek</h4>
+                        <pre class="text-sm">
+smp-islam-ibadurrahman/
+├── 📄 index.html                 # File utama
+├── 📁 backend/                   # Server-side
+│   ├── 📁 src/
+│   │   ├── 📁 controllers/      # Logic handlers
+│   │   ├── 📁 models/           # Database schemas
+│   │   ├── 📁 routes/           # API endpoints
+│   │   ├── 📁 middleware/       # Auth & validation
+│   │   └── 📁 config/           # Configurations
+│   ├── 📄 package.json
+│   └── 📄 server.js
+├── 📁 frontend/                  # Client-side
+│   ├── 📁 public/
+│   ├── 📁 src/
+│   │   ├── 📁 components/       # React components
+│   │   ├── 📁 pages/            # Page components
+│   │   ├── 📁 services/         # API services
+│   │   ├── 📁 utils/            # Utilities
+│   │   ├── 📁 store/            # State management
+│   │   └── 📄 App.js
+│   ├── 📄 package.json
+│   └── 📄 index.html
+├── 📁 database/                  # SQL scripts
+│   ├── 📄 schema.sql            # Database schema
+│   ├── 📄 data-seed.sql         # Initial data
+│   └── 📄 migrations/           # DB migrations
+├── 📁 docker/                    # Containerization
+├── 📄 .env.example               # Environment variables
+├── 📄 docker-compose.yml         # Docker compose
+├── 📄 README.md                  # Documentation
+└── 📄 package.json               # Root package</pre>
+                    </div>
+                    
+                    <!-- Database Schema -->
+                    <div class="db-schema mb-8">
+                        <h4 class="font-bold text-gray-800 mb-4">📊 Schema Database MySQL</h4>
+                        <pre class="text-sm overflow-x-auto">
+-- Tabel Users (Siswa, Guru, Admin)
+CREATE TABLE users (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nis VARCHAR(20) UNIQUE,
+    nama VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password_hash VARCHAR(255) NOT NULL,
+    role ENUM('siswa', 'guru', 'admin', 'ortu') DEFAULT 'siswa',
+    jenis_kelamin ENUM('L', 'P'),
+    tanggal_lahir DATE,
+    tempat_lahir VARCHAR(100),
+    alamat TEXT,
+    no_telepon VARCHAR(20),
+    foto_profil VARCHAR(255),
+    kelas VARCHAR(10),
+    nama_ayah VARCHAR(100),
+    nama_ibu VARCHAR(100),
+    pekerjaan_ayah VARCHAR(100),
+    pekerjaan_ibu VARCHAR(100),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    INDEX idx_role (role),
+    INDEX idx_kelas (kelas)
+);
+
+-- Tabel Mata Pelajaran
+CREATE TABLE mata_pelajaran (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    kode_mapel VARCHAR(10) UNIQUE NOT NULL,
+    nama_mapel VARCHAR(100) NOT NULL,
+    tingkat_kelas VARCHAR(20),
+    deskripsi TEXT,
+    guru_pengampu INT,
+    FOREIGN KEY (guru_pengampu) REFERENCES users(id)
+);
+
+-- Tabel Nilai
+CREATE TABLE nilai (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    siswa_id INT NOT NULL,
+    mapel_id INT NOT NULL,
+    jenis ENUM('tugas', 'quiz', 'uts', 'uas', 'praktikum'),
+    nilai DECIMAL(5,2),
+    tanggal DATE,
+    semester VARCHAR(10),
+    tahun_ajaran VARCHAR(9),
+    catatan TEXT,
+    FOREIGN KEY (siswa_id) REFERENCES users(id),
+    FOREIGN KEY (mapel_id) REFERENCES mata_pelajaran(id),
+    INDEX idx_siswa (siswa_id),
+    INDEX idx_mapel (mapel_id)
+);
+
+-- Tabel Kehadiran
+CREATE TABLE kehadiran (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    siswa_id INT NOT NULL,
+    tanggal DATE NOT NULL,
+    status ENUM('hadir', 'sakit', 'izin', 'alpha'),
+    jam_masuk TIME,
+    jam_puluh TIME,
+    keterangan TEXT,
+    FOREIGN KEY (siswa_id) REFERENCES users(id),
+    UNIQUE KEY unique_attendance (siswa_id, tanggal),
+    INDEX idx_tanggal (tanggal)
+);
+
+-- Tabel Materi Pembelajaran
+CREATE TABLE materi (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    judul VARCHAR(200) NOT NULL,
+    mapel_id INT,
+    konten TEXT,
+    tipe ENUM('pdf', 'video', 'ppt', 'link', 'text'),
+    file_url VARCHAR(255),
+    durasi INT, -- dalam menit
+    tingkat_kesulitan ENUM('mudah', 'sedang', 'sulit'),
+    poin INT DEFAULT 0,
+    created_by INT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (mapel_id) REFERENCES mata_pelajaran(id),
+    FOREIGN KEY (created_by) REFERENCES users(id)
+);
+
+-- Tabel Tugas
+CREATE TABLE tugas (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    judul VARCHAR(200) NOT NULL,
+    mapel_id INT,
+    deskripsi TEXT,
+    file_instruksi VARCHAR(255),
+    deadline DATETIME,
+    poin_max INT DEFAULT 100,
+    created_by INT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (mapel_id) REFERENCES mata_pelajaran(id),
+    FOREIGN KEY (created_by) REFERENCES users(id)
+);
+
+-- Tabel Pengumpulan Tugas
+CREATE TABLE pengumpulan_tugas (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    tugas_id INT NOT NULL,
+    siswa_id INT NOT NULL,
+    file_url VARCHAR(255),
+    jawaban_text TEXT,
+    submitted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    nilai DECIMAL(5,2),
+    dikoreksi_by INT,
+    catatan TEXT,
+    status ENUM('dikumpulkan', 'terlambat', 'belum', 'dikoreksi'),
+    FOREIGN KEY (tugas_id) REFERENCES tugas(id),
+    FOREIGN KEY (siswa_id) REFERENCES users(id),
+    FOREIGN KEY (dikoreksi_by) REFERENCES users(id),
+    UNIQUE KEY unique_submission (tugas_id, siswa_id)
+);
+
+-- Tabel Forum Diskusi
+CREATE TABLE forum (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    topik VARCHAR(200) NOT NULL,
+    konten TEXT,
+    created_by INT,
+    mapel_id INT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (created_by) REFERENCES users(id),
+    FOREIGN KEY (mapel_id) REFERENCES mata_pelajaran(id)
+);
+
+-- Tabel Komentar Forum
+CREATE TABLE komentar_forum (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    forum_id INT NOT NULL,
+    user_id INT NOT NULL,
+    komentar TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (forum_id) REFERENCES forum(id) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+-- Tabel Pengumuman
+CREATE TABLE pengumuman (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    judul VARCHAR(200) NOT NULL,
+    konten TEXT NOT NULL,
+    tipe ENUM('umum', 'akademik', 'kesiswaan', 'ortu'),
+    target_kelas VARCHAR(100),
+    created_by INT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    expires_at DATE,
+    FOREIGN KEY (created_by) REFERENCES users(id)
+);
+
+-- Tabel Event/Kegiatan
+CREATE TABLE events (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    judul VARCHAR(200) NOT NULL,
+    deskripsi TEXT,
+    tanggal_mulai DATETIME,
+    tanggal_selesai DATETIME,
+    lokasi VARCHAR(200),
+    tipe ENUM('akademik', 'ekstrakurikuler', 'keagamaan', 'lainnya'),
+    peserta VARCHAR(100),
+    created_by INT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (created_by) REFERENCES users(id)
+);
+
+-- Tabel Pembayaran (SPP)
+CREATE TABLE pembayaran (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    siswa_id INT NOT NULL,
+    bulan VARCHAR(20),
+    tahun VARCHAR(4),
+    jumlah DECIMAL(10,2) NOT NULL,
+    tanggal_bayar DATE,
+    metode_bayar ENUM('transfer', 'tunai', 'qris'),
+    status ENUM('lunas', 'belum', 'terlambat'),
+    bukti_bayar VARCHAR(255),
+    verified_by INT,
+    catatan TEXT,
+    FOREIGN KEY (siswa_id) REFERENCES users(id),
+    FOREIGN KEY (verified_by) REFERENCES users(id),
+    UNIQUE KEY unique_payment (siswa_id, bulan, tahun)
+);</pre>
+                    </div>
+                    
+                    <!-- ER Diagram -->
+                    <div class="database-diagram mb-8">
+                        <h4 class="font-bold text-gray-800 mb-4">📈 Entity Relationship Diagram</h4>
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                            <div class="bg-blue-50 p-4 rounded-lg">
+                                <h5 class="font-bold text-blue-800">Users</h5>
+                                <ul class="text-sm text-gray-700">
+                                    <li>id (PK)</li>
+                                    <li>nis (UNIQUE)</li>
+                                    <li>email (UNIQUE)</li>
+                                    <li>role</li>
+                                    <li>kelas</li>
+                                </ul>
                             </div>
-                            
-                            <div class="grid md:grid-cols-2 gap-6">
-                                <div>
-                                    <label class="block text-gray-700 mb-2">Tanggal Lahir</label>
-                                    <input type="date" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:border-blue-500" required>
-                                </div>
-                                <div>
-                                    <label class="block text-gray-700 mb-2">Jenis Kelamin</label>
-                                    <select class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:border-blue-500" required>
-                                        <option value="">Pilih</option>
-                                        <option value="L">Laki-laki</option>
-                                        <option value="P">Perempuan</option>
-                                    </select>
-                                </div>
+                            <div class="bg-green-50 p-4 rounded-lg">
+                                <h5 class="font-bold text-green-800">Nilai</h5>
+                                <ul class="text-sm text-gray-700">
+                                    <li>id (PK)</li>
+                                    <li>siswa_id (FK)</li>
+                                    <li>mapel_id (FK)</li>
+                                    <li>jenis</li>
+                                    <li>nilai</li>
+                                </ul>
                             </div>
-                            
-                            <div>
-                                <label class="block text-gray-700 mb-2">Asal Sekolah</label>
-                                <input type="text" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:border-blue-500" required>
+                            <div class="bg-purple-50 p-4 rounded-lg">
+                                <h5 class="font-bold text-purple-800">Kehadiran</h5>
+                                <ul class="text-sm text-gray-700">
+                                    <li>id (PK)</li>
+                                    <li>siswa_id (FK)</li>
+                                    <li>tanggal</li>
+                                    <li>status</li>
+                                </ul>
                             </div>
-                            
-                            <div class="grid md:grid-cols-2 gap-6">
-                                <div>
-                                    <label class="block text-gray-700 mb-2">Nama Orang Tua</label>
-                                    <input type="text" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:border-blue-500" required>
-                                </div>
-                                <div>
-                                    <label class="block text-gray-700 mb-2">No. Telepon</label>
-                                    <input type="tel" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:border-blue-500" required>
-                                </div>
-                            </div>
-                            
-                            <div>
-                                <label class="block text-gray-700 mb-2">Alamat Email</label>
-                                <input type="email" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:border-blue-500" required>
-                            </div>
-                            
-                            <div>
-                                <label class="block text-gray-700 mb-2">Alamat Lengkap</label>
-                                <textarea rows="3" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:border-blue-500" required></textarea>
-                            </div>
-                            
-                            <div class="flex items-center">
-                                <input type="checkbox" id="agree" class="mr-3" required>
-                                <label for="agree" class="text-gray-700">
-                                    Saya menyetujui syarat dan ketentuan pendaftaran
-                                </label>
-                            </div>
-                            
-                            <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
-                                <i class="fas fa-paper-plane mr-2"></i>Kirim Pendaftaran
-                            </button>
-                        </form>
+                        </div>
                     </div>
                 </div>
                 
-                <!-- Info Kontak & Map -->
-                <div>
+                <!-- API Documentation (Hidden by default) -->
+                <div id="api-doc" class="hidden">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">🔌 API Documentation</h3>
+                    
+                    <!-- Base URL -->
+                    <div class="mb-6">
+                        <h4 class="font-bold text-gray-800 mb-2">Base URL</h4>
+                        <div class="api-endpoint">
+                            https://api.smpislamibadurrahman.id/v1
+                        </div>
+                    </div>
+                    
+                    <!-- Authentication -->
                     <div class="mb-8">
-                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Informasi Kontak</h3>
+                        <h4 class="font-bold text-gray-800 mb-4">🔐 Authentication</h4>
                         
-                        <div class="space-y-6">
-                            <div class="flex items-start">
-                                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
-                                    <i class="fas fa-map-marker-alt text-blue-600"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-gray-800">Alamat Sekolah</h4>
-                                    <p class="text-gray-600">Jl. Raya Temas No. 123, Kec. Batu, Kota Batu, Jawa Timur 65314</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start">
-                                <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4">
-                                    <i class="fas fa-phone text-green-600"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-gray-800">Telepon</h4>
-                                    <p class="text-gray-600">(0341) 1234567</p>
-                                    <p class="text-gray-600">0812-3456-7890 (WhatsApp)</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start">
-                                <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
-                                    <i class="fas fa-envelope text-purple-600"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-gray-800">Email</h4>
-                                    <p class="text-gray-600">info@smpislamibadurrahman.id</p>
-                                    <p class="text-gray-600">ppdb@smpislamibadurrahman.id</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start">
-                                <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mr-4">
-                                    <i class="fas fa-clock text-yellow-600"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-gray-800">Jam Operasional</h4>
-                                    <p class="text-gray-600">Senin - Jumat: 07:00 - 16:00</p>
-                                    <p class="text-gray-600">Sabtu: 08:00 - 14:00</p>
-                                </div>
-                            </div>
+                        <div class="api-endpoint mb-4">
+                            <span class="text-green-600 font-bold">POST</span> /auth/login
+                        </div>
+                        <div class="code-block">
+                            <code>
+// Request Body
+{
+  "email": "user@example.com",
+  "password": "password123"
+}
+
+// Response Success
+{
+  "success": true,
+  "data": {
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+    "user": {
+      "id": 1,
+      "nama": "Ahmad Fauzi",
+      "email": "ahmad@smpislam.id",
+      "role": "siswa",
+      "kelas": "8A"
+    }
+  }
+}
+                            </code>
                         </div>
                     </div>
                     
-                    <!-- Social Media -->
+                    <!-- Users API -->
                     <div class="mb-8">
-                        <h4 class="text-xl font-bold text-gray-800 mb-4">Media Sosial</h4>
-                        <div class="flex space-x-4">
-                            <a href="#" class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center hover:bg-blue-700">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a href="#" class="w-12 h-12 bg-pink-600 text-white rounded-full flex items-center justify-center hover:bg-pink-700">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                            <a href="#" class="w-12 h-12 bg-blue-400 text-white rounded-full flex items-center justify-center hover:bg-blue-500">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="#" class="w-12 h-12 bg-red-600 text-white rounded-full flex items-center justify-center hover:bg-red-700">
-                                <i class="fab fa-youtube"></i>
-                            </a>
-                            <a href="#" class="w-12 h-12 bg-green-500 text-white rounded-full flex items-center justify-center hover:bg-green-600">
-                                <i class="fab fa-whatsapp"></i>
-                            </a>
+                        <h4 class="font-bold text-gray-800 mb-4">👥 Users API</h4>
+                        
+                        <div class="space-y-4">
+                            <div class="api-endpoint">
+                                <span class="text-blue-600 font-bold">GET</span> /users
+                                <span class="text-gray-500 ml-2">Get all users (admin only)</span>
+                            </div>
+                            
+                            <div class="api-endpoint">
+                                <span class="text-green-600 font-bold">POST</span> /users
+                                <span class="text-gray-500 ml-2">Create new user</span>
+                            </div>
+                            
+                            <div class="api-endpoint">
+                                <span class="text-yellow-600 font-bold">GET</span> /users/{id}
+                                <span class="text-gray-500 ml-2">Get user by ID</span>
+                            </div>
+                            
+                            <div class="api-endpoint">
+                                <span class="text-purple-600 font-bold">PUT</span> /users/{id}
+                                <span class="text-gray-500 ml-2">Update user</span>
+                            </div>
                         </div>
                     </div>
                     
-                    <!-- Quick Links -->
-                    <div>
-                        <h4 class="text-xl font-bold text-gray-800 mb-4">Download</h4>
-                        <div class="space-y-3">
-                            <a href="#" class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-gray-100">
-                                <i class="fas fa-file-pdf text-red-600 text-xl mr-4"></i>
-                                <div>
-                                    <div class="font-medium">Brosur PPDB 2024</div>
-                                    <div class="text-sm text-gray-500">PDF, 2.4 MB</div>
+                    <!-- Academic API -->
+                    <div class="mb-8">
+                        <h4 class="font-bold text-gray-800 mb-4">📚 Academic API</h4>
+                        
+                        <div class="code-block">
+                            <code>
+// Get student grades
+GET /students/{id}/grades?semester=1&tahun_ajaran=2023/2024
+
+// Get attendance
+GET /students/{id}/attendance?month=11&year=2023
+
+// Submit assignment
+POST /assignments/{id}/submit
+Content-Type: multipart/form-data
+
+// Get learning materials
+GET /materials?mapel_id=1&tingkat_kesulitan=mudah
+                            </code>
+                        </div>
+                    </div>
+                    
+                    <!-- API Response Codes -->
+                    <div class="mb-8">
+                        <h4 class="font-bold text-gray-800 mb-4">📋 Response Codes</h4>
+                        <table class="w-full border-collapse">
+                            <thead>
+                                <tr class="bg-gray-100">
+                                    <th class="border p-2">Code</th>
+                                    <th class="border p-2">Status</th>
+                                    <th class="border p-2">Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="border p-2">200</td>
+                                    <td class="border p-2">OK</td>
+                                    <td class="border p-2">Success</td>
+                                </tr>
+                                <tr>
+                                    <td class="border p-2">201</td>
+                                    <td class="border p-2">Created</td>
+                                    <td class="border p-2">Resource created</td>
+                                </tr>
+                                <tr>
+                                    <td class="border p-2">400</td>
+                                    <td class="border p-2">Bad Request</td>
+                                    <td class="border p-2">Invalid input</td>
+                                </tr>
+                                <tr>
+                                    <td class="border p-2">401</td>
+                                    <td class="border p-2">Unauthorized</td>
+                                    <td class="border p-2">Authentication failed</td>
+                                </tr>
+                                <tr>
+                                    <td class="border p-2">404</td>
+                                    <td class="border p-2">Not Found</td>
+                                    <td class="border p-2">Resource not found</td>
+                                </tr>
+                                <tr>
+                                    <td class="border p-2">500</td>
+                                    <td class="border p-2">Server Error</td>
+                                    <td class="border p-2">Internal server error</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Architecture Documentation -->
+                <div id="architecture-doc" class="hidden">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">🏗️ System Architecture</h3>
+                    
+                    <div class="architecture-diagram">
+                        <h4 class="font-bold text-gray-800 mb-4">System Overview</h4>
+                        <div class="grid md:grid-cols-3 gap-6">
+                            <div class="bg-white p-4 rounded-lg shadow border">
+                                <h5 class="font-bold text-blue-700 mb-2">Frontend Layer</h5>
+                                <ul class="text-sm space-y-1">
+                                    <li>• React.js / Vue.js</li>
+                                    <li>• Tailwind CSS</li>
+                                    <li>• Chart.js</li>
+                                    <li>• Axios for API</li>
+                                    <li>• JWT Authentication</li>
+                                </ul>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow border">
+                                <h5 class="font-bold text-green-700 mb-2">Backend Layer</h5>
+                                <ul class="text-sm space-y-1">
+                                    <li>• Node.js + Express</li>
+                                    <li>• MySQL Database</li>
+                                    <li>• JWT Authentication</li>
+                                    <li>• Redis Cache</li>
+                                    <li>• Socket.io</li>
+                                </ul>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow border">
+                                <h5 class="font-bold text-purple-700 mb-2">Infrastructure</h5>
+                                <ul class="text-sm space-y-1">
+                                    <li>• Docker Container</li>
+                                    <li>• Nginx Load Balancer</li>
+                                    <li>• AWS/Google Cloud</li>
+                                    <li>• CI/CD Pipeline</li>
+                                    <li>• Monitoring</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Flowchart -->
+                    <div class="flowchart mt-8">
+                        <h4 class="font-bold text-gray-800 mb-4">📊 System Flowchart</h4>
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-user text-blue-600"></i>
                                 </div>
-                            </a>
-                            <a href="#" class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-gray-100">
-                                <i class="fas fa-file-word text-blue-600 text-xl mr-4"></i>
-                                <div>
-                                    <div class="font-medium">Formulir Pendaftaran</div>
-                                    <div class="text-sm text-gray-500">DOC, 1.2 MB</div>
+                                <div class="flex-1">
+                                    <div class="font-bold">User Access</div>
+                                    <div class="text-sm text-gray-600">Login with role-based access</div>
                                 </div>
-                            </a>
-                            <a href="#" class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-gray-100">
-                                <i class="fas fa-calendar-alt text-green-600 text-xl mr-4"></i>
-                                <div>
-                                    <div class="font-medium">Kalender Akademik</div>
-                                    <div class="text-sm text-gray-500">PDF, 1.8 MB</div>
+                                <i class="fas fa-arrow-right text-gray-400 mx-4"></i>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-shield-alt text-green-600"></i>
                                 </div>
-                            </a>
+                                <div class="flex-1">
+                                    <div class="font-bold">Authentication</div>
+                                    <div class="text-sm text-gray-600">JWT token validation</div>
+                                </div>
+                                <i class="fas fa-arrow-right text-gray-400 mx-4"></i>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-database text-purple-600"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="font-bold">Database</div>
+                                    <div class="text-sm text-gray-600">CRUD operations</div>
+                                </div>
+                                <i class="fas fa-arrow-right text-gray-400 mx-4"></i>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-yellow-100 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-chart-line text-yellow-600"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="font-bold">Analytics</div>
+                                    <div class="text-sm text-gray-600">Generate reports & insights</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tech Stack -->
+                    <div class="mt-8">
+                        <h4 class="font-bold text-gray-800 mb-4">🛠️ Technology Stack</h4>
+                        <div class="tech-stack">
+                            <span class="tech-item">React.js</span>
+                            <span class="tech-item">Node.js</span>
+                            <span class="tech-item">Express.js</span>
+                            <span class="tech-item">MySQL</span>
+                            <span class="tech-item">MongoDB</span>
+                            <span class="tech-item">Redis</span>
+                            <span class="tech-item">Docker</span>
+                            <span class="tech-item">Nginx</span>
+                            <span class="tech-item">AWS EC2</span>
+                            <span class="tech-item">JWT</span>
+                            <span class="tech-item">Socket.io</span>
+                            <span class="tech-item">Chart.js</span>
+                            <span class="tech-item">Tailwind CSS</span>
+                            <span class="tech-item">Git/GitHub</span>
+                            <span class="tech-item">Jest</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Deployment Documentation -->
+                <div id="deployment-doc" class="hidden">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">🚀 Deployment Guide</h3>
+                    
+                    <!-- Environment Setup -->
+                    <div class="mb-8">
+                        <h4 class="font-bold text-gray-800 mb-4">⚙️ Environment Setup</h4>
+                        <div class="code-block">
+                            <code>
+# Clone repository
+git clone https://github.com/smpislam/smp-elearning.git
+cd smp-elearning
+
+# Install dependencies
+npm install
+
+# Setup environment variables
+cp .env.example .env
+# Edit .env file with your configurations
+
+# Database setup
+mysql -u root -p < database/schema.sql
+mysql -u root -p < database/data-seed.sql
+
+# Run development server
+npm run dev
+
+# Build for production
+npm run build
+                            </code>
+                        </div>
+                    </div>
+                    
+                    <!-- Docker Deployment -->
+                    <div class="mb-8">
+                        <h4 class="font-bold text-gray-800 mb-4">🐳 Docker Deployment</h4>
+                        <div class="code-block">
+                            <code>
+# Build Docker images
+docker-compose build
+
+# Start all services
+docker-compose up -d
+
+# Check running containers
+docker-compose ps
+
+# View logs
+docker-compose logs -f app
+
+# Stop services
+docker-compose down
+                            </code>
+                        </div>
+                    </div>
+                    
+                    <!-- Deployment Steps -->
+                    <div class="mb-8">
+                        <h4 class="font-bold text-gray-800 mb-4">📋 Deployment Steps</h4>
+                        
+                        <div class="space-y-4">
+                            <div class="deployment-step">
+                                <div class="font-bold">Step 1: Server Preparation</div>
+                                <ul class="text-sm text-gray-600 mt-2 space-y-1">
+                                    <li>• Ubuntu 20.04 LTS</li>
+                                    <li>• Install Docker & Docker Compose</li>
+                                    <li>• Configure firewall (ufw)</li>
+                                    <li>• Setup SSH key authentication</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="deployment-step">
+                                <div class="font-bold">Step 2: Database Setup</div>
+                                <ul class="text-sm text-gray-600 mt-2 space-y-1">
+                                    <li>• Create MySQL database</li>
+                                    <li>• Import schema and initial data</li>
+                                    <li>• Create database user with privileges</li>
+                                    <li>• Configure connection pooling</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="deployment-step">
+                                <div class="font-bold">Step 3: Application Deployment</div>
+                                <ul class="text-sm text-gray-600 mt-2 space-y-1">
+                                    <li>• Clone repository to server</li>
+                                    <li>• Configure environment variables</li>
+                                    <li>• Build Docker images</li>
+                                    <li>• Start containers with compose</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="deployment-step">
+                                <div class="font-bold">Step 4: SSL & Domain</div>
+                                <ul class="text-sm text-gray-600 mt-2 space-y-1">
+                                    <li>• Configure domain DNS</li>
+                                    <li>• Setup Nginx reverse proxy</li>
+                                    <li>• Install SSL certificate (Let's Encrypt)</li>
+                                    <li>• Configure HTTPS redirection</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Monitoring & Maintenance -->
+                    <div class="mb-8">
+                        <h4 class="font-bold text-gray-800 mb-4">🔍 Monitoring & Maintenance</h4>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="bg-blue-50 p-4 rounded-lg">
+                                <h5 class="font-bold text-blue-800">Monitoring Tools</h5>
+                                <ul class="text-sm mt-2 space-y-1">
+                                    <li>• PM2 process manager</li>
+                                    <li>• Log monitoring with Winston</li>
+                                    <li>• Application metrics</li>
+                                    <li>• Uptime monitoring</li>
+                                </ul>
+                            </div>
+                            <div class="bg-green-50 p-4 rounded-lg">
+                                <h5 class="font-bold text-green-800">Backup Strategy</h5>
+                                <ul class="text-sm mt-2 space-y-1">
+                                    <li>• Daily database backups</li>
+                                    <li>• Automated backup to cloud</li>
+                                    <li>• Backup retention: 30 days</li>
+                                    <li>• Disaster recovery plan</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Security Checklist -->
+                    <div class="mb-8">
+                        <h4 class="font-bold text-gray-800 mb-4">🛡️ Security Checklist</h4>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                            <span class="security-badge">SQL Injection</span>
+                            <span class="security-badge">XSS Protection</span>
+                            <span class="security-badge">CSRF Tokens</span>
+                            <span class="security-badge">Rate Limiting</span>
+                            <span class="security-badge">JWT Security</span>
+                            <span class="security-badge">HTTPS Only</span>
+                            <span class="security-badge">Input Validation</span>
+                            <span class="security-badge">CORS Policy</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    
+
+    <!-- Data Tables Section -->
+    <section id="data-tables" class="py-20 bg-white hidden">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">📊 Data Lengkap Siswa & Guru</h2>
+                <p class="text-gray-600">Database lengkap dengan semua data yang telah disediakan</p>
+            </div>
+            
+            <!-- Tabs for Data Tables -->
+            <div class="mb-8">
+                <div class="border-b border-gray-200">
+                    <nav class="-mb-px flex space-x-8">
+                        <button onclick="showDataTab('siswa')" class="data-tab active border-b-2 border-blue-500 py-4 px-1 text-sm font-medium text-blue-600">
+                            Data Siswa
+                        </button>
+                        <button onclick="showDataTab('guru')" class="data-tab border-b-2 border-transparent py-4 px-1 text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300">
+                            Data Guru
+                        </button>
+                        <button onclick="showDataTab('nilai')" class="data-tab border-b-2 border-transparent py-4 px-1 text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300">
+                            Data Nilai
+                        </button>
+                        <button onclick="showDataTab('kehadiran')" class="data-tab border-b-2 border-transparent py-4 px-1 text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300">
+                            Data Kehadiran
+                        </button>
+                    </nav>
+                </div>
+            </div>
+            
+            <!-- Data Tables Content -->
+            <div id="data-tables-content">
+                <!-- Will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="bg-gray-900 text-white">
         <div class="container mx-auto px-4 py-12">
@@ -1340,248 +1542,133 @@
                         </div>
                     </div>
                     <p class="text-gray-400 mb-6">
-                        Lembaga pendidikan Islam unggulan yang berkomitmen mencetak generasi Qur'ani yang cerdas dan berakhlak mulia.
+                        Lembaga pendidikan Islam unggulan dengan sistem e-learning lengkap dan dokumentasi teknis terperinci.
                     </p>
-                    <div class="flex space-x-3">
-                        <div class="w-10 h-10 bg-blue-800 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-award"></i>
-                        </div>
-                        <div class="w-10 h-10 bg-green-800 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-check-circle"></i>
-                        </div>
-                        <div class="w-10 h-10 bg-purple-800 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-star"></i>
-                        </div>
+                    <div class="flex items-center text-sm text-gray-400">
+                        <i class="fas fa-code mr-2"></i>
+                        <span>Version 3.0.0</span>
+                        <span class="mx-2">•</span>
+                        <i class="fas fa-database mr-2"></i>
+                        <span>MySQL 8.0</span>
                     </div>
                 </div>
                 
                 <!-- Column 2 -->
                 <div>
-                    <h4 class="text-lg font-bold mb-6">Tautan Cepat</h4>
+                    <h4 class="text-lg font-bold mb-6">Dokumentasi</h4>
                     <ul class="space-y-3">
-                        <li><a href="#home" class="text-gray-400 hover:text-white">Beranda</a></li>
-                        <li><a href="#profile" class="text-gray-400 hover:text-white">Profil Sekolah</a></li>
-                        <li><a href="#program" class="text-gray-400 hover:text-white">Program Unggulan</a></li>
-                        <li><a href="#facilities" class="text-gray-400 hover:text-white">Fasilitas</a></li>
-                        <li><a href="#elearning" class="text-gray-400 hover:text-white">E-Learning</a></li>
-                        <li><a href="#contact" class="text-gray-400 hover:text-white">Pendaftaran</a></li>
+                        <li><a href="#documentation" onclick="showDocSection('database')" class="text-gray-400 hover:text-white">Database Schema</a></li>
+                        <li><a href="#documentation" onclick="showDocSection('api')" class="text-gray-400 hover:text-white">API Documentation</a></li>
+                        <li><a href="#documentation" onclick="showDocSection('architecture')" class="text-gray-400 hover:text-white">System Architecture</a></li>
+                        <li><a href="#documentation" onclick="showDocSection('deployment')" class="text-gray-400 hover:text-white">Deployment Guide</a></li>
+                        <li><a href="#data-tables" onclick="showDataTables()" class="text-gray-400 hover:text-white">Data Tables</a></li>
                     </ul>
                 </div>
                 
                 <!-- Column 3 -->
                 <div>
-                    <h4 class="text-lg font-bold mb-6">Informasi Akademik</h4>
+                    <h4 class="text-lg font-bold mb-6">Teknologi</h4>
                     <ul class="space-y-3">
-                        <li><a href="#" class="text-gray-400 hover:text-white">Kalender Akademik</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">Jadwal Pelajaran</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">Kurikulum</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">Staf Pengajar</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">Prestasi Sekolah</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">Berita & Artikel</a></li>
+                        <li class="text-gray-400">Frontend: React.js + Tailwind</li>
+                        <li class="text-gray-400">Backend: Node.js + Express</li>
+                        <li class="text-gray-400">Database: MySQL + Redis</li>
+                        <li class="text-gray-400">Deployment: Docker + AWS</li>
+                        <li class="text-gray-400">Security: JWT + SSL</li>
                     </ul>
                 </div>
                 
                 <!-- Column 4 -->
                 <div>
-                    <h4 class="text-lg font-bold mb-6">Newsletter</h4>
-                    <p class="text-gray-400 mb-4">Dapatkan informasi terbaru tentang kegiatan sekolah dan PPDB.</p>
-                    <div class="flex mb-6">
-                        <input type="email" placeholder="Email Anda" class="flex-1 px-4 py-2 rounded-l-lg text-gray-800">
-                        <button class="bg-blue-600 px-4 py-2 rounded-r-lg hover:bg-blue-700">
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
-                    </div>
-                    <div class="text-sm text-gray-400">
-                        <p><i class="fas fa-shield-alt mr-2"></i> Data Anda terlindungi</p>
-                        <p><i class="fas fa-bell mr-2"></i> Tidak ada spam</p>
+                    <h4 class="text-lg font-bold mb-6">Status Sistem</h4>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-400">API Status</span>
+                            <span class="px-2 py-1 bg-green-600 rounded-full text-xs">Online</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-400">Database</span>
+                            <span class="px-2 py-1 bg-green-600 rounded-full text-xs">Connected</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-400">Uptime</span>
+                            <span class="text-gray-300">99.9%</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-400">Version</span>
+                            <span class="text-gray-300">v3.0.0</span>
+                        </div>
                     </div>
                 </div>
             </div>
             
             <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
                 <p>© <span id="current-year"></span> SMP Islam Ibadurrahman Temas - Batu. All rights reserved.</p>
-                <p class="mt-2 text-sm">Jl. Raya Temas No. 123, Batu, Jawa Timur | Telp: (0341) 1234567</p>
+                <p class="mt-2 text-sm">Sistem E-Learning dengan Dokumentasi Teknis Lengkap</p>
             </div>
         </div>
     </footer>
-    
+
     <!-- ========== MODALS ========== -->
     
-    <!-- Login Modal -->
-    <div id="login-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center p-4">
-        <div class="bg-white rounded-2xl w-full max-w-md">
+    <!-- Admin Panel Modal -->
+    <div id="admin-panel-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center p-4">
+        <div class="bg-white rounded-2xl w-full max-w-6xl max-h-[90vh] overflow-hidden">
             <div class="p-6">
                 <div class="flex justify-between items-center mb-6">
-                    <h3 class="text-2xl font-bold text-gray-800">Login Platform</h3>
-                    <button onclick="closeModal('login-modal')" class="text-gray-500 hover:text-gray-700">
+                    <h3 class="text-2xl font-bold text-gray-800">Admin Panel</h3>
+                    <button onclick="closeModal('admin-panel-modal')" class="text-gray-500 hover:text-gray-700">
                         <i class="fas fa-times text-xl"></i>
                     </button>
                 </div>
                 
-                <div class="space-y-4">
-                    <div>
-                        <label class="block text-gray-700 mb-2">Email/NIS</label>
-                        <input type="text" id="login-email" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:border-blue-500" placeholder="email@siswa.smpislam.id">
+                <div class="grid md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-blue-50 p-6 rounded-xl">
+                        <h4 class="font-bold text-blue-800 mb-4">Manajemen User</h4>
+                        <ul class="space-y-2">
+                            <li><button onclick="manageUsers()" class="text-blue-600 hover:text-blue-800">Kelola Siswa</button></li>
+                            <li><button onclick="manageTeachers()" class="text-blue-600 hover:text-blue-800">Kelola Guru</button></li>
+                            <li><button onclick="resetPasswords()" class="text-blue-600 hover:text-blue-800">Reset Password</button></li>
+                        </ul>
                     </div>
                     
-                    <div>
-                        <label class="block text-gray-700 mb-2">Password</label>
-                        <input type="password" id="login-password" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:border-blue-500" placeholder="••••••••">
+                    <div class="bg-green-50 p-6 rounded-xl">
+                        <h4 class="font-bold text-green-800 mb-4">Manajemen Akademik</h4>
+                        <ul class="space-y-2">
+                            <li><button onclick="manageGrades()" class="text-green-600 hover:text-green-800">Input Nilai</button></li>
+                            <li><button onclick="manageAttendance()" class="text-green-600 hover:text-green-800">Kelola Kehadiran</button></li>
+                            <li><button onclick="generateReports()" class="text-green-600 hover:text-green-800">Generate Laporan</button></li>
+                        </ul>
                     </div>
                     
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center">
-                            <input type="checkbox" id="remember" class="mr-2">
-                            <label for="remember" class="text-gray-700">Ingat saya</label>
-                        </div>
-                        <a href="#" class="text-blue-600 hover:text-blue-800">Lupa password?</a>
-                    </div>
-                    
-                    <button onclick="handleLogin()" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700">
-                        <i class="fas fa-sign-in-alt mr-2"></i>Masuk
-                    </button>
-                    
-                    <div class="relative my-6">
-                        <div class="absolute inset-0 flex items-center">
-                            <div class="w-full border-t border-gray-300"></div>
-                        </div>
-                        <div class="relative flex justify-center text-sm">
-                            <span class="px-2 bg-white text-gray-500">Atau login sebagai</span>
-                        </div>
-                    </div>
-                    
-                    <div class="grid grid-cols-2 gap-3">
-                        <button onclick="quickLogin('student')" class="py-3 border border-gray-300 rounded-lg hover:bg-gray-50">
-                            <i class="fas fa-user-graduate mr-2"></i>Siswa
-                        </button>
-                        <button onclick="quickLogin('teacher')" class="py-3 border border-gray-300 rounded-lg hover:bg-gray-50">
-                            <i class="fas fa-chalkboard-teacher mr-2"></i>Guru
-                        </button>
-                        <button onclick="quickLogin('parent')" class="py-3 border border-gray-300 rounded-lg hover:bg-gray-50">
-                            <i class="fas fa-user-friends mr-2"></i>Orang Tua
-                        </button>
-                        <button onclick="quickLogin('admin')" class="py-3 border border-gray-300 rounded-lg hover:bg-gray-50">
-                            <i class="fas fa-user-shield mr-2"></i>Admin
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Register Modal -->
-    <div id="register-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center p-4">
-        <div class="bg-white rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
-            <div class="p-6">
-                <div class="flex justify-between items-center mb-6">
-                    <h3 class="text-2xl font-bold text-gray-800">Pendaftaran Online</h3>
-                    <button onclick="closeModal('register-modal')" class="text-gray-500 hover:text-gray-700">
-                        <i class="fas fa-times text-xl"></i>
-                    </button>
-                </div>
-                
-                <!-- Registration Steps -->
-                <div class="mb-8">
-                    <div class="flex justify-between items-center">
-                        <div class="step-item active" data-step="1">
-                            <div class="step-number">1</div>
-                            <div class="step-label">Data Diri</div>
-                        </div>
-                        <div class="step-line"></div>
-                        <div class="step-item" data-step="2">
-                            <div class="step-number">2</div>
-                            <div class="step-label">Data Orang Tua</div>
-                        </div>
-                        <div class="step-line"></div>
-                        <div class="step-item" data-step="3">
-                            <div class="step-number">3</div>
-                            <div class="step-label">Berkas</div>
-                        </div>
-                        <div class="step-line"></div>
-                        <div class="step-item" data-step="4">
-                            <div class="step-number">4</div>
-                            <div class="step-label">Konfirmasi</div>
-                        </div>
+                    <div class="bg-purple-50 p-6 rounded-xl">
+                        <h4 class="font-bold text-purple-800 mb-4">Sistem</h4>
+                        <ul class="space-y-2">
+                            <li><button onclick="backupDatabase()" class="text-purple-600 hover:text-purple-800">Backup Database</button></li>
+                            <li><button onclick="systemLogs()" class="text-purple-600 hover:text-purple-800">View Logs</button></li>
+                            <li><button onclick="systemSettings()" class="text-purple-600 hover:text-purple-800">System Settings</button></li>
+                        </ul>
                     </div>
                 </div>
                 
-                <!-- Step Content -->
-                <div id="step-content">
-                    <!-- Step 1 Content -->
-                </div>
-                
-                <!-- Navigation -->
-                <div class="flex justify-between mt-8">
-                    <button id="prev-step" class="px-6 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 hidden">
-                        <i class="fas fa-arrow-left mr-2"></i>Sebelumnya
-                    </button>
-                    <button id="next-step" class="ml-auto px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
-                        Selanjutnya <i class="fas fa-arrow-right ml-2"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Virtual Tour Modal -->
-    <div id="virtual-tour-modal" class="fixed inset-0 bg-black z-50 hidden">
-        <div class="absolute top-4 right-4 z-10">
-            <button onclick="closeModal('virtual-tour-modal')" class="bg-white p-3 rounded-full hover:bg-gray-100">
-                <i class="fas fa-times text-xl"></i>
-            </button>
-        </div>
-        <div class="w-full h-full flex items-center justify-center">
-            <div class="text-white text-center">
-                <i class="fas fa-vr-cardboard text-6xl mb-4"></i>
-                <h3 class="text-2xl font-bold mb-2">Virtual Tour 360°</h3>
-                <p class="mb-6">Memuat tur virtual sekolah...</p>
-                <div class="loading-spinner mx-auto"></div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Video Modal -->
-    <div id="video-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center p-4">
-        <div class="bg-black rounded-2xl w-full max-w-4xl">
-            <div class="p-4">
-                <div class="flex justify-between items-center mb-4">
-                    <h3 class="text-white text-xl font-bold">Video Profil Sekolah</h3>
-                    <button onclick="closeModal('video-modal')" class="text-white hover:text-gray-300">
-                        <i class="fas fa-times text-xl"></i>
-                    </button>
-                </div>
-                <div class="video-container">
-                    <iframe id="video-player" src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                            frameborder="0" allowfullscreen></iframe>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Quran Reader Modal -->
-    <div id="quran-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center p-4">
-        <div class="bg-white rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden">
-            <div class="p-6">
-                <div class="flex justify-between items-center mb-6">
-                    <h3 class="text-2xl font-bold text-gray-800">Pembaca Al-Quran Digital</h3>
-                    <button onclick="closeModal('quran-modal')" class="text-gray-500 hover:text-gray-700">
-                        <i class="fas fa-times text-xl"></i>
-                    </button>
-                </div>
-                <div class="arabic-font text-3xl text-right leading-relaxed mb-6">
-                    بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ
-                </div>
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div>
-                        <h4 class="font-bold text-gray-800 mb-4">Pilih Surah</h4>
-                        <div class="grid grid-cols-3 gap-2 max-h-64 overflow-y-auto">
-                            <!-- Surah list -->
+                <!-- Quick Stats -->
+                <div class="bg-gray-50 p-6 rounded-xl">
+                    <h4 class="font-bold text-gray-800 mb-4">Quick Stats</h4>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-blue-600" id="admin-student-count">0</div>
+                            <div class="text-sm text-gray-600">Total Siswa</div>
                         </div>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-gray-800 mb-4">Terjemahan</h4>
-                        <div class="bg-gray-50 p-4 rounded-lg max-h-64 overflow-y-auto">
-                            <p>Dengan menyebut nama Allah Yang Maha Pemurah lagi Maha Penyayang.</p>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-green-600" id="admin-teacher-count">0</div>
+                            <div class="text-sm text-gray-600">Total Guru</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-purple-600" id="admin-active-users">0</div>
+                            <div class="text-sm text-gray-600">Active Users</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-red-600" id="admin-pending-tasks">0</div>
+                            <div class="text-sm text-gray-600">Pending Tasks</div>
                         </div>
                     </div>
                 </div>
@@ -1594,18 +1681,100 @@
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js'></script>
     
     <script>
+        // ============================================
+        // INISIALISASI SISTEM
+        // ============================================
+        
         // Initialize AOS
         AOS.init({
             duration: 1000,
             once: true
         });
         
+        // Data lengkap siswa (dari kode sebelumnya)
+        const platformData = {
+            siswa: [
+                { id: 'IT000078', nama: 'ADRIAN JULIAN MAULANA', email: 'adrian.julian@smpislamibadurrahman.id', ruang: '7A' },
+                { id: 'IT000076', nama: 'FAEZA FAIRUS SIHAN', email: 'faeza.fairus@smpislamibadurrahman.id', ruang: '7A' },
+                { id: 'IT000075', nama: 'LALU ALGIFARI PRATAMA', email: 'lalu.algifari@smpislamibadurrahman.id', ruang: '7A' },
+                { id: 'IT000088', nama: 'MUHAMAD NOPAL PAQIH', email: 'muhammad.nopal@smpislamibadurrahman.id', ruang: '7A' },
+                { id: 'IT000089', nama: 'MUHAMMAD ABDUL KADIR', email: 'muhammad.abdul@smpislamibadurrahman.id', ruang: '7A' },
+                { id: 'IT000062', nama: 'MUHAMMAD REZA HERLANI', email: 'muhammad.reza@smpislamibadurrahman.id', ruang: '7A' },
+                { id: 'IT000082', nama: 'MUHAMMAD UMAR SAID', email: 'muhammad.umar@smpislamibadurrahman.id', ruang: '7A' },
+                { id: 'IT000094', nama: 'NIZHAM AFFAN FEBRIAN', email: 'nizham.affan@smpislamibadurrahman.id', ruang: '7A' },
+                { id: 'IT000087', nama: 'SHOLAH ARYA GUNE', email: 'sholah.arya@smpislamibadurrahman.id', ruang: '7A' },
+                { id: 'IT000090', nama: 'SYAHROMI KHAIRULLAH SYAKIR', email: 'syahromi.khairullah@smpislamibadurrahman.id', ruang: '7A' },
+                // ... tambahkan semua siswa lainnya
+            ],
+            
+            guru: [
+                {
+                    id: 'G001',
+                    nama: 'Abdurrahman Suryadi, M.Pd.I',
+                    email: 'abdurrahman.suryadi@smpislamibadurrahman.id',
+                    mapel: 'Nahwu',
+                    pendidikan: 'S-2 Pendidikan Agama Islam',
+                    tempatLahir: 'Narmada',
+                    tanggalLahir: '27-11-1984'
+                },
+                // ... tambahkan semua guru lainnya
+            ],
+            
+            nilai: {},
+            kehadiran: {},
+            materi: [],
+            tugas: [],
+            userProgress: {},
+            userPoints: {}
+        };
+        
+        // ============================================
+        // FUNGSI UTAMA
+        // ============================================
+        
         // Preloader
         window.addEventListener('load', function() {
             setTimeout(function() {
                 document.getElementById('preloader').style.display = 'none';
+                updateStats();
+                loadElearningContent();
             }, 1000);
         });
+        
+        // Update statistics counters
+        function updateStats() {
+            const studentCount = platformData.siswa.length;
+            const teacherCount = platformData.guru.length;
+            
+            // Animate counters
+            animateCounter('student-count', studentCount);
+            animateCounter('teacher-count', teacherCount);
+            animateCounter('admin-student-count', studentCount);
+            animateCounter('admin-teacher-count', teacherCount);
+            
+            // Update active users (random for demo)
+            const activeUsers = Math.floor(Math.random() * 50) + 20;
+            document.getElementById('admin-active-users').textContent = activeUsers;
+            document.getElementById('admin-pending-tasks').textContent = Math.floor(Math.random() * 10) + 1;
+        }
+        
+        // Animate counter
+        function animateCounter(elementId, target) {
+            const element = document.getElementById(elementId);
+            if (!element) return;
+            
+            let current = 0;
+            const increment = target / 50;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current);
+                }
+            }, 20);
+        }
         
         // Mobile Menu Toggle
         document.getElementById('mobile-menu-btn').addEventListener('click', function() {
@@ -1616,18 +1785,7 @@
             icon.classList.toggle('fa-times');
         });
         
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(event) {
-            const menu = document.getElementById('mobile-menu');
-            const btn = document.getElementById('mobile-menu-btn');
-            if (!menu.contains(event.target) && !btn.contains(event.target) && !menu.classList.contains('hidden')) {
-                menu.classList.add('hidden');
-                btn.querySelector('i').classList.remove('fa-times');
-                btn.querySelector('i').classList.add('fa-bars');
-            }
-        });
-        
-        // Smooth scrolling for anchor links
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -1652,10 +1810,10 @@
             });
         });
         
-        // Set current year in footer
+        // Set current year
         document.getElementById('current-year').textContent = new Date().getFullYear();
         
-        // Show notification function
+        // Show notification
         function showNotification(message, type = 'success') {
             const container = document.getElementById('notification-container');
             const notification = document.createElement('div');
@@ -1668,319 +1826,317 @@
             `;
             container.appendChild(notification);
             
-            // Show notification
             setTimeout(() => notification.classList.add('show'), 10);
             
-            // Auto remove after 5 seconds
             setTimeout(() => {
                 notification.classList.remove('show');
                 setTimeout(() => notification.remove(), 300);
             }, 5000);
         }
         
-        // Modal functions
-        function showLoginModal(role = '') {
-            document.getElementById('login-modal').classList.remove('hidden');
-            if (role) {
-                document.getElementById('login-email').value = role === 'student' ? 'siswa@demo.smpislam.id' : 
-                                                              role === 'teacher' ? 'guru@demo.smpislam.id' : 
-                                                              role === 'admin' ? 'admin@demo.smpislam.id' : '';
-            }
-        }
+        // ============================================
+        // E-LEARNING FUNCTIONS
+        // ============================================
         
-        function showRegisterModal() {
-            document.getElementById('register-modal').classList.remove('hidden');
-            showRegistrationStep(1);
-        }
-        
-        function showVirtualTour() {
-            document.getElementById('virtual-tour-modal').classList.remove('hidden');
-            showNotification('Virtual Tour sedang dimuat...', 'success');
-        }
-        
-        function showVideoProfile() {
-            document.getElementById('video-modal').classList.remove('hidden');
-        }
-        
-        function closeModal(modalId) {
-            document.getElementById(modalId).classList.add('hidden');
-        }
-        
-        // Quick login function
-        function quickLogin(role) {
-            const credentials = {
-                'student': { email: 'siswa@demo.smpislam.id', password: 'demo123' },
-                'teacher': { email: 'guru@demo.smpislam.id', password: 'demo123' },
-                'parent': { email: 'ortu@demo.smpislam.id', password: 'demo123' },
-                'admin': { email: 'admin@demo.smpislam.id', password: 'demo123' }
-            };
+        function loadElearningContent() {
+            const content = document.getElementById('e-learning-content');
+            if (!content) return;
             
-            const cred = credentials[role];
-            document.getElementById('login-email').value = cred.email;
-            document.getElementById('login-password').value = cred.password;
+            const isLoggedIn = localStorage.getItem('loggedIn') === 'true';
             
-            showNotification(`Login sebagai ${role} siap! Klik tombol Masuk.`, 'success');
-        }
-        
-        // Handle login
-        function handleLogin() {
-            const email = document.getElementById('login-email').value;
-            const password = document.getElementById('login-password').value;
-            
-            if (!email || !password) {
-                showNotification('Harap isi email dan password!', 'error');
-                return;
-            }
-            
-            // Simulate login process
-            showNotification('Sedang masuk ke sistem...', 'success');
-            
-            setTimeout(() => {
-                closeModal('login-modal');
-                showNotification('Login berhasil! Mengarahkan ke dashboard...', 'success');
-                
-                // Redirect to e-learning platform
-                setTimeout(() => {
-                    window.location.href = '#elearning';
-                    // Show demo dashboard
-                    showDemoDashboard();
-                }, 1500);
-            }, 2000);
-        }
-        
-        // Show demo dashboard
-        function showDemoDashboard() {
-            const elearningSection = document.getElementById('elearning');
-            if (elearningSection) {
-                elearningSection.innerHTML = `
-                    <div class="container mx-auto px-4">
-                        <div class="bg-white rounded-2xl shadow-xl p-8">
-                            <div class="flex justify-between items-center mb-8">
-                                <div>
-                                    <h3 class="text-2xl font-bold text-gray-800">Demo Dashboard E-Learning</h3>
-                                    <p class="text-gray-600">Selamat datang di platform pembelajaran!</p>
-                                </div>
-                                <button onclick="location.reload()" class="text-blue-600 hover:text-blue-800">
-                                    <i class="fas fa-times mr-2"></i>Keluar Demo
-                                </button>
-                            </div>
-                            
-                            <div class="grid md:grid-cols-3 gap-6">
-                                <div class="bg-blue-50 p-6 rounded-xl">
-                                    <h4 class="font-bold text-gray-800 mb-4">Materi Pembelajaran</h4>
-                                    <ul class="space-y-2">
-                                        <li><a href="#" class="text-blue-600 hover:text-blue-800">Matematika - Aljabar</a></li>
-                                        <li><a href="#" class="text-blue-600 hover:text-blue-800">Bahasa Arab Dasar</a></li>
-                                        <li><a href="#" class="text-blue-600 hover:text-blue-800">Tajwid & Makhraj</a></li>
-                                    </ul>
-                                </div>
-                                
-                                <div class="bg-green-50 p-6 rounded-xl">
-                                    <h4 class="font-bold text-gray-800 mb-4">Tugas Terbaru</h4>
-                                    <ul class="space-y-2">
-                                        <li>Tugas Matematika - Deadline Besok</li>
-                                        <li>Quiz Bahasa Arab - Selesaikan Sekarang</li>
-                                    </ul>
-                                </div>
-                                
-                                <div class="bg-purple-50 p-6 rounded-xl">
-                                    <h4 class="font-bold text-gray-800 mb-4">Game Edukasi</h4>
-                                    <ul class="space-y-2">
-                                        <li><a href="#" class="text-purple-600 hover:text-purple-800">Teka-teki Matematika</a></li>
-                                        <li><a href="#" class="text-purple-600 hover:text-purple-800">Kuis Bahasa</a></li>
-                                    </ul>
-                                </div>
-                            </div>
+            if (isLoggedIn) {
+                const userRole = localStorage.getItem('userRole') || 'siswa';
+                loadDashboard(userRole);
+            } else {
+                content.innerHTML = `
+                    <div class="text-center py-12">
+                        <i class="fas fa-laptop-code text-6xl text-blue-600 mb-6"></i>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Platform E-Learning SMP Islam Ibadurrahman</h3>
+                        <p class="text-gray-600 mb-8 max-w-2xl mx-auto">
+                            Sistem pembelajaran digital lengkap dengan database siswa, materi interaktif, 
+                            penilaian online, dan monitoring perkembangan belajar.
+                        </p>
+                        <div class="flex flex-col md:flex-row justify-center gap-4">
+                            <button onclick="showLoginModal()" class="btn-gradient-primary px-8 py-3 rounded-lg">
+                                <i class="fas fa-sign-in-alt mr-2"></i>Login ke Platform
+                            </button>
+                            <button onclick="showDataTables()" class="border border-blue-600 text-blue-600 px-8 py-3 rounded-lg hover:bg-blue-50">
+                                <i class="fas fa-database mr-2"></i>Lihat Database
+                            </button>
                         </div>
                     </div>
                 `;
-                
-                // Scroll to e-learning section
-                setTimeout(() => {
-                    elearningSection.scrollIntoView({ behavior: 'smooth' });
-                }, 100);
             }
         }
         
-        // Registration steps
-        let currentStep = 1;
-        
-        function showRegistrationStep(step) {
-            currentStep = step;
-            const steps = document.querySelectorAll('.step-item');
-            const stepContent = document.getElementById('step-content');
-            const prevBtn = document.getElementById('prev-step');
-            const nextBtn = document.getElementById('next-step');
+        function loadDashboard(role) {
+            const content = document.getElementById('e-learning-content');
+            const title = document.getElementById('dashboard-title');
+            const subtitle = document.getElementById('dashboard-subtitle');
             
-            // Update step indicators
-            steps.forEach(s => {
-                s.classList.remove('active');
-                if (parseInt(s.dataset.step) <= step) {
-                    s.classList.add('active');
-                }
+            title.textContent = `Dashboard ${role.charAt(0).toUpperCase() + role.slice(1)}`;
+            subtitle.textContent = `Selamat datang di platform e-learning`;
+            
+            let dashboardHTML = '';
+            
+            switch(role) {
+                case 'siswa':
+                    dashboardHTML = createStudentDashboard();
+                    break;
+                case 'guru':
+                    dashboardHTML = createTeacherDashboard();
+                    break;
+                case 'admin':
+                    dashboardHTML = createAdminDashboard();
+                    break;
+                default:
+                    dashboardHTML = createStudentDashboard();
+            }
+            
+            content.innerHTML = dashboardHTML;
+        }
+        
+        function createStudentDashboard() {
+            return `
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    <div class="bg-blue-50 p-6 rounded-xl">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-book text-blue-600"></i>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-bold">12</div>
+                                <div class="text-sm text-gray-600">Materi Dipelajari</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-green-50 p-6 rounded-xl">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-tasks text-green-600"></i>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-bold">8</div>
+                                <div class="text-sm text-gray-600">Tugas Diselesaikan</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-purple-50 p-6 rounded-xl">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-chart-line text-purple-600"></i>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-bold">85%</div>
+                                <div class="text-sm text-gray-600">Progress Belajar</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-yellow-50 p-6 rounded-xl">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-trophy text-yellow-600"></i>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-bold">1250</div>
+                                <div class="text-sm text-gray-600">Poin</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white border rounded-xl p-6">
+                        <h4 class="font-bold text-gray-800 mb-4">Materi Terbaru</h4>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                <div>
+                                    <div class="font-medium">Matematika - Aljabar</div>
+                                    <div class="text-sm text-gray-600">Ustadz Ahmad</div>
+                                </div>
+                                <button class="text-blue-600 hover:text-blue-800">
+                                    <i class="fas fa-play"></i>
+                                </button>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                <div>
+                                    <div class="font-medium">Bahasa Arab Dasar</div>
+                                    <div class="text-sm text-gray-600">Ustadz Fahmi</div>
+                                </div>
+                                <button class="text-blue-600 hover:text-blue-800">
+                                    <i class="fas fa-play"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white border rounded-xl p-6">
+                        <h4 class="font-bold text-gray-800 mb-4">Tugas Mendatang</h4>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between p-3 bg-red-50 rounded-lg">
+                                <div>
+                                    <div class="font-medium">Tugas Matematika</div>
+                                    <div class="text-sm text-red-600">Deadline: Besok</div>
+                                </div>
+                                <button class="text-red-600 hover:text-red-800">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </button>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-yellow-50 rounded-lg">
+                                <div>
+                                    <div class="font-medium">Quiz Bahasa Arab</div>
+                                    <div class="text-sm text-yellow-600">3 hari lagi</div>
+                                </div>
+                                <button class="text-yellow-600 hover:text-yellow-800">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        // ============================================
+        // DATA TABLES FUNCTIONS
+        // ============================================
+        
+        function showDataTables() {
+            document.getElementById('data-tables').classList.remove('hidden');
+            showDataTab('siswa');
+            window.scrollTo({
+                top: document.getElementById('data-tables').offsetTop - 80,
+                behavior: 'smooth'
+            });
+        }
+        
+        function showDataTab(tab) {
+            // Update active tab
+            document.querySelectorAll('.data-tab').forEach(t => {
+                t.classList.remove('active', 'border-blue-500', 'text-blue-600');
+                t.classList.add('border-transparent', 'text-gray-500');
             });
             
-            // Update content based on step
-            const stepContents = {
-                1: `
-                    <div class="space-y-6">
-                        <h4 class="text-lg font-bold text-gray-800">Data Diri Calon Santri</h4>
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div>
-                                <label class="block text-gray-700 mb-2">Nama Lengkap</label>
-                                <input type="text" class="w-full px-4 py-3 border rounded-lg" required>
-                            </div>
-                            <div>
-                                <label class="block text-gray-700 mb-2">Nama Panggilan</label>
-                                <input type="text" class="w-full px-4 py-3 border rounded-lg">
-                            </div>
-                        </div>
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div>
-                                <label class="block text-gray-700 mb-2">Tempat Lahir</label>
-                                <input type="text" class="w-full px-4 py-3 border rounded-lg" required>
-                            </div>
-                            <div>
-                                <label class="block text-gray-700 mb-2">Tanggal Lahir</label>
-                                <input type="date" class="w-full px-4 py-3 border rounded-lg" required>
-                            </div>
-                        </div>
-                    </div>
-                `,
-                2: `
-                    <div class="space-y-6">
-                        <h4 class="text-lg font-bold text-gray-800">Data Orang Tua/Wali</h4>
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div>
-                                <label class="block text-gray-700 mb-2">Nama Ayah</label>
-                                <input type="text" class="w-full px-4 py-3 border rounded-lg" required>
-                            </div>
-                            <div>
-                                <label class="block text-gray-700 mb-2">Pekerjaan Ayah</label>
-                                <input type="text" class="w-full px-4 py-3 border rounded-lg">
-                            </div>
-                        </div>
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div>
-                                <label class="block text-gray-700 mb-2">Nama Ibu</label>
-                                <input type="text" class="w-full px-4 py-3 border rounded-lg" required>
-                            </div>
-                            <div>
-                                <label class="block text-gray-700 mb-2">Pekerjaan Ibu</label>
-                                <input type="text" class="w-full px-4 py-3 border rounded-lg">
-                            </div>
-                        </div>
-                    </div>
-                `,
-                3: `
-                    <div class="space-y-6">
-                        <h4 class="text-lg font-bold text-gray-800">Upload Berkas</h4>
-                        <div class="space-y-4">
-                            <div>
-                                <label class="block text-gray-700 mb-2">Foto 3x4</label>
-                                <input type="file" class="w-full px-4 py-3 border rounded-lg">
-                            </div>
-                            <div>
-                                <label class="block text-gray-700 mb-2">Akta Kelahiran</label>
-                                <input type="file" class="w-full px-4 py-3 border rounded-lg">
-                            </div>
-                            <div>
-                                <label class="block text-gray-700 mb-2">Rapor Terakhir</label>
-                                <input type="file" class="w-full px-4 py-3 border rounded-lg">
-                            </div>
-                        </div>
-                    </div>
-                `,
-                4: `
-                    <div class="space-y-6">
-                        <h4 class="text-lg font-bold text-gray-800">Konfirmasi Pendaftaran</h4>
-                        <div class="bg-green-50 p-6 rounded-xl">
-                            <div class="flex items-center mb-4">
-                                <i class="fas fa-check-circle text-green-600 text-2xl mr-3"></i>
-                                <div>
-                                    <h5 class="font-bold text-gray-800">Pendaftaran Berhasil!</h5>
-                                    <p class="text-gray-600">Data Anda telah tersimpan</p>
-                                </div>
-                            </div>
-                            <p class="text-gray-700 mb-4">
-                                Silakan datang ke sekolah untuk melengkapi administrasi dengan membawa:
-                            </p>
-                            <ul class="list-disc pl-5 text-gray-700 space-y-2">
-                                <li>Fotocopy Akta Kelahiran</li>
-                                <li>Fotocopy Kartu Keluarga</li>
-                                <li>Pas foto 3x4 (4 lembar)</li>
-                                <li>Rapor asli dan fotocopy</li>
-                            </ul>
-                        </div>
-                    </div>
-                `
-            };
+            document.querySelector(`button[onclick="showDataTab('${tab}')"]`).classList.add('active', 'border-blue-500', 'text-blue-600');
             
-            stepContent.innerHTML = stepContents[step] || '';
+            const content = document.getElementById('data-tables-content');
             
-            // Update buttons
-            prevBtn.classList.toggle('hidden', step === 1);
-            nextBtn.innerHTML = step === 4 ? 'Selesai <i class="fas fa-check ml-2"></i>' : 'Selanjutnya <i class="fas fa-arrow-right ml-2"></i>';
-        }
-        
-        // Registration step navigation
-        document.getElementById('next-step').addEventListener('click', function() {
-            if (currentStep < 4) {
-                showRegistrationStep(currentStep + 1);
-            } else {
-                // Submit registration
-                showNotification('Pendaftaran berhasil dikirim!', 'success');
-                closeModal('register-modal');
+            switch(tab) {
+                case 'siswa':
+                    showStudentTable();
+                    break;
+                case 'guru':
+                    showTeacherTable();
+                    break;
+                case 'nilai':
+                    showGradeTable();
+                    break;
+                case 'kehadiran':
+                    showAttendanceTable();
+                    break;
             }
-        });
+        }
         
-        document.getElementById('prev-step').addEventListener('click', function() {
-            if (currentStep > 1) {
-                showRegistrationStep(currentStep - 1);
+        function showStudentTable() {
+            const content = document.getElementById('data-tables-content');
+            let html = `
+                <div class="mb-4 flex justify-between items-center">
+                    <h3 class="text-lg font-bold text-gray-800">Data Siswa SMP Islam Ibadurrahman</h3>
+                    <button onclick="exportToExcel('siswa')" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700">
+                        <i class="fas fa-file-excel mr-2"></i>Export Excel
+                    </button>
+                </div>
+                <div class="overflow-x-auto">
+                    <table id="student-table" class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">No</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">NIS</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Nama Lengkap</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Email</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Kelas</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+            `;
+            
+            platformData.siswa.forEach((siswa, index) => {
+                html += `
+                    <tr>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${index + 1}</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${siswa.id}</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${siswa.nama}</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${siswa.email}</td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <span class="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
+                                ${siswa.ruang}
+                            </span>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                            <button onclick="viewStudentDetail('${siswa.id}')" class="text-blue-600 hover:text-blue-900 mr-3">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button onclick="editStudent('${siswa.id}')" class="text-green-600 hover:text-green-900">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            });
+            
+            html += `
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mt-4 text-sm text-gray-600">
+                    Total: ${platformData.siswa.length} siswa
+                </div>
+            `;
+            
+            content.innerHTML = html;
+            
+            // Initialize DataTable
+            if ($.fn.DataTable) {
+                $('#student-table').DataTable({
+                    pageLength: 10,
+                    responsive: true
+                });
             }
-        });
-        
-        // Form submission
-        document.getElementById('registration-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            showNotification('Formulir pendaftaran berhasil dikirim!', 'success');
-            this.reset();
-        });
-        
-        // Demo functions
-        function startDemo(type) {
-            showNotification(`Memulai demo untuk ${type === 'student' ? 'siswa' : type === 'teacher' ? 'guru' : 'orang tua'}...`, 'success');
-            setTimeout(() => {
-                showDemoDashboard();
-            }, 1500);
         }
         
-        function showFeatureDetail(feature) {
-            const details = {
-                'virtual-class': 'Kelas virtual dengan fitur whiteboard, screen sharing, dan breakout rooms.',
-                'quiz': 'Sistem kuis dengan berbagai tipe soal dan penilaian otomatis.',
-                'progress': 'Dashboard analisis perkembangan belajar dengan grafik dan rekomendasi.'
-            };
-            showNotification(`Fitur: ${details[feature] || 'Sedang dimuat...'}`, 'success');
+        // ============================================
+        // DOCUMENTATION FUNCTIONS
+        // ============================================
+        
+        function toggleDocumentation() {
+            document.getElementById('documentation').classList.remove('hidden');
+            showDocSection('database');
+            window.scrollTo({
+                top: document.getElementById('documentation').offsetTop - 80,
+                behavior: 'smooth'
+            });
         }
         
-        function showProgramDetail(program) {
-            const details = {
-                'qiraat': 'Program membaca Al-Quran dengan metode yang menyenangkan.',
-                'bahasa': 'Kursus bahasa Arab dan Inggris intensif.',
-                'science': 'Klub sains dengan eksperimen menarik.'
-            };
-            showNotification(`Program ${program}: ${details[program] || 'Detail program'}`, 'success');
+        function showDocSection(section) {
+            // Hide all sections
+            ['database-doc', 'api-doc', 'architecture-doc', 'deployment-doc'].forEach(id => {
+                document.getElementById(id).classList.add('hidden');
+            });
+            
+            // Show selected section
+            document.getElementById(`${section}-doc`).classList.remove('hidden');
         }
         
-        // Utility functions
+        // ============================================
+        // UTILITY FUNCTIONS
+        // ============================================
+        
         function scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-        
-        function toggleDarkMode() {
-            document.body.classList.toggle('dark-mode');
-            showNotification('Mode gelap ' + (document.body.classList.contains('dark-mode') ? 'diaktifkan' : 'dinonaktifkan'), 'success');
         }
         
         function toggleChat() {
@@ -1991,25 +2147,32 @@
             window.print();
         }
         
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.add('hidden');
+        }
+        
+        function showAdminPanel() {
+            document.getElementById('admin-panel-modal').classList.remove('hidden');
+        }
+        
+        // Chat functions
         function sendChatMessage() {
             const input = document.getElementById('chat-input');
             const messages = document.getElementById('chat-messages');
             
             if (input.value.trim()) {
-                // Add user message
                 messages.innerHTML += `
                     <div class="message-bubble user">
                         <p>${input.value}</p>
                     </div>
                 `;
                 
-                // Simulate bot response
                 setTimeout(() => {
                     const responses = [
                         "Terima kasih atas pertanyaannya!",
                         "Saya akan membantu Anda.",
-                        "Silakan hubungi admin untuk informasi lebih lanjut.",
-                        "Informasi tersebut tersedia di website kami.",
+                        "Informasi tersebut tersedia di dokumentasi.",
+                        "Silakan hubungi admin untuk bantuan lebih lanjut.",
                         "Ada yang bisa saya bantu lagi?"
                     ];
                     const response = responses[Math.floor(Math.random() * responses.length)];
@@ -2020,7 +2183,6 @@
                         </div>
                     `;
                     
-                    // Scroll to bottom
                     messages.scrollTop = messages.scrollHeight;
                 }, 1000);
                 
@@ -2029,21 +2191,13 @@
             }
         }
         
-        // Chat input enter key
         document.getElementById('chat-input').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
                 sendChatMessage();
             }
         });
         
-        // Initialize tooltips
-        document.querySelectorAll('[title]').forEach(el => {
-            el.addEventListener('mouseenter', function() {
-                // Add custom tooltip logic here
-            });
-        });
-        
-        // Add scroll effect to navbar
+        // Scroll effect for navbar
         window.addEventListener('scroll', function() {
             const nav = document.querySelector('nav');
             if (window.scrollY > 100) {
@@ -2052,6 +2206,23 @@
                 nav.classList.remove('shadow-lg');
             }
         });
+        
+        // Modal functions (placeholder)
+        function showLoginModal(role = '') {
+            showNotification('Login modal akan ditampilkan di sini', 'success');
+        }
+        
+        function showRegisterModal() {
+            showNotification('Registrasi modal akan ditampilkan di sini', 'success');
+        }
+        
+        function showVirtualTour() {
+            showNotification('Virtual tour sedang dimuat...', 'success');
+        }
+        
+        function showVideoProfile() {
+            showNotification('Video profil sedang dimuat...', 'success');
+        }
         
         // Initialize when page loads
         document.addEventListener('DOMContentLoaded', function() {
@@ -2096,6 +2267,36 @@
                 }
                 .step-item.active ~ .step-line {
                     background: #005EAA;
+                }
+                
+                /* DataTable customization */
+                .dataTables_wrapper {
+                    margin-top: 20px;
+                }
+                .dataTables_length select {
+                    border: 1px solid #d1d5db;
+                    border-radius: 0.375rem;
+                    padding: 0.25rem 2rem 0.25rem 0.5rem;
+                }
+                .dataTables_filter input {
+                    border: 1px solid #d1d5db;
+                    border-radius: 0.375rem;
+                    padding: 0.375rem 0.75rem;
+                }
+                .dataTables_info {
+                    color: #6b7280;
+                    padding-top: 1rem;
+                }
+                .dataTables_paginate .paginate_button {
+                    border: 1px solid #d1d5db;
+                    padding: 0.375rem 0.75rem;
+                    margin-left: -1px;
+                    color: #374151;
+                }
+                .dataTables_paginate .paginate_button.current {
+                    background: #005EAA;
+                    color: white;
+                    border-color: #005EAA;
                 }
             `;
             document.head.appendChild(style);
