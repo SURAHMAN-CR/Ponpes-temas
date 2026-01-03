@@ -7,7 +7,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Remove reCAPTCHA for now to prevent errors -->
     <style>
         /* KEEP ALL EXISTING STYLES - TIDAK DIUBAH */
         * {
@@ -975,7 +974,7 @@
             }
         }
 
-        /* ===== NEW SECURITY STYLES ===== */
+        /* ===== SECURITY STYLES ===== */
         .security-badge {
             position: absolute;
             top: 10px;
@@ -1266,6 +1265,212 @@
         .admin-tab-content.active {
             display: block;
         }
+
+        /* ===== ABSENSI STYLES ===== */
+        .absensi-card {
+            border-left: 5px solid #3B82F6;
+            transition: all 0.3s ease;
+        }
+
+        .absensi-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.1);
+        }
+
+        .qr-scanner-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            height: 300px;
+            background: #1F2937;
+            border-radius: 16px;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        .qr-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .qr-frame {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 200px;
+            border: 3px solid #3B82F6;
+            border-radius: 12px;
+            box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.7);
+        }
+
+        .attendance-status {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .attendance-present {
+            background: #D1FAE5;
+            color: #065F46;
+        }
+
+        .attendance-late {
+            background: #FEF3C7;
+            color: #92400E;
+        }
+
+        .attendance-absent {
+            background: #FEE2E2;
+            color: #991B1B;
+        }
+
+        .attendance-permission {
+            background: #E0E7FF;
+            color: #3730A3;
+        }
+
+        /* ===== NOTIFICATION STYLES ===== */
+        .notification-bell {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .notification-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            width: 400px;
+            max-height: 500px;
+            overflow-y: auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+            display: none;
+        }
+
+        .notification-dropdown.active {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .notification-item {
+            padding: 16px;
+            border-bottom: 1px solid #E5E7EB;
+            transition: background 0.2s ease;
+            cursor: pointer;
+        }
+
+        .notification-item:hover {
+            background: #F9FAFB;
+        }
+
+        .notification-item.unread {
+            background: #EFF6FF;
+            border-left: 4px solid #3B82F6;
+        }
+
+        .notification-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+        }
+
+        .notification-icon.payment {
+            background: #D1FAE5;
+            color: #10B981;
+        }
+
+        .notification-icon.grade {
+            background: #E0E7FF;
+            color: #4F46E5;
+        }
+
+        .notification-icon.event {
+            background: #FEF3C7;
+            color: #F59E0B;
+        }
+
+        .notification-icon.task {
+            background: #FCE7F3;
+            color: #EC4899;
+        }
+
+        .notification-icon.attendance {
+            background: #F3E8FF;
+            color: #8B5CF6;
+        }
+
+        /* ===== WEBSOCKET STATUS ===== */
+        .connection-status {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        .connection-connected {
+            background: #D1FAE5;
+            color: #065F46;
+        }
+
+        .connection-disconnected {
+            background: #FEE2E2;
+            color: #991B1B;
+        }
+
+        .connection-connecting {
+            background: #FEF3C7;
+            color: #92400E;
+        }
+
+        /* ===== EMAIL/SMS TEMPLATE ===== */
+        .email-template {
+            background: white;
+            border-radius: 12px;
+            border: 1px solid #E5E7EB;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .email-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px 12px 0 0;
+        }
+
+        .email-body {
+            padding: 30px;
+            line-height: 1.6;
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -1374,8 +1579,37 @@
                 <a href="#spp" class="text-gray-700 hover:text-blue-600 font-medium menu-item py-2">SPP Online</a>
                 <a href="#marketplace" class="text-gray-700 hover:text-blue-600 font-medium menu-item py-2">Marketplace</a>
                 <a href="#tabungan" class="text-gray-700 hover:text-blue-600 font-medium menu-item py-2">Tabungan</a>
+                <a href="#absensi" class="text-gray-700 hover:text-blue-600 font-medium menu-item py-2">Absensi</a>
                 <a href="#galeri" class="text-gray-700 hover:text-blue-600 font-medium menu-item py-2">Galeri</a>
                 <a href="#kontak" class="text-gray-700 hover:text-blue-600 font-medium menu-item py-2">Kontak</a>
+                
+                <!-- Notification Bell -->
+                <div class="notification-bell relative ml-4">
+                    <button onclick="toggleNotifications()" class="relative p-2 text-gray-700 hover:text-blue-600">
+                        <i class="fas fa-bell text-xl"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    
+                    <div id="notification-dropdown" class="notification-dropdown">
+                        <div class="p-4 border-b border-gray-200">
+                            <h4 class="font-semibold text-gray-800">Notifikasi</h4>
+                            <span id="connection-status" class="connection-status connection-connected">
+                                <i class="fas fa-circle text-xs mr-2"></i>Connected
+                            </span>
+                        </div>
+                        
+                        <div id="notification-list" class="max-h-96 overflow-y-auto">
+                            <!-- Notifications will be loaded here -->
+                        </div>
+                        
+                        <div class="p-4 border-t border-gray-200 text-center">
+                            <button onclick="markAllAsRead()" class="text-sm text-blue-600 hover:text-blue-800">
+                                Tandai semua sudah dibaca
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
                 <a href="#e-learning" class="btn-kemendikbud">
                     <i class="fas fa-graduation-cap mr-2"></i>E-Learning
                 </a>
@@ -1392,6 +1626,12 @@
             </div>
             
             <div class="flex items-center space-x-4 lg:hidden">
+                <div class="notification-bell relative">
+                    <button onclick="toggleNotifications()" class="relative p-2 text-gray-700 hover:text-blue-600">
+                        <i class="fas fa-bell text-xl"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                </div>
                 <button class="text-gray-700 hover:text-blue-600 transition-colors" id="mobile-menu-button">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -1409,6 +1649,7 @@
                 <a href="#spp" class="block px-4 py-3 rounded-lg text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors">SPP Online</a>
                 <a href="#marketplace" class="block px-4 py-3 rounded-lg text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors">Marketplace</a>
                 <a href="#tabungan" class="block px-4 py-3 rounded-lg text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors">Tabungan</a>
+                <a href="#absensi" class="block px-4 py-3 rounded-lg text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors">Absensi</a>
                 <a href="#galeri" class="block px-4 py-3 rounded-lg text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors">Galeri</a>
                 <a href="#kontak" class="block px-4 py-3 rounded-lg text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors">Kontak</a>
                 <a href="#e-learning" class="block px-4 py-3 rounded-lg text-base font-medium text-white bg-blue-600 hover:bg-blue-700 transition-colors">
@@ -1806,7 +2047,7 @@
                 </div>
                 
                 <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 mt-8">
-                    <div class="flex items-start"><i class="fas fa-info-circle text-blue-600 text-xl mt-1 mr-3"></i><div><h4 class="font-semibold text-blue-800 mb-2">Informasi Penting</h4><ul class="text-blue-700 space-y-2"><li>• Pembayaran SPP paling lambat tanggal 10 setiap bulannya</li><li>• Keterlambatan pembayaran dikenakan denda Rp 25.000 per minggu</li><li>• Pembayaran dapat dilakukan via transfer ke rekening BNI 1234567890</li><li>• Konfirmasi pembayaran via WhatsApp ke 0812-3456-7890</li></ul></div></div>
+                    <div class="flex items-start"><i class="fas fa-info-circle text-blue-600 mt-1 mr-3"></i><div><h4 class="font-semibold text-blue-800 mb-2">Informasi Penting</h4><ul class="text-blue-700 space-y-2"><li>• Pembayaran SPP paling lambat tanggal 10 setiap bulannya</li><li>• Keterlambatan pembayaran dikenakan denda Rp 25.000 per minggu</li><li>• Pembayaran dapat dilakukan via transfer ke rekening BNI 1234567890</li><li>• Konfirmasi pembayaran via WhatsApp ke 0812-3456-7890</li></ul></div></div>
                 </div>
             </div>
         </div>
@@ -1928,6 +2169,212 @@
                     
                     <button type="submit" class="w-full interactive-btn bg-gradient-to-r from-yellow-500 to-yellow-600"><i class="fas fa-check-circle mr-2"></i>Buka Rekening Tabungan</button>
                 </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Absensi & Kehadiran Section -->
+    <section id="absensi" class="py-20 bg-gradient-to-r from-indigo-50 to-purple-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="section-title">Sistem Absensi Digital</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto mt-6 text-lg">Sistem presensi modern dengan QR Code dan notifikasi real-time kepada orang tua</p>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8 mb-12">
+                <div class="absensi-card glass-card p-8">
+                    <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-qrcode text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4 text-center">QR Code Absensi</h3>
+                    <p class="text-gray-600 mb-6 text-center">Absensi cepat dengan scan QR Code yang berbeda setiap hari</p>
+                    <button onclick="showQRScanner()" class="w-full interactive-btn bg-gradient-to-r from-blue-500 to-blue-600">
+                        <i class="fas fa-camera mr-2"></i>Buka QR Scanner
+                    </button>
+                </div>
+
+                <div class="absensi-card glass-card p-8">
+                    <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-chart-line text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4 text-center">Laporan Kehadiran</h3>
+                    <p class="text-gray-600 mb-6 text-center">Monitoring kehadiran siswa secara real-time dengan statistik lengkap</p>
+                    <button onclick="showAttendanceReport()" class="w-full interactive-btn bg-gradient-to-r from-green-500 to-green-600">
+                        <i class="fas fa-file-alt mr-2"></i>Lihat Laporan
+                    </button>
+                </div>
+
+                <div class="absensi-card glass-card p-8">
+                    <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-bell text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4 text-center">Notifikasi Orang Tua</h3>
+                    <p class="text-gray-600 mb-6 text-center">Orang tua menerima notifikasi real-time saat siswa absen atau terlambat</p>
+                    <button onclick="showNotificationSettings()" class="w-full interactive-btn bg-gradient-to-r from-purple-500 to-purple-600">
+                        <i class="fas fa-cog mr-2"></i>Pengaturan
+                    </button>
+                </div>
+            </div>
+
+            <!-- Attendance Report -->
+            <div class="glass-card p-8">
+                <div class="flex justify-between items-center mb-8">
+                    <h3 class="text-2xl font-semibold text-gray-800">Laporan Kehadiran Bulan Ini</h3>
+                    <div class="flex items-center">
+                        <select id="attendance-filter" class="form-input w-auto mr-4" onchange="filterAttendance()">
+                            <option value="all">Semua Kelas</option>
+                            <option value="7A">Kelas 7A</option>
+                            <option value="7B">Kelas 7B</option>
+                            <option value="8A">Kelas 8A</option>
+                            <option value="9A">Kelas 9A</option>
+                        </select>
+                        <button onclick="exportAttendanceReport()" class="interactive-btn bg-gradient-to-r from-green-500 to-green-600">
+                            <i class="fas fa-download mr-2"></i>Export
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="overflow-x-auto">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>NIS</th>
+                                <th>Nama Siswa</th>
+                                <th>Kelas</th>
+                                <th>Hadir</th>
+                                <th>Terlambat</th>
+                                <th>Tidak Hadir</th>
+                                <th>Persentase</th>
+                                <th>Status Hari Ini</th>
+                            </tr>
+                        </thead>
+                        <tbody id="attendance-table">
+                            <!-- Data akan di-load via JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="mt-8 grid md:grid-cols-4 gap-6">
+                    <div class="stat-card">
+                        <div class="stat-icon bg-green-100 text-green-600">
+                            <i class="fas fa-user-check"></i>
+                        </div>
+                        <div class="stat-value" id="total-present">0</div>
+                        <div class="stat-label">Hadir Hari Ini</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon bg-yellow-100 text-yellow-600">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-value" id="total-late">0</div>
+                        <div class="stat-label">Terlambat</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon bg-red-100 text-red-600">
+                            <i class="fas fa-user-times"></i>
+                        </div>
+                        <div class="stat-value" id="total-absent">0</div>
+                        <div class="stat-label">Tidak Hadir</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon bg-blue-100 text-blue-600">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <div class="stat-value" id="attendance-rate">0%</div>
+                        <div class="stat-label">Rata-rata Kehadiran</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Notification Settings -->
+            <div class="glass-card p-8 mt-8">
+                <h3 class="text-2xl font-semibold text-gray-800 mb-6">Pengaturan Notifikasi Orang Tua</h3>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="space-y-6">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-4">Jenis Notifikasi</h4>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="font-medium text-gray-800">Ketidakhadiran Siswa</p>
+                                    <p class="text-sm text-gray-600">Kirim notifikasi saat siswa tidak masuk</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="notif-absence" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="font-medium text-gray-800">Keterlambatan</p>
+                                    <p class="text-sm text-gray-600">Kirim notifikasi jika siswa terlambat</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="notif-late" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="font-medium text-gray-800">Laporan Mingguan</p>
+                                    <p class="text-sm text-gray-600">Kirim laporan kehadiran mingguan</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="notif-weekly" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-4">Metode Pengiriman</h4>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="font-medium text-gray-800">WhatsApp</p>
+                                    <p class="text-sm text-gray-600">Kirim via WhatsApp ke orang tua</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="method-whatsapp" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="font-medium text-gray-800">Email</p>
+                                    <p class="text-sm text-gray-600">Kirim via email orang tua</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="method-email" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="font-medium text-gray-800">SMS</p>
+                                    <p class="text-sm text-gray-600">Kirim via SMS (jika tidak ada WhatsApp)</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="method-sms">
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-8">
+                    <button onclick="saveNotificationSettings()" class="w-full interactive-btn bg-gradient-to-r from-purple-500 to-purple-600">
+                        <i class="fas fa-save mr-2"></i>Simpan Pengaturan
+                    </button>
+                </div>
             </div>
         </div>
     </section>
@@ -2538,6 +2985,7 @@
                         <li><a href="#spp" class="hover:text-white transition-colors">SPP Online</a></li>
                         <li><a href="#marketplace" class="hover:text-white transition-colors">Marketplace</a></li>
                         <li><a href="#tabungan" class="hover:text-white transition-colors">Tabungan</a></li>
+                        <li><a href="#absensi" class="hover:text-white transition-colors">Absensi</a></li>
                         <li><a href="#galeri" class="hover:text-white transition-colors">Galeri</a></li>
                         <li><a href="#kontak" class="hover:text-white transition-colors">Kontak</a></li>
                     </ul>
@@ -2661,6 +3109,108 @@
                     <button onclick="closeTarikModal()" class="text-gray-500 hover:text-gray-700"><i class="fas fa-times text-2xl"></i></button>
                 </div>
                 <div id="tarik-content"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- QR Scanner Modal -->
+    <div id="qr-scanner-modal" class="modal-overlay">
+        <div class="modal-content w-full max-w-2xl">
+            <div class="p-8">
+                <div class="flex justify-between items-center mb-8">
+                    <h3 class="text-2xl font-bold text-gray-800">QR Code Scanner</h3>
+                    <button onclick="closeQRScanner()" class="text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-times text-2xl"></i>
+                    </button>
+                </div>
+                
+                <div class="qr-scanner-container mb-6">
+                    <div id="qr-reader" class="w-full h-full"></div>
+                    <div class="qr-overlay">
+                        <div class="qr-frame"></div>
+                    </div>
+                </div>
+                
+                <div class="text-center mb-6">
+                    <p class="text-gray-600 mb-4">Arahkan kamera ke QR Code absensi yang tersedia di sekolah</p>
+                    <div class="bg-blue-50 border border-blue-200 rounded-xl p-4 inline-block">
+                        <p class="text-blue-800 font-medium">
+                            <i class="fas fa-clock mr-2"></i>
+                            QR Code hari ini: <span id="todays-qr-code" class="font-mono">ABSN-2024-03-15-7A</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div id="attendance-result" class="hidden">
+                    <div class="bg-green-50 border border-green-200 rounded-xl p-6 mb-6">
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-green-600 text-3xl mr-4"></i>
+                            <div>
+                                <h4 class="font-semibold text-green-800 mb-1">Absensi Berhasil!</h4>
+                                <p class="text-green-700">Siswa: <span id="student-name"></span></p>
+                                <p class="text-green-700">Waktu: <span id="attendance-time"></span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex justify-center gap-4">
+                    <button onclick="simulateQRScan()" class="interactive-btn bg-gradient-to-r from-blue-500 to-blue-600">
+                        <i class="fas fa-mobile-alt mr-2"></i>Simulasi Scan
+                    </button>
+                    <button onclick="generateQRCode()" class="interactive-btn bg-gradient-to-r from-purple-500 to-purple-600">
+                        <i class="fas fa-qrcode mr-2"></i>Generate QR
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Email Template Preview Modal -->
+    <div id="email-preview-modal" class="modal-overlay">
+        <div class="modal-content w-full max-w-3xl">
+            <div class="p-8">
+                <div class="flex justify-between items-center mb-8">
+                    <h3 class="text-2xl font-bold text-gray-800">Pratinjau Email</h3>
+                    <button onclick="closeEmailPreview()" class="text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-times text-2xl"></i>
+                    </button>
+                </div>
+                
+                <div class="email-template">
+                    <div class="email-header text-center">
+                        <img src="https://i.ibb.co.com/vNTTNz8/Logo-SMP-Islam-Ibadurraham-temas.jpg" alt="Logo" class="w-16 h-16 mx-auto mb-4 rounded-full bg-white p-2">
+                        <h2 class="text-2xl font-bold">SMP Islam Ibadurrahman Temas</h2>
+                        <p class="opacity-90">Sistem Notifikasi Digital</p>
+                    </div>
+                    
+                    <div class="email-body">
+                        <h3 id="email-subject" class="text-xl font-semibold text-gray-800 mb-4"></h3>
+                        <div id="email-content" class="text-gray-700 mb-6">
+                            <!-- Email content will be loaded here -->
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg mb-6">
+                            <p class="text-sm text-gray-600 mb-2">Email ini dikirim secara otomatis. Mohon tidak membalas email ini.</p>
+                            <p class="text-sm text-gray-600">Untuk pertanyaan, hubungi admin di (0341) 1234567</p>
+                        </div>
+                        
+                        <div class="text-center">
+                            <a href="#" class="inline-block interactive-btn bg-gradient-to-r from-blue-500 to-blue-600">
+                                <i class="fas fa-external-link-alt mr-2"></i>Buka Portal Sekolah
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-6 flex justify-between">
+                    <button onclick="sendTestNotification()" class="interactive-btn bg-gradient-to-r from-green-500 to-green-600">
+                        <i class="fas fa-paper-plane mr-2"></i>Kirim Test Email
+                    </button>
+                    <button onclick="closeEmailPreview()" class="px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50">
+                        Tutup
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -2941,6 +3491,87 @@
                         jawaban: 0
                     }
                 ]
+            }
+        };
+
+        // ===== ABSENSI & KEHADIRAN DATA =====
+        const attendanceData = {
+            students: [],
+            attendanceRecords: [],
+            qrCodes: {},
+            notificationSettings: {
+                absence: true,
+                late: true,
+                weekly: true,
+                whatsapp: true,
+                email: true,
+                sms: false
+            }
+        };
+
+        // ===== WEBSOCKET SIMULATION =====
+        let wsConnection = null;
+        let isConnected = false;
+        let reconnectAttempts = 0;
+        const maxReconnectAttempts = 5;
+
+        // ===== NOTIFICATION SYSTEM =====
+        const notificationSystem = {
+            notifications: [],
+            templates: {
+                absence: {
+                    subject: 'Pemberitahuan Ketidakhadiran Siswa',
+                    content: (studentName, date) => `
+                        <p>Kepada Yth. Orang Tua/Wali dari <strong>${studentName}</strong>,</p>
+                        <p>Kami ingin memberitahukan bahwa anak Anda <strong>tidak hadir</strong> pada tanggal <strong>${date}</strong>.</p>
+                        <p>Mohon konfirmasi alasan ketidakhadiran melalui portal orang tua atau hubungi wali kelas.</p>
+                    `
+                },
+                late: {
+                    subject: 'Pemberitahuan Keterlambatan Siswa',
+                    content: (studentName, time) => `
+                        <p>Kepada Yth. Orang Tua/Wali dari <strong>${studentName}</strong>,</p>
+                        <p>Anak Anda tercatat <strong>terlambat</strong> masuk sekolah pada pukul <strong>${time}</strong> hari ini.</p>
+                        <p>Batas waktu masuk adalah pukul 07:00 WIB.</p>
+                    `
+                },
+                spp: {
+                    subject: 'Pengingat Pembayaran SPP',
+                    content: (month, dueDate, amount) => `
+                        <p>Kepada Yth. Orang Tua/Wali,</p>
+                        <p>Ini adalah pengingat bahwa pembayaran SPP untuk bulan <strong>${month}</strong> akan jatuh tempo pada <strong>${dueDate}</strong>.</p>
+                        <p>Jumlah yang harus dibayar: <strong>${amount}</strong></p>
+                        <p>Silakan lakukan pembayaran sebelum tanggal jatuh tempo untuk menghindari denda.</p>
+                    `
+                },
+                grade: {
+                    subject: 'Pengumuman Nilai Ujian',
+                    content: (studentName, subject, score) => `
+                        <p>Kepada Yth. Orang Tua/Wali dari <strong>${studentName}</strong>,</p>
+                        <p>Nilai ujian <strong>${subject}</strong> telah diumumkan.</p>
+                        <p>Nilai yang diperoleh: <strong>${score}</strong></p>
+                        <p>Detail lengkap dapat dilihat di portal orang tua.</p>
+                    `
+                },
+                event: {
+                    subject: 'Pengumuman Kegiatan Sekolah',
+                    content: (eventName, date, time) => `
+                        <p>Kepada Yth. Orang Tua/Wali,</p>
+                        <p>Kami ingin menginformasikan tentang kegiatan sekolah:</p>
+                        <p><strong>${eventName}</strong></p>
+                        <p>Tanggal: ${date}</p>
+                        <p>Waktu: ${time}</p>
+                        <p>Mohon persiapkan anak Anda untuk mengikuti kegiatan tersebut.</p>
+                    `
+                },
+                task: {
+                    subject: 'Pengingat Deadline Tugas',
+                    content: (studentName, taskName, deadline) => `
+                        <p>Kepada Yth. Orang Tua/Wali dari <strong>${studentName}</strong>,</p>
+                        <p>Tugas <strong>${taskName}</strong> akan jatuh tempo pada <strong>${deadline}</strong>.</p>
+                        <p>Mohon ingatkan anak Anda untuk menyelesaikan tugas tepat waktu.</p>
+                    `
+                }
             }
         };
 
@@ -3717,26 +4348,566 @@
             addSecurityEvent('ALL_SESSIONS_REVOKED', `Semua sesi lain direvoke untuk ${currentUser.email}`);
         }
 
+        // ===== ABSENSI & KEHADIRAN FUNCTIONS =====
+        function initAttendanceSystem() {
+            // Initialize sample data
+            if (!localStorage.getItem('attendanceData')) {
+                generateSampleAttendanceData();
+            } else {
+                Object.assign(attendanceData, JSON.parse(localStorage.getItem('attendanceData')));
+            }
+            
+            // Initialize WebSocket connection
+            initWebSocket();
+            
+            // Load notifications
+            loadNotifications();
+            
+            // Load attendance report
+            loadAttendanceReport();
+            
+            // Generate today's QR code
+            generateDailyQRCode();
+        }
+
+        function generateSampleAttendanceData() {
+            // Sample attendance records for this month
+            const today = new Date();
+            const currentMonth = today.getMonth();
+            const currentYear = today.getFullYear();
+            
+            attendanceData.students = platformData.siswa.map(siswa => ({
+                id: siswa.id,
+                name: siswa.nama,
+                class: siswa.ruang,
+                parentPhone: '08123456789',
+                parentEmail: siswa.email.replace('@smpislamibadurrahman.id', '@gmail.com')
+            }));
+            
+            // Generate attendance records for current month
+            attendanceData.attendanceRecords = [];
+            
+            attendanceData.students.forEach(student => {
+                for (let day = 1; day <= today.getDate(); day++) {
+                    const date = new Date(currentYear, currentMonth, day);
+                    if (date.getDay() !== 0 && date.getDay() !== 6) { // Skip weekends
+                        const status = getRandomAttendanceStatus(date);
+                        attendanceData.attendanceRecords.push({
+                            studentId: student.id,
+                            date: date.toISOString().split('T')[0],
+                            time: status === 'present' ? '07:00' : status === 'late' ? '07:' + (15 + Math.floor(Math.random() * 30)) : null,
+                            status: status,
+                            scannedBy: status !== 'absent' ? 'QR_CODE' : null
+                        });
+                    }
+                }
+            });
+            
+            saveAttendanceData();
+        }
+
+        function getRandomAttendanceStatus(date) {
+            const today = new Date();
+            const rand = Math.random();
+            if (date.getDate() === today.getDate()) {
+                return 'present'; // Today's default
+            }
+            if (rand < 0.8) return 'present'; // 80% present
+            if (rand < 0.9) return 'late';    // 10% late
+            return 'absent';                  // 10% absent
+        }
+
+        // ===== QR CODE SCANNER FUNCTIONS =====
+        function showQRScanner() {
+            document.getElementById('qr-scanner-modal').classList.add('active');
+            
+            // Update today's QR code
+            const today = new Date().toISOString().split('T')[0];
+            const qrCode = attendanceData.qrCodes[today] || generateQRCodeForDate(today);
+            document.getElementById('todays-qr-code').textContent = qrCode;
+        }
+
+        function closeQRScanner() {
+            document.getElementById('qr-scanner-modal').classList.remove('active');
+        }
+
+        function generateDailyQRCode() {
+            const today = new Date().toISOString().split('T')[0];
+            if (!attendanceData.qrCodes[today]) {
+                attendanceData.qrCodes[today] = generateQRCodeForDate(today);
+                saveAttendanceData();
+            }
+        }
+
+        function generateQRCodeForDate(date) {
+            const classes = ['7A', '7B', '8A', '8B', '9A', '9B'];
+            const randomClass = classes[Math.floor(Math.random() * classes.length)];
+            return `ABSN-${date.replace(/-/g, '')}-${randomClass}`;
+        }
+
+        function simulateQRScan() {
+            const qrCode = document.getElementById('todays-qr-code').textContent;
+            processQRScan(qrCode);
+        }
+
+        function processQRScan(qrCode) {
+            // Simulate scanning process
+            showLoading();
+            
+            setTimeout(() => {
+                const student = attendanceData.students[Math.floor(Math.random() * attendanceData.students.length)];
+                const now = new Date();
+                const timeString = now.getHours().toString().padStart(2, '0') + ':' + 
+                                now.getMinutes().toString().padStart(2, '0');
+                
+                const status = now.getHours() > 7 || (now.getHours() === 7 && now.getMinutes() > 15) ? 'late' : 'present';
+                
+                // Record attendance
+                const today = new Date().toISOString().split('T')[0];
+                attendanceData.attendanceRecords.push({
+                    studentId: student.id,
+                    date: today,
+                    time: timeString,
+                    status: status,
+                    scannedBy: 'QR_CODE',
+                    qrCode: qrCode
+                });
+                
+                saveAttendanceData();
+                
+                // Update UI
+                document.getElementById('student-name').textContent = student.name;
+                document.getElementById('attendance-time').textContent = timeString;
+                document.getElementById('attendance-result').classList.remove('hidden');
+                
+                // Send notification if late
+                if (status === 'late') {
+                    sendLateNotification(student);
+                }
+                
+                hideLoading();
+                showToast(`Absensi berhasil! ${student.name} - ${status === 'late' ? 'Terlambat' : 'Hadir'}`, 'success');
+                
+                // Update attendance report
+                loadAttendanceReport();
+                
+            }, 1500);
+        }
+
+        // ===== ATTENDANCE REPORT FUNCTIONS =====
+        function loadAttendanceReport() {
+            const today = new Date().toISOString().split('T')[0];
+            const tableBody = document.getElementById('attendance-table');
+            
+            if (!tableBody) return;
+            
+            let presentToday = 0;
+            let lateToday = 0;
+            let absentToday = 0;
+            let totalPresent = 0;
+            let totalLate = 0;
+            let totalAbsent = 0;
+            let totalRecords = 0;
+            
+            const rows = attendanceData.students.map(student => {
+                // Calculate statistics
+                const studentRecords = attendanceData.attendanceRecords.filter(
+                    record => record.studentId === student.id
+                );
+                
+                const presentCount = studentRecords.filter(r => r.status === 'present').length;
+                const lateCount = studentRecords.filter(r => r.status === 'late').length;
+                const absentCount = studentRecords.filter(r => r.status === 'absent').length;
+                
+                totalPresent += presentCount;
+                totalLate += lateCount;
+                totalAbsent += absentCount;
+                totalRecords += studentRecords.length;
+                
+                // Today's status
+                const todayRecord = studentRecords.find(r => r.date === today);
+                let todayStatus = 'Belum absen';
+                let statusClass = 'attendance-absent';
+                
+                if (todayRecord) {
+                    if (todayRecord.status === 'present') {
+                        todayStatus = 'Hadir';
+                        statusClass = 'attendance-present';
+                        presentToday++;
+                    } else if (todayRecord.status === 'late') {
+                        todayStatus = `Terlambat (${todayRecord.time})`;
+                        statusClass = 'attendance-late';
+                        lateToday++;
+                    } else {
+                        todayStatus = 'Tidak hadir';
+                        absentToday++;
+                    }
+                } else {
+                    absentToday++;
+                }
+                
+                const attendanceRate = studentRecords.length > 0 ? 
+                    Math.round(((presentCount + lateCount) / studentRecords.length) * 100) : 0;
+                
+                return `
+                    <tr>
+                        <td class="font-mono">${student.id}</td>
+                        <td class="font-medium">${student.name}</td>
+                        <td>${student.class}</td>
+                        <td>${presentCount}</td>
+                        <td>${lateCount}</td>
+                        <td>${absentCount}</td>
+                        <td>
+                            <div class="flex items-center">
+                                <div class="w-full bg-gray-200 rounded-full h-2.5 mr-2">
+                                    <div class="bg-green-600 h-2.5 rounded-full" style="width: ${attendanceRate}%"></div>
+                                </div>
+                                <span>${attendanceRate}%</span>
+                            </div>
+                        </td>
+                        <td><span class="${statusClass} attendance-status">${todayStatus}</span></td>
+                    </tr>
+                `;
+            }).join('');
+            
+            tableBody.innerHTML = rows;
+            
+            // Update statistics
+            document.getElementById('total-present').textContent = presentToday;
+            document.getElementById('total-late').textContent = lateToday;
+            document.getElementById('total-absent').textContent = absentToday;
+            
+            const totalAttendanceRate = totalRecords > 0 ? 
+                Math.round(((totalPresent + totalLate) / totalRecords) * 100) : 0;
+            document.getElementById('attendance-rate').textContent = `${totalAttendanceRate}%`;
+        }
+
+        function filterAttendance() {
+            const filter = document.getElementById('attendance-filter').value;
+            loadAttendanceReport(); // In real implementation, filter would be applied
+        }
+
+        function exportAttendanceReport() {
+            showLoading();
+            setTimeout(() => {
+                hideLoading();
+                showToast('Laporan kehadiran berhasil diexport!', 'success');
+                
+                // Create CSV content
+                let csvContent = "data:text/csv;charset=utf-8,";
+                csvContent += "NIS,Nama,Kelas,Hadir,Terlambat,Tidak Hadir,Persentase,Status Hari Ini\n";
+                
+                attendanceData.students.forEach(student => {
+                    const records = attendanceData.attendanceRecords.filter(r => r.studentId === student.id);
+                    const presentCount = records.filter(r => r.status === 'present').length;
+                    const lateCount = records.filter(r => r.status === 'late').length;
+                    const absentCount = records.filter(r => r.status === 'absent').length;
+                    const total = records.length;
+                    const rate = total > 0 ? Math.round(((presentCount + lateCount) / total) * 100) : 0;
+                    
+                    const today = new Date().toISOString().split('T')[0];
+                    const todayRecord = records.find(r => r.date === today);
+                    const todayStatus = todayRecord ? 
+                        (todayRecord.status === 'present' ? 'Hadir' : 
+                         todayRecord.status === 'late' ? 'Terlambat' : 'Tidak Hadir') : 'Belum absen';
+                    
+                    csvContent += `${student.id},${student.name},${student.class},${presentCount},${lateCount},${absentCount},${rate}%,${todayStatus}\n`;
+                });
+                
+                // Download CSV
+                const encodedUri = encodeURI(csvContent);
+                const link = document.createElement("a");
+                link.setAttribute("href", encodedUri);
+                link.setAttribute("download", `laporan_kehadiran_${new Date().toISOString().split('T')[0]}.csv`);
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }, 1000);
+        }
+
+        // ===== NOTIFICATION SYSTEM FUNCTIONS =====
+        function initWebSocket() {
+            // Simulate WebSocket connection
+            isConnected = true;
+            updateConnectionStatus();
+            
+            // Simulate receiving notifications
+            setInterval(() => {
+                if (isConnected && Math.random() > 0.7) {
+                    receiveSimulatedNotification();
+                }
+            }, 30000); // Every 30 seconds
+        }
+
+        function updateConnectionStatus() {
+            const statusElement = document.getElementById('connection-status');
+            if (statusElement) {
+                statusElement.className = `connection-status connection-${isConnected ? 'connected' : 'disconnected'}`;
+                statusElement.innerHTML = `<i class="fas fa-circle text-xs mr-2"></i>${isConnected ? 'Connected' : 'Disconnected'}`;
+            }
+        }
+
+        function toggleNotifications() {
+            const dropdown = document.getElementById('notification-dropdown');
+            dropdown.classList.toggle('active');
+            
+            if (dropdown.classList.contains('active')) {
+                loadNotifications();
+            }
+        }
+
+        function loadNotifications() {
+            const container = document.getElementById('notification-list');
+            if (!container) return;
+            
+            // Sample notifications
+            const notifications = [
+                {
+                    id: 1,
+                    type: 'payment',
+                    title: 'Pengingat Pembayaran SPP',
+                    message: 'SPP bulan Maret jatuh tempo pada 10 Maret 2024',
+                    time: '2 jam yang lalu',
+                    read: false
+                },
+                {
+                    id: 2,
+                    type: 'attendance',
+                    title: 'Ketidakhadiran Siswa',
+                    message: 'Ahmad Fauzi tidak hadir hari ini',
+                    time: '4 jam yang lalu',
+                    read: false
+                },
+                {
+                    id: 3,
+                    type: 'grade',
+                    title: 'Nilai Ujian Matematika',
+                    message: 'Nilai ujian Matematika telah diumumkan',
+                    time: '1 hari yang lalu',
+                    read: true
+                },
+                {
+                    id: 4,
+                    type: 'task',
+                    title: 'Deadline Tugas IPA',
+                    message: 'Tugas IPA deadline besok',
+                    time: '2 hari yang lalu',
+                    read: true
+                },
+                {
+                    id: 5,
+                    type: 'event',
+                    title: 'Kegiatan Class Meeting',
+                    message: 'Class meeting akan dilaksanakan minggu depan',
+                    time: '3 hari yang lalu',
+                    read: true
+                }
+            ];
+            
+            container.innerHTML = notifications.map(notif => `
+                <div class="notification-item ${notif.read ? '' : 'unread'}" onclick="viewNotification(${notif.id})">
+                    <div class="flex items-start">
+                        <div class="notification-icon ${notif.type}">
+                            <i class="fas fa-${notif.type === 'payment' ? 'credit-card' : 
+                                         notif.type === 'attendance' ? 'user-clock' : 
+                                         notif.type === 'grade' ? 'graduation-cap' : 
+                                         notif.type === 'task' ? 'tasks' : 'calendar-alt'}"></i>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex justify-between">
+                                <h5 class="font-semibold text-gray-800">${notif.title}</h5>
+                                <span class="text-xs text-gray-500">${notif.time}</span>
+                            </div>
+                            <p class="text-sm text-gray-600 mt-1">${notif.message}</p>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+            
+            // Update notification badge
+            const unreadCount = notifications.filter(n => !n.read).length;
+            const badge = document.querySelector('.notification-badge');
+            if (badge) {
+                badge.textContent = unreadCount;
+                badge.style.display = unreadCount > 0 ? 'flex' : 'none';
+            }
+        }
+
+        function viewNotification(id) {
+            // Mark as read
+            const notification = notificationSystem.notifications.find(n => n.id === id);
+            if (notification && !notification.read) {
+                notification.read = true;
+                saveNotificationData();
+                loadNotifications();
+            }
+            
+            // Show notification details
+            showToast('Membuka notifikasi...', 'info');
+        }
+
+        function markAllAsRead() {
+            notificationSystem.notifications.forEach(notif => notif.read = true);
+            saveNotificationData();
+            loadNotifications();
+            showToast('Semua notifikasi ditandai sudah dibaca', 'success');
+        }
+
+        function sendNotification(type, data) {
+            const template = notificationSystem.templates[type];
+            if (!template) return;
+            
+            const content = typeof template.content === 'function' ? 
+                template.content(...Object.values(data)) : template.content;
+            
+            // Add to notifications
+            const newNotification = {
+                id: Date.now(),
+                type: type,
+                title: template.subject,
+                message: content.replace(/<[^>]*>/g, '').substring(0, 100) + '...',
+                time: 'Baru saja',
+                read: false,
+                data: data
+            };
+            
+            notificationSystem.notifications.unshift(newNotification);
+            
+            // Limit notifications
+            if (notificationSystem.notifications.length > 50) {
+                notificationSystem.notifications.pop();
+            }
+            
+            // Send via enabled methods
+            if (attendanceData.notificationSettings.email) {
+                sendEmailNotification(template.subject, content, data.parentEmail);
+            }
+            
+            if (attendanceData.notificationSettings.whatsapp) {
+                sendWhatsAppNotification(template.subject, content, data.parentPhone);
+            }
+            
+            if (attendanceData.notificationSettings.sms) {
+                sendSMSNotification(template.subject, content, data.parentPhone);
+            }
+            
+            saveNotificationData();
+            loadNotifications();
+            
+            // Show notification
+            showDesktopNotification(template.subject, content);
+        }
+
+        function sendLateNotification(student) {
+            if (!attendanceData.notificationSettings.late) return;
+            
+            const now = new Date();
+            const timeString = now.getHours().toString().padStart(2, '0') + ':' + 
+                            now.getMinutes().toString().padStart(2, '0');
+            
+            sendNotification('late', {
+                studentName: student.name,
+                time: timeString,
+                parentPhone: student.parentPhone,
+                parentEmail: student.parentEmail
+            });
+        }
+
+        function sendEmailNotification(subject, content, toEmail) {
+            // Simulate email sending
+            console.log(`Email sent to ${toEmail}: ${subject}`);
+            
+            // In production, this would integrate with email service like SendGrid, Mailgun, etc.
+            // Example: fetch('/api/send-email', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ to: toEmail, subject, content }) })
+        }
+
+        function sendWhatsAppNotification(subject, content, phoneNumber) {
+            // Simulate WhatsApp sending
+            console.log(`WhatsApp sent to ${phoneNumber}: ${subject}`);
+            
+            // In production, this would integrate with WhatsApp Business API
+            const message = `${subject}\n\n${content.replace(/<[^>]*>/g, '')}`;
+            const url = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
+
+        function sendSMSNotification(subject, content, phoneNumber) {
+            // Simulate SMS sending
+            console.log(`SMS sent to ${phoneNumber}: ${subject}`);
+        }
+
+        function showDesktopNotification(title, body) {
+            if ("Notification" in window && Notification.permission === "granted") {
+                new Notification(title, { body, icon: 'https://i.ibb.co.com/vNTTNz8/Logo-SMP-Islam-Ibadurraham-temas.jpg' });
+            }
+        }
+
+        // ===== NOTIFICATION SETTINGS =====
+        function showNotificationSettings() {
+            // Settings already visible in the section
+            document.getElementById('absensi').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function saveNotificationSettings() {
+            attendanceData.notificationSettings.absence = document.getElementById('notif-absence').checked;
+            attendanceData.notificationSettings.late = document.getElementById('notif-late').checked;
+            attendanceData.notificationSettings.weekly = document.getElementById('notif-weekly').checked;
+            attendanceData.notificationSettings.whatsapp = document.getElementById('method-whatsapp').checked;
+            attendanceData.notificationSettings.email = document.getElementById('method-email').checked;
+            attendanceData.notificationSettings.sms = document.getElementById('method-sms').checked;
+            
+            saveAttendanceData();
+            showToast('Pengaturan notifikasi disimpan', 'success');
+        }
+
+        function sendTestNotification() {
+            const student = attendanceData.students[0];
+            sendNotification('absence', {
+                studentName: student.name,
+                date: new Date().toLocaleDateString('id-ID'),
+                parentPhone: student.parentPhone,
+                parentEmail: student.parentEmail
+            });
+            showToast('Notifikasi test dikirim', 'success');
+        }
+
+        // ===== EMAIL PREVIEW =====
+        function previewEmail(type) {
+            const template = notificationSystem.templates[type];
+            if (!template) return;
+            
+            document.getElementById('email-subject').textContent = template.subject;
+            document.getElementById('email-content').innerHTML = 
+                typeof template.content === 'function' ? 
+                template.content('Ahmad Fauzi', '15 Maret 2024', 'Rp 350.000') : 
+                template.content;
+            
+            document.getElementById('email-preview-modal').classList.add('active');
+        }
+
+        function closeEmailPreview() {
+            document.getElementById('email-preview-modal').classList.remove('active');
+        }
+
         // ===== DATA PERSISTENCE =====
+        function savePlatformData() { 
+            platformData.marketplaceData.cart = shoppingCart; 
+            localStorage.setItem('platformData', JSON.stringify(platformData)); 
+        }
+
         function saveSecurityData() {
             localStorage.setItem('securityConfig', JSON.stringify(securityConfig));
             localStorage.setItem('enhancedUserData', JSON.stringify(enhancedUserData));
         }
 
-        function loadSecurityData() {
-            const savedConfig = localStorage.getItem('securityConfig');
-            const savedData = localStorage.getItem('enhancedUserData');
-            
-            if (savedConfig) {
-                Object.assign(securityConfig, JSON.parse(savedConfig));
-            }
-            
-            if (savedData) {
-                Object.assign(enhancedUserData, JSON.parse(savedData));
-            }
+        function saveAttendanceData() {
+            localStorage.setItem('attendanceData', JSON.stringify(attendanceData));
         }
 
-        // ===== KEEP ALL EXISTING DATA MANAGEMENT FUNCTIONS =====
+        function saveNotificationData() {
+            localStorage.setItem('notificationSystem', JSON.stringify(notificationSystem));
+        }
+
         function loadPlatformData() {
             const saved = localStorage.getItem('platformData');
             if (saved) { 
@@ -3755,6 +4926,19 @@
             loadMarketplaceProducts(); 
             loadSPPHistory(); 
             loadTabunganHistory();
+        }
+
+        function loadSecurityData() {
+            const savedConfig = localStorage.getItem('securityConfig');
+            const savedData = localStorage.getItem('enhancedUserData');
+            
+            if (savedConfig) {
+                Object.assign(securityConfig, JSON.parse(savedConfig));
+            }
+            
+            if (savedData) {
+                Object.assign(enhancedUserData, JSON.parse(savedData));
+            }
         }
 
         function initializeDefaultData() {
@@ -3802,11 +4986,6 @@
                 }]; 
             }
             shoppingCart = platformData.marketplaceData.cart || [];
-        }
-
-        function savePlatformData() { 
-            platformData.marketplaceData.cart = shoppingCart; 
-            localStorage.setItem('platformData', JSON.stringify(platformData)); 
         }
 
         // ===== KEEP ALL EXISTING PPDB FUNCTIONS =====
@@ -4016,10 +5195,144 @@
             }, 1500);
         }
 
+        // ===== SCHEDULED NOTIFICATIONS =====
+        function scheduleDailyNotifications() {
+            // Check for absent students and send notifications
+            const today = new Date().toISOString().split('T')[0];
+            const absentStudents = [];
+            
+            attendanceData.students.forEach(student => {
+                const todayRecord = attendanceData.attendanceRecords.find(
+                    r => r.studentId === student.id && r.date === today
+                );
+                
+                if (!todayRecord || todayRecord.status === 'absent') {
+                    absentStudents.push(student);
+                }
+            });
+            
+            // Send notifications for absent students
+            if (absentStudents.length > 0 && attendanceData.notificationSettings.absence) {
+                absentStudents.forEach(student => {
+                    sendNotification('absence', {
+                        studentName: student.name,
+                        date: new Date().toLocaleDateString('id-ID'),
+                        parentPhone: student.parentPhone,
+                        parentEmail: student.parentEmail
+                    });
+                });
+            }
+            
+            // Weekly report on Fridays
+            if (new Date().getDay() === 5) { // Friday
+                sendWeeklyReport();
+            }
+            
+            // SPP reminder on 5th of each month
+            if (new Date().getDate() === 5) {
+                sendSPPReminder();
+            }
+        }
+
+        function sendWeeklyReport() {
+            if (!attendanceData.notificationSettings.weekly) return;
+            
+            // Generate weekly report for each student
+            attendanceData.students.forEach(student => {
+                const weekRecords = attendanceData.attendanceRecords.filter(r => 
+                    r.studentId === student.id && 
+                    isDateInThisWeek(new Date(r.date))
+                );
+                
+                const presentCount = weekRecords.filter(r => r.status === 'present').length;
+                const lateCount = weekRecords.filter(r => r.status === 'late').length;
+                const absentCount = weekRecords.filter(r => r.status === 'absent').length;
+                
+                const content = `
+                    <p>Kepada Yth. Orang Tua/Wali dari <strong>${student.name}</strong>,</p>
+                    <p>Berikut laporan kehadiran mingguan:</p>
+                    <ul>
+                        <li>Hadir tepat waktu: ${presentCount} hari</li>
+                        <li>Terlambat: ${lateCount} hari</li>
+                        <li>Tidak hadir: ${absentCount} hari</li>
+                    </ul>
+                    <p>Terima kasih atas perhatiannya.</p>
+                `;
+                
+                sendEmailNotification('Laporan Kehadiran Mingguan', content, student.parentEmail);
+            });
+        }
+
+        function sendSPPReminder() {
+            const nextMonth = new Date();
+            nextMonth.setMonth(nextMonth.getMonth() + 1);
+            const monthName = nextMonth.toLocaleDateString('id-ID', { month: 'long' });
+            
+            attendanceData.students.forEach(student => {
+                sendNotification('spp', {
+                    month: monthName,
+                    dueDate: '10 ' + monthName + ' ' + nextMonth.getFullYear(),
+                    amount: 'Rp 350.000',
+                    parentPhone: student.parentPhone,
+                    parentEmail: student.parentEmail
+                });
+            });
+        }
+
+        function isDateInThisWeek(date) {
+            const today = new Date();
+            const firstDayOfWeek = new Date(today.setDate(today.getDate() - today.getDay()));
+            const lastDayOfWeek = new Date(firstDayOfWeek);
+            lastDayOfWeek.setDate(lastDayOfWeek.getDate() + 6);
+            
+            return date >= firstDayOfWeek && date <= lastDayOfWeek;
+        }
+
+        // ===== SIMULATE RECEIVING NOTIFICATION =====
+        function receiveSimulatedNotification() {
+            const types = ['payment', 'grade', 'event', 'task'];
+            const type = types[Math.floor(Math.random() * types.length)];
+            
+            const students = ['Ahmad Fauzi', 'Siti Nurhaliza', 'Budi Santoso', 'Dewi Lestari'];
+            const student = students[Math.floor(Math.random() * students.length)];
+            
+            const data = {
+                studentName: student,
+                parentPhone: '08123456789',
+                parentEmail: 'orangtua@gmail.com'
+            };
+            
+            switch(type) {
+                case 'payment':
+                    data.month = 'Maret';
+                    data.dueDate = '10 Maret 2024';
+                    data.amount = 'Rp 350.000';
+                    break;
+                case 'grade':
+                    data.subject = 'Matematika';
+                    data.score = Math.floor(Math.random() * 30) + 70;
+                    break;
+                case 'event':
+                    data.eventName = 'Class Meeting';
+                    data.date = '20 Maret 2024';
+                    data.time = '08:00 - 12:00 WIB';
+                    break;
+                case 'task':
+                    data.taskName = 'Tugas IPA tentang Ekosistem';
+                    data.deadline = '18 Maret 2024';
+                    break;
+            }
+            
+            sendNotification(type, data);
+        }
+
         // ===== INITIALIZATION =====
         document.addEventListener('DOMContentLoaded', function() {
             loadPlatformData();
             loadSecurityData();
+            
+            // Initialize attendance system
+            initAttendanceSystem();
             
             // Event listeners for existing forms
             document.getElementById('ppdb-form')?.addEventListener('submit', function(e) {
@@ -4110,7 +5423,39 @@
                 });
             });
 
-            // Initialize security features
+            // Request notification permission
+            if ("Notification" in window) {
+                Notification.requestPermission();
+            }
+            
+            // Add navigation link for absensi (already in HTML)
+            
+            // Welcome message
+            setTimeout(() => { 
+                if (!currentUser) { 
+                    showToast('Selamat datang di SMP Islam Ibadurrahman Temas!', 'info', 3000); 
+                } 
+            }, 1000);
+            
+            // Start scheduled notifications
+            setInterval(scheduleDailyNotifications, 24 * 60 * 60 * 1000); // Daily
+            
+            // Update connection status periodically
+            setInterval(() => {
+                // Simulate connection issues
+                if (Math.random() < 0.1) { // 10% chance of disconnection
+                    isConnected = false;
+                    updateConnectionStatus();
+                    
+                    setTimeout(() => {
+                        isConnected = true;
+                        updateConnectionStatus();
+                        showToast('Koneksi kembali normal', 'success');
+                    }, 5000);
+                }
+            }, 60000); // Check every minute
+            
+            // Add idle timer
             let idleTimer;
             function resetIdleTimer() {
                 clearTimeout(idleTimer);
@@ -4137,13 +5482,6 @@
                     }
                 }
             });
-
-            // Welcome message
-            setTimeout(() => { 
-                if (!currentUser) { 
-                    showToast('Selamat datang di SMP Islam Ibadurrahman Temas!', 'info', 3000); 
-                } 
-            }, 1000);
         });
 
         // Window event listeners
